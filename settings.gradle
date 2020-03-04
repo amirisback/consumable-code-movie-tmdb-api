@@ -1,0 +1,2 @@
+rootProject.name='TMDBAPI'
+include ':app'
