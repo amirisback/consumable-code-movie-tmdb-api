@@ -1,11 +1,13 @@
-package com.frogobox.frogothemoviedbapi.util
+package com.frogobox.frogothemoviedbapi.data.model
+
+import com.google.gson.annotations.SerializedName
 
 /**
  * Created by Faisal Amir
  * FrogoBox Inc License
  * =========================================
  * TMDBAPI
- * Copyright (C) 10/03/2020.
+ * Copyright (C) 13/03/2020.
  * All rights reserved
  * -----------------------------------------
  * Name     : Muhammad Faisal Amir
@@ -14,17 +16,20 @@ package com.frogobox.frogothemoviedbapi.util
  * LinkedIn : linkedin.com/in/faisalamircs
  * -----------------------------------------
  * FrogoBox Software Industries
- * com.frogobox.frogothemoviedbapi.util
+ * com.frogobox.frogothemoviedbapi.data.model
  *
  */
-class MovieUrl {
 
-    companion object {
+data class Certification(
 
-        const val TMDB_BASE_URL = "https://api.themoviedb.org/"
-        const val TMDB_BASE_LANG = "en-US"
-        const val TMDB_API_KEY = "5e922c3d4b1b0e96fffcc6b0b395878f"
+    @SerializedName("certification")
+    var certification: String? = null,
 
-    }
+    @SerializedName("meaning")
+    var meaning: String? = null,
 
-}
+    @SerializedName("order")
+    var order: Int? = null
+
+
+    )

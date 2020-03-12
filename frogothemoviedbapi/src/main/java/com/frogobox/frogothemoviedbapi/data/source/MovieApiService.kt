@@ -1,6 +1,7 @@
 package com.frogobox.frogothemoviedbapi.data.source
 
 import android.content.Context
+import com.frogobox.frogothemoviedbapi.util.MovieUrl
 import com.readystatesoftware.chuck.ChuckInterceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -58,7 +59,7 @@ interface MovieApiService {
             }
 
             val mRetrofit = Retrofit.Builder()
-                .baseUrl("")
+                .baseUrl(MovieUrl.TMDB_BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .client(mClient)
