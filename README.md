@@ -14,7 +14,7 @@ Simple code and reusable data
 - OkHttp
 - Chuck Interceptor
 
-# Documentation THE SPORT DB API
+# Documentation The Movie DB API
 https://developers.themoviedb.org/3/getting-started/introduction
 
 # Function Main From This Project
