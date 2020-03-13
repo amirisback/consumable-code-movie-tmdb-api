@@ -29,7 +29,6 @@ import java.util.concurrent.TimeUnit
  */
 interface MovieApiService {
 
-
     companion object Factory {
 
         private var isUsingChuckInterceptor = false
