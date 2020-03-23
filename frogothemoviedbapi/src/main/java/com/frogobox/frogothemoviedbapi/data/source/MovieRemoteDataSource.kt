@@ -3,8 +3,7 @@ package com.frogobox.frogothemoviedbapi.data.source
 import android.content.Context
 import com.frogobox.frogothemoviedbapi.data.model.MovieCertification
 import com.frogobox.frogothemoviedbapi.data.model.TvCertification
-import com.frogobox.frogothemoviedbapi.data.response.Certifications
-import com.frogobox.frogothemoviedbapi.data.response.Changes
+import com.frogobox.frogothemoviedbapi.data.response.*
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 
@@ -150,6 +149,84 @@ object MovieRemoteDataSource : MovieDataSource {
             .doOnTerminate { callback.onHideProgress() }
             .subscribe(object : MovieApiCallback<Changes>() {
                 override fun onSuccess(data: Changes) {
+                    callback.onSuccess(data)
+                }
+
+                override fun onFailure(statusCode: Int, errorMessage: String) {
+                    callback.onFailed(statusCode, errorMessage)
+                }
+
+                override fun onFinish() {
+                }
+            })
+    }
+
+    override fun getCollectionDetails(
+        apiKey: String,
+        collection_id: Int,
+        language: String?,
+        callback: MovieDataSource.GetRemoteCallback<CollectionsDetail>
+    ) {
+        movieApiService.getApiService
+            .getCollectionDetails(apiKey, collection_id, language)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .doOnSubscribe { callback.onShowProgress() }
+            .doOnTerminate { callback.onHideProgress() }
+            .subscribe(object : MovieApiCallback<CollectionsDetail>() {
+                override fun onSuccess(data: CollectionsDetail) {
+                    callback.onSuccess(data)
+                }
+
+                override fun onFailure(statusCode: Int, errorMessage: String) {
+                    callback.onFailed(statusCode, errorMessage)
+                }
+
+                override fun onFinish() {
+                }
+            })
+    }
+
+    override fun getCollectionImages(
+        apiKey: String,
+        collection_id: Int,
+        language: String?,
+        callback: MovieDataSource.GetRemoteCallback<CollectionsImage>
+    ) {
+        movieApiService.getApiService
+            .getCollectionImages(apiKey, collection_id, language)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .doOnSubscribe { callback.onShowProgress() }
+            .doOnTerminate { callback.onHideProgress() }
+            .subscribe(object : MovieApiCallback<CollectionsImage>() {
+                override fun onSuccess(data: CollectionsImage) {
+                    callback.onSuccess(data)
+                }
+
+                override fun onFailure(statusCode: Int, errorMessage: String) {
+                    callback.onFailed(statusCode, errorMessage)
+                }
+
+                override fun onFinish() {
+                }
+            })
+    }
+
+    override fun getCollectionTranslations(
+        apiKey: String,
+        collection_id: Int,
+        language: String?,
+        callback: MovieDataSource.GetRemoteCallback<CollectionTranslation>
+    ) {
+        movieApiService.getApiService
+            .getCollectionTranslations(apiKey, collection_id, language)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .doOnSubscribe { callback.onShowProgress() }
+            .doOnTerminate { callback.onHideProgress() }
+            .subscribe(object : MovieApiCallback<CollectionTranslation>() {
+                override fun onSuccess(data: CollectionTranslation) {
                     callback.onSuccess(data)
                 }
 

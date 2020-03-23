@@ -3,8 +3,7 @@ package com.frogobox.frogothemoviedbapi.data.source
 import android.content.Context
 import com.frogobox.frogothemoviedbapi.data.model.MovieCertification
 import com.frogobox.frogothemoviedbapi.data.model.TvCertification
-import com.frogobox.frogothemoviedbapi.data.response.Certifications
-import com.frogobox.frogothemoviedbapi.data.response.Changes
+import com.frogobox.frogothemoviedbapi.data.response.*
 import com.frogobox.frogothemoviedbapi.util.MovieConstant
 import com.frogobox.frogothemoviedbapi.util.MovieUrl
 import com.readystatesoftware.chuck.ChuckInterceptor
@@ -15,6 +14,7 @@ import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
+import retrofit2.http.Path
 import retrofit2.http.Query
 import java.util.concurrent.TimeUnit
 
@@ -80,6 +80,30 @@ interface MovieApiService {
         @Query(MovieConstant.QUERY_START_DATE) startDate: String?,
         @Query(MovieConstant.QUERY_PAGE) page: String?
     ): Observable<Changes>
+
+    // COLLECTION
+    // Get Details
+    fun getCollectionDetails(
+        @Query(MovieConstant.QUERY_API_KEY) apiKey: String,
+        @Path(MovieConstant.PATH_COLLECTION_ID) collection_id: Int,
+        @Query(MovieConstant.QUERY_LANGUAGE) language: String?
+    ): Observable<CollectionsDetail>
+
+    // COLLECTION
+    // Get Images
+    fun getCollectionImages(
+        @Query(MovieConstant.QUERY_API_KEY) apiKey: String,
+        @Path(MovieConstant.PATH_COLLECTION_ID) collection_id: Int,
+        @Query(MovieConstant.QUERY_LANGUAGE) language: String?
+    ): Observable<CollectionsImage>
+
+    // COLLECTION
+    // Get Translations
+    fun getCollectionTranslations(
+        @Query(MovieConstant.QUERY_API_KEY) apiKey: String,
+        @Path(MovieConstant.PATH_COLLECTION_ID) collection_id: Int,
+        @Query(MovieConstant.QUERY_LANGUAGE) language: String?
+    ): Observable<CollectionTranslation>
 
     companion object Factory {
 

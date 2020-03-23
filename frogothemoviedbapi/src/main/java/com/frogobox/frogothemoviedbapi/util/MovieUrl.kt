@@ -35,6 +35,11 @@ class MovieUrl {
         const val CHANGES_TV = "$VERSION_API/tv/changes"
         const val CHANGES_PERSON = "$VERSION_API/person/changes"
 
+        // COLLECTION
+        const val COLLECTION_DETAIL = "$VERSION_API/collection/{collection_id}"
+        const val COLLECTION_IMAGES = "$VERSION_API/collection/{collection_id}/images"
+        const val COLLECTION_TRANSLATTIONS = "$VERSION_API/collection/{collection_id}/translations"
+
     }
 
 }

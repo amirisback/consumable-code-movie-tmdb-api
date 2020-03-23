@@ -3,8 +3,7 @@ package com.frogobox.frogothemoviedbapi
 import android.content.Context
 import com.frogobox.frogothemoviedbapi.data.model.MovieCertification
 import com.frogobox.frogothemoviedbapi.data.model.TvCertification
-import com.frogobox.frogothemoviedbapi.data.response.Certifications
-import com.frogobox.frogothemoviedbapi.data.response.Changes
+import com.frogobox.frogothemoviedbapi.data.response.*
 import com.frogobox.frogothesportdbapi.callback.MovieResultCallback
 
 /**
@@ -63,6 +62,29 @@ interface ConsumeMovieApiView {
         page: String?,
         callback: MovieResultCallback<Changes>
     )
-    
+
+    // COLLECTION
+    // Get Details
+    fun getCollectionDetails(
+        collection_id: Int,
+        language: String?,
+        callback: MovieResultCallback<CollectionsDetail>
+    )
+
+    // COLLECTION
+    // Get Images
+    fun getCollectionImages(
+        collection_id: Int,
+        language: String?,
+        callback: MovieResultCallback<CollectionsImage>
+    )
+
+    // COLLECTION
+    // Get Translations
+    fun getCollectionTranslations(
+        collection_id: Int,
+        language: String?,
+        callback: MovieResultCallback<CollectionTranslation>
+    )
     
 }

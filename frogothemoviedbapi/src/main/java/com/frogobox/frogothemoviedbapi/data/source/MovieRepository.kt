@@ -3,8 +3,7 @@ package com.frogobox.frogothemoviedbapi.data.source
 import android.content.Context
 import com.frogobox.frogothemoviedbapi.data.model.MovieCertification
 import com.frogobox.frogothemoviedbapi.data.model.TvCertification
-import com.frogobox.frogothemoviedbapi.data.response.Certifications
-import com.frogobox.frogothemoviedbapi.data.response.Changes
+import com.frogobox.frogothemoviedbapi.data.response.*
 
 /**
  * Created by Faisal Amir
@@ -71,5 +70,32 @@ class MovieRepository(private val remoteDataSource: MovieRemoteDataSource) : Mov
         callback: MovieDataSource.GetRemoteCallback<Changes>
     ) {
         remoteDataSource.getPersonChangeList(apiKey, endDate, startDate, page, callback)
+    }
+
+    override fun getCollectionDetails(
+        apiKey: String,
+        collection_id: Int,
+        language: String?,
+        callback: MovieDataSource.GetRemoteCallback<CollectionsDetail>
+    ) {
+        remoteDataSource.getCollectionDetails(apiKey, collection_id, language, callback)
+    }
+
+    override fun getCollectionImages(
+        apiKey: String,
+        collection_id: Int,
+        language: String?,
+        callback: MovieDataSource.GetRemoteCallback<CollectionsImage>
+    ) {
+        remoteDataSource.getCollectionImages(apiKey, collection_id, language, callback)
+    }
+
+    override fun getCollectionTranslations(
+        apiKey: String,
+        collection_id: Int,
+        language: String?,
+        callback: MovieDataSource.GetRemoteCallback<CollectionTranslation>
+    ) {
+        remoteDataSource.getCollectionTranslations(apiKey, collection_id, language, callback)
     }
 }
