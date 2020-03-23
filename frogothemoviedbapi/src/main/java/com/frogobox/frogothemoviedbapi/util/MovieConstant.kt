@@ -28,6 +28,7 @@ class MovieConstant {
         const val QUERY_LANGUAGE = "language"
 
         const val PATH_COLLECTION_ID = "collection_id"
+        const val PATH_COMPANY_ID = "company_id"
 
     }
 

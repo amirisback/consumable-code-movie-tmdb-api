@@ -40,6 +40,11 @@ class MovieUrl {
         const val COLLECTION_IMAGES = "$VERSION_API/collection/{collection_id}/images"
         const val COLLECTION_TRANSLATTIONS = "$VERSION_API/collection/{collection_id}/translations"
 
+        // COMPANIES
+        const val COMPANY_DETAIL = "$VERSION_API/company/{company_id}"
+        const val COMPANY_ALTERNATIVE_NAME = "$VERSION_API/company/{company_id}/alternative_names"
+        const val COMPANY_IMAGE = "$VERSION_API/company/{company_id}/images"
+
     }
 
 }
