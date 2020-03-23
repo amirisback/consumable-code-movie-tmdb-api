@@ -13,6 +13,7 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.http.GET
 import retrofit2.http.Query
 import java.util.concurrent.TimeUnit
 
@@ -37,10 +38,12 @@ interface MovieApiService {
 
     // CERTIFICATIONS
     // Get Movie Certifications
+    @GET(MovieUrl.CERTIFICATION_MOVIE)
     fun getMovieCertifications(@Query(MovieConstant.QUERY_API_KEY) apiKey: String): Observable<Certifications<MovieCertification>>
 
     // CERTIFICATIONS
     // Get TV Certifications
+    @GET(MovieUrl.CERTIFICATION_TV)
     fun getTvCertifications(@Query(MovieConstant.QUERY_API_KEY) apiKey: String): Observable<Certifications<TvCertification>>
 
 

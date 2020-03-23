@@ -4,6 +4,8 @@ import android.content.Context
 import com.frogobox.frogothemoviedbapi.data.model.MovieCertification
 import com.frogobox.frogothemoviedbapi.data.model.TvCertification
 import com.frogobox.frogothemoviedbapi.data.response.Certifications
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.schedulers.Schedulers
 
 /**
  * Created by Faisal Amir
@@ -34,13 +36,47 @@ object MovieRemoteDataSource : MovieDataSource {
         apiKey: String,
         callback: MovieDataSource.GetRemoteCallback<Certifications<MovieCertification>>
     ) {
-        TODO("Not yet implemented")
+        movieApiService.getApiService
+            .getMovieCertifications(apiKey)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .doOnSubscribe { callback.onShowProgress() }
+            .doOnTerminate { callback.onHideProgress() }
+            .subscribe(object : MovieApiCallback<Certifications<MovieCertification>>() {
+                override fun onSuccess(data: Certifications<MovieCertification>) {
+                    callback.onSuccess(data)
+                }
+
+                override fun onFailure(statusCode: Int, errorMessage: String) {
+                    callback.onFailed(statusCode, errorMessage)
+                }
+
+                override fun onFinish() {
+                }
+            })
     }
 
     override fun getTvCertifications(
         apiKey: String,
         callback: MovieDataSource.GetRemoteCallback<Certifications<TvCertification>>
     ) {
-        TODO("Not yet implemented")
+        movieApiService.getApiService
+            .getTvCertifications(apiKey)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .doOnSubscribe { callback.onShowProgress() }
+            .doOnTerminate { callback.onHideProgress() }
+            .subscribe(object : MovieApiCallback<Certifications<TvCertification>>() {
+                override fun onSuccess(data: Certifications<TvCertification>) {
+                    callback.onSuccess(data)
+                }
+
+                override fun onFailure(statusCode: Int, errorMessage: String) {
+                    callback.onFailed(statusCode, errorMessage)
+                }
+
+                override fun onFinish() {
+                }
+            })
     }
 }
