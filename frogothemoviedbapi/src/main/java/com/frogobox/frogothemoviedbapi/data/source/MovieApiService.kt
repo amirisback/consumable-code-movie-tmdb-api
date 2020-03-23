@@ -83,6 +83,7 @@ interface MovieApiService {
 
     // COLLECTION
     // Get Details
+    @GET(MovieUrl.COLLECTION_DETAIL)
     fun getCollectionDetails(
         @Query(MovieConstant.QUERY_API_KEY) apiKey: String,
         @Path(MovieConstant.PATH_COLLECTION_ID) collection_id: Int,
@@ -91,6 +92,7 @@ interface MovieApiService {
 
     // COLLECTION
     // Get Images
+    @GET(MovieUrl.COLLECTION_IMAGES)
     fun getCollectionImages(
         @Query(MovieConstant.QUERY_API_KEY) apiKey: String,
         @Path(MovieConstant.PATH_COLLECTION_ID) collection_id: Int,
@@ -99,6 +101,7 @@ interface MovieApiService {
 
     // COLLECTION
     // Get Translations
+    @GET(MovieUrl.COLLECTION_TRANSLATTIONS)
     fun getCollectionTranslations(
         @Query(MovieConstant.QUERY_API_KEY) apiKey: String,
         @Path(MovieConstant.PATH_COLLECTION_ID) collection_id: Int,
