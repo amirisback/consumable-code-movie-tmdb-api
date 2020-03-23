@@ -1,6 +1,9 @@
 package com.frogobox.frogothemoviedbapi.data.source
 
 import android.content.Context
+import com.frogobox.frogothemoviedbapi.data.model.MovieCertification
+import com.frogobox.frogothemoviedbapi.data.model.TvCertification
+import com.frogobox.frogothemoviedbapi.data.response.Certifications
 
 /**
  * Created by Faisal Amir
@@ -19,10 +22,23 @@ import android.content.Context
  * com.frogobox.frogothemoviedbapi.data.source
  *
  */
-class MovieRepository(private val movieRemoteDataSource: MovieDataSource) : MovieDataSource {
+class MovieRepository(private val remoteDataSource: MovieRemoteDataSource) : MovieDataSource {
 
     override fun usingChuckInterceptor(context: Context) {
-        movieRemoteDataSource.usingChuckInterceptor(context)
+        remoteDataSource.usingChuckInterceptor(context)
     }
 
+    override fun getMovieCertifications(
+        apiKey: String,
+        callback: MovieDataSource.GetRemoteCallback<Certifications<MovieCertification>>
+    ) {
+        remoteDataSource.getMovieCertifications(apiKey, callback)
+    }
+
+    override fun getTvCertifications(
+        apiKey: String,
+        callback: MovieDataSource.GetRemoteCallback<Certifications<TvCertification>>
+    ) {
+        remoteDataSource.getTvCertifications(apiKey, callback)
+    }
 }

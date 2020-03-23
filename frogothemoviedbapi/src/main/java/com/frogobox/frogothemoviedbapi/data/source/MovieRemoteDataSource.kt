@@ -1,6 +1,9 @@
 package com.frogobox.frogothemoviedbapi.data.source
 
 import android.content.Context
+import com.frogobox.frogothemoviedbapi.data.model.MovieCertification
+import com.frogobox.frogothemoviedbapi.data.model.TvCertification
+import com.frogobox.frogothemoviedbapi.data.response.Certifications
 
 /**
  * Created by Faisal Amir
@@ -27,5 +30,17 @@ object MovieRemoteDataSource : MovieDataSource {
         movieApiService.usingChuckInterceptor(context)
     }
 
+    override fun getMovieCertifications(
+        apiKey: String,
+        callback: MovieDataSource.GetRemoteCallback<Certifications<MovieCertification>>
+    ) {
+        TODO("Not yet implemented")
+    }
 
+    override fun getTvCertifications(
+        apiKey: String,
+        callback: MovieDataSource.GetRemoteCallback<Certifications<TvCertification>>
+    ) {
+        TODO("Not yet implemented")
+    }
 }

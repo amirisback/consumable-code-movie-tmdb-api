@@ -1,6 +1,10 @@
 package com.frogobox.frogothemoviedbapi
 
 import android.content.Context
+import com.frogobox.frogothemoviedbapi.data.model.MovieCertification
+import com.frogobox.frogothemoviedbapi.data.model.TvCertification
+import com.frogobox.frogothemoviedbapi.data.response.Certifications
+import com.frogobox.frogothesportdbapi.callback.MovieResultCallback
 
 /**
  * Created by Faisal Amir
@@ -23,6 +27,14 @@ interface ConsumeMovieApiView {
 
     // Switch For Using Chuck Interceptor
     fun usingChuckInterceptor(context: Context)
+
+    // CERTIFICATIONS
+    // Get Movie Certifications
+    fun getMovieCertifications(callback: MovieResultCallback<Certifications<MovieCertification>>)
+
+    // CERTIFICATIONS
+    // Get TV Certifications
+    fun getTvCertifications(callback: MovieResultCallback<Certifications<TvCertification>>)
 
 
 }

@@ -26,6 +26,13 @@ interface BaseMovieDataSource {
 
         // If failed fetching data from API
         fun onFailed(statusCode: Int, errorMessage: String? = "")
+
+        // Showing Progress View
+        fun onShowProgress()
+
+        // Hide Progress View
+        fun onHideProgress()
+
     }
 
 }

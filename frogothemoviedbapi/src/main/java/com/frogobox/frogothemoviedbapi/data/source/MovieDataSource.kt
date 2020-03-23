@@ -1,6 +1,9 @@
 package com.frogobox.frogothemoviedbapi.data.source
 
 import android.content.Context
+import com.frogobox.frogothemoviedbapi.data.model.MovieCertification
+import com.frogobox.frogothemoviedbapi.data.model.TvCertification
+import com.frogobox.frogothemoviedbapi.data.response.Certifications
 import com.frogobox.frogothesportdbapi.base.BaseMovieDataSource
 
 /**
@@ -24,6 +27,14 @@ interface MovieDataSource {
 
     // Switch For Using Chuck Interceptor
     fun usingChuckInterceptor(context: Context)
+
+    // CERTIFICATIONS
+    // Get Movie Certifications
+    fun getMovieCertifications(apiKey: String, callback: GetRemoteCallback<Certifications<MovieCertification>>)
+
+    // CERTIFICATIONS
+    // Get TV Certifications
+    fun getTvCertifications(apiKey: String, callback: GetRemoteCallback<Certifications<TvCertification>>)
 
 
     // Response Callback

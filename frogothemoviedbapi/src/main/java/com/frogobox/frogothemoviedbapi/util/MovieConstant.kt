@@ -19,4 +19,11 @@ package com.frogobox.frogothemoviedbapi.util
  */
 class MovieConstant {
 
+    companion object {
+
+        const val QUERY_API_KEY = "api_key"
+
+    }
+
+
 }
