@@ -4,6 +4,7 @@ import android.content.Context
 import com.frogobox.frogothemoviedbapi.data.model.MovieCertification
 import com.frogobox.frogothemoviedbapi.data.model.TvCertification
 import com.frogobox.frogothemoviedbapi.data.response.Certifications
+import com.frogobox.frogothemoviedbapi.data.response.Changes
 import com.frogobox.frogothesportdbapi.base.BaseMovieDataSource
 
 /**
@@ -30,12 +31,47 @@ interface MovieDataSource {
 
     // CERTIFICATIONS
     // Get Movie Certifications
-    fun getMovieCertifications(apiKey: String, callback: GetRemoteCallback<Certifications<MovieCertification>>)
+    fun getMovieCertifications(
+        apiKey: String,
+        callback: GetRemoteCallback<Certifications<MovieCertification>>
+    )
 
     // CERTIFICATIONS
     // Get TV Certifications
-    fun getTvCertifications(apiKey: String, callback: GetRemoteCallback<Certifications<TvCertification>>)
+    fun getTvCertifications(
+        apiKey: String,
+        callback: GetRemoteCallback<Certifications<TvCertification>>
+    )
 
+    // CHANGES
+    // Get Movie Change List
+    fun getMovieChangeList(
+        apiKey: String,
+        endDate: String?,
+        startDate: String?,
+        page: String?,
+        callback: GetRemoteCallback<Changes>
+    )
+
+    // CHANGES
+    // Get TV Change List
+    fun getTvChangeList(
+        apiKey: String,
+        endDate: String?,
+        startDate: String?,
+        page: String?,
+        callback: GetRemoteCallback<Changes>
+    )
+
+    // CHANGES
+    // Get Person Change List
+    fun getPersonChangeList(
+        apiKey: String,
+        endDate: String?,
+        startDate: String?,
+        page: String?,
+        callback: GetRemoteCallback<Changes>
+    )
 
     // Response Callback
     interface GetRemoteCallback<T> : BaseMovieDataSource.ResponseCallback<T>

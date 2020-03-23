@@ -26,9 +26,14 @@ class MovieUrl {
         const val API_KEY = "5e922c3d4b1b0e96fffcc6b0b395878f"
         const val VERSION_API = "3"
 
+        // CERTIFICATION
         const val CERTIFICATION_MOVIE = "$VERSION_API/certification/movie/list"
         const val CERTIFICATION_TV = "$VERSION_API/certification/tv/list"
 
+        // CHANGES
+        const val CHANGES_MOVIE = "$VERSION_API/movie/changes"
+        const val CHANGES_TV = "$VERSION_API/tv/changes"
+        const val CHANGES_PERSON = "$VERSION_API/person/changes"
 
     }
 

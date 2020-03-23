@@ -4,6 +4,7 @@ import android.content.Context
 import com.frogobox.frogothemoviedbapi.data.model.MovieCertification
 import com.frogobox.frogothemoviedbapi.data.model.TvCertification
 import com.frogobox.frogothemoviedbapi.data.response.Certifications
+import com.frogobox.frogothemoviedbapi.data.response.Changes
 
 /**
  * Created by Faisal Amir
@@ -40,5 +41,35 @@ class MovieRepository(private val remoteDataSource: MovieRemoteDataSource) : Mov
         callback: MovieDataSource.GetRemoteCallback<Certifications<TvCertification>>
     ) {
         remoteDataSource.getTvCertifications(apiKey, callback)
+    }
+
+    override fun getMovieChangeList(
+        apiKey: String,
+        endDate: String?,
+        startDate: String?,
+        page: String?,
+        callback: MovieDataSource.GetRemoteCallback<Changes>
+    ) {
+        remoteDataSource.getMovieChangeList(apiKey, endDate, startDate, page, callback)
+    }
+
+    override fun getTvChangeList(
+        apiKey: String,
+        endDate: String?,
+        startDate: String?,
+        page: String?,
+        callback: MovieDataSource.GetRemoteCallback<Changes>
+    ) {
+        remoteDataSource.getTvChangeList(apiKey, endDate, startDate, page, callback)
+    }
+
+    override fun getPersonChangeList(
+        apiKey: String,
+        endDate: String?,
+        startDate: String?,
+        page: String?,
+        callback: MovieDataSource.GetRemoteCallback<Changes>
+    ) {
+        remoteDataSource.getPersonChangeList(apiKey, endDate, startDate, page, callback)
     }
 }

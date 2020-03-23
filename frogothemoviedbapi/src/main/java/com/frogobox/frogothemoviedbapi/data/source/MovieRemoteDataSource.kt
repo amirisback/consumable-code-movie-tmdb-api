@@ -4,6 +4,7 @@ import android.content.Context
 import com.frogobox.frogothemoviedbapi.data.model.MovieCertification
 import com.frogobox.frogothemoviedbapi.data.model.TvCertification
 import com.frogobox.frogothemoviedbapi.data.response.Certifications
+import com.frogobox.frogothemoviedbapi.data.response.Changes
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 
@@ -68,6 +69,87 @@ object MovieRemoteDataSource : MovieDataSource {
             .doOnTerminate { callback.onHideProgress() }
             .subscribe(object : MovieApiCallback<Certifications<TvCertification>>() {
                 override fun onSuccess(data: Certifications<TvCertification>) {
+                    callback.onSuccess(data)
+                }
+
+                override fun onFailure(statusCode: Int, errorMessage: String) {
+                    callback.onFailed(statusCode, errorMessage)
+                }
+
+                override fun onFinish() {
+                }
+            })
+    }
+
+    override fun getMovieChangeList(
+        apiKey: String,
+        endDate: String?,
+        startDate: String?,
+        page: String?,
+        callback: MovieDataSource.GetRemoteCallback<Changes>
+    ) {
+        movieApiService.getApiService
+            .getMovieChangeList(apiKey, endDate, startDate, page)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .doOnSubscribe { callback.onShowProgress() }
+            .doOnTerminate { callback.onHideProgress() }
+            .subscribe(object : MovieApiCallback<Changes>() {
+                override fun onSuccess(data: Changes) {
+                    callback.onSuccess(data)
+                }
+
+                override fun onFailure(statusCode: Int, errorMessage: String) {
+                    callback.onFailed(statusCode, errorMessage)
+                }
+
+                override fun onFinish() {
+                }
+            })
+    }
+
+    override fun getTvChangeList(
+        apiKey: String,
+        endDate: String?,
+        startDate: String?,
+        page: String?,
+        callback: MovieDataSource.GetRemoteCallback<Changes>
+    ) {
+        movieApiService.getApiService
+            .getTvChangeList(apiKey, endDate, startDate, page)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .doOnSubscribe { callback.onShowProgress() }
+            .doOnTerminate { callback.onHideProgress() }
+            .subscribe(object : MovieApiCallback<Changes>() {
+                override fun onSuccess(data: Changes) {
+                    callback.onSuccess(data)
+                }
+
+                override fun onFailure(statusCode: Int, errorMessage: String) {
+                    callback.onFailed(statusCode, errorMessage)
+                }
+
+                override fun onFinish() {
+                }
+            })
+    }
+
+    override fun getPersonChangeList(
+        apiKey: String,
+        endDate: String?,
+        startDate: String?,
+        page: String?,
+        callback: MovieDataSource.GetRemoteCallback<Changes>
+    ) {
+        movieApiService.getApiService
+            .getPersonChangeList(apiKey, endDate, startDate, page)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .doOnSubscribe { callback.onShowProgress() }
+            .doOnTerminate { callback.onHideProgress() }
+            .subscribe(object : MovieApiCallback<Changes>() {
+                override fun onSuccess(data: Changes) {
                     callback.onSuccess(data)
                 }
 

@@ -1,11 +1,14 @@
-package com.frogobox.frogothemoviedbapi.util
+package com.frogobox.frogothemoviedbapi.data.response
+
+import com.frogobox.frogothemoviedbapi.data.model.Change
+import com.google.gson.annotations.SerializedName
 
 /**
  * Created by Faisal Amir
  * FrogoBox Inc License
  * =========================================
- * TMDBAPI
- * Copyright (C) 10/03/2020.
+ * consumable-code-movie-tmdb-api
+ * Copyright (C) 24/03/2020.
  * All rights reserved
  * -----------------------------------------
  * Name     : Muhammad Faisal Amir
@@ -14,18 +17,12 @@ package com.frogobox.frogothemoviedbapi.util
  * LinkedIn : linkedin.com/in/faisalamircs
  * -----------------------------------------
  * FrogoBox Software Industries
- * com.frogobox.frogothemoviedbapi.util
+ * com.frogobox.frogothemoviedbapi.data.response
  *
  */
-class MovieConstant {
+data class Changes(
 
-    companion object {
+    @SerializedName("results")
+    var results: List<Change>? = null
 
-        const val QUERY_API_KEY = "api_key"
-        const val QUERY_START_DATE = "end_date"
-        const val QUERY_END_DATE = "start_date"
-        const val QUERY_PAGE = "page"
-
-    }
-
-}
+)

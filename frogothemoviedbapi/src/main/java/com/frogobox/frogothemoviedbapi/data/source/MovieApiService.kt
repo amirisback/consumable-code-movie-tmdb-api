@@ -4,6 +4,7 @@ import android.content.Context
 import com.frogobox.frogothemoviedbapi.data.model.MovieCertification
 import com.frogobox.frogothemoviedbapi.data.model.TvCertification
 import com.frogobox.frogothemoviedbapi.data.response.Certifications
+import com.frogobox.frogothemoviedbapi.data.response.Changes
 import com.frogobox.frogothemoviedbapi.util.MovieConstant
 import com.frogobox.frogothemoviedbapi.util.MovieUrl
 import com.readystatesoftware.chuck.ChuckInterceptor
@@ -39,13 +40,46 @@ interface MovieApiService {
     // CERTIFICATIONS
     // Get Movie Certifications
     @GET(MovieUrl.CERTIFICATION_MOVIE)
-    fun getMovieCertifications(@Query(MovieConstant.QUERY_API_KEY) apiKey: String): Observable<Certifications<MovieCertification>>
+    fun getMovieCertifications(
+        @Query(MovieConstant.QUERY_API_KEY) apiKey: String
+    ): Observable<Certifications<MovieCertification>>
 
     // CERTIFICATIONS
     // Get TV Certifications
     @GET(MovieUrl.CERTIFICATION_TV)
-    fun getTvCertifications(@Query(MovieConstant.QUERY_API_KEY) apiKey: String): Observable<Certifications<TvCertification>>
+    fun getTvCertifications(
+        @Query(MovieConstant.QUERY_API_KEY) apiKey: String
+    ): Observable<Certifications<TvCertification>>
 
+    // CHANGES
+    // Get Movie Change List
+    @GET(MovieUrl.CHANGES_MOVIE)
+    fun getMovieChangeList(
+        @Query(MovieConstant.QUERY_API_KEY) apiKey: String,
+        @Query(MovieConstant.QUERY_END_DATE) endDate: String?,
+        @Query(MovieConstant.QUERY_START_DATE) startDate: String?,
+        @Query(MovieConstant.QUERY_PAGE) page: String?
+    ): Observable<Changes>
+
+    // CHANGES
+    // Get TV Change List
+    @GET(MovieUrl.CHANGES_TV)
+    fun getTvChangeList(
+        @Query(MovieConstant.QUERY_API_KEY) apiKey: String,
+        @Query(MovieConstant.QUERY_END_DATE) endDate: String?,
+        @Query(MovieConstant.QUERY_START_DATE) startDate: String?,
+        @Query(MovieConstant.QUERY_PAGE) page: String?
+    ): Observable<Changes>
+
+    // CHANGES
+    // Get Person Change List
+    @GET(MovieUrl.CHANGES_PERSON)
+    fun getPersonChangeList(
+        @Query(MovieConstant.QUERY_API_KEY) apiKey: String,
+        @Query(MovieConstant.QUERY_END_DATE) endDate: String?,
+        @Query(MovieConstant.QUERY_START_DATE) startDate: String?,
+        @Query(MovieConstant.QUERY_PAGE) page: String?
+    ): Observable<Changes>
 
     companion object Factory {
 

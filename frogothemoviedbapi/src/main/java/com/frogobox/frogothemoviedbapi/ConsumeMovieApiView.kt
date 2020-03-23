@@ -4,6 +4,7 @@ import android.content.Context
 import com.frogobox.frogothemoviedbapi.data.model.MovieCertification
 import com.frogobox.frogothemoviedbapi.data.model.TvCertification
 import com.frogobox.frogothemoviedbapi.data.response.Certifications
+import com.frogobox.frogothemoviedbapi.data.response.Changes
 import com.frogobox.frogothesportdbapi.callback.MovieResultCallback
 
 /**
@@ -36,5 +37,32 @@ interface ConsumeMovieApiView {
     // Get TV Certifications
     fun getTvCertifications(callback: MovieResultCallback<Certifications<TvCertification>>)
 
+    // CHANGES
+    // Get Movie Change List
+    fun getMovieChangeList(
+        endDate: String?,
+        startDate: String?,
+        page: String?,
+        callback: MovieResultCallback<Changes>
+    )
 
+    // CHANGES
+    // Get TV Change List
+    fun getTvChangeList(
+        endDate: String?,
+        startDate: String?,
+        page: String?,
+        callback: MovieResultCallback<Changes>
+    )
+
+    // CHANGES
+    // Get Person Change List
+    fun getPersonChangeList(
+        endDate: String?,
+        startDate: String?,
+        page: String?,
+        callback: MovieResultCallback<Changes>
+    )
+    
+    
 }

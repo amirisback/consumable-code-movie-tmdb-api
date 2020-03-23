@@ -4,6 +4,7 @@ import android.content.Context
 import com.frogobox.frogothemoviedbapi.data.model.MovieCertification
 import com.frogobox.frogothemoviedbapi.data.model.TvCertification
 import com.frogobox.frogothemoviedbapi.data.response.Certifications
+import com.frogobox.frogothemoviedbapi.data.response.Changes
 import com.frogobox.frogothemoviedbapi.data.source.MovieDataSource
 import com.frogobox.frogothemoviedbapi.data.source.MovieRemoteDataSource
 import com.frogobox.frogothemoviedbapi.data.source.MovieRepository
@@ -61,6 +62,96 @@ class ConsumeMovieApi(private val apiKey: String) : ConsumeMovieApiView {
             apiKey,
             object : MovieDataSource.GetRemoteCallback<Certifications<TvCertification>> {
                 override fun onSuccess(data: Certifications<TvCertification>) {
+                    callback.getResultData(data)
+                }
+
+                override fun onFailed(statusCode: Int, errorMessage: String?) {
+                    callback.failedResult(statusCode, errorMessage)
+                }
+
+                override fun onShowProgress() {
+                    callback.onShowProgress()
+                }
+
+                override fun onHideProgress() {
+                    callback.onHideProgress()
+                }
+            })
+    }
+
+    override fun getMovieChangeList(
+        endDate: String?,
+        startDate: String?,
+        page: String?,
+        callback: MovieResultCallback<Changes>
+    ) {
+        movieRepository.getMovieChangeList(
+            apiKey,
+            endDate,
+            startDate,
+            page,
+            object : MovieDataSource.GetRemoteCallback<Changes> {
+                override fun onSuccess(data: Changes) {
+                    callback.getResultData(data)
+                }
+
+                override fun onFailed(statusCode: Int, errorMessage: String?) {
+                    callback.failedResult(statusCode, errorMessage)
+                }
+
+                override fun onShowProgress() {
+                    callback.onShowProgress()
+                }
+
+                override fun onHideProgress() {
+                    callback.onHideProgress()
+                }
+            })
+    }
+
+    override fun getTvChangeList(
+        endDate: String?,
+        startDate: String?,
+        page: String?,
+        callback: MovieResultCallback<Changes>
+    ) {
+        movieRepository.getTvChangeList(
+            apiKey,
+            endDate,
+            startDate,
+            page,
+            object : MovieDataSource.GetRemoteCallback<Changes> {
+                override fun onSuccess(data: Changes) {
+                    callback.getResultData(data)
+                }
+
+                override fun onFailed(statusCode: Int, errorMessage: String?) {
+                    callback.failedResult(statusCode, errorMessage)
+                }
+
+                override fun onShowProgress() {
+                    callback.onShowProgress()
+                }
+
+                override fun onHideProgress() {
+                    callback.onHideProgress()
+                }
+            })
+    }
+
+    override fun getPersonChangeList(
+        endDate: String?,
+        startDate: String?,
+        page: String?,
+        callback: MovieResultCallback<Changes>
+    ) {
+        movieRepository.getPersonChangeList(
+            apiKey,
+            endDate,
+            startDate,
+            page,
+            object : MovieDataSource.GetRemoteCallback<Changes> {
+                override fun onSuccess(data: Changes) {
                     callback.getResultData(data)
                 }
 
