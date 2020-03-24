@@ -22,7 +22,7 @@ class MovieUrl {
     companion object {
 
         const val BASE_URL = "https://api.themoviedb.org/"
-        const val BASE_LANG = "en-US"
+
         const val API_KEY = "5e922c3d4b1b0e96fffcc6b0b395878f"
         const val VERSION_API_3 = "3"
         const val VERSION_API_4 = "4"
@@ -147,50 +147,62 @@ class MovieUrl {
         const val SEARCH_GET_TV_SHOWS = "$VERSION_API_3/search/tv"
 
         // TV
-        const val TV_GET_DETAILS = "$VERSION_API_3"
-        const val TV_GET_ACCOUNT_STATES = "$VERSION_API_3"
-        const val TV_GET_ALTERNATIVE_TITLES = "$VERSION_API_3"
-        const val TV_GET_CHANGES = "$VERSION_API_3"
-        const val TV_GET_CONTENT_RATINGS = "$VERSION_API_3"
-        const val TV_GET_CREDITS = "$VERSION_API_3"
-        const val TV_GET_EPISODE_GROUPS = "$VERSION_API_3"
-        const val TV_GET_EXTERNAL_IDS = "$VERSION_API_3"
-        const val TV_GET_IMAGES = "$VERSION_API_3"
-        const val TV_GET_KEYWORDS = "$VERSION_API_3"
-        const val TV_GET_RECOMMENDATIONS = "$VERSION_API_3"
-        const val TV_GET_REVIEWS = "$VERSION_API_3"
-        const val TV_GET_SCREENED_THEATRICALLY = "$VERSION_API_3"
-        const val TV_GET_SIMILIAR_TV_SHOWS = "$VERSION_API_3"
-        const val TV_GET_TRANSLATIONS = "$VERSION_API_3"
-        const val TV_GET_VIDEOS = "$VERSION_API_3"
-        const val TV_POST_RATE_TV_SHOW = "$VERSION_API_3"
-        const val TV_DELETE_RATING = "$VERSION_API_3"
-        const val TV_GET_LATEST = "$VERSION_API_3"
-        const val TV_GET_TV_AIRING_TODAY = "$VERSION_API_3"
-        const val TV_GET_TV_ON_THE_AIR = "$VERSION_API_3"
-        const val TV_GET_POPULAR = "$VERSION_API_3"
-        const val TV_GET_TOP_RATED = "$VERSION_API_3"
+        const val TV_GET_DETAILS = "$VERSION_API_3/tv/{tv_id}"
+        const val TV_GET_ACCOUNT_STATES = "$VERSION_API_3/tv/{tv_id}/account_states"
+        const val TV_GET_ALTERNATIVE_TITLES = "$VERSION_API_3/tv/{tv_id}/alternative_titles"
+        const val TV_GET_CHANGES = "$VERSION_API_3/tv/{tv_id}/changes"
+        const val TV_GET_CONTENT_RATINGS = "$VERSION_API_3/tv/{tv_id}/content_ratings"
+        const val TV_GET_CREDITS = "$VERSION_API_3/tv/{tv_id}/credits"
+        const val TV_GET_EPISODE_GROUPS = "$VERSION_API_3/tv/{tv_id}/episode_groups"
+        const val TV_GET_EXTERNAL_IDS = "$VERSION_API_3/tv/{tv_id}/external_ids"
+        const val TV_GET_IMAGES = "$VERSION_API_3/tv/{tv_id}/images"
+        const val TV_GET_KEYWORDS = "$VERSION_API_3/tv/{tv_id}/keywords"
+        const val TV_GET_RECOMMENDATIONS = "$VERSION_API_3/tv/{tv_id}/recommendations"
+        const val TV_GET_REVIEWS = "$VERSION_API_3/tv/{tv_id}/reviews"
+        const val TV_GET_SCREENED_THEATRICALLY = "$VERSION_API_3/tv/{tv_id}/screened_theatrically"
+        const val TV_GET_SIMILIAR_TV_SHOWS = "$VERSION_API_3/tv/{tv_id}/similar"
+        const val TV_GET_TRANSLATIONS = "$VERSION_API_3/tv/{tv_id}/translations"
+        const val TV_GET_VIDEOS = "$VERSION_API_3/tv/{tv_id}/videos"
+        const val TV_POST_RATE_TV_SHOW = "$VERSION_API_3/tv/{tv_id}/rating"
+        const val TV_DELETE_RATING = "$VERSION_API_3/tv/{tv_id}/rating"
+        const val TV_GET_LATEST = "$VERSION_API_3/tv/latest"
+        const val TV_GET_TV_AIRING_TODAY = "$VERSION_API_3/tv/airing_today"
+        const val TV_GET_TV_ON_THE_AIR = "$VERSION_API_3/tv/on_the_air"
+        const val TV_GET_POPULAR = "$VERSION_API_3/tv/popular"
+        const val TV_GET_TOP_RATED = "$VERSION_API_3/tv/top_rated"
 
         // TV SEASONS
-        const val TV_SEASONS_GET_DETAILS = "$VERSION_API_3"
-        const val TV_SEASONS_GET_CHANGES = "$VERSION_API_3"
-        const val TV_SEASONS_GET_ACCOUNT_STATES = "$VERSION_API_3"
-        const val TV_SEASONS_GET_CREDITS = "$VERSION_API_3"
-        const val TV_SEASONS_GET_EXTERNAL_IDS = "$VERSION_API_3"
-        const val TV_SEASONS_GET_IMAGES = "$VERSION_API_3"
-        const val TV_SEASONS_GET_VIDEOS = "$VERSION_API_3"
+        const val TV_SEASONS_GET_DETAILS = "$VERSION_API_3/tv/{tv_id}/season/{season_number}"
+        const val TV_SEASONS_GET_CHANGES = "$VERSION_API_3/tv/season/{season_id}/changes"
+        const val TV_SEASONS_GET_ACCOUNT_STATES =
+            "$VERSION_API_3/tv/{tv_id}/season/{season_number}/account_states"
+        const val TV_SEASONS_GET_CREDITS =
+            "$VERSION_API_3/tv/{tv_id}/season/{season_number}/credits"
+        const val TV_SEASONS_GET_EXTERNAL_IDS =
+            "$VERSION_API_3/tv/{tv_id}/season/{season_number}/external_ids"
+        const val TV_SEASONS_GET_IMAGES = "$VERSION_API_3/tv/{tv_id}/season/{season_number}/images"
+        const val TV_SEASONS_GET_VIDEOS = "$VERSION_API_3/tv/{tv_id}/season/{season_number}/videos"
 
         // TV EPISODES
-        const val TV_EPISODES_GET_DETAILS = "$VERSION_API_3"
-        const val TV_EPISODES_GET_CHANGES = "$VERSION_API_3"
-        const val TV_EPISODES_GET_ACCOUNT_STATES = "$VERSION_API_3"
-        const val TV_EPISODES_GET_CREDITS = "$VERSION_API_3"
-        const val TV_EPISODES_GET_EXTERNAL_IDS = "$VERSION_API_3"
-        const val TV_EPISODES_GET_IMAGES = "$VERSION_API_3"
-        const val TV_EPISODES_GET_TRANSLATIONS = "$VERSION_API_3"
-        const val TV_EPISODES_POST_RATE_TV_EPISODE = "$VERSION_API_3"
-        const val TV_EPISODES_DELETE_RATING = "$VERSION_API_3"
-        const val TV_EPISODES_GET_VIDEOS = "$VERSION_API_3"
+        const val TV_EPISODES_GET_DETAILS =
+            "$VERSION_API_3/tv/{tv_id}/season/{season_number}/episode/{episode_number}"
+        const val TV_EPISODES_GET_CHANGES = "$VERSION_API_3/tv/episode/{episode_id}/changes"
+        const val TV_EPISODES_GET_ACCOUNT_STATES =
+            "$VERSION_API_3/tv/{tv_id}/season/{season_number}/episode/{episode_number}/account_states"
+        const val TV_EPISODES_GET_CREDITS =
+            "$VERSION_API_3/tv/{tv_id}/season/{season_number}/episode/{episode_number}/credits"
+        const val TV_EPISODES_GET_EXTERNAL_IDS =
+            "$VERSION_API_3/tv/{tv_id}/season/{season_number}/episode/{episode_number}/external_ids"
+        const val TV_EPISODES_GET_IMAGES =
+            "$VERSION_API_3/tv/{tv_id}/season/{season_number}/episode/{episode_number}/images"
+        const val TV_EPISODES_GET_TRANSLATIONS =
+            "$VERSION_API_3/tv/{tv_id}/season/{season_number}/episode/{episode_number}/translations"
+        const val TV_EPISODES_POST_RATE_TV_EPISODE =
+            "$VERSION_API_3/tv/{tv_id}/season/{season_number}/episode/{episode_number}/rating"
+        const val TV_EPISODES_DELETE_RATING =
+            "$VERSION_API_3/tv/{tv_id}/season/{season_number}/episode/{episode_number}/rating"
+        const val TV_EPISODES_GET_VIDEOS =
+            "$VERSION_API_3/tv/{tv_id}/season/{season_number}/episode/{episode_number}/videos"
 
         // TV EPISODES GROUPS
         const val TV_EPISODES_GET_GROUPS_DETAIL = "$VERSION_API_3/tv/episode_group/{id}"

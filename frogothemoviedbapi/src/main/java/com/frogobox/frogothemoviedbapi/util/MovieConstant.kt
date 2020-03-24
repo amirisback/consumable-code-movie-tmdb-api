@@ -36,12 +36,19 @@ class MovieConstant {
         const val PATH_KEYWORD_ID = "keyword_id"
         const val PATH_LIST_ID = "list_id"
         const val PATH_MOVIE_ID = "movie_id"
+        const val PATH_TV_ID = "tv_id"
         const val PATH_NETWORK_ID = "network_id"
         const val PATH_REVIEW_ID = "review_id"
         const val PATH_PERSON_ID = "person_id"
+        const val PATH_SEASON_ID = "season_id"
+        const val PATH_EPISODE_ID = "episode_id"
 
         const val PATH_MEDIA_TYPE = "media_type"
         const val PATH_TIME_WINDOW = "time_window"
+        const val PATH_SESION_NUMBER = "season_number"
+        const val PATH_EPISODE_NUMBER = "episode_number"
+
+        const val VALUE_LANG_EN_US = "en-US"
 
     }
 
