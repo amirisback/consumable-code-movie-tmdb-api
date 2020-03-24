@@ -162,13 +162,13 @@ object MovieRemoteDataSource : MovieDataSource {
     }
 
     override fun getCollectionDetails(
-        apiKey: String,
         collection_id: Int,
+        apiKey: String,
         language: String?,
         callback: MovieDataSource.GetRemoteCallback<CollectionsDetail>
     ) {
         movieApiService.getApiService
-            .getCollectionDetails(apiKey, collection_id, language)
+            .getCollectionDetails(collection_id, apiKey, language)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .doOnSubscribe { callback.onShowProgress() }
@@ -188,13 +188,13 @@ object MovieRemoteDataSource : MovieDataSource {
     }
 
     override fun getCollectionImages(
-        apiKey: String,
         collection_id: Int,
+        apiKey: String,
         language: String?,
         callback: MovieDataSource.GetRemoteCallback<CollectionsImage>
     ) {
         movieApiService.getApiService
-            .getCollectionImages(apiKey, collection_id, language)
+            .getCollectionImages(collection_id, apiKey, language)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .doOnSubscribe { callback.onShowProgress() }
@@ -214,13 +214,13 @@ object MovieRemoteDataSource : MovieDataSource {
     }
 
     override fun getCollectionTranslations(
-        apiKey: String,
         collection_id: Int,
+        apiKey: String,
         language: String?,
         callback: MovieDataSource.GetRemoteCallback<CollectionsTranslation>
     ) {
         movieApiService.getApiService
-            .getCollectionTranslations(apiKey, collection_id, language)
+            .getCollectionTranslations(collection_id, apiKey, language)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .doOnSubscribe { callback.onShowProgress() }
@@ -240,12 +240,12 @@ object MovieRemoteDataSource : MovieDataSource {
     }
 
     override fun getCompaniesDetails(
-        apiKey: String,
         company_id: Int,
+        apiKey: String,
         callback: MovieDataSource.GetRemoteCallback<CompaniesDetail>
     ) {
         movieApiService.getApiService
-            .getCompaniesDetails(apiKey, company_id)
+            .getCompaniesDetails(company_id, apiKey)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .doOnSubscribe { callback.onShowProgress() }
@@ -265,12 +265,12 @@ object MovieRemoteDataSource : MovieDataSource {
     }
 
     override fun getCompaniesAlternativeName(
-        apiKey: String,
         company_id: Int,
+        apiKey: String,
         callback: MovieDataSource.GetRemoteCallback<CompaniesAlternateName>
     ) {
         movieApiService.getApiService
-            .getCompaniesAlternativeName(apiKey, company_id)
+            .getCompaniesAlternativeName(company_id, apiKey)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .doOnSubscribe { callback.onShowProgress() }
@@ -290,12 +290,12 @@ object MovieRemoteDataSource : MovieDataSource {
     }
 
     override fun getCompaniesImage(
-        apiKey: String,
         company_id: Int,
+        apiKey: String,
         callback: MovieDataSource.GetRemoteCallback<CompaniesImage>
     ) {
         movieApiService.getApiService
-            .getCompaniesImage(apiKey, company_id)
+            .getCompaniesImage(company_id, apiKey)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .doOnSubscribe { callback.onShowProgress() }

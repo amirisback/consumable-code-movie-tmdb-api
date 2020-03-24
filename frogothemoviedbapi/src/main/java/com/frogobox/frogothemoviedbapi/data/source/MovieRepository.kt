@@ -73,53 +73,53 @@ class MovieRepository(private val remoteDataSource: MovieRemoteDataSource) : Mov
     }
 
     override fun getCollectionDetails(
-        apiKey: String,
         collection_id: Int,
+        apiKey: String,
         language: String?,
         callback: MovieDataSource.GetRemoteCallback<CollectionsDetail>
     ) {
-        remoteDataSource.getCollectionDetails(apiKey, collection_id, language, callback)
+        remoteDataSource.getCollectionDetails(collection_id, apiKey, language, callback)
     }
 
     override fun getCollectionImages(
-        apiKey: String,
         collection_id: Int,
+        apiKey: String,
         language: String?,
         callback: MovieDataSource.GetRemoteCallback<CollectionsImage>
     ) {
-        remoteDataSource.getCollectionImages(apiKey, collection_id, language, callback)
+        remoteDataSource.getCollectionImages(collection_id, apiKey, language, callback)
     }
 
     override fun getCollectionTranslations(
-        apiKey: String,
         collection_id: Int,
+        apiKey: String,
         language: String?,
         callback: MovieDataSource.GetRemoteCallback<CollectionsTranslation>
     ) {
-        remoteDataSource.getCollectionTranslations(apiKey, collection_id, language, callback)
+        remoteDataSource.getCollectionTranslations(collection_id, apiKey, language, callback)
     }
 
     override fun getCompaniesDetails(
-        apiKey: String,
         company_id: Int,
+        apiKey: String,
         callback: MovieDataSource.GetRemoteCallback<CompaniesDetail>
     ) {
-        remoteDataSource.getCompaniesDetails(apiKey, company_id, callback)
+        remoteDataSource.getCompaniesDetails(company_id, apiKey, callback)
     }
 
     override fun getCompaniesAlternativeName(
-        apiKey: String,
         company_id: Int,
+        apiKey: String,
         callback: MovieDataSource.GetRemoteCallback<CompaniesAlternateName>
     ) {
-        remoteDataSource.getCompaniesAlternativeName(apiKey, company_id, callback)
+        remoteDataSource.getCompaniesAlternativeName(company_id, apiKey, callback)
     }
 
     override fun getCompaniesImage(
-        apiKey: String,
         company_id: Int,
+        apiKey: String,
         callback: MovieDataSource.GetRemoteCallback<CompaniesImage>
     ) {
-        remoteDataSource.getCompaniesImage(apiKey, company_id, callback)
+        remoteDataSource.getCompaniesImage(company_id, apiKey, callback)
     }
 }

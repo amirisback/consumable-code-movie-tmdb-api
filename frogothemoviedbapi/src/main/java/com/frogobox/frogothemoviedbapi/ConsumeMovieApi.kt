@@ -174,8 +174,8 @@ class ConsumeMovieApi(private val apiKey: String) : ConsumeMovieApiView {
         callback: MovieResultCallback<CollectionsDetail>
     ) {
         movieRepository.getCollectionDetails(
-            apiKey,
             collection_id,
+            apiKey,
             language,
             object : MovieDataSource.GetRemoteCallback<CollectionsDetail> {
                 override fun onSuccess(data: CollectionsDetail) {
@@ -202,8 +202,8 @@ class ConsumeMovieApi(private val apiKey: String) : ConsumeMovieApiView {
         callback: MovieResultCallback<CollectionsImage>
     ) {
         movieRepository.getCollectionImages(
-            apiKey,
             collection_id,
+            apiKey,
             language,
             object : MovieDataSource.GetRemoteCallback<CollectionsImage> {
                 override fun onSuccess(data: CollectionsImage) {
@@ -230,8 +230,8 @@ class ConsumeMovieApi(private val apiKey: String) : ConsumeMovieApiView {
         callback: MovieResultCallback<CollectionsTranslation>
     ) {
         movieRepository.getCollectionTranslations(
-            apiKey,
             collection_id,
+            apiKey,
             language,
             object : MovieDataSource.GetRemoteCallback<CollectionsTranslation> {
                 override fun onSuccess(data: CollectionsTranslation) {
@@ -257,8 +257,8 @@ class ConsumeMovieApi(private val apiKey: String) : ConsumeMovieApiView {
         callback: MovieResultCallback<CompaniesDetail>
     ) {
         movieRepository.getCompaniesDetails(
-            apiKey,
             company_id,
+            apiKey,
             object : MovieDataSource.GetRemoteCallback<CompaniesDetail> {
                 override fun onSuccess(data: CompaniesDetail) {
                     callback.getResultData(data)
@@ -283,8 +283,8 @@ class ConsumeMovieApi(private val apiKey: String) : ConsumeMovieApiView {
         callback: MovieResultCallback<CompaniesAlternateName>
     ) {
         movieRepository.getCompaniesAlternativeName(
-            apiKey,
             company_id,
+            apiKey,
             object : MovieDataSource.GetRemoteCallback<CompaniesAlternateName> {
                 override fun onSuccess(data: CompaniesAlternateName) {
                     callback.getResultData(data)
@@ -306,8 +306,8 @@ class ConsumeMovieApi(private val apiKey: String) : ConsumeMovieApiView {
 
     override fun getCompaniesImage(company_id: Int, callback: MovieResultCallback<CompaniesImage>) {
         movieRepository.getCompaniesImage(
-            apiKey,
             company_id,
+            apiKey,
             object : MovieDataSource.GetRemoteCallback<CompaniesImage> {
                 override fun onSuccess(data: CompaniesImage) {
                     callback.getResultData(data)

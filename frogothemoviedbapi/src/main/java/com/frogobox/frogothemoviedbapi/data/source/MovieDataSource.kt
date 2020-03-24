@@ -75,8 +75,8 @@ interface MovieDataSource {
     // COLLECTION
     // Get Details
     fun getCollectionDetails(
-        apiKey: String,
         collection_id: Int,
+        apiKey: String,
         language: String?,
         callback: GetRemoteCallback<CollectionsDetail>
     )
@@ -84,8 +84,8 @@ interface MovieDataSource {
     // COLLECTION
     // Get Images
     fun getCollectionImages(
-        apiKey: String,
         collection_id: Int,
+        apiKey: String,
         language: String?,
         callback: GetRemoteCallback<CollectionsImage>
     )
@@ -93,8 +93,8 @@ interface MovieDataSource {
     // COLLECTION
     // Get Translations
     fun getCollectionTranslations(
-        apiKey: String,
         collection_id: Int,
+        apiKey: String,
         language: String?,
         callback: GetRemoteCallback<CollectionsTranslation>
     )
@@ -102,24 +102,24 @@ interface MovieDataSource {
     // COMPANIES
     // Get Details
     fun getCompaniesDetails(
-        apiKey: String,
         company_id: Int,
+        apiKey: String,
         callback: GetRemoteCallback<CompaniesDetail>
     )
 
     // COMPANIES
     // Get Alternative Names
     fun getCompaniesAlternativeName(
-        apiKey: String,
         company_id: Int,
+        apiKey: String,
         callback: GetRemoteCallback<CompaniesAlternateName>
     )
 
     // COMPANIES
     // Get Images
     fun getCompaniesImage(
-        apiKey: String,
         company_id: Int,
+        apiKey: String,
         callback: GetRemoteCallback<CompaniesImage>
     )
 

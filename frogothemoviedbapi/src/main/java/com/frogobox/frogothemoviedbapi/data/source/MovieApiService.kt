@@ -85,8 +85,8 @@ interface MovieApiService {
     // Get Details
     @GET(MovieUrl.COLLECTION_GET_DETAIL)
     fun getCollectionDetails(
-        @Query(MovieConstant.QUERY_API_KEY) apiKey: String,
         @Path(MovieConstant.PATH_COLLECTION_ID) collection_id: Int,
+        @Query(MovieConstant.QUERY_API_KEY) apiKey: String,
         @Query(MovieConstant.QUERY_LANGUAGE) language: String?
     ): Observable<CollectionsDetail>
 
@@ -94,8 +94,8 @@ interface MovieApiService {
     // Get Images
     @GET(MovieUrl.COLLECTION_GET_IMAGES)
     fun getCollectionImages(
-        @Query(MovieConstant.QUERY_API_KEY) apiKey: String,
         @Path(MovieConstant.PATH_COLLECTION_ID) collection_id: Int,
+        @Query(MovieConstant.QUERY_API_KEY) apiKey: String,
         @Query(MovieConstant.QUERY_LANGUAGE) language: String?
     ): Observable<CollectionsImage>
 
@@ -103,8 +103,8 @@ interface MovieApiService {
     // Get Translations
     @GET(MovieUrl.COLLECTION_GET_TRANSLATTIONS)
     fun getCollectionTranslations(
-        @Query(MovieConstant.QUERY_API_KEY) apiKey: String,
         @Path(MovieConstant.PATH_COLLECTION_ID) collection_id: Int,
+        @Query(MovieConstant.QUERY_API_KEY) apiKey: String,
         @Query(MovieConstant.QUERY_LANGUAGE) language: String?
     ): Observable<CollectionsTranslation>
 
@@ -112,24 +112,24 @@ interface MovieApiService {
     // Get Details
     @GET(MovieUrl.COMPANY_GET_DETAIL)
     fun getCompaniesDetails(
-        @Query(MovieConstant.QUERY_API_KEY) apiKey: String,
-        @Path(MovieConstant.PATH_COMPANY_ID) company_id: Int
+        @Path(MovieConstant.PATH_COMPANY_ID) company_id: Int,
+        @Query(MovieConstant.QUERY_API_KEY) apiKey: String
     ): Observable<CompaniesDetail>
 
     // COMPANIES
     // Get Alternative Names
     @GET(MovieUrl.COMPANY_GET_ALTERNATIVE_NAME)
     fun getCompaniesAlternativeName(
-        @Query(MovieConstant.QUERY_API_KEY) apiKey: String,
-        @Path(MovieConstant.PATH_COMPANY_ID) company_id: Int
+        @Path(MovieConstant.PATH_COMPANY_ID) company_id: Int,
+        @Query(MovieConstant.QUERY_API_KEY) apiKey: String
     ): Observable<CompaniesAlternateName>
 
     // COMPANIES
     // Get Images
     @GET(MovieUrl.COMPANY_GET_IMAGE)
     fun getCompaniesImage(
-        @Query(MovieConstant.QUERY_API_KEY) apiKey: String,
-        @Path(MovieConstant.PATH_COMPANY_ID) company_id: Int
+        @Path(MovieConstant.PATH_COMPANY_ID) company_id: Int,
+        @Query(MovieConstant.QUERY_API_KEY) apiKey: String
     ): Observable<CompaniesImage>
 
     companion object Factory {
