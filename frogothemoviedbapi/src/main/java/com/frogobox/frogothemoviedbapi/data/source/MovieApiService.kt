@@ -1,8 +1,8 @@
 package com.frogobox.frogothemoviedbapi.data.source
 
 import android.content.Context
-import com.frogobox.frogothemoviedbapi.data.model.MovieCertification
-import com.frogobox.frogothemoviedbapi.data.model.TvCertification
+import com.frogobox.frogothemoviedbapi.data.model.CertificationMovie
+import com.frogobox.frogothemoviedbapi.data.model.CertificationTv
 import com.frogobox.frogothemoviedbapi.data.response.*
 import com.frogobox.frogothemoviedbapi.util.MovieConstant
 import com.frogobox.frogothemoviedbapi.util.MovieUrl
@@ -42,14 +42,14 @@ interface MovieApiService {
     @GET(MovieUrl.CERTIFICATION_GET_MOVIE)
     fun getMovieCertifications(
         @Query(MovieConstant.QUERY_API_KEY) apiKey: String
-    ): Observable<Certifications<MovieCertification>>
+    ): Observable<Certifications<CertificationMovie>>
 
     // CERTIFICATIONS
     // Get TV Certifications
     @GET(MovieUrl.CERTIFICATION_GET_TV)
     fun getTvCertifications(
         @Query(MovieConstant.QUERY_API_KEY) apiKey: String
-    ): Observable<Certifications<TvCertification>>
+    ): Observable<Certifications<CertificationTv>>
 
     // CHANGES
     // Get Movie Change List
@@ -106,7 +106,7 @@ interface MovieApiService {
         @Query(MovieConstant.QUERY_API_KEY) apiKey: String,
         @Path(MovieConstant.PATH_COLLECTION_ID) collection_id: Int,
         @Query(MovieConstant.QUERY_LANGUAGE) language: String?
-    ): Observable<CollectionTranslation>
+    ): Observable<CollectionsTranslation>
 
     companion object Factory {
 

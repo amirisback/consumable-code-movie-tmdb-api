@@ -19,10 +19,7 @@ import com.google.gson.annotations.SerializedName
  * com.frogobox.frogothemoviedbapi.data.model
  *
  */
-data class TvCertification(
-
-    @SerializedName("RU")
-    var RU: List<Certification>? = null,
+data class CertificationMovie(
 
     @SerializedName("US")
     var US: List<Certification>? = null,
@@ -33,29 +30,50 @@ data class TvCertification(
     @SerializedName("AU")
     var AU: List<Certification>? = null,
 
-    @SerializedName("FR")
-    var FR: List<Certification>? = null,
-
     @SerializedName("DE")
     var DE: List<Certification>? = null,
 
-    @SerializedName("TH")
-    var TH: List<Certification>? = null,
+    @SerializedName("FR")
+    var FR: List<Certification>? = null,
 
-    @SerializedName("KR")
-    var KR: List<Certification>? = null,
+    @SerializedName("NZ")
+    var NZ: List<Certification>? = null,
+
+    @SerializedName("IN")
+    var IN: List<Certification>? = null,
 
     @SerializedName("GB")
     var GB: List<Certification>? = null,
 
-    @SerializedName("BR")
-    var BR: List<Certification>? = null,
-
     @SerializedName("NL")
     var NL: List<Certification>? = null,
 
+    @SerializedName("BR")
+    var BR: List<Certification>? = null,
+
+    @SerializedName("FI")
+    var FI: List<Certification>? = null,
+
+    @SerializedName("BG")
+    var BG: List<Certification>? = null,
+
+    @SerializedName("ES")
+    var ES: List<Certification>? = null,
+
+    @SerializedName("PT")
+    var PT: List<Certification>? = null,
+
+    @SerializedName("MY")
+    var MY: List<Certification>? = null,
+
     @SerializedName("CA-QC")
     var CAQC: List<Certification>? = null,
+
+    @SerializedName("DK")
+    var DK: List<Certification>? = null,
+
+    @SerializedName("NO")
+    var NO: List<Certification>? = null,
 
     @SerializedName("HU")
     var HU: List<Certification>? = null,
@@ -63,13 +81,13 @@ data class TvCertification(
     @SerializedName("LT")
     var LT: List<Certification>? = null,
 
+    @SerializedName("RU")
+    var RU: List<Certification>? = null,
+
     @SerializedName("PH")
     var PH: List<Certification>? = null,
 
-    @SerializedName("ES")
-    var ES: List<Certification>? = null,
+    @SerializedName("IT")
+    var IT: List<Certification>? = null
 
-    @SerializedName("SK")
-    var SK: List<Certification>? = null
-
-    )
+)

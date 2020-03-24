@@ -1,6 +1,6 @@
 package com.frogobox.frogothemoviedbapi.data.response
 
-import com.frogobox.frogothemoviedbapi.data.model.Image
+import com.frogobox.frogothemoviedbapi.data.model.CollectionImage
 import com.google.gson.annotations.SerializedName
 
 /**
@@ -26,9 +26,9 @@ data class CollectionsImage(
     var id: Int? = null,
 
     @SerializedName("backdrops")
-    var backdrops: List<Image>? = null,
+    var backdrops: List<CollectionImage>? = null,
 
     @SerializedName("posters")
-    var posters: List<Image>? = null
+    var posters: List<CollectionImage>? = null
 
 )

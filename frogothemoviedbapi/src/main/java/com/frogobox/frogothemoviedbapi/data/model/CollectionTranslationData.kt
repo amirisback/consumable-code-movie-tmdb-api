@@ -1,6 +1,5 @@
-package com.frogobox.frogothemoviedbapi.data.response
+package com.frogobox.frogothemoviedbapi.data.model
 
-import com.frogobox.frogothemoviedbapi.data.model.Translation
 import com.google.gson.annotations.SerializedName
 
 /**
@@ -17,15 +16,18 @@ import com.google.gson.annotations.SerializedName
  * LinkedIn : linkedin.com/in/faisalamircs
  * -----------------------------------------
  * FrogoBox Software Industries
- * com.frogobox.frogothemoviedbapi.data.response
+ * com.frogobox.frogothemoviedbapi.data.model
  *
  */
-data class CollectionTranslation(
+data class CollectionTranslationData(
 
-    @SerializedName("id")
-    var id: Int? = null,
+    @SerializedName("title")
+    var title: String? = null,
 
-    @SerializedName("translations")
-    var translations: List<Translation>? = null
+    @SerializedName("overview")
+    var overview: String? = null,
+
+    @SerializedName("homepage")
+    var homepage: String? = null
 
 )

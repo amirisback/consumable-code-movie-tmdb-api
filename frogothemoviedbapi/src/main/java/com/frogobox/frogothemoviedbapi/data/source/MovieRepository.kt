@@ -1,8 +1,8 @@
 package com.frogobox.frogothemoviedbapi.data.source
 
 import android.content.Context
-import com.frogobox.frogothemoviedbapi.data.model.MovieCertification
-import com.frogobox.frogothemoviedbapi.data.model.TvCertification
+import com.frogobox.frogothemoviedbapi.data.model.CertificationMovie
+import com.frogobox.frogothemoviedbapi.data.model.CertificationTv
 import com.frogobox.frogothemoviedbapi.data.response.*
 
 /**
@@ -30,14 +30,14 @@ class MovieRepository(private val remoteDataSource: MovieRemoteDataSource) : Mov
 
     override fun getMovieCertifications(
         apiKey: String,
-        callback: MovieDataSource.GetRemoteCallback<Certifications<MovieCertification>>
+        callback: MovieDataSource.GetRemoteCallback<Certifications<CertificationMovie>>
     ) {
         remoteDataSource.getMovieCertifications(apiKey, callback)
     }
 
     override fun getTvCertifications(
         apiKey: String,
-        callback: MovieDataSource.GetRemoteCallback<Certifications<TvCertification>>
+        callback: MovieDataSource.GetRemoteCallback<Certifications<CertificationTv>>
     ) {
         remoteDataSource.getTvCertifications(apiKey, callback)
     }
@@ -94,7 +94,7 @@ class MovieRepository(private val remoteDataSource: MovieRemoteDataSource) : Mov
         apiKey: String,
         collection_id: Int,
         language: String?,
-        callback: MovieDataSource.GetRemoteCallback<CollectionTranslation>
+        callback: MovieDataSource.GetRemoteCallback<CollectionsTranslation>
     ) {
         remoteDataSource.getCollectionTranslations(apiKey, collection_id, language, callback)
     }

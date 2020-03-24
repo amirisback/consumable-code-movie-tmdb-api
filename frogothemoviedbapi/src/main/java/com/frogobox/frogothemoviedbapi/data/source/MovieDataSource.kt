@@ -1,8 +1,8 @@
 package com.frogobox.frogothemoviedbapi.data.source
 
 import android.content.Context
-import com.frogobox.frogothemoviedbapi.data.model.MovieCertification
-import com.frogobox.frogothemoviedbapi.data.model.TvCertification
+import com.frogobox.frogothemoviedbapi.data.model.CertificationMovie
+import com.frogobox.frogothemoviedbapi.data.model.CertificationTv
 import com.frogobox.frogothemoviedbapi.data.response.*
 import com.frogobox.frogothesportdbapi.base.BaseMovieDataSource
 
@@ -32,14 +32,14 @@ interface MovieDataSource {
     // Get Movie Certifications
     fun getMovieCertifications(
         apiKey: String,
-        callback: GetRemoteCallback<Certifications<MovieCertification>>
+        callback: GetRemoteCallback<Certifications<CertificationMovie>>
     )
 
     // CERTIFICATIONS
     // Get TV Certifications
     fun getTvCertifications(
         apiKey: String,
-        callback: GetRemoteCallback<Certifications<TvCertification>>
+        callback: GetRemoteCallback<Certifications<CertificationTv>>
     )
 
     // CHANGES
@@ -96,7 +96,7 @@ interface MovieDataSource {
         apiKey: String,
         collection_id: Int,
         language: String?,
-        callback: GetRemoteCallback<CollectionTranslation>
+        callback: GetRemoteCallback<CollectionsTranslation>
     )
 
     // Response Callback

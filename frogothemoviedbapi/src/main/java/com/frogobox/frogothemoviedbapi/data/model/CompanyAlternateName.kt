@@ -6,8 +6,8 @@ import com.google.gson.annotations.SerializedName
  * Created by Faisal Amir
  * FrogoBox Inc License
  * =========================================
- * TMDBAPI
- * Copyright (C) 13/03/2020.
+ * consumable-code-movie-tmdb-api
+ * Copyright (C) 24/03/2020.
  * All rights reserved
  * -----------------------------------------
  * Name     : Muhammad Faisal Amir
@@ -19,16 +19,12 @@ import com.google.gson.annotations.SerializedName
  * com.frogobox.frogothemoviedbapi.data.model
  *
  */
+data class CompanyAlternateName(
 
-data class Certification(
+    @SerializedName("name")
+    var name: Int? = null,
 
-    @SerializedName("certification")
-    var certification: String? = null,
-
-    @SerializedName("meaning")
-    var meaning: String? = null,
-
-    @SerializedName("order")
-    var order: Int? = null
+    @SerializedName("type")
+    var type: String? = null
 
 )

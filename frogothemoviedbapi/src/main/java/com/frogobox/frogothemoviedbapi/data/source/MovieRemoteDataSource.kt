@@ -1,8 +1,8 @@
 package com.frogobox.frogothemoviedbapi.data.source
 
 import android.content.Context
-import com.frogobox.frogothemoviedbapi.data.model.MovieCertification
-import com.frogobox.frogothemoviedbapi.data.model.TvCertification
+import com.frogobox.frogothemoviedbapi.data.model.CertificationMovie
+import com.frogobox.frogothemoviedbapi.data.model.CertificationTv
 import com.frogobox.frogothemoviedbapi.data.response.*
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
@@ -34,7 +34,7 @@ object MovieRemoteDataSource : MovieDataSource {
 
     override fun getMovieCertifications(
         apiKey: String,
-        callback: MovieDataSource.GetRemoteCallback<Certifications<MovieCertification>>
+        callback: MovieDataSource.GetRemoteCallback<Certifications<CertificationMovie>>
     ) {
         movieApiService.getApiService
             .getMovieCertifications(apiKey)
@@ -42,8 +42,8 @@ object MovieRemoteDataSource : MovieDataSource {
             .observeOn(AndroidSchedulers.mainThread())
             .doOnSubscribe { callback.onShowProgress() }
             .doOnTerminate { callback.onHideProgress() }
-            .subscribe(object : MovieApiCallback<Certifications<MovieCertification>>() {
-                override fun onSuccess(data: Certifications<MovieCertification>) {
+            .subscribe(object : MovieApiCallback<Certifications<CertificationMovie>>() {
+                override fun onSuccess(data: Certifications<CertificationMovie>) {
                     callback.onSuccess(data)
                 }
 
@@ -58,7 +58,7 @@ object MovieRemoteDataSource : MovieDataSource {
 
     override fun getTvCertifications(
         apiKey: String,
-        callback: MovieDataSource.GetRemoteCallback<Certifications<TvCertification>>
+        callback: MovieDataSource.GetRemoteCallback<Certifications<CertificationTv>>
     ) {
         movieApiService.getApiService
             .getTvCertifications(apiKey)
@@ -66,8 +66,8 @@ object MovieRemoteDataSource : MovieDataSource {
             .observeOn(AndroidSchedulers.mainThread())
             .doOnSubscribe { callback.onShowProgress() }
             .doOnTerminate { callback.onHideProgress() }
-            .subscribe(object : MovieApiCallback<Certifications<TvCertification>>() {
-                override fun onSuccess(data: Certifications<TvCertification>) {
+            .subscribe(object : MovieApiCallback<Certifications<CertificationTv>>() {
+                override fun onSuccess(data: Certifications<CertificationTv>) {
                     callback.onSuccess(data)
                 }
 
@@ -217,7 +217,7 @@ object MovieRemoteDataSource : MovieDataSource {
         apiKey: String,
         collection_id: Int,
         language: String?,
-        callback: MovieDataSource.GetRemoteCallback<CollectionTranslation>
+        callback: MovieDataSource.GetRemoteCallback<CollectionsTranslation>
     ) {
         movieApiService.getApiService
             .getCollectionTranslations(apiKey, collection_id, language)
@@ -225,8 +225,8 @@ object MovieRemoteDataSource : MovieDataSource {
             .observeOn(AndroidSchedulers.mainThread())
             .doOnSubscribe { callback.onShowProgress() }
             .doOnTerminate { callback.onHideProgress() }
-            .subscribe(object : MovieApiCallback<CollectionTranslation>() {
-                override fun onSuccess(data: CollectionTranslation) {
+            .subscribe(object : MovieApiCallback<CollectionsTranslation>() {
+                override fun onSuccess(data: CollectionsTranslation) {
                     callback.onSuccess(data)
                 }
 

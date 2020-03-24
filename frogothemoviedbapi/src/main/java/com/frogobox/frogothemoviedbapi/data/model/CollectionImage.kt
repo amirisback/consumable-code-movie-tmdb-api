@@ -19,16 +19,27 @@ import com.google.gson.annotations.SerializedName
  * com.frogobox.frogothemoviedbapi.data.model
  *
  */
+data class CollectionImage (
 
-data class Certification(
+    @SerializedName("aspect_ratio")
+    var aspect_ratio: Int? = null,
 
-    @SerializedName("certification")
-    var certification: String? = null,
+    @SerializedName("file_path")
+    var file_path: String? = null,
 
-    @SerializedName("meaning")
-    var meaning: String? = null,
+    @SerializedName("height")
+    var height: Int? = null,
 
-    @SerializedName("order")
-    var order: Int? = null
+    @SerializedName("iso_639_1")
+    var iso_639_1: Int? = null,
+
+    @SerializedName("vote_average")
+    var vote_average: Int? = null,
+
+    @SerializedName("vote_count")
+    var vote_count: Int? = null,
+
+    @SerializedName("width")
+    var width: Int? = null
 
 )

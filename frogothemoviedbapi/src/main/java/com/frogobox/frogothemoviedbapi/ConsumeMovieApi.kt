@@ -1,8 +1,8 @@
 package com.frogobox.frogothemoviedbapi
 
 import android.content.Context
-import com.frogobox.frogothemoviedbapi.data.model.MovieCertification
-import com.frogobox.frogothemoviedbapi.data.model.TvCertification
+import com.frogobox.frogothemoviedbapi.data.model.CertificationMovie
+import com.frogobox.frogothemoviedbapi.data.model.CertificationTv
 import com.frogobox.frogothemoviedbapi.data.response.*
 import com.frogobox.frogothemoviedbapi.data.source.MovieDataSource
 import com.frogobox.frogothemoviedbapi.data.source.MovieRemoteDataSource
@@ -34,11 +34,11 @@ class ConsumeMovieApi(private val apiKey: String) : ConsumeMovieApiView {
         movieRepository.usingChuckInterceptor(context)
     }
 
-    override fun getMovieCertifications(callback: MovieResultCallback<Certifications<MovieCertification>>) {
+    override fun getMovieCertifications(callback: MovieResultCallback<Certifications<CertificationMovie>>) {
         movieRepository.getMovieCertifications(
             apiKey,
-            object : MovieDataSource.GetRemoteCallback<Certifications<MovieCertification>> {
-                override fun onSuccess(data: Certifications<MovieCertification>) {
+            object : MovieDataSource.GetRemoteCallback<Certifications<CertificationMovie>> {
+                override fun onSuccess(data: Certifications<CertificationMovie>) {
                     callback.getResultData(data)
                 }
 
@@ -56,11 +56,11 @@ class ConsumeMovieApi(private val apiKey: String) : ConsumeMovieApiView {
             })
     }
 
-    override fun getTvCertifications(callback: MovieResultCallback<Certifications<TvCertification>>) {
+    override fun getTvCertifications(callback: MovieResultCallback<Certifications<CertificationTv>>) {
         movieRepository.getTvCertifications(
             apiKey,
-            object : MovieDataSource.GetRemoteCallback<Certifications<TvCertification>> {
-                override fun onSuccess(data: Certifications<TvCertification>) {
+            object : MovieDataSource.GetRemoteCallback<Certifications<CertificationTv>> {
+                override fun onSuccess(data: Certifications<CertificationTv>) {
                     callback.getResultData(data)
                 }
 
@@ -227,14 +227,14 @@ class ConsumeMovieApi(private val apiKey: String) : ConsumeMovieApiView {
     override fun getCollectionTranslations(
         collection_id: Int,
         language: String?,
-        callback: MovieResultCallback<CollectionTranslation>
+        callback: MovieResultCallback<CollectionsTranslation>
     ) {
         movieRepository.getCollectionTranslations(
             apiKey,
             collection_id,
             language,
-            object : MovieDataSource.GetRemoteCallback<CollectionTranslation> {
-                override fun onSuccess(data: CollectionTranslation) {
+            object : MovieDataSource.GetRemoteCallback<CollectionsTranslation> {
+                override fun onSuccess(data: CollectionsTranslation) {
                     callback.getResultData(data)
                 }
 
