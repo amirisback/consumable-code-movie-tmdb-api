@@ -38,6 +38,8 @@ class MovieConstant {
         const val PATH_MOVIE_ID = "movie_id"
         const val PATH_NETWORK_ID = "network_id"
         const val PATH_REVIEW_ID = "review_id"
+        const val PATH_PERSON_ID = "person_id"
+
         const val PATH_MEDIA_TYPE = "media_type"
         const val PATH_TIME_WINDOW = "time_window"
 

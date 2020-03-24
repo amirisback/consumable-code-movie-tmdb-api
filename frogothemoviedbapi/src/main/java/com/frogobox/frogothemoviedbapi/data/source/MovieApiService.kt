@@ -39,21 +39,21 @@ interface MovieApiService {
 
     // CERTIFICATIONS
     // Get Movie Certifications
-    @GET(MovieUrl.CERTIFICATION_MOVIE)
+    @GET(MovieUrl.CERTIFICATION_GET_MOVIE)
     fun getMovieCertifications(
         @Query(MovieConstant.QUERY_API_KEY) apiKey: String
     ): Observable<Certifications<MovieCertification>>
 
     // CERTIFICATIONS
     // Get TV Certifications
-    @GET(MovieUrl.CERTIFICATION_TV)
+    @GET(MovieUrl.CERTIFICATION_GET_TV)
     fun getTvCertifications(
         @Query(MovieConstant.QUERY_API_KEY) apiKey: String
     ): Observable<Certifications<TvCertification>>
 
     // CHANGES
     // Get Movie Change List
-    @GET(MovieUrl.CHANGES_MOVIE)
+    @GET(MovieUrl.CHANGES_GET_MOVIE)
     fun getMovieChangeList(
         @Query(MovieConstant.QUERY_API_KEY) apiKey: String,
         @Query(MovieConstant.QUERY_END_DATE) endDate: String?,
@@ -63,7 +63,7 @@ interface MovieApiService {
 
     // CHANGES
     // Get TV Change List
-    @GET(MovieUrl.CHANGES_TV)
+    @GET(MovieUrl.CHANGES_GET_TV)
     fun getTvChangeList(
         @Query(MovieConstant.QUERY_API_KEY) apiKey: String,
         @Query(MovieConstant.QUERY_END_DATE) endDate: String?,
@@ -73,7 +73,7 @@ interface MovieApiService {
 
     // CHANGES
     // Get Person Change List
-    @GET(MovieUrl.CHANGES_PERSON)
+    @GET(MovieUrl.CHANGES_GET_PERSON)
     fun getPersonChangeList(
         @Query(MovieConstant.QUERY_API_KEY) apiKey: String,
         @Query(MovieConstant.QUERY_END_DATE) endDate: String?,
@@ -83,7 +83,7 @@ interface MovieApiService {
 
     // COLLECTION
     // Get Details
-    @GET(MovieUrl.COLLECTION_DETAIL)
+    @GET(MovieUrl.COLLECTION_GET_DETAIL)
     fun getCollectionDetails(
         @Query(MovieConstant.QUERY_API_KEY) apiKey: String,
         @Path(MovieConstant.PATH_COLLECTION_ID) collection_id: Int,
@@ -92,7 +92,7 @@ interface MovieApiService {
 
     // COLLECTION
     // Get Images
-    @GET(MovieUrl.COLLECTION_IMAGES)
+    @GET(MovieUrl.COLLECTION_GET_IMAGES)
     fun getCollectionImages(
         @Query(MovieConstant.QUERY_API_KEY) apiKey: String,
         @Path(MovieConstant.PATH_COLLECTION_ID) collection_id: Int,
@@ -101,7 +101,7 @@ interface MovieApiService {
 
     // COLLECTION
     // Get Translations
-    @GET(MovieUrl.COLLECTION_TRANSLATTIONS)
+    @GET(MovieUrl.COLLECTION_GET_TRANSLATTIONS)
     fun getCollectionTranslations(
         @Query(MovieConstant.QUERY_API_KEY) apiKey: String,
         @Path(MovieConstant.PATH_COLLECTION_ID) collection_id: Int,
