@@ -1,5 +1,5 @@
 # consumable-code-movie-tmdb-api By AmirIsBack
-- v1.0.0 - Development
+- v1.0.1 - Development
 - Stable Version
 
 # About This Project
@@ -24,11 +24,11 @@ https://developers.themoviedb.org/3/getting-started/introduction
 
     // CERTIFICATIONS
     // Get Movie Certifications
-    fun getMovieCertifications(callback: MovieResultCallback<Certifications<MovieCertification>>)
+    fun getMovieCertifications(callback: MovieResultCallback<Certifications<CertificationMovie>>)
 
     // CERTIFICATIONS
     // Get TV Certifications
-    fun getTvCertifications(callback: MovieResultCallback<Certifications<TvCertification>>)
+    fun getTvCertifications(callback: MovieResultCallback<Certifications<CertificationTv>>)
 
     // CHANGES
     // Get Movie Change List
@@ -78,7 +78,28 @@ https://developers.themoviedb.org/3/getting-started/introduction
     fun getCollectionTranslations(
         collection_id: Int,
         language: String?,
-        callback: MovieResultCallback<CollectionTranslation>
+        callback: MovieResultCallback<CollectionsTranslation>
+    )
+
+    // COMPANIES
+    // Get Details
+    fun getCompaniesDetails(
+        company_id: Int,
+        callback: MovieResultCallback<CompaniesDetail>
+    )
+
+    // COMPANIES
+    // Get Alternative Names
+    fun getCompaniesAlternativeName(
+        company_id: Int,
+        callback: MovieResultCallback<CompaniesAlternateName>
+    )
+
+    // COMPANIES
+    // Get Images
+    fun getCompaniesImage(
+        company_id: Int,
+        callback: MovieResultCallback<CompaniesImage>
     )
 
 # Android Library Version (build.gradle)
@@ -91,11 +112,11 @@ https://developers.themoviedb.org/3/getting-started/introduction
 # Version Release
 This Is Latest Release
 
-    $version_release = 1.0.0
+    $version_release = 1.0.1
 
 What's New??
 
-    * consumable-code-movie-tmdb-api *
+    * add company method fetching *
 
 # How To Use This Project
 <h3>Step 1. Add the JitPack repository to your build file</h3>
