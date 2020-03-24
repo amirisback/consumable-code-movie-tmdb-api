@@ -98,4 +98,28 @@ class MovieRepository(private val remoteDataSource: MovieRemoteDataSource) : Mov
     ) {
         remoteDataSource.getCollectionTranslations(apiKey, collection_id, language, callback)
     }
+
+    override fun getCompaniesDetails(
+        apiKey: String,
+        company_id: Int,
+        callback: MovieDataSource.GetRemoteCallback<CompaniesDetail>
+    ) {
+        remoteDataSource.getCompaniesDetails(apiKey, company_id, callback)
+    }
+
+    override fun getCompaniesAlternativeName(
+        apiKey: String,
+        company_id: Int,
+        callback: MovieDataSource.GetRemoteCallback<CompaniesAlternateName>
+    ) {
+        remoteDataSource.getCompaniesAlternativeName(apiKey, company_id, callback)
+    }
+
+    override fun getCompaniesImage(
+        apiKey: String,
+        company_id: Int,
+        callback: MovieDataSource.GetRemoteCallback<CompaniesImage>
+    ) {
+        remoteDataSource.getCompaniesImage(apiKey, company_id, callback)
+    }
 }

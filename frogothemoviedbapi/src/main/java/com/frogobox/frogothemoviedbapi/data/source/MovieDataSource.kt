@@ -99,6 +99,30 @@ interface MovieDataSource {
         callback: GetRemoteCallback<CollectionsTranslation>
     )
 
+    // COMPANIES
+    // Get Details
+    fun getCompaniesDetails(
+        apiKey: String,
+        company_id: Int,
+        callback: GetRemoteCallback<CompaniesDetail>
+    )
+
+    // COMPANIES
+    // Get Alternative Names
+    fun getCompaniesAlternativeName(
+        apiKey: String,
+        company_id: Int,
+        callback: GetRemoteCallback<CompaniesAlternateName>
+    )
+
+    // COMPANIES
+    // Get Images
+    fun getCompaniesImage(
+        apiKey: String,
+        company_id: Int,
+        callback: GetRemoteCallback<CompaniesImage>
+    )
+
     // Response Callback
     interface GetRemoteCallback<T> : BaseMovieDataSource.ResponseCallback<T>
 

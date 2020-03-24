@@ -108,6 +108,30 @@ interface MovieApiService {
         @Query(MovieConstant.QUERY_LANGUAGE) language: String?
     ): Observable<CollectionsTranslation>
 
+    // COMPANIES
+    // Get Details
+    @GET(MovieUrl.COMPANY_GET_DETAIL)
+    fun getCompaniesDetails(
+        @Query(MovieConstant.QUERY_API_KEY) apiKey: String,
+        @Path(MovieConstant.PATH_COMPANY_ID) company_id: Int
+    ): Observable<CompaniesDetail>
+
+    // COMPANIES
+    // Get Alternative Names
+    @GET(MovieUrl.COMPANY_GET_ALTERNATIVE_NAME)
+    fun getCompaniesAlternativeName(
+        @Query(MovieConstant.QUERY_API_KEY) apiKey: String,
+        @Path(MovieConstant.PATH_COMPANY_ID) company_id: Int
+    ): Observable<CompaniesAlternateName>
+
+    // COMPANIES
+    // Get Images
+    @GET(MovieUrl.COMPANY_GET_IMAGE)
+    fun getCompaniesImage(
+        @Query(MovieConstant.QUERY_API_KEY) apiKey: String,
+        @Path(MovieConstant.PATH_COMPANY_ID) company_id: Int
+    ): Observable<CompaniesImage>
+
     companion object Factory {
 
         private var isUsingChuckInterceptor = false

@@ -251,4 +251,79 @@ class ConsumeMovieApi(private val apiKey: String) : ConsumeMovieApiView {
                 }
             })
     }
+
+    override fun getCompaniesDetails(
+        company_id: Int,
+        callback: MovieResultCallback<CompaniesDetail>
+    ) {
+        movieRepository.getCompaniesDetails(
+            apiKey,
+            company_id,
+            object : MovieDataSource.GetRemoteCallback<CompaniesDetail> {
+                override fun onSuccess(data: CompaniesDetail) {
+                    callback.getResultData(data)
+                }
+
+                override fun onFailed(statusCode: Int, errorMessage: String?) {
+                    callback.failedResult(statusCode, errorMessage)
+                }
+
+                override fun onShowProgress() {
+                    callback.onShowProgress()
+                }
+
+                override fun onHideProgress() {
+                    callback.onHideProgress()
+                }
+            })
+    }
+
+    override fun getCompaniesAlternativeName(
+        company_id: Int,
+        callback: MovieResultCallback<CompaniesAlternateName>
+    ) {
+        movieRepository.getCompaniesAlternativeName(
+            apiKey,
+            company_id,
+            object : MovieDataSource.GetRemoteCallback<CompaniesAlternateName> {
+                override fun onSuccess(data: CompaniesAlternateName) {
+                    callback.getResultData(data)
+                }
+
+                override fun onFailed(statusCode: Int, errorMessage: String?) {
+                    callback.failedResult(statusCode, errorMessage)
+                }
+
+                override fun onShowProgress() {
+                    callback.onShowProgress()
+                }
+
+                override fun onHideProgress() {
+                    callback.onHideProgress()
+                }
+            })
+    }
+
+    override fun getCompaniesImage(company_id: Int, callback: MovieResultCallback<CompaniesImage>) {
+        movieRepository.getCompaniesImage(
+            apiKey,
+            company_id,
+            object : MovieDataSource.GetRemoteCallback<CompaniesImage> {
+                override fun onSuccess(data: CompaniesImage) {
+                    callback.getResultData(data)
+                }
+
+                override fun onFailed(statusCode: Int, errorMessage: String?) {
+                    callback.failedResult(statusCode, errorMessage)
+                }
+
+                override fun onShowProgress() {
+                    callback.onShowProgress()
+                }
+
+                override fun onHideProgress() {
+                    callback.onHideProgress()
+                }
+            })
+    }
 }

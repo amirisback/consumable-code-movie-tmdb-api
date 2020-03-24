@@ -238,4 +238,79 @@ object MovieRemoteDataSource : MovieDataSource {
                 }
             })
     }
+
+    override fun getCompaniesDetails(
+        apiKey: String,
+        company_id: Int,
+        callback: MovieDataSource.GetRemoteCallback<CompaniesDetail>
+    ) {
+        movieApiService.getApiService
+            .getCompaniesDetails(apiKey, company_id)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .doOnSubscribe { callback.onShowProgress() }
+            .doOnTerminate { callback.onHideProgress() }
+            .subscribe(object : MovieApiCallback<CompaniesDetail>() {
+                override fun onSuccess(data: CompaniesDetail) {
+                    callback.onSuccess(data)
+                }
+
+                override fun onFailure(statusCode: Int, errorMessage: String) {
+                    callback.onFailed(statusCode, errorMessage)
+                }
+
+                override fun onFinish() {
+                }
+            })
+    }
+
+    override fun getCompaniesAlternativeName(
+        apiKey: String,
+        company_id: Int,
+        callback: MovieDataSource.GetRemoteCallback<CompaniesAlternateName>
+    ) {
+        movieApiService.getApiService
+            .getCompaniesAlternativeName(apiKey, company_id)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .doOnSubscribe { callback.onShowProgress() }
+            .doOnTerminate { callback.onHideProgress() }
+            .subscribe(object : MovieApiCallback<CompaniesAlternateName>() {
+                override fun onSuccess(data: CompaniesAlternateName) {
+                    callback.onSuccess(data)
+                }
+
+                override fun onFailure(statusCode: Int, errorMessage: String) {
+                    callback.onFailed(statusCode, errorMessage)
+                }
+
+                override fun onFinish() {
+                }
+            })
+    }
+
+    override fun getCompaniesImage(
+        apiKey: String,
+        company_id: Int,
+        callback: MovieDataSource.GetRemoteCallback<CompaniesImage>
+    ) {
+        movieApiService.getApiService
+            .getCompaniesImage(apiKey, company_id)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .doOnSubscribe { callback.onShowProgress() }
+            .doOnTerminate { callback.onHideProgress() }
+            .subscribe(object : MovieApiCallback<CompaniesImage>() {
+                override fun onSuccess(data: CompaniesImage) {
+                    callback.onSuccess(data)
+                }
+
+                override fun onFailure(statusCode: Int, errorMessage: String) {
+                    callback.onFailed(statusCode, errorMessage)
+                }
+
+                override fun onFinish() {
+                }
+            })
+    }
 }
