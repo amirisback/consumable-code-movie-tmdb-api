@@ -1,8 +1,7 @@
 package com.frogobox.frogothemoviedbapi.data.source
 
 import android.content.Context
-import com.frogobox.frogothemoviedbapi.data.model.CertificationMovie
-import com.frogobox.frogothemoviedbapi.data.model.CertificationTv
+import com.frogobox.frogothemoviedbapi.data.model.*
 import com.frogobox.frogothemoviedbapi.data.response.*
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
@@ -302,6 +301,150 @@ object MovieRemoteDataSource : MovieDataSource {
             .doOnTerminate { callback.onHideProgress() }
             .subscribe(object : MovieApiCallback<CompaniesImage>() {
                 override fun onSuccess(data: CompaniesImage) {
+                    callback.onSuccess(data)
+                }
+
+                override fun onFailure(statusCode: Int, errorMessage: String) {
+                    callback.onFailed(statusCode, errorMessage)
+                }
+
+                override fun onFinish() {
+                }
+            })
+    }
+
+    override fun getConfigurationApi(
+        apiKey: String,
+        callback: MovieDataSource.GetRemoteCallback<ConfigurationApi>
+    ) {
+        movieApiService.getApiService
+            .getConfigurationApi(apiKey)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .doOnSubscribe { callback.onShowProgress() }
+            .doOnTerminate { callback.onHideProgress() }
+            .subscribe(object : MovieApiCallback<ConfigurationApi>() {
+                override fun onSuccess(data: ConfigurationApi) {
+                    callback.onSuccess(data)
+                }
+
+                override fun onFailure(statusCode: Int, errorMessage: String) {
+                    callback.onFailed(statusCode, errorMessage)
+                }
+
+                override fun onFinish() {
+                }
+            })
+    }
+
+    override fun getConfigurationCountries(
+        apiKey: String,
+        callback: MovieDataSource.GetRemoteCallback<List<ConfigurationCountry>>
+    ) {
+        movieApiService.getApiService
+            .getConfigurationCountries(apiKey)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .doOnSubscribe { callback.onShowProgress() }
+            .doOnTerminate { callback.onHideProgress() }
+            .subscribe(object : MovieApiCallback<List<ConfigurationCountry>>() {
+                override fun onSuccess(data: List<ConfigurationCountry>) {
+                    callback.onSuccess(data)
+                }
+
+                override fun onFailure(statusCode: Int, errorMessage: String) {
+                    callback.onFailed(statusCode, errorMessage)
+                }
+
+                override fun onFinish() {
+                }
+            })
+    }
+
+    override fun getConfigurationJobs(
+        apiKey: String,
+        callback: MovieDataSource.GetRemoteCallback<List<ConfigurationJob>>
+    ) {
+        movieApiService.getApiService
+            .getConfigurationJobs(apiKey)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .doOnSubscribe { callback.onShowProgress() }
+            .doOnTerminate { callback.onHideProgress() }
+            .subscribe(object : MovieApiCallback<List<ConfigurationJob>>() {
+                override fun onSuccess(data: List<ConfigurationJob>) {
+                    callback.onSuccess(data)
+                }
+
+                override fun onFailure(statusCode: Int, errorMessage: String) {
+                    callback.onFailed(statusCode, errorMessage)
+                }
+
+                override fun onFinish() {
+                }
+            })
+    }
+
+    override fun getConfigurationLanguages(
+        apiKey: String,
+        callback: MovieDataSource.GetRemoteCallback<List<ConfigurationLanguage>>
+    ) {
+        movieApiService.getApiService
+            .getConfigurationLanguages(apiKey)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .doOnSubscribe { callback.onShowProgress() }
+            .doOnTerminate { callback.onHideProgress() }
+            .subscribe(object : MovieApiCallback<List<ConfigurationLanguage>>() {
+                override fun onSuccess(data: List<ConfigurationLanguage>) {
+                    callback.onSuccess(data)
+                }
+
+                override fun onFailure(statusCode: Int, errorMessage: String) {
+                    callback.onFailed(statusCode, errorMessage)
+                }
+
+                override fun onFinish() {
+                }
+            })
+    }
+
+    override fun getConfigurationTranslations(
+        apiKey: String,
+        callback: MovieDataSource.GetRemoteCallback<List<String>>
+    ) {
+        movieApiService.getApiService
+            .getConfigurationTranslations(apiKey)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .doOnSubscribe { callback.onShowProgress() }
+            .doOnTerminate { callback.onHideProgress() }
+            .subscribe(object : MovieApiCallback<List<String>>() {
+                override fun onSuccess(data: List<String>) {
+                    callback.onSuccess(data)
+                }
+
+                override fun onFailure(statusCode: Int, errorMessage: String) {
+                    callback.onFailed(statusCode, errorMessage)
+                }
+
+                override fun onFinish() {
+                }
+            })
+    }
+
+    override fun getConfigurationTimezones(
+        apiKey: String,
+        callback: MovieDataSource.GetRemoteCallback<List<ConfigurationTimezone>>
+    ) {
+        movieApiService.getApiService
+            .getConfigurationTimezones(apiKey)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .doOnSubscribe { callback.onShowProgress() }
+            .doOnTerminate { callback.onHideProgress() }
+            .subscribe(object : MovieApiCallback<List<ConfigurationTimezone>>() {
+                override fun onSuccess(data: List<ConfigurationTimezone>) {
                     callback.onSuccess(data)
                 }
 

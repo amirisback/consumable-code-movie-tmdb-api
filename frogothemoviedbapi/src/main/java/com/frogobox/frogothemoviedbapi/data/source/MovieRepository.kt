@@ -1,8 +1,7 @@
 package com.frogobox.frogothemoviedbapi.data.source
 
 import android.content.Context
-import com.frogobox.frogothemoviedbapi.data.model.CertificationMovie
-import com.frogobox.frogothemoviedbapi.data.model.CertificationTv
+import com.frogobox.frogothemoviedbapi.data.model.*
 import com.frogobox.frogothemoviedbapi.data.response.*
 
 /**
@@ -121,5 +120,47 @@ class MovieRepository(private val remoteDataSource: MovieRemoteDataSource) : Mov
         callback: MovieDataSource.GetRemoteCallback<CompaniesImage>
     ) {
         remoteDataSource.getCompaniesImage(company_id, apiKey, callback)
+    }
+
+    override fun getConfigurationApi(
+        apiKey: String,
+        callback: MovieDataSource.GetRemoteCallback<ConfigurationApi>
+    ) {
+        remoteDataSource.getConfigurationApi(apiKey, callback)
+    }
+
+    override fun getConfigurationCountries(
+        apiKey: String,
+        callback: MovieDataSource.GetRemoteCallback<List<ConfigurationCountry>>
+    ) {
+        remoteDataSource.getConfigurationCountries(apiKey, callback)
+    }
+
+    override fun getConfigurationJobs(
+        apiKey: String,
+        callback: MovieDataSource.GetRemoteCallback<List<ConfigurationJob>>
+    ) {
+        remoteDataSource.getConfigurationJobs(apiKey, callback)
+    }
+
+    override fun getConfigurationLanguages(
+        apiKey: String,
+        callback: MovieDataSource.GetRemoteCallback<List<ConfigurationLanguage>>
+    ) {
+        remoteDataSource.getConfigurationLanguages(apiKey, callback)
+    }
+
+    override fun getConfigurationTranslations(
+        apiKey: String,
+        callback: MovieDataSource.GetRemoteCallback<List<String>>
+    ) {
+        remoteDataSource.getConfigurationTranslations(apiKey, callback)
+    }
+
+    override fun getConfigurationTimezones(
+        apiKey: String,
+        callback: MovieDataSource.GetRemoteCallback<List<ConfigurationTimezone>>
+    ) {
+        remoteDataSource.getConfigurationTimezones(apiKey, callback)
     }
 }

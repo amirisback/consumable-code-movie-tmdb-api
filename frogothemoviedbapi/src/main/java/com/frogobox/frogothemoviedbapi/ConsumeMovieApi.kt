@@ -1,8 +1,7 @@
 package com.frogobox.frogothemoviedbapi
 
 import android.content.Context
-import com.frogobox.frogothemoviedbapi.data.model.CertificationMovie
-import com.frogobox.frogothemoviedbapi.data.model.CertificationTv
+import com.frogobox.frogothemoviedbapi.data.model.*
 import com.frogobox.frogothemoviedbapi.data.response.*
 import com.frogobox.frogothemoviedbapi.data.source.MovieDataSource
 import com.frogobox.frogothemoviedbapi.data.source.MovieRemoteDataSource
@@ -326,4 +325,138 @@ class ConsumeMovieApi(private val apiKey: String) : ConsumeMovieApiView {
                 }
             })
     }
+
+    override fun getConfigurationApi(callback: MovieResultCallback<ConfigurationApi>) {
+        movieRepository.getConfigurationApi(
+            apiKey,
+            object : MovieDataSource.GetRemoteCallback<ConfigurationApi> {
+                override fun onSuccess(data: ConfigurationApi) {
+                    callback.getResultData(data)
+                }
+
+                override fun onFailed(statusCode: Int, errorMessage: String?) {
+                    callback.failedResult(statusCode, errorMessage)
+                }
+
+                override fun onShowProgress() {
+                    callback.onShowProgress()
+                }
+
+                override fun onHideProgress() {
+                    callback.onHideProgress()
+                }
+            })
+    }
+
+    override fun getConfigurationCountries(callback: MovieResultCallback<List<ConfigurationCountry>>) {
+        movieRepository.getConfigurationCountries(
+            apiKey,
+            object : MovieDataSource.GetRemoteCallback<List<ConfigurationCountry>> {
+                override fun onSuccess(data: List<ConfigurationCountry>) {
+                    callback.getResultData(data)
+                }
+
+                override fun onFailed(statusCode: Int, errorMessage: String?) {
+                    callback.failedResult(statusCode, errorMessage)
+                }
+
+                override fun onShowProgress() {
+                    callback.onShowProgress()
+                }
+
+                override fun onHideProgress() {
+                    callback.onHideProgress()
+                }
+            })
+    }
+
+    override fun getConfigurationJobs(callback: MovieResultCallback<List<ConfigurationJob>>) {
+        movieRepository.getConfigurationJobs(
+            apiKey,
+            object : MovieDataSource.GetRemoteCallback<List<ConfigurationJob>> {
+                override fun onSuccess(data: List<ConfigurationJob>) {
+                    callback.getResultData(data)
+                }
+
+                override fun onFailed(statusCode: Int, errorMessage: String?) {
+                    callback.failedResult(statusCode, errorMessage)
+                }
+
+                override fun onShowProgress() {
+                    callback.onShowProgress()
+                }
+
+                override fun onHideProgress() {
+                    callback.onHideProgress()
+                }
+            })
+    }
+
+    override fun getConfigurationLanguages(callback: MovieResultCallback<List<ConfigurationLanguage>>) {
+        movieRepository.getConfigurationLanguages(
+            apiKey,
+            object : MovieDataSource.GetRemoteCallback<List<ConfigurationLanguage>> {
+                override fun onSuccess(data: List<ConfigurationLanguage>) {
+                    callback.getResultData(data)
+                }
+
+                override fun onFailed(statusCode: Int, errorMessage: String?) {
+                    callback.failedResult(statusCode, errorMessage)
+                }
+
+                override fun onShowProgress() {
+                    callback.onShowProgress()
+                }
+
+                override fun onHideProgress() {
+                    callback.onHideProgress()
+                }
+            })
+    }
+
+    override fun getConfigurationTranslations(callback: MovieResultCallback<List<String>>) {
+        movieRepository.getConfigurationTranslations(
+            apiKey,
+            object : MovieDataSource.GetRemoteCallback<List<String>> {
+                override fun onSuccess(data: List<String>) {
+                    callback.getResultData(data)
+                }
+
+                override fun onFailed(statusCode: Int, errorMessage: String?) {
+                    callback.failedResult(statusCode, errorMessage)
+                }
+
+                override fun onShowProgress() {
+                    callback.onShowProgress()
+                }
+
+                override fun onHideProgress() {
+                    callback.onHideProgress()
+                }
+            })
+    }
+
+    override fun getConfigurationTimezones(callback: MovieResultCallback<List<ConfigurationTimezone>>) {
+        movieRepository.getConfigurationTimezones(
+            apiKey,
+            object : MovieDataSource.GetRemoteCallback<List<ConfigurationTimezone>> {
+                override fun onSuccess(data: List<ConfigurationTimezone>) {
+                    callback.getResultData(data)
+                }
+
+                override fun onFailed(statusCode: Int, errorMessage: String?) {
+                    callback.failedResult(statusCode, errorMessage)
+                }
+
+                override fun onShowProgress() {
+                    callback.onShowProgress()
+                }
+
+                override fun onHideProgress() {
+                    callback.onHideProgress()
+                }
+            })
+    }
+
+
 }

@@ -1,8 +1,7 @@
 package com.frogobox.frogothemoviedbapi.data.source
 
 import android.content.Context
-import com.frogobox.frogothemoviedbapi.data.model.CertificationMovie
-import com.frogobox.frogothemoviedbapi.data.model.CertificationTv
+import com.frogobox.frogothemoviedbapi.data.model.*
 import com.frogobox.frogothemoviedbapi.data.response.*
 import com.frogobox.frogothesportdbapi.base.BaseMovieDataSource
 
@@ -121,6 +120,39 @@ interface MovieDataSource {
         company_id: Int,
         apiKey: String,
         callback: GetRemoteCallback<CompaniesImage>
+    )
+
+    // CONFIGURATION
+    // Get API Configuration
+    fun getConfigurationApi(apiKey: String, callback: GetRemoteCallback<ConfigurationApi>)
+
+    // CONFIGURATION
+    // Get Countries
+    fun getConfigurationCountries(
+        apiKey: String,
+        callback: GetRemoteCallback<List<ConfigurationCountry>>
+    )
+
+    // CONFIGURATION
+    // Get Jobs
+    fun getConfigurationJobs(apiKey: String, callback: GetRemoteCallback<List<ConfigurationJob>>)
+
+    // CONFIGURATION
+    // Get Languages
+    fun getConfigurationLanguages(
+        apiKey: String,
+        callback: GetRemoteCallback<List<ConfigurationLanguage>>
+    )
+
+    // CONFIGURATION
+    // Get Primary Translations
+    fun getConfigurationTranslations(apiKey: String, callback: GetRemoteCallback<List<String>>)
+
+    // CONFIGURATION
+    // Get Timezones
+    fun getConfigurationTimezones(
+        apiKey: String,
+        callback: GetRemoteCallback<List<ConfigurationTimezone>>
     )
 
     // Response Callback

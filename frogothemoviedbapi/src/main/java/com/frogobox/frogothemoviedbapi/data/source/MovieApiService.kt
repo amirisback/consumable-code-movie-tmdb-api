@@ -1,8 +1,7 @@
 package com.frogobox.frogothemoviedbapi.data.source
 
 import android.content.Context
-import com.frogobox.frogothemoviedbapi.data.model.CertificationMovie
-import com.frogobox.frogothemoviedbapi.data.model.CertificationTv
+import com.frogobox.frogothemoviedbapi.data.model.*
 import com.frogobox.frogothemoviedbapi.data.response.*
 import com.frogobox.frogothemoviedbapi.util.MovieConstant
 import com.frogobox.frogothemoviedbapi.util.MovieUrl
@@ -131,6 +130,48 @@ interface MovieApiService {
         @Path(MovieConstant.PATH_COMPANY_ID) company_id: Int,
         @Query(MovieConstant.QUERY_API_KEY) apiKey: String
     ): Observable<CompaniesImage>
+
+    // CONFIGURATION
+    // Get API Configuration
+    @GET(MovieUrl.CONFIGURATION_GET_API_CONFIGURATION)
+    fun getConfigurationApi(
+        @Query(MovieConstant.QUERY_API_KEY) apiKey: String
+    ): Observable<ConfigurationApi>
+
+    // CONFIGURATION
+    // Get Countries
+    @GET(MovieUrl.CONFIGURATION_GET_COUNTRIES)
+    fun getConfigurationCountries(
+        @Query(MovieConstant.QUERY_API_KEY) apiKey: String
+    ): Observable<List<ConfigurationCountry>>
+
+    // CONFIGURATION
+    // Get Jobs
+    @GET(MovieUrl.CONFIGURATION_GET_JOBS)
+    fun getConfigurationJobs(
+        @Query(MovieConstant.QUERY_API_KEY) apiKey: String
+    ): Observable<List<ConfigurationJob>>
+
+    // CONFIGURATION
+    // Get Languages
+    @GET(MovieUrl.CONFIGURATION_GET_LANGUAGES)
+    fun getConfigurationLanguages(
+        @Query(MovieConstant.QUERY_API_KEY) apiKey: String
+    ): Observable<List<ConfigurationLanguage>>
+
+    // CONFIGURATION
+    // Get Primary Translations
+    @GET(MovieUrl.CONFIGURATION_GET_PRIMARY_TRANSLATIONS)
+    fun getConfigurationTranslations(
+        @Query(MovieConstant.QUERY_API_KEY) apiKey: String
+    ): Observable<List<String>>
+
+    // CONFIGURATION
+    // Get Timezones
+    @GET(MovieUrl.CONFIGURATION_GET_TIMEZONES)
+    fun getConfigurationTimezones(
+        @Query(MovieConstant.QUERY_API_KEY) apiKey: String
+    ): Observable<List<ConfigurationTimezone>>
 
     companion object Factory {
 
