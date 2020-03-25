@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.frogobox.frogothemoviedbapi.ConsumeMovieApi
 import com.frogobox.frogothemoviedbapi.data.response.Changes
+import com.frogobox.frogothemoviedbapi.data.response.CollectionsDetail
 import com.frogobox.frogothemoviedbapi.data.response.CompaniesDetail
 import com.frogobox.frogothemoviedbapi.util.MovieUrl
 import com.frogobox.frogothesportdbapi.callback.MovieResultCallback
@@ -16,10 +17,11 @@ class MainActivity : AppCompatActivity() {
 
         val consumeMovieApi = ConsumeMovieApi(MovieUrl.API_KEY)
         consumeMovieApi.usingChuckInterceptor(this)
-        consumeMovieApi.getCompaniesDetails(
-            2,
-            object : MovieResultCallback<CompaniesDetail> {
-                override fun getResultData(data: CompaniesDetail) {
+        consumeMovieApi.getCollectionDetails(
+            10,
+            null,
+            object : MovieResultCallback<CollectionsDetail> {
+                override fun getResultData(data: CollectionsDetail) {
 
                 }
 
