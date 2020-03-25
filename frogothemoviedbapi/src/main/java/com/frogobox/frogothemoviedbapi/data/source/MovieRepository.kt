@@ -163,4 +163,12 @@ class MovieRepository(private val remoteDataSource: MovieRemoteDataSource) : Mov
     ) {
         remoteDataSource.getConfigurationTimezones(apiKey, callback)
     }
+
+    override fun getCreditsDetails(
+        credit_id: String,
+        apiKey: String,
+        callback: MovieDataSource.GetRemoteCallback<Credits>
+    ) {
+        remoteDataSource.getCreditsDetails(credit_id, apiKey, callback)
+    }
 }

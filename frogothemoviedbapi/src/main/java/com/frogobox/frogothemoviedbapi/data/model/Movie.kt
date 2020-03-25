@@ -22,7 +22,7 @@ import com.google.gson.annotations.SerializedName
 data class Movie(
 
     @SerializedName("popularity")
-    var popularity: Int? = null,
+    var popularity: Double? = null,
 
     @SerializedName("vote_count")
     var vote_count: Int? = null,
@@ -55,7 +55,7 @@ data class Movie(
     var title: String? = null,
 
     @SerializedName("vote_average")
-    var vote_average: Int? = null,
+    var vote_average: Double? = null,
 
     @SerializedName("overview")
     var overview: String? = null,

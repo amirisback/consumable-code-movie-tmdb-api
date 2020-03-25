@@ -34,7 +34,7 @@ data class CollectionImage (
     var iso_639_1: Int? = null,
 
     @SerializedName("vote_average")
-    var vote_average: Int? = null,
+    var vote_average: Double? = null,
 
     @SerializedName("vote_count")
     var vote_count: Int? = null,

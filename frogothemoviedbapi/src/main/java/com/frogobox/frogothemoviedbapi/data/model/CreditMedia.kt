@@ -18,7 +18,7 @@ data class CreditMedia(
     var vote_count: Int? = null,
 
     @SerializedName("vote_average")
-    var vote_average: Int? = null,
+    var vote_average: Double? = null,
 
     @SerializedName("first_air_date")
     var first_air_date: String? = null,
@@ -42,7 +42,7 @@ data class CreditMedia(
     var origin_country: List<String>? = null,
 
     @SerializedName("popularity")
-    var popularity: Int? = null,
+    var popularity: Double? = null,
 
     @SerializedName("character")
     var character: String? = null,

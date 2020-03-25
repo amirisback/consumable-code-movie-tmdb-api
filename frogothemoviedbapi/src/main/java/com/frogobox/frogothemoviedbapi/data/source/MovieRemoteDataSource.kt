@@ -456,4 +456,29 @@ object MovieRemoteDataSource : MovieDataSource {
                 }
             })
     }
+
+    override fun getCreditsDetails(
+        credit_id: String,
+        apiKey: String,
+        callback: MovieDataSource.GetRemoteCallback<Credits>
+    ) {
+        movieApiService.getApiService
+            .getCreditsDetails(credit_id, apiKey)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .doOnSubscribe { callback.onShowProgress() }
+            .doOnTerminate { callback.onHideProgress() }
+            .subscribe(object : MovieApiCallback<Credits>() {
+                override fun onSuccess(data: Credits) {
+                    callback.onSuccess(data)
+                }
+
+                override fun onFailure(statusCode: Int, errorMessage: String) {
+                    callback.onFailed(statusCode, errorMessage)
+                }
+
+                override fun onFinish() {
+                }
+            })
+    }
 }

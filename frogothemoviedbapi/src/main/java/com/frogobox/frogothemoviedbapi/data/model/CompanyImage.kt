@@ -37,7 +37,7 @@ data class CompanyImage(
     var file_type: String? = null,
 
     @SerializedName("vote_average")
-    var vote_average: Int? = null,
+    var vote_average: Double? = null,
 
     @SerializedName("vote_count")
     var vote_count: Int? = null,

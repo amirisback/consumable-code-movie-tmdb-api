@@ -31,7 +31,7 @@ data class Tv(
     var name: String? = null,
 
     @SerializedName("popularity")
-    var popularity: Int? = null,
+    var popularity: Double? = null,
 
     @SerializedName("origin_country")
     var origin_country: List<String>? = null,
@@ -52,7 +52,7 @@ data class Tv(
     var id: Int? = null,
 
     @SerializedName("vote_average")
-    var vote_average: Int? = null,
+    var vote_average: Double? = null,
 
     @SerializedName("overview")
     var overview: String? = null,

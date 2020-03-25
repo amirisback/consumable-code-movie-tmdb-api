@@ -155,6 +155,10 @@ interface MovieDataSource {
         callback: GetRemoteCallback<List<ConfigurationTimezone>>
     )
 
+    // CREDITS
+    // Get Details
+    fun getCreditsDetails(credit_id: String, apiKey: String, callback: GetRemoteCallback<Credits>)
+
     // Response Callback
     interface GetRemoteCallback<T> : BaseMovieDataSource.ResponseCallback<T>
 

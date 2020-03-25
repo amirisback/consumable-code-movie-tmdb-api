@@ -8,7 +8,7 @@ data class CreditPersonKnownFor(
     var poster_path: String? = null,
 
     @SerializedName("popularity")
-    var popularity: Int? = null,
+    var popularity: Double? = null,
 
     @SerializedName("vote_count")
     var vote_count: Int? = null,

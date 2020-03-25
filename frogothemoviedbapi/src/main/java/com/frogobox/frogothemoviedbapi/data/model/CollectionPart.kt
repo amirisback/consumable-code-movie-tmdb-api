@@ -31,7 +31,7 @@ data class CollectionPart(
     var vote_count: Int? = null,
 
     @SerializedName("vote_average")
-    var vote_average: Int? = null,
+    var vote_average: Double? = null,
 
     @SerializedName("title")
     var title: String? = null,

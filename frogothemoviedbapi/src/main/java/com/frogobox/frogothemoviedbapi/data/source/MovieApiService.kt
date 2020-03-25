@@ -173,6 +173,14 @@ interface MovieApiService {
         @Query(MovieConstant.QUERY_API_KEY) apiKey: String
     ): Observable<List<ConfigurationTimezone>>
 
+    // CREDITS
+    // Get Details
+    @GET(MovieUrl.CREDITS_GET_DETAILS)
+    fun getCreditsDetails(
+        @Path(MovieConstant.PATH_CREDIT_ID) credit_id: String,
+        @Query(MovieConstant.QUERY_API_KEY) apiKey: String
+    ): Observable<Credits>
+
     companion object Factory {
 
         private var isUsingChuckInterceptor = false

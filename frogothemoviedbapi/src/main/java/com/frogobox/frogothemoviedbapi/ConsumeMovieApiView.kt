@@ -131,4 +131,8 @@ interface ConsumeMovieApiView {
     // Get Timezones
     fun getConfigurationTimezones(callback: MovieResultCallback<List<ConfigurationTimezone>>)
 
+    // CREDITS
+    // Get Details
+    fun getCreditsDetails(credit_id: String, callback: MovieResultCallback<Credits>)
+
 }
