@@ -6,8 +6,8 @@ import com.google.gson.annotations.SerializedName
  * Created by Faisal Amir
  * FrogoBox Inc License
  * =========================================
- * TMDBAPI
- * Copyright (C) 13/03/2020.
+ * consumable-code-movie-tmdb-api
+ * Copyright (C) 28/03/2020.
  * All rights reserved
  * -----------------------------------------
  * Name     : Muhammad Faisal Amir
@@ -19,25 +19,28 @@ import com.google.gson.annotations.SerializedName
  * com.frogobox.frogothemoviedbapi.data.model
  *
  */
-data class Movie(
+data class DiscoverTv(
+
+    @SerializedName("original_name")
+    var original_name: String? = null,
+
+    @SerializedName("genre_ids")
+    var genre_ids: List<Int>? = null,
+
+    @SerializedName("name")
+    var name: String? = null,
 
     @SerializedName("popularity")
     var popularity: Double? = null,
 
+    @SerializedName("origin_country")
+    var origin_country: List<String>? = null,
+
     @SerializedName("vote_count")
     var vote_count: Int? = null,
 
-    @SerializedName("video")
-    var video: Boolean? = null,
-
-    @SerializedName("poster_path")
-    var poster_path: String? = null,
-
-    @SerializedName("id")
-    var id: Int? = null,
-
-    @SerializedName("adult")
-    var adult: Boolean? = null,
+    @SerializedName("first_air_date")
+    var first_air_date: String? = null,
 
     @SerializedName("backdrop_path")
     var backdrop_path: String? = null,
@@ -45,14 +48,8 @@ data class Movie(
     @SerializedName("original_language")
     var original_language: String? = null,
 
-    @SerializedName("original_title")
-    var original_title: String? = null,
-
-    @SerializedName("genre_ids")
-    var genre_ids: List<Int>? = null,
-
-    @SerializedName("title")
-    var title: String? = null,
+    @SerializedName("id")
+    var id: Int? = null,
 
     @SerializedName("vote_average")
     var vote_average: Double? = null,
@@ -60,7 +57,7 @@ data class Movie(
     @SerializedName("overview")
     var overview: String? = null,
 
-    @SerializedName("release_date")
-    var release_date: String? = null
+    @SerializedName("poster_path")
+    var poster_path: String? = null
 
 )
