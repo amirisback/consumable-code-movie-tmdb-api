@@ -1,4 +1,4 @@
-package com.frogobox.frogothesportdbapi.callback
+package com.frogobox.frogothemoviedbapi.callback
 
 /**
  * Created by Faisal Amir
@@ -14,7 +14,7 @@ package com.frogobox.frogothesportdbapi.callback
  * LinkedIn : linkedin.com/in/faisalamircs
  * -----------------------------------------
  * FrogoBox Software Industries
- * com.frogobox.frogothesportdbapi.callback
+ * com.frogobox.frogothemoviedbapi.callback
  *
  */
 interface MovieResultCallback<T> {

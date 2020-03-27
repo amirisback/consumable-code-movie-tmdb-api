@@ -6,7 +6,7 @@ import com.frogobox.frogothemoviedbapi.data.response.*
 import com.frogobox.frogothemoviedbapi.data.source.MovieDataSource
 import com.frogobox.frogothemoviedbapi.data.source.MovieRemoteDataSource
 import com.frogobox.frogothemoviedbapi.data.source.MovieRepository
-import com.frogobox.frogothesportdbapi.callback.MovieResultCallback
+import com.frogobox.frogothemoviedbapi.callback.MovieResultCallback
 
 /**
  * Created by Faisal Amir

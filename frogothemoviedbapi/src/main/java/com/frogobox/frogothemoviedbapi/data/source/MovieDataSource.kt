@@ -3,7 +3,7 @@ package com.frogobox.frogothemoviedbapi.data.source
 import android.content.Context
 import com.frogobox.frogothemoviedbapi.data.model.*
 import com.frogobox.frogothemoviedbapi.data.response.*
-import com.frogobox.frogothesportdbapi.base.BaseMovieDataSource
+import com.frogobox.frogothemoviedbapi.base.BaseMovieDataSource
 
 /**
  * Created by Faisal Amir

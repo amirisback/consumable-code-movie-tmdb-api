@@ -1,4 +1,4 @@
-package com.frogobox.frogothesportdbapi.base
+package com.frogobox.frogothemoviedbapi.base
 
 /**
  * Created by Faisal Amir
@@ -14,7 +14,7 @@ package com.frogobox.frogothesportdbapi.base
  * LinkedIn : linkedin.com/in/faisalamircs
  * -----------------------------------------
  * FrogoBox Software Industries
- * com.frogobox.frogothesportdbapi
+ * com.frogobox.frogothemoviedbapi
  *
  */
 interface BaseMovieDataSource {

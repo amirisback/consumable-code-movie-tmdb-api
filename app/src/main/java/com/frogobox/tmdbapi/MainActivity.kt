@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.frogobox.frogothemoviedbapi.ConsumeMovieApi
 import com.frogobox.frogothemoviedbapi.data.model.ConfigurationJob
 import com.frogobox.frogothemoviedbapi.util.MovieUrl
-import com.frogobox.frogothesportdbapi.callback.MovieResultCallback
+import com.frogobox.frogothemoviedbapi.callback.MovieResultCallback
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
