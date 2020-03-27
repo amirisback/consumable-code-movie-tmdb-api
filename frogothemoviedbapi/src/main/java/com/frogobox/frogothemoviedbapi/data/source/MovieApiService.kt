@@ -181,6 +181,74 @@ interface MovieApiService {
         @Query(MovieConstant.QUERY_API_KEY) apiKey: String
     ): Observable<Credits>
 
+    // DISCOVER
+    // Movie Discover
+    @GET(MovieUrl.DISCOVER_GET_MOVIE)
+    fun getDiscoverMovie(
+        @Query(MovieConstant.QUERY_API_KEY) apiKey: String,
+        @Query(MovieConstant.QUERY_LANGUAGE) language: String?,
+        @Query(MovieConstant.QUERY_REGION) region: String?,
+        @Query(MovieConstant.QUERY_SORT_BY) sort_by: String?,
+        @Query(MovieConstant.QUERY_CERTIFICATION_COUNTRY) certification_country: String?,
+        @Query(MovieConstant.QUERY_CERTIFICATION) certification: String?,
+        @Query(MovieConstant.QUERY_CERTIFICATION_LTE) certification_lte: String?,
+        @Query(MovieConstant.QUERY_CERTIFICATION_GTE) certification_gte: String?,
+        @Query(MovieConstant.QUERY_INCLUDE_ADULT) include_adult: String?,
+        @Query(MovieConstant.QUERY_INCLUDE_VIDEO) include_video: String?,
+        @Query(MovieConstant.QUERY_PAGE) page: String?,
+        @Query(MovieConstant.QUERY_PRIMARY_RELEASE_YEAR) primary_release_year: String?,
+        @Query(MovieConstant.QUERY_PRIMARY_RELEASE_GTE) primary_release_date_gte: String?,
+        @Query(MovieConstant.QUERY_PRIMARY_RELEASE_LTE) primary_release_date_lte: String?,
+        @Query(MovieConstant.QUERY_RELEASE_DATE_GTE) release_date_gte: String?,
+        @Query(MovieConstant.QUERY_RELEASE_DATE_LTE) release_date_lte: String?,
+        @Query(MovieConstant.QUERY_RELEASE_DATE_TYPE) with_release_type: String?,
+        @Query(MovieConstant.QUERY_YEAR) year: String?,
+        @Query(MovieConstant.QUERY_VOTE_COUNT_GTE) vote_count_gte: String?,
+        @Query(MovieConstant.QUERY_VOTE_COUNT_LTE) vote_count_lte: String?,
+        @Query(MovieConstant.QUERY_VOTE_AVERAGE_GTE) vote_average_gte: String?,
+        @Query(MovieConstant.QUERY_VOTE_COUNT_LTE) vote_average_lte: String?,
+        @Query(MovieConstant.QUERY_WITH_CAST) with_cast: String?,
+        @Query(MovieConstant.QUERY_WITH_CREW) with_crew: String?,
+        @Query(MovieConstant.QUERY_WITH_PEOPLE) with_people: String?,
+        @Query(MovieConstant.QUERY_WITH_COMPANIES) with_companies: String?,
+        @Query(MovieConstant.QUERY_WITH_GENRES) with_genres: String?,
+        @Query(MovieConstant.QUERY_WITHOUT_GENRES) without_genres: String?,
+        @Query(MovieConstant.QUERY_WITH_KEYWORDS) with_keywords: String?,
+        @Query(MovieConstant.QUERY_WITHOUT_KEYWORDS) without_keywords: String?,
+        @Query(MovieConstant.QUERY_WITH_RUNTIME_GTE) with_runtime_gte: String?,
+        @Query(MovieConstant.QUERY_WITH_RUNTIME_LTE) with_runtime_lte: String?,
+        @Query(MovieConstant.QUERY_WITH_ORIGINAL_LANGUAGE) with_original_language: String?
+    ): Observable<Discover<DiscoverMovie>>
+
+    // DISCOVER
+    // TV Discover
+    @GET(MovieUrl.DISCOVER_GET_TV)
+    fun getDiscoverTv(
+        @Query(MovieConstant.QUERY_API_KEY) apiKey: String,
+        @Query(MovieConstant.QUERY_LANGUAGE) language: String?,
+        @Query(MovieConstant.QUERY_SORT_BY) sort_by: String?,
+        @Query(MovieConstant.QUERY_AIR_DATE_GTE) air_date_gte: String?,
+        @Query(MovieConstant.QUERY_AIR_DATE_LTE) air_date_lte: String?,
+        @Query(MovieConstant.QUERY_FIRST_AIR_DATE_GTE) first_air_date_gte: String?,
+        @Query(MovieConstant.QUERY_FIRST_AIR_DATE_LTE) first_air_date_lte: String?,
+        @Query(MovieConstant.QUERY_FIRST_AIR_DATE_YEAR) first_air_date_year: String?,
+        @Query(MovieConstant.QUERY_PAGE) page: String?,
+        @Query(MovieConstant.QUERY_TIMEZONE) timezone: String?,
+        @Query(MovieConstant.QUERY_VOTE_AVERAGE_GTE) vote_average_gte: String?,
+        @Query(MovieConstant.QUERY_VOTE_COUNT_GTE) vote_count_gte: String?,
+        @Query(MovieConstant.QUERY_WITH_GENRES) with_genres: String?,
+        @Query(MovieConstant.QUERY_WITH_NETWORKS) with_networks: String?,
+        @Query(MovieConstant.QUERY_WITHOUT_GENRES) without_genres: String?,
+        @Query(MovieConstant.QUERY_WITH_RUNTIME_GTE) with_runtime_gte: String?,
+        @Query(MovieConstant.QUERY_WITH_RUNTIME_LTE) with_runtime_lte: String?,
+        @Query(MovieConstant.QUERY_INCLUDE_NULL_FIRST_AIR_DATES) include_null_first_air_dates: String?,
+        @Query(MovieConstant.QUERY_WITH_ORIGINAL_LANGUAGE) with_original_language: String?,
+        @Query(MovieConstant.QUERY_WITH_KEYWORDS) without_keywords: String?,
+        @Query(MovieConstant.QUERY_SCREENED_THEATRICALLY) screened_theatrically: String?,
+        @Query(MovieConstant.QUERY_WITH_COMPANIES) with_companies: String?,
+        @Query(MovieConstant.QUERY_WITH_KEYWORDS) with_keywords: String?
+    ): Observable<Discover<DiscoverTv>>
+
     companion object Factory {
 
         private var isUsingChuckInterceptor = false

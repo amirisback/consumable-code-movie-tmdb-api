@@ -518,7 +518,58 @@ object MovieRemoteDataSource : MovieDataSource {
         with_original_language: String?,
         callback: MovieDataSource.GetRemoteCallback<Discover<DiscoverMovie>>
     ) {
-        TODO("Not yet implemented")
+        movieApiService.getApiService
+            .getDiscoverMovie(
+                apiKey,
+                language,
+                region,
+                sort_by,
+                certification_country,
+                certification,
+                certification_lte,
+                certification_gte,
+                include_adult,
+                include_video,
+                page,
+                primary_release_year,
+                primary_release_date_gte,
+                primary_release_date_lte,
+                release_date_gte,
+                release_date_lte,
+                with_release_type,
+                year,
+                vote_count_gte,
+                vote_count_lte,
+                vote_average_gte,
+                vote_average_lte,
+                with_cast,
+                with_crew,
+                with_people,
+                with_companies,
+                with_genres,
+                without_genres,
+                with_keywords,
+                without_keywords,
+                with_runtime_gte,
+                with_runtime_lte,
+                with_original_language
+            )
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .doOnSubscribe { callback.onShowProgress() }
+            .doOnTerminate { callback.onHideProgress() }
+            .subscribe(object : MovieApiCallback<Discover<DiscoverMovie>>() {
+                override fun onSuccess(data: Discover<DiscoverMovie>) {
+                    callback.onSuccess(data)
+                }
+
+                override fun onFailure(statusCode: Int, errorMessage: String) {
+                    callback.onFailed(statusCode, errorMessage)
+                }
+
+                override fun onFinish() {
+                }
+            })
     }
 
     override fun getDiscoverTv(
@@ -547,6 +598,47 @@ object MovieRemoteDataSource : MovieDataSource {
         with_keywords: String?,
         callback: MovieDataSource.GetRemoteCallback<Discover<DiscoverTv>>
     ) {
-        TODO("Not yet implemented")
+        movieApiService.getApiService
+            .getDiscoverTv(
+                apiKey,
+                language,
+                sort_by,
+                air_date_gte,
+                air_date_lte,
+                first_air_date_gte,
+                first_air_date_lte,
+                first_air_date_year,
+                page,
+                timezone,
+                vote_average_gte,
+                vote_count_gte,
+                with_genres,
+                with_networks,
+                without_genres,
+                with_runtime_gte,
+                with_runtime_lte,
+                include_null_first_air_dates,
+                with_original_language,
+                without_keywords,
+                screened_theatrically,
+                with_companies,
+                with_keywords
+            )
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .doOnSubscribe { callback.onShowProgress() }
+            .doOnTerminate { callback.onHideProgress() }
+            .subscribe(object : MovieApiCallback<Discover<DiscoverTv>>() {
+                override fun onSuccess(data: Discover<DiscoverTv>) {
+                    callback.onSuccess(data)
+                }
+
+                override fun onFailure(statusCode: Int, errorMessage: String) {
+                    callback.onFailed(statusCode, errorMessage)
+                }
+
+                override fun onFinish() {
+                }
+            })
     }
 }
