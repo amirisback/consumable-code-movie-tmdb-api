@@ -219,6 +219,22 @@ https://developers.themoviedb.org/3/getting-started/introduction
         callback: MovieResultCallback<Genres>
     )
     
+    // KEYWORDS
+    // Get Details
+    fun getKeywordsDetail(
+        keyword_id: Int,
+        callback: MovieResultCallback<KeywordsDetail>
+    )
+
+    // KEYWORDS
+    // Get Movies
+    fun getKeywordsMovie(
+        keyword_id: Int,
+        language: String?,
+        include_adult: String?,
+        callback: MovieResultCallback<KeywordsMovies>
+    )
+    
     
 # Android Library Version (build.gradle)
 - ext.kotlin_version = '1.3.71'
