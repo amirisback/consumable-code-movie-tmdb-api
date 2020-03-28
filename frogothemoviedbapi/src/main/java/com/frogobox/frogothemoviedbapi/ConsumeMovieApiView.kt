@@ -1,9 +1,9 @@
 package com.frogobox.frogothemoviedbapi
 
 import android.content.Context
+import com.frogobox.frogothemoviedbapi.callback.MovieResultCallback
 import com.frogobox.frogothemoviedbapi.data.model.*
 import com.frogobox.frogothemoviedbapi.data.response.*
-import com.frogobox.frogothemoviedbapi.callback.MovieResultCallback
 
 /**
  * Created by Faisal Amir
@@ -208,6 +208,21 @@ interface ConsumeMovieApiView {
         external_id: String,
         external_source: String,
         language: String?,
-        callback: MovieResultCallback<Find>)
+        callback: MovieResultCallback<Find>
+    )
+
+    // GENRES
+    // Get Movie List
+    fun getGenresMovie(
+        language: String?,
+        callback: MovieResultCallback<Genres>
+    )
+
+    // GENRES
+    // Get TV List
+    fun getGenresTv(
+        language: String?,
+        callback: MovieResultCallback<Genres>
+    )
 
 }

@@ -235,7 +235,24 @@ interface MovieDataSource {
         apiKey: String,
         external_source: String,
         language: String?,
-        callback: GetRemoteCallback<Find>)
+        callback: GetRemoteCallback<Find>
+    )
+
+    // GENRES
+    // Get Movie List
+    fun getGenresMovie(
+        apiKey: String,
+        language: String?,
+        callback: GetRemoteCallback<Genres>
+    )
+
+    // GENRES
+    // Get TV List
+    fun getGenresTv(
+        apiKey: String,
+        language: String?,
+        callback: GetRemoteCallback<Genres>
+    )
 
     // Response Callback
     interface GetRemoteCallback<T> : BaseMovieDataSource.ResponseCallback<T>

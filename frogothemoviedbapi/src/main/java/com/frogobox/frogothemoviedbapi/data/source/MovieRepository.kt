@@ -309,4 +309,20 @@ class MovieRepository(private val remoteDataSource: MovieRemoteDataSource) : Mov
     ) {
         remoteDataSource.getFindById(external_id, apiKey, external_source, language, callback)
     }
+
+    override fun getGenresMovie(
+        apiKey: String,
+        language: String?,
+        callback: MovieDataSource.GetRemoteCallback<Genres>
+    ) {
+        remoteDataSource.getGenresMovie(apiKey, language, callback)
+    }
+
+    override fun getGenresTv(
+        apiKey: String,
+        language: String?,
+        callback: MovieDataSource.GetRemoteCallback<Genres>
+    ) {
+        remoteDataSource.getGenresTv(apiKey, language, callback)
+    }
 }

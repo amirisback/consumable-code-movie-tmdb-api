@@ -668,4 +668,54 @@ object MovieRemoteDataSource : MovieDataSource {
                 }
             })
     }
+
+    override fun getGenresMovie(
+        apiKey: String,
+        language: String?,
+        callback: MovieDataSource.GetRemoteCallback<Genres>
+    ) {
+        movieApiService.getApiService
+            .getGenresMovie(apiKey, language)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .doOnSubscribe { callback.onShowProgress() }
+            .doOnTerminate { callback.onHideProgress() }
+            .subscribe(object : MovieApiCallback<Genres>() {
+                override fun onSuccess(data: Genres) {
+                    callback.onSuccess(data)
+                }
+
+                override fun onFailure(statusCode: Int, errorMessage: String) {
+                    callback.onFailed(statusCode, errorMessage)
+                }
+
+                override fun onFinish() {
+                }
+            })
+    }
+
+    override fun getGenresTv(
+        apiKey: String,
+        language: String?,
+        callback: MovieDataSource.GetRemoteCallback<Genres>
+    ) {
+        movieApiService.getApiService
+            .getGenresTv(apiKey, language)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .doOnSubscribe { callback.onShowProgress() }
+            .doOnTerminate { callback.onHideProgress() }
+            .subscribe(object : MovieApiCallback<Genres>() {
+                override fun onSuccess(data: Genres) {
+                    callback.onSuccess(data)
+                }
+
+                override fun onFailure(statusCode: Int, errorMessage: String) {
+                    callback.onFailed(statusCode, errorMessage)
+                }
+
+                override fun onFinish() {
+                }
+            })
+    }
 }

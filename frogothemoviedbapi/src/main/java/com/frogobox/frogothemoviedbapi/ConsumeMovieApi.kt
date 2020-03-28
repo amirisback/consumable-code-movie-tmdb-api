@@ -667,4 +667,50 @@ class ConsumeMovieApi(private val apiKey: String) : ConsumeMovieApiView {
                 }
             })
     }
+
+    override fun getGenresMovie(language: String?, callback: MovieResultCallback<Genres>) {
+        movieRepository.getGenresMovie(
+            apiKey,
+            language,
+            object : MovieDataSource.GetRemoteCallback<Genres> {
+                override fun onSuccess(data: Genres) {
+                    callback.getResultData(data)
+                }
+
+                override fun onFailed(statusCode: Int, errorMessage: String?) {
+                    callback.failedResult(statusCode, errorMessage)
+                }
+
+                override fun onShowProgress() {
+                    callback.onShowProgress()
+                }
+
+                override fun onHideProgress() {
+                    callback.onHideProgress()
+                }
+            })
+    }
+
+    override fun getGenresTv(language: String?, callback: MovieResultCallback<Genres>) {
+        movieRepository.getGenresTv(
+            apiKey,
+            language,
+            object : MovieDataSource.GetRemoteCallback<Genres> {
+                override fun onSuccess(data: Genres) {
+                    callback.getResultData(data)
+                }
+
+                override fun onFailed(statusCode: Int, errorMessage: String?) {
+                    callback.failedResult(statusCode, errorMessage)
+                }
+
+                override fun onShowProgress() {
+                    callback.onShowProgress()
+                }
+
+                override fun onHideProgress() {
+                    callback.onHideProgress()
+                }
+            })
+    }
 }

@@ -251,12 +251,29 @@ interface MovieApiService {
 
     // FIND
     // Find by ID
+    @GET(MovieUrl.FIND_GET_ID)
     fun getFindById(
         @Path(MovieConstant.PATH_EXTERNAL_ID) external_id: String,
         @Query(MovieConstant.QUERY_API_KEY) apiKey: String,
         @Query(MovieConstant.QUERY_EXTERNAL_SOURCE) external_source: String,
         @Query(MovieConstant.QUERY_LANGUAGE) language: String?
     ): Observable<Find>
+
+    // GENRES
+    // Get Movie List
+    @GET(MovieUrl.GENRES_GET_MOVIES)
+    fun getGenresMovie(
+        @Query(MovieConstant.QUERY_API_KEY) apiKey: String,
+        @Query(MovieConstant.QUERY_LANGUAGE) language: String?
+    ): Observable<Genres>
+
+    // GENRES
+    // Get TV List
+    @GET(MovieUrl.GENRES_GET_TV)
+    fun getGenresTv(
+        @Query(MovieConstant.QUERY_API_KEY) apiKey: String,
+        @Query(MovieConstant.QUERY_LANGUAGE) language: String?
+    ): Observable<Genres>
 
     companion object Factory {
 
