@@ -1,5 +1,5 @@
 # consumable-code-movie-tmdb-api By AmirIsBack
-- v1.0.5 - Development
+- v1.0.6 - Development
 - Stable Version
 
 # About This Project
@@ -236,11 +236,11 @@ https://developers.themoviedb.org/3/getting-started/introduction
 # Version Release
 This Is Latest Release
 
-    $version_release = 1.0.5
+    $version_release = 1.0.6
 
 What's New??
 
-    * Add: Find, Genres Movie and Tv, Bug Fixed *
+    * Add: Keyword, Bug Fixed *
 
 # How To Use This Project
 <h3>Step 1. Add the JitPack repository to your build file</h3>
