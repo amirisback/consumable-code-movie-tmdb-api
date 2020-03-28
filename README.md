@@ -1,5 +1,5 @@
 # consumable-code-movie-tmdb-api By AmirIsBack
-- v1.0.4 - Development
+- v1.0.5 - Development
 - Stable Version
 
 # About This Project
@@ -196,21 +196,51 @@ https://developers.themoviedb.org/3/getting-started/introduction
         callback: MovieResultCallback<Discover<DiscoverTv>>
     )
     
+    // FIND
+    // Find by ID
+    fun getFindById(
+        external_id: String,
+        external_source: String,
+        language: String?,
+        callback: MovieResultCallback<Find>
+    )
+
+    // GENRES
+    // Get Movie List
+    fun getGenresMovie(
+        language: String?,
+        callback: MovieResultCallback<Genres>
+    )
+
+    // GENRES
+    // Get TV List
+    fun getGenresTv(
+        language: String?,
+        callback: MovieResultCallback<Genres>
+    )
+    
+    
 # Android Library Version (build.gradle)
-- ext.kotlin_version = '1.3.70'
+- ext.kotlin_version = '1.3.71'
 - classpath 'com.android.tools.build:gradle:3.6.1'
 - compileSdkVersion 29
 - buildToolsVersion "29.0.3"
 - minSdkVersion 21
 
+# Automatically Using This Permission
+    
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+
 # Version Release
 This Is Latest Release
 
-    $version_release = 1.0.4
+    $version_release = 1.0.5
 
 What's New??
 
-    * Add: Discover Movie and Tv, Bug Fixed *
+    * Add: Find, Genres Movie and Tv, Bug Fixed *
 
 # How To Use This Project
 <h3>Step 1. Add the JitPack repository to your build file</h3>
