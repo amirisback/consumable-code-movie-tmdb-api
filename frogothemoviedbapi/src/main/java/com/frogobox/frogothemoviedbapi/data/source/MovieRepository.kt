@@ -299,4 +299,14 @@ class MovieRepository(private val remoteDataSource: MovieRemoteDataSource) : Mov
             callback
         )
     }
+
+    override fun getFindById(
+        external_id: String,
+        apiKey: String,
+        external_source: String,
+        language: String?,
+        callback: MovieDataSource.GetRemoteCallback<Find>
+    ) {
+        remoteDataSource.getFindById(external_id, apiKey, external_source, language, callback)
+    }
 }

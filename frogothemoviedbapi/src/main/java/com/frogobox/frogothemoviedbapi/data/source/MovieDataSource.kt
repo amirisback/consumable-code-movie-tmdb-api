@@ -228,6 +228,15 @@ interface MovieDataSource {
         callback: GetRemoteCallback<Discover<DiscoverTv>>
     )
 
+    // FIND
+    // Find by ID
+    fun getFindById(
+        external_id: String,
+        apiKey: String,
+        external_source: String,
+        language: String?,
+        callback: GetRemoteCallback<Find>)
+
     // Response Callback
     interface GetRemoteCallback<T> : BaseMovieDataSource.ResponseCallback<T>
 

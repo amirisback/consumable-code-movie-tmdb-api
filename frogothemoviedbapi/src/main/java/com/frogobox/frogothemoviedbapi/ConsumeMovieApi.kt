@@ -550,7 +550,7 @@ class ConsumeMovieApi(private val apiKey: String) : ConsumeMovieApiView {
             with_runtime_gte,
             with_runtime_lte,
             with_original_language,
-            object : MovieDataSource.GetRemoteCallback<Discover<DiscoverMovie>>{
+            object : MovieDataSource.GetRemoteCallback<Discover<DiscoverMovie>> {
                 override fun onSuccess(data: Discover<DiscoverMovie>) {
                     callback.getResultData(data)
                 }
@@ -636,5 +636,35 @@ class ConsumeMovieApi(private val apiKey: String) : ConsumeMovieApiView {
                 }
             }
         )
+    }
+
+    override fun getFindById(
+        external_id: String,
+        external_source: String,
+        language: String?,
+        callback: MovieResultCallback<Find>
+    ) {
+        movieRepository.getFindById(
+            external_id,
+            apiKey,
+            external_source,
+            language,
+            object : MovieDataSource.GetRemoteCallback<Find> {
+                override fun onSuccess(data: Find) {
+                    callback.getResultData(data)
+                }
+
+                override fun onFailed(statusCode: Int, errorMessage: String?) {
+                    callback.failedResult(statusCode, errorMessage)
+                }
+
+                override fun onShowProgress() {
+                    callback.onShowProgress()
+                }
+
+                override fun onHideProgress() {
+                    callback.onHideProgress()
+                }
+            })
     }
 }

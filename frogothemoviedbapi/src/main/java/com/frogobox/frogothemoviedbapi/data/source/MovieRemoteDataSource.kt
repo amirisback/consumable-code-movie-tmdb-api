@@ -641,4 +641,31 @@ object MovieRemoteDataSource : MovieDataSource {
                 }
             })
     }
+
+    override fun getFindById(
+        external_id: String,
+        apiKey: String,
+        external_source: String,
+        language: String?,
+        callback: MovieDataSource.GetRemoteCallback<Find>
+    ) {
+        movieApiService.getApiService
+            .getFindById(external_id, apiKey, external_source, language)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .doOnSubscribe { callback.onShowProgress() }
+            .doOnTerminate { callback.onHideProgress() }
+            .subscribe(object : MovieApiCallback<Find>() {
+                override fun onSuccess(data: Find) {
+                    callback.onSuccess(data)
+                }
+
+                override fun onFailure(statusCode: Int, errorMessage: String) {
+                    callback.onFailed(statusCode, errorMessage)
+                }
+
+                override fun onFinish() {
+                }
+            })
+    }
 }

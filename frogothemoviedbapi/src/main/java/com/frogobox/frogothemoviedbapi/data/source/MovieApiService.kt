@@ -249,6 +249,15 @@ interface MovieApiService {
         @Query(MovieConstant.QUERY_WITH_KEYWORDS) with_keywords: String?
     ): Observable<Discover<DiscoverTv>>
 
+    // FIND
+    // Find by ID
+    fun getFindById(
+        @Path(MovieConstant.PATH_EXTERNAL_ID) external_id: String,
+        @Query(MovieConstant.QUERY_API_KEY) apiKey: String,
+        @Query(MovieConstant.QUERY_EXTERNAL_SOURCE) external_source: String,
+        @Query(MovieConstant.QUERY_LANGUAGE) language: String?
+    ): Observable<Find>
+
     companion object Factory {
 
         private var isUsingChuckInterceptor = false
