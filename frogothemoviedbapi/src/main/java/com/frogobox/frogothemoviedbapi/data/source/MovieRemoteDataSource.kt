@@ -718,4 +718,56 @@ object MovieRemoteDataSource : MovieDataSource {
                 }
             })
     }
+
+    override fun getKeywordsDetail(
+        keyword_id: Int,
+        apiKey: String,
+        callback: MovieDataSource.GetRemoteCallback<KeywordsDetail>
+    ) {
+        movieApiService.getApiService
+            .getKeywordsDetail(keyword_id, apiKey)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .doOnSubscribe { callback.onShowProgress() }
+            .doOnTerminate { callback.onHideProgress() }
+            .subscribe(object : MovieApiCallback<KeywordsDetail>() {
+                override fun onSuccess(data: KeywordsDetail) {
+                    callback.onSuccess(data)
+                }
+
+                override fun onFailure(statusCode: Int, errorMessage: String) {
+                    callback.onFailed(statusCode, errorMessage)
+                }
+
+                override fun onFinish() {
+                }
+            })
+    }
+
+    override fun getKeywordsMovie(
+        keyword_id: Int,
+        apiKey: String,
+        language: String?,
+        include_adult: String?,
+        callback: MovieDataSource.GetRemoteCallback<KeywordsMovies>
+    ) {
+        movieApiService.getApiService
+            .getKeywordsMovie(keyword_id, apiKey, language, include_adult)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .doOnSubscribe { callback.onShowProgress() }
+            .doOnTerminate { callback.onHideProgress() }
+            .subscribe(object : MovieApiCallback<KeywordsMovies>() {
+                override fun onSuccess(data: KeywordsMovies) {
+                    callback.onSuccess(data)
+                }
+
+                override fun onFailure(statusCode: Int, errorMessage: String) {
+                    callback.onFailed(statusCode, errorMessage)
+                }
+
+                override fun onFinish() {
+                }
+            })
+    }
 }

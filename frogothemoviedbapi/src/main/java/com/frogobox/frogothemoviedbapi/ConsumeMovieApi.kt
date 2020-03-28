@@ -713,4 +713,57 @@ class ConsumeMovieApi(private val apiKey: String) : ConsumeMovieApiView {
                 }
             })
     }
+
+    override fun getKeywordsDetail(keyword_id: Int, callback: MovieResultCallback<KeywordsDetail>) {
+        movieRepository.getKeywordsDetail(
+            keyword_id,
+            apiKey,
+            object : MovieDataSource.GetRemoteCallback<KeywordsDetail> {
+                override fun onSuccess(data: KeywordsDetail) {
+                    callback.getResultData(data)
+                }
+
+                override fun onFailed(statusCode: Int, errorMessage: String?) {
+                    callback.failedResult(statusCode, errorMessage)
+                }
+
+                override fun onShowProgress() {
+                    callback.onShowProgress()
+                }
+
+                override fun onHideProgress() {
+                    callback.onHideProgress()
+                }
+            })
+    }
+
+    override fun getKeywordsMovie(
+        keyword_id: Int,
+        language: String?,
+        include_adult: String?,
+        callback: MovieResultCallback<KeywordsMovies>
+    ) {
+        movieRepository.getKeywordsMovie(
+            keyword_id,
+            apiKey,
+            language,
+            include_adult,
+            object : MovieDataSource.GetRemoteCallback<KeywordsMovies> {
+                override fun onSuccess(data: KeywordsMovies) {
+                    callback.getResultData(data)
+                }
+
+                override fun onFailed(statusCode: Int, errorMessage: String?) {
+                    callback.failedResult(statusCode, errorMessage)
+                }
+
+                override fun onShowProgress() {
+                    callback.onShowProgress()
+                }
+
+                override fun onHideProgress() {
+                    callback.onHideProgress()
+                }
+            })
+    }
 }

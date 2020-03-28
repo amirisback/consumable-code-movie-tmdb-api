@@ -275,6 +275,24 @@ interface MovieApiService {
         @Query(MovieConstant.QUERY_LANGUAGE) language: String?
     ): Observable<Genres>
 
+    // KEYWORDS
+    // Get Details
+    @GET(MovieUrl.KEYWORDS_GET_DETAILS)
+    fun getKeywordsDetail(
+        @Path(MovieConstant.PATH_KEYWORD_ID) keyword_id: Int,
+        @Query(MovieConstant.QUERY_API_KEY) apiKey: String
+    ): Observable<KeywordsDetail>
+
+    // KEYWORDS
+    // Get Movies
+    @GET(MovieUrl.KEYWORDS_GET_MOVIES)
+    fun getKeywordsMovie(
+        @Path(MovieConstant.PATH_KEYWORD_ID) keyword_id: Int,
+        @Query(MovieConstant.QUERY_API_KEY) apiKey: String,
+        @Query(MovieConstant.QUERY_LANGUAGE) language: String?,
+        @Query(MovieConstant.QUERY_INCLUDE_ADULT) include_adult: String?
+    ): Observable<KeywordsMovies>
+
     companion object Factory {
 
         private var isUsingChuckInterceptor = false
