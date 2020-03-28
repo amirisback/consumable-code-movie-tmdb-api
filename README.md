@@ -278,7 +278,7 @@ Add it in your root build.gradle at the end of repositories:
             implementation 'com.github.amirisback:consumable-code-movie-tmdb-api:$version_release'
 	}
 	
-<h3>Step 3. Declaration ConsumeTheSportDbApi</h3>
+<h3>Step 3. Declaration ConsumeMovieApi</h3>
 
     val consumeMovieApi = ConsumeMovieApi(MovieUrl.API_KEY) // your api_key
     consumeMovieApi.usingChuckInterceptor(this) // This is Code Chuck Interceptor
