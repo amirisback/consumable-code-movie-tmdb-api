@@ -349,6 +349,14 @@ interface MovieApiService {
         @Query(MovieConstant.QUERY_API_KEY) apiKey: String
     ): Observable<Trending<TrendingTv>>
 
+    // REVIEWS
+    // Get Details
+    @GET(MovieUrl.REVIEWS_GET_DETAILS)
+    fun getReviews(
+        @Path(MovieConstant.PATH_REVIEW_ID) review_id: String,
+        @Query(MovieConstant.QUERY_API_KEY) apiKey: String
+    ): Observable<Reviews>
+
     companion object Factory {
 
         private var isUsingChuckInterceptor = false

@@ -406,4 +406,12 @@ class MovieRepository(private val remoteDataSource: MovieRemoteDataSource) : Mov
         remoteDataSource.getTrendingTv(media_type, time_window, apiKey, callback)
     }
 
+    override fun getReviews(
+        review_id: String,
+        apiKey: String,
+        callback: MovieDataSource.GetRemoteCallback<Reviews>
+    ) {
+        remoteDataSource.getReviews(review_id, apiKey, callback)
+    }
+
 }

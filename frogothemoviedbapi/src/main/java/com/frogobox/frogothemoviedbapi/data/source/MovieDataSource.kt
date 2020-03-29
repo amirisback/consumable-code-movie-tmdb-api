@@ -328,6 +328,14 @@ interface MovieDataSource {
         callback: GetRemoteCallback<Trending<TrendingTv>>
     )
 
+    // REVIEWS
+    // Get Details
+    fun getReviews(
+        review_id: String,
+        apiKey: String,
+        callback: GetRemoteCallback<Reviews>
+    )
+
     // Response Callback
     interface GetRemoteCallback<T> : BaseMovieDataSource.ResponseCallback<T>
 

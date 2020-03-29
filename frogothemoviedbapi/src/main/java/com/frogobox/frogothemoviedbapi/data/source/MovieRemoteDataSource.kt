@@ -928,4 +928,29 @@ object MovieRemoteDataSource : MovieDataSource {
                 }
             })
     }
+
+    override fun getReviews(
+        review_id: String,
+        apiKey: String,
+        callback: MovieDataSource.GetRemoteCallback<Reviews>
+    ) {
+        movieApiService.getApiService
+            .getReviews(review_id, apiKey)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .doOnSubscribe { callback.onShowProgress() }
+            .doOnTerminate { callback.onHideProgress() }
+            .subscribe(object : MovieApiCallback<Reviews>() {
+                override fun onSuccess(data: Reviews) {
+                    callback.onSuccess(data)
+                }
+
+                override fun onFailure(statusCode: Int, errorMessage: String) {
+                    callback.onFailed(statusCode, errorMessage)
+                }
+
+                override fun onFinish() {
+                }
+            })
+    }
 }

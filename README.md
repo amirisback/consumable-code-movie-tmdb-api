@@ -257,30 +257,15 @@ https://developers.themoviedb.org/3/getting-started/introduction
         callback: MovieResultCallback<KeywordsMovies>
     )
     
-# Development ---------
-    
-## MOVIES
-    
-    // MOVIES
+## REVIEWS
+
+    // REVIEWS
     // Get Details
-    fun getMoviesDetails(
-        movie_id: Int,
-        language: String?,
-        append_to_response: String?,
-        callback: MovieResultCallback<MovieDetail>
+    fun getReviews(
+        review_id: String,
+        callback: MovieResultCallback<Reviews>
     )
     
-    // MOVIES
-    // Get Account States
-    fun getMoviesAccountState(
-        movie_id: Int,
-        session_id: String,
-        guest_session_id: String?,
-        callback: MovieResultCallback<MovieAccountState>
-    )
-    
-## LIST
-## NETWORKS
 ## TRENDING
 
     // TRENDING
@@ -331,14 +316,36 @@ https://developers.themoviedb.org/3/getting-started/introduction
         callback: MovieResultCallback<Trending<TrendingTv>>
     )
 
+# Development ---------
+    
+## MOVIES
+    
+    // MOVIES
+    // Get Details
+    fun getMoviesDetails(
+        movie_id: Int,
+        language: String?,
+        append_to_response: String?,
+        callback: MovieResultCallback<MovieDetail>
+    )
+    
+    // MOVIES
+    // Get Account States
+    fun getMoviesAccountState(
+        movie_id: Int,
+        session_id: String,
+        guest_session_id: String?,
+        callback: MovieResultCallback<MovieAccountState>
+    )
+    
+## LIST
+## NETWORKS
 ## PEOPLE
-## REVIEWS
 ## SEARCH
 ## TV
 ## TV SEASONS
 ## TV EPISODES
 ## TV EPISODE GROUPS 
-    
     
 # Android Library Version (build.gradle)
 - ext.kotlin_version = '1.3.71'

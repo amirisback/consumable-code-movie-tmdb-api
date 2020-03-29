@@ -307,4 +307,11 @@ interface ConsumeMovieApiView {
         callback: MovieResultCallback<Trending<TrendingTv>>
     )
 
+    // REVIEWS
+    // Get Details
+    fun getReviews(
+        review_id: String,
+        callback: MovieResultCallback<Reviews>
+    )
+
 }

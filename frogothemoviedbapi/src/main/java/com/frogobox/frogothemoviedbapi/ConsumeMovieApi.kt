@@ -1019,4 +1019,27 @@ class ConsumeMovieApi(private val apiKey: String) : ConsumeMovieApiView {
                 }
             })
     }
+
+    override fun getReviews(review_id: String, callback: MovieResultCallback<Reviews>) {
+        movieRepository.getReviews(
+            review_id,
+            apiKey,
+            object : MovieDataSource.GetRemoteCallback<Reviews> {
+                override fun onSuccess(data: Reviews) {
+                    callback.getResultData(data)
+                }
+
+                override fun onFailed(statusCode: Int, errorMessage: String?) {
+                    callback.failedResult(statusCode, errorMessage)
+                }
+
+                override fun onShowProgress() {
+                    callback.onShowProgress()
+                }
+
+                override fun onHideProgress() {
+                    callback.onHideProgress()
+                }
+            })
+    }
 }
