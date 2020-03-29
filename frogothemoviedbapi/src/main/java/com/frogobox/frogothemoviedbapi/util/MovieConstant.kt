@@ -67,6 +67,8 @@ class MovieConstant {
         const val QUERY_INCLUDE_NULL_FIRST_AIR_DATES = "include_null_first_air_dates"
         const val QUERY_EXTERNAL_SOURCE = "external_source"
         const val QUERY_APPEND_TO_RESPONSE = "append_to_response"
+        const val QUERY_SESSION_ID = "session_id"
+        const val QUERY_GUEST_SESSION_ID = "guest_session_id"
 
         const val PATH_ID = "id"
         const val PATH_COLLECTION_ID = "collection_id"

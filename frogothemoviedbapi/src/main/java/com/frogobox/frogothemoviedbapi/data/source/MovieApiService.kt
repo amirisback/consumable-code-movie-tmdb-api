@@ -303,6 +303,16 @@ interface MovieApiService {
         @Query(MovieConstant.QUERY_APPEND_TO_RESPONSE) append_to_response: String?
     ): Observable<MovieDetail>
 
+    // MOVIES
+    // Get Account States
+    @GET(MovieUrl.MOVIES_GET_ACCOUNT_STATES)
+    fun getMoviesAccountState(
+        @Path(MovieConstant.PATH_MOVIE_ID) movie_id: Int,
+        @Query(MovieConstant.QUERY_API_KEY) apiKey: String,
+        @Query(MovieConstant.QUERY_SESSION_ID) session_id: String,
+        @Query(MovieConstant.QUERY_GUEST_SESSION_ID) guest_session_id: String?
+    ): Observable<MovieAccountState>
+
     companion object Factory {
 
         private var isUsingChuckInterceptor = false

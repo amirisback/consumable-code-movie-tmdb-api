@@ -250,4 +250,13 @@ interface ConsumeMovieApiView {
         callback: MovieResultCallback<MovieDetail>
     )
 
+    // MOVIES
+    // Get Account States
+    fun getMoviesAccountState(
+        movie_id: Int,
+        session_id: String,
+        guest_session_id: String?,
+        callback: MovieResultCallback<MovieAccountState>
+    )
+
 }

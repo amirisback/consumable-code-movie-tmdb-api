@@ -246,6 +246,15 @@ https://developers.themoviedb.org/3/getting-started/introduction
         callback: MovieResultCallback<MovieDetail>
     )
     
+    // MOVIES
+    // Get Account States
+    fun getMoviesAccountState(
+        movie_id: Int,
+        session_id: String,
+        guest_session_id: String?,
+        callback: MovieResultCallback<MovieAccountState>
+    )
+    
     
 # Android Library Version (build.gradle)
 - ext.kotlin_version = '1.3.71'

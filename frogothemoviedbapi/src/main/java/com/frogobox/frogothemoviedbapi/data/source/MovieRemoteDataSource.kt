@@ -797,4 +797,31 @@ object MovieRemoteDataSource : MovieDataSource {
                 }
             })
     }
+
+    override fun getMoviesAccountState(
+        movie_id: Int,
+        apiKey: String,
+        session_id: String,
+        guest_session_id: String?,
+        callback: MovieDataSource.GetRemoteCallback<MovieAccountState>
+    ) {
+        movieApiService.getApiService
+            .getMoviesAccountState(movie_id, apiKey, session_id, guest_session_id)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .doOnSubscribe { callback.onShowProgress() }
+            .doOnTerminate { callback.onHideProgress() }
+            .subscribe(object : MovieApiCallback<MovieAccountState>() {
+                override fun onSuccess(data: MovieAccountState) {
+                    callback.onSuccess(data)
+                }
+
+                override fun onFailure(statusCode: Int, errorMessage: String) {
+                    callback.onFailed(statusCode, errorMessage)
+                }
+
+                override fun onFinish() {
+                }
+            })
+    }
 }

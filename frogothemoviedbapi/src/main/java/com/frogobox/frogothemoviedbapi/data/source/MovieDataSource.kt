@@ -282,6 +282,16 @@ interface MovieDataSource {
         callback: GetRemoteCallback<MovieDetail>
     )
 
+    // MOVIES
+    // Get Account States
+    fun getMoviesAccountState(
+        movie_id: Int,
+        apiKey: String,
+        session_id: String,
+        guest_session_id: String?,
+        callback: GetRemoteCallback<MovieAccountState>
+    )
+
     // Response Callback
     interface GetRemoteCallback<T> : BaseMovieDataSource.ResponseCallback<T>
 

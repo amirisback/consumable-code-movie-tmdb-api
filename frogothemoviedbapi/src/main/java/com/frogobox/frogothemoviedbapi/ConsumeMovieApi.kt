@@ -796,4 +796,34 @@ class ConsumeMovieApi(private val apiKey: String) : ConsumeMovieApiView {
                 }
             })
     }
+
+    override fun getMoviesAccountState(
+        movie_id: Int,
+        session_id: String,
+        guest_session_id: String?,
+        callback: MovieResultCallback<MovieAccountState>
+    ) {
+        movieRepository.getMoviesAccountState(
+            movie_id,
+            apiKey,
+            session_id,
+            guest_session_id,
+            object : MovieDataSource.GetRemoteCallback<MovieAccountState> {
+                override fun onSuccess(data: MovieAccountState) {
+                    callback.getResultData(data)
+                }
+
+                override fun onFailed(statusCode: Int, errorMessage: String?) {
+                    callback.failedResult(statusCode, errorMessage)
+                }
+
+                override fun onShowProgress() {
+                    callback.onShowProgress()
+                }
+
+                override fun onHideProgress() {
+                    callback.onHideProgress()
+                }
+            })
+    }
 }
