@@ -1,5 +1,5 @@
 # consumable-code-movie-tmdb-api By AmirIsBack
-- v1.0.6 - Development
+- v1.0.7 - Development
 - Stable Version
 
 # About This Project
@@ -316,29 +316,6 @@ https://developers.themoviedb.org/3/getting-started/introduction
         callback: MovieResultCallback<Trending<TrendingTv>>
     )
 
-# Development ---------
-    
-## MOVIES
-    
-    // MOVIES
-    // Get Details
-    fun getMoviesDetails(
-        movie_id: Int,
-        language: String?,
-        append_to_response: String?,
-        callback: MovieResultCallback<MovieDetail>
-    )
-    
-    // MOVIES
-    // Get Account States
-    fun getMoviesAccountState(
-        movie_id: Int,
-        session_id: String,
-        guest_session_id: String?,
-        callback: MovieResultCallback<MovieAccountState>
-    )
-    
-## LIST
 ## NETWORKS
 
     // NETWORKS
@@ -362,6 +339,30 @@ https://developers.themoviedb.org/3/getting-started/introduction
         callback: MovieResultCallback<NetworkImage>
     )
 
+
+# Development ---------
+    
+## MOVIES
+    
+    // MOVIES
+    // Get Details
+    fun getMoviesDetails(
+        movie_id: Int,
+        language: String?,
+        append_to_response: String?,
+        callback: MovieResultCallback<MovieDetail>
+    )
+    
+    // MOVIES
+    // Get Account States
+    fun getMoviesAccountState(
+        movie_id: Int,
+        session_id: String,
+        guest_session_id: String?,
+        callback: MovieResultCallback<MovieAccountState>
+    )
+    
+## LIST
 ## PEOPLE
 ## SEARCH
 ## TV
@@ -385,7 +386,7 @@ https://developers.themoviedb.org/3/getting-started/introduction
 # Version Release
 This Is Latest Release
 
-    $version_release = 1.0.6
+    $version_release = 1.0.7
 
 What's New??
 
