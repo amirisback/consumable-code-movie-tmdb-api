@@ -829,7 +829,7 @@ class ConsumeMovieApi(private val apiKey: String) : ConsumeMovieApiView {
     }
 
     override fun getTrendingAllDay(callback: MovieResultCallback<Trending<TrendingAll>>) {
-        movieRepository.getTrending(
+        movieRepository.getTrendingAll(
             MovieConstant.VALUE_MEDIA_TYPE_ALL,
             MovieConstant.VALUE_TIME_WINDOW_DAY,
             apiKey,
@@ -853,7 +853,7 @@ class ConsumeMovieApi(private val apiKey: String) : ConsumeMovieApiView {
     }
 
     override fun getTrendingAllWeek(callback: MovieResultCallback<Trending<TrendingAll>>) {
-        movieRepository.getTrending(
+        movieRepository.getTrendingAll(
             MovieConstant.VALUE_MEDIA_TYPE_ALL,
             MovieConstant.VALUE_TIME_WINDOW_WEEK,
             apiKey,
@@ -877,7 +877,7 @@ class ConsumeMovieApi(private val apiKey: String) : ConsumeMovieApiView {
     }
 
     override fun getTrendingMovieDay(callback: MovieResultCallback<Trending<TrendingMovie>>) {
-        movieRepository.getTrending(
+        movieRepository.getTrendingMovie(
             MovieConstant.VALUE_MEDIA_TYPE_MOVIE,
             MovieConstant.VALUE_TIME_WINDOW_DAY,
             apiKey,
@@ -901,7 +901,7 @@ class ConsumeMovieApi(private val apiKey: String) : ConsumeMovieApiView {
     }
 
     override fun getTrendingMovieWeek(callback: MovieResultCallback<Trending<TrendingMovie>>) {
-        movieRepository.getTrending(
+        movieRepository.getTrendingMovie(
             MovieConstant.VALUE_MEDIA_TYPE_MOVIE,
             MovieConstant.VALUE_TIME_WINDOW_WEEK,
             apiKey,
@@ -925,7 +925,7 @@ class ConsumeMovieApi(private val apiKey: String) : ConsumeMovieApiView {
     }
 
     override fun getTrendingPersonDay(callback: MovieResultCallback<Trending<TrendingPerson>>) {
-        movieRepository.getTrending(
+        movieRepository.getTrendingPerson(
             MovieConstant.VALUE_MEDIA_TYPE_PERSON,
             MovieConstant.VALUE_TIME_WINDOW_DAY,
             apiKey,
@@ -949,7 +949,7 @@ class ConsumeMovieApi(private val apiKey: String) : ConsumeMovieApiView {
     }
 
     override fun getTrendingPersonWeek(callback: MovieResultCallback<Trending<TrendingPerson>>) {
-        movieRepository.getTrending(
+        movieRepository.getTrendingPerson(
             MovieConstant.VALUE_MEDIA_TYPE_PERSON,
             MovieConstant.VALUE_TIME_WINDOW_WEEK,
             apiKey,
@@ -973,7 +973,7 @@ class ConsumeMovieApi(private val apiKey: String) : ConsumeMovieApiView {
     }
 
     override fun getTrendingTvDay(callback: MovieResultCallback<Trending<TrendingTv>>) {
-        movieRepository.getTrending(
+        movieRepository.getTrendingTv(
             MovieConstant.VALUE_MEDIA_TYPE_TV,
             MovieConstant.VALUE_TIME_WINDOW_DAY,
             apiKey,
@@ -997,7 +997,7 @@ class ConsumeMovieApi(private val apiKey: String) : ConsumeMovieApiView {
     }
 
     override fun getTrendingTvWeek(callback: MovieResultCallback<Trending<TrendingTv>>) {
-        movieRepository.getTrending(
+        movieRepository.getTrendingTv(
             MovieConstant.VALUE_MEDIA_TYPE_TV,
             MovieConstant.VALUE_TIME_WINDOW_WEEK,
             apiKey,

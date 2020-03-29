@@ -825,20 +825,98 @@ object MovieRemoteDataSource : MovieDataSource {
             })
     }
 
-    override fun <MediaType> getTrending(
+    override fun getTrendingAll(
         media_type: String,
         time_window: String,
         apiKey: String,
-        callback: MovieDataSource.GetRemoteCallback<Trending<MediaType>>
+        callback: MovieDataSource.GetRemoteCallback<Trending<TrendingAll>>
     ) {
         movieApiService.getApiService
-            .getTrending<MediaType>(media_type, time_window, apiKey)
+            .getTrendingAll(media_type, time_window, apiKey)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .doOnSubscribe { callback.onShowProgress() }
             .doOnTerminate { callback.onHideProgress() }
-            .subscribe(object : MovieApiCallback<Trending<MediaType>>() {
-                override fun onSuccess(data: Trending<MediaType>) {
+            .subscribe(object : MovieApiCallback<Trending<TrendingAll>>() {
+                override fun onSuccess(data: Trending<TrendingAll>) {
+                    callback.onSuccess(data)
+                }
+
+                override fun onFailure(statusCode: Int, errorMessage: String) {
+                    callback.onFailed(statusCode, errorMessage)
+                }
+
+                override fun onFinish() {
+                }
+            })
+    }
+
+    override fun getTrendingMovie(
+        media_type: String,
+        time_window: String,
+        apiKey: String,
+        callback: MovieDataSource.GetRemoteCallback<Trending<TrendingMovie>>
+    ) {
+        movieApiService.getApiService
+            .getTrendingMovie(media_type, time_window, apiKey)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .doOnSubscribe { callback.onShowProgress() }
+            .doOnTerminate { callback.onHideProgress() }
+            .subscribe(object : MovieApiCallback<Trending<TrendingMovie>>() {
+                override fun onSuccess(data: Trending<TrendingMovie>) {
+                    callback.onSuccess(data)
+                }
+
+                override fun onFailure(statusCode: Int, errorMessage: String) {
+                    callback.onFailed(statusCode, errorMessage)
+                }
+
+                override fun onFinish() {
+                }
+            })
+    }
+
+    override fun getTrendingPerson(
+        media_type: String,
+        time_window: String,
+        apiKey: String,
+        callback: MovieDataSource.GetRemoteCallback<Trending<TrendingPerson>>
+    ) {
+        movieApiService.getApiService
+            .getTrendingPerson(media_type, time_window, apiKey)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .doOnSubscribe { callback.onShowProgress() }
+            .doOnTerminate { callback.onHideProgress() }
+            .subscribe(object : MovieApiCallback<Trending<TrendingPerson>>() {
+                override fun onSuccess(data: Trending<TrendingPerson>) {
+                    callback.onSuccess(data)
+                }
+
+                override fun onFailure(statusCode: Int, errorMessage: String) {
+                    callback.onFailed(statusCode, errorMessage)
+                }
+
+                override fun onFinish() {
+                }
+            })
+    }
+
+    override fun getTrendingTv(
+        media_type: String,
+        time_window: String,
+        apiKey: String,
+        callback: MovieDataSource.GetRemoteCallback<Trending<TrendingTv>>
+    ) {
+        movieApiService.getApiService
+            .getTrendingTv(media_type, time_window, apiKey)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .doOnSubscribe { callback.onShowProgress() }
+            .doOnTerminate { callback.onHideProgress() }
+            .subscribe(object : MovieApiCallback<Trending<TrendingTv>>() {
+                override fun onSuccess(data: Trending<TrendingTv>) {
                     callback.onSuccess(data)
                 }
 

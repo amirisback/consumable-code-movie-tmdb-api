@@ -293,12 +293,39 @@ interface MovieDataSource {
     )
 
     // TRENDING
-    // Get Trending
-    fun <MediaType> getTrending(
+    // Get Trending All
+    fun getTrendingAll(
         media_type: String,
         time_window: String,
         apiKey: String,
-        callback: GetRemoteCallback<Trending<MediaType>>
+        callback: GetRemoteCallback<Trending<TrendingAll>>
+    )
+
+    // TRENDING
+    // Get Trending Movie
+    fun getTrendingMovie(
+        media_type: String,
+        time_window: String,
+        apiKey: String,
+        callback: GetRemoteCallback<Trending<TrendingMovie>>
+    )
+
+    // TRENDING
+    // Get Trending Person
+    fun getTrendingPerson(
+        media_type: String,
+        time_window: String,
+        apiKey: String,
+        callback: GetRemoteCallback<Trending<TrendingPerson>>
+    )
+
+    // TRENDING
+    // Get Trending Movie
+    fun getTrendingTv(
+        media_type: String,
+        time_window: String,
+        apiKey: String,
+        callback: GetRemoteCallback<Trending<TrendingTv>>
     )
 
     // Response Callback

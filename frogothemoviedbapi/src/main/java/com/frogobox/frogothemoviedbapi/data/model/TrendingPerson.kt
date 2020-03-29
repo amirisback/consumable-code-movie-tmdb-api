@@ -21,7 +21,31 @@ import com.google.gson.annotations.SerializedName
  */
 data class TrendingPerson(
 
-    @SerializedName("poster_path")
-    var poster_path: String? = null
+    @SerializedName("adult")
+    var adult: Boolean? = null,
+
+    @SerializedName("gender")
+    var gender: Int? = null,
+
+    @SerializedName("name")
+    var name: String? = null,
+
+    @SerializedName("id")
+    var id: Int? = null,
+
+    @SerializedName("known_for")
+    var known_for: List<TrendingMovie>? = null,
+
+    @SerializedName("known_for_department")
+    var known_for_department: String? = null,
+
+    @SerializedName("profile_path")
+    var profile_path: String? = null,
+
+    @SerializedName("popularity")
+    var popularity: Double? = null,
+
+    @SerializedName("media_type:")
+    var media_type: String? = null
 
 )

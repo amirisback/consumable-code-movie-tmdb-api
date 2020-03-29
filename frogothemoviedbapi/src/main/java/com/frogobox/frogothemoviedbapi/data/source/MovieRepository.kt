@@ -370,12 +370,40 @@ class MovieRepository(private val remoteDataSource: MovieRemoteDataSource) : Mov
         )
     }
 
-    override fun <MediaType> getTrending(
+    override fun getTrendingAll(
         media_type: String,
         time_window: String,
         apiKey: String,
-        callback: MovieDataSource.GetRemoteCallback<Trending<MediaType>>
+        callback: MovieDataSource.GetRemoteCallback<Trending<TrendingAll>>
     ) {
-        remoteDataSource.getTrending(media_type, time_window, apiKey, callback)
+        remoteDataSource.getTrendingAll(media_type, time_window, apiKey, callback)
     }
+
+    override fun getTrendingMovie(
+        media_type: String,
+        time_window: String,
+        apiKey: String,
+        callback: MovieDataSource.GetRemoteCallback<Trending<TrendingMovie>>
+    ) {
+        remoteDataSource.getTrendingMovie(media_type, time_window, apiKey, callback)
+    }
+
+    override fun getTrendingPerson(
+        media_type: String,
+        time_window: String,
+        apiKey: String,
+        callback: MovieDataSource.GetRemoteCallback<Trending<TrendingPerson>>
+    ) {
+        remoteDataSource.getTrendingPerson(media_type, time_window, apiKey, callback)
+    }
+
+    override fun getTrendingTv(
+        media_type: String,
+        time_window: String,
+        apiKey: String,
+        callback: MovieDataSource.GetRemoteCallback<Trending<TrendingTv>>
+    ) {
+        remoteDataSource.getTrendingTv(media_type, time_window, apiKey, callback)
+    }
+
 }

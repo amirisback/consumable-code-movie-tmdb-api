@@ -314,14 +314,40 @@ interface MovieApiService {
     ): Observable<MovieAccountState>
 
     // TRENDING
-    // Get Trending
+    // Get Trending All
     @GET(MovieUrl.TRENDING_GET_TREND)
-    fun <MediaType> getTrending(
+    fun getTrendingAll(
         @Path(MovieConstant.PATH_MEDIA_TYPE) media_type: String,
         @Path(MovieConstant.PATH_TIME_WINDOW) time_window: String,
         @Query(MovieConstant.QUERY_API_KEY) apiKey: String
-    ): Observable<Trending<MediaType>>
+    ): Observable<Trending<TrendingAll>>
 
+    // TRENDING
+    // Get Trending Movie
+    @GET(MovieUrl.TRENDING_GET_TREND)
+    fun getTrendingMovie(
+        @Path(MovieConstant.PATH_MEDIA_TYPE) media_type: String,
+        @Path(MovieConstant.PATH_TIME_WINDOW) time_window: String,
+        @Query(MovieConstant.QUERY_API_KEY) apiKey: String
+    ): Observable<Trending<TrendingMovie>>
+
+    // TRENDING
+    // Get Trending Person
+    @GET(MovieUrl.TRENDING_GET_TREND)
+    fun getTrendingPerson(
+        @Path(MovieConstant.PATH_MEDIA_TYPE) media_type: String,
+        @Path(MovieConstant.PATH_TIME_WINDOW) time_window: String,
+        @Query(MovieConstant.QUERY_API_KEY) apiKey: String
+    ): Observable<Trending<TrendingPerson>>
+
+    // TRENDING
+    // Get Trending Movie
+    @GET(MovieUrl.TRENDING_GET_TREND)
+    fun getTrendingTv(
+        @Path(MovieConstant.PATH_MEDIA_TYPE) media_type: String,
+        @Path(MovieConstant.PATH_TIME_WINDOW) time_window: String,
+        @Query(MovieConstant.QUERY_API_KEY) apiKey: String
+    ): Observable<Trending<TrendingTv>>
 
     companion object Factory {
 

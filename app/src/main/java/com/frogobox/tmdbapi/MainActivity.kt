@@ -6,6 +6,9 @@ import com.frogobox.frogothemoviedbapi.ConsumeMovieApi
 import com.frogobox.frogothemoviedbapi.data.model.ConfigurationJob
 import com.frogobox.frogothemoviedbapi.util.MovieUrl
 import com.frogobox.frogothemoviedbapi.callback.MovieResultCallback
+import com.frogobox.frogothemoviedbapi.data.model.TrendingMovie
+import com.frogobox.frogothemoviedbapi.data.model.TrendingPerson
+import com.frogobox.frogothemoviedbapi.data.response.Trending
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -16,10 +19,10 @@ class MainActivity : AppCompatActivity() {
 
         val consumeMovieApi = ConsumeMovieApi(MovieUrl.API_KEY)
         consumeMovieApi.usingChuckInterceptor(this)
-        consumeMovieApi.getConfigurationJobs(
-            object : MovieResultCallback<List<ConfigurationJob>> {
-                override fun getResultData(data: List<ConfigurationJob>) {
-                    textView.text = data[0].department
+        consumeMovieApi.getTrendingPersonWeek(
+            object : MovieResultCallback<Trending<TrendingPerson>> {
+                override fun getResultData(data: Trending<TrendingPerson>) {
+                    textView.text = data.results?.get(0)!!.name
                 }
 
                 override fun failedResult(statusCode: Int, errorMessage: String?) {
