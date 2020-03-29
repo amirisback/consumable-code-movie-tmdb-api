@@ -369,4 +369,13 @@ class MovieRepository(private val remoteDataSource: MovieRemoteDataSource) : Mov
             callback
         )
     }
+
+    override fun <MediaType> getTrending(
+        media_type: String,
+        time_window: String,
+        apiKey: String,
+        callback: MovieDataSource.GetRemoteCallback<Trending<MediaType>>
+    ) {
+        remoteDataSource.getTrending(media_type, time_window, apiKey, callback)
+    }
 }

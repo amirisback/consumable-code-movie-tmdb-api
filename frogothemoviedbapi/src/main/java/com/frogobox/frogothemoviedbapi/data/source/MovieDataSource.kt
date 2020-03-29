@@ -292,6 +292,15 @@ interface MovieDataSource {
         callback: GetRemoteCallback<MovieAccountState>
     )
 
+    // TRENDING
+    // Get Trending
+    fun <MediaType> getTrending(
+        media_type: String,
+        time_window: String,
+        apiKey: String,
+        callback: GetRemoteCallback<Trending<MediaType>>
+    )
+
     // Response Callback
     interface GetRemoteCallback<T> : BaseMovieDataSource.ResponseCallback<T>
 

@@ -7,6 +7,7 @@ import com.frogobox.frogothemoviedbapi.data.response.*
 import com.frogobox.frogothemoviedbapi.data.source.MovieDataSource
 import com.frogobox.frogothemoviedbapi.data.source.MovieRemoteDataSource
 import com.frogobox.frogothemoviedbapi.data.source.MovieRepository
+import com.frogobox.frogothemoviedbapi.util.MovieConstant
 
 /**
  * Created by Faisal Amir
@@ -810,6 +811,198 @@ class ConsumeMovieApi(private val apiKey: String) : ConsumeMovieApiView {
             guest_session_id,
             object : MovieDataSource.GetRemoteCallback<MovieAccountState> {
                 override fun onSuccess(data: MovieAccountState) {
+                    callback.getResultData(data)
+                }
+
+                override fun onFailed(statusCode: Int, errorMessage: String?) {
+                    callback.failedResult(statusCode, errorMessage)
+                }
+
+                override fun onShowProgress() {
+                    callback.onShowProgress()
+                }
+
+                override fun onHideProgress() {
+                    callback.onHideProgress()
+                }
+            })
+    }
+
+    override fun getTrendingAllDay(callback: MovieResultCallback<Trending<TrendingAll>>) {
+        movieRepository.getTrending(
+            MovieConstant.VALUE_MEDIA_TYPE_ALL,
+            MovieConstant.VALUE_TIME_WINDOW_DAY,
+            apiKey,
+            object : MovieDataSource.GetRemoteCallback<Trending<TrendingAll>> {
+                override fun onSuccess(data: Trending<TrendingAll>) {
+                    callback.getResultData(data)
+                }
+
+                override fun onFailed(statusCode: Int, errorMessage: String?) {
+                    callback.failedResult(statusCode, errorMessage)
+                }
+
+                override fun onShowProgress() {
+                    callback.onShowProgress()
+                }
+
+                override fun onHideProgress() {
+                    callback.onHideProgress()
+                }
+            })
+    }
+
+    override fun getTrendingAllWeek(callback: MovieResultCallback<Trending<TrendingAll>>) {
+        movieRepository.getTrending(
+            MovieConstant.VALUE_MEDIA_TYPE_ALL,
+            MovieConstant.VALUE_TIME_WINDOW_WEEK,
+            apiKey,
+            object : MovieDataSource.GetRemoteCallback<Trending<TrendingAll>> {
+                override fun onSuccess(data: Trending<TrendingAll>) {
+                    callback.getResultData(data)
+                }
+
+                override fun onFailed(statusCode: Int, errorMessage: String?) {
+                    callback.failedResult(statusCode, errorMessage)
+                }
+
+                override fun onShowProgress() {
+                    callback.onShowProgress()
+                }
+
+                override fun onHideProgress() {
+                    callback.onHideProgress()
+                }
+            })
+    }
+
+    override fun getTrendingMovieDay(callback: MovieResultCallback<Trending<TrendingMovie>>) {
+        movieRepository.getTrending(
+            MovieConstant.VALUE_MEDIA_TYPE_MOVIE,
+            MovieConstant.VALUE_TIME_WINDOW_DAY,
+            apiKey,
+            object : MovieDataSource.GetRemoteCallback<Trending<TrendingMovie>> {
+                override fun onSuccess(data: Trending<TrendingMovie>) {
+                    callback.getResultData(data)
+                }
+
+                override fun onFailed(statusCode: Int, errorMessage: String?) {
+                    callback.failedResult(statusCode, errorMessage)
+                }
+
+                override fun onShowProgress() {
+                    callback.onShowProgress()
+                }
+
+                override fun onHideProgress() {
+                    callback.onHideProgress()
+                }
+            })
+    }
+
+    override fun getTrendingMovieWeek(callback: MovieResultCallback<Trending<TrendingMovie>>) {
+        movieRepository.getTrending(
+            MovieConstant.VALUE_MEDIA_TYPE_MOVIE,
+            MovieConstant.VALUE_TIME_WINDOW_WEEK,
+            apiKey,
+            object : MovieDataSource.GetRemoteCallback<Trending<TrendingMovie>> {
+                override fun onSuccess(data: Trending<TrendingMovie>) {
+                    callback.getResultData(data)
+                }
+
+                override fun onFailed(statusCode: Int, errorMessage: String?) {
+                    callback.failedResult(statusCode, errorMessage)
+                }
+
+                override fun onShowProgress() {
+                    callback.onShowProgress()
+                }
+
+                override fun onHideProgress() {
+                    callback.onHideProgress()
+                }
+            })
+    }
+
+    override fun getTrendingPersonDay(callback: MovieResultCallback<Trending<TrendingPerson>>) {
+        movieRepository.getTrending(
+            MovieConstant.VALUE_MEDIA_TYPE_PERSON,
+            MovieConstant.VALUE_TIME_WINDOW_DAY,
+            apiKey,
+            object : MovieDataSource.GetRemoteCallback<Trending<TrendingPerson>> {
+                override fun onSuccess(data: Trending<TrendingPerson>) {
+                    callback.getResultData(data)
+                }
+
+                override fun onFailed(statusCode: Int, errorMessage: String?) {
+                    callback.failedResult(statusCode, errorMessage)
+                }
+
+                override fun onShowProgress() {
+                    callback.onShowProgress()
+                }
+
+                override fun onHideProgress() {
+                    callback.onHideProgress()
+                }
+            })
+    }
+
+    override fun getTrendingPersonWeek(callback: MovieResultCallback<Trending<TrendingPerson>>) {
+        movieRepository.getTrending(
+            MovieConstant.VALUE_MEDIA_TYPE_PERSON,
+            MovieConstant.VALUE_TIME_WINDOW_WEEK,
+            apiKey,
+            object : MovieDataSource.GetRemoteCallback<Trending<TrendingPerson>> {
+                override fun onSuccess(data: Trending<TrendingPerson>) {
+                    callback.getResultData(data)
+                }
+
+                override fun onFailed(statusCode: Int, errorMessage: String?) {
+                    callback.failedResult(statusCode, errorMessage)
+                }
+
+                override fun onShowProgress() {
+                    callback.onShowProgress()
+                }
+
+                override fun onHideProgress() {
+                    callback.onHideProgress()
+                }
+            })
+    }
+
+    override fun getTrendingTvDay(callback: MovieResultCallback<Trending<TrendingTv>>) {
+        movieRepository.getTrending(
+            MovieConstant.VALUE_MEDIA_TYPE_TV,
+            MovieConstant.VALUE_TIME_WINDOW_DAY,
+            apiKey,
+            object : MovieDataSource.GetRemoteCallback<Trending<TrendingTv>> {
+                override fun onSuccess(data: Trending<TrendingTv>) {
+                    callback.getResultData(data)
+                }
+
+                override fun onFailed(statusCode: Int, errorMessage: String?) {
+                    callback.failedResult(statusCode, errorMessage)
+                }
+
+                override fun onShowProgress() {
+                    callback.onShowProgress()
+                }
+
+                override fun onHideProgress() {
+                    callback.onHideProgress()
+                }
+            })
+    }
+
+    override fun getTrendingTvWeek(callback: MovieResultCallback<Trending<TrendingTv>>) {
+        movieRepository.getTrending(
+            MovieConstant.VALUE_MEDIA_TYPE_TV,
+            MovieConstant.VALUE_TIME_WINDOW_WEEK,
+            apiKey,
+            object : MovieDataSource.GetRemoteCallback<Trending<TrendingTv>> {
+                override fun onSuccess(data: Trending<TrendingTv>) {
                     callback.getResultData(data)
                 }
 

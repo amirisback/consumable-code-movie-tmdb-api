@@ -313,6 +313,16 @@ interface MovieApiService {
         @Query(MovieConstant.QUERY_GUEST_SESSION_ID) guest_session_id: String?
     ): Observable<MovieAccountState>
 
+    // TRENDING
+    // Get Trending
+    @GET(MovieUrl.TRENDING_GET_TREND)
+    fun <MediaType> getTrending(
+        @Path(MovieConstant.PATH_MEDIA_TYPE) media_type: String,
+        @Path(MovieConstant.PATH_TIME_WINDOW) time_window: String,
+        @Query(MovieConstant.QUERY_API_KEY) apiKey: String
+    ): Observable<Trending<MediaType>>
+
+
     companion object Factory {
 
         private var isUsingChuckInterceptor = false

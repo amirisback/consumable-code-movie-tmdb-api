@@ -824,4 +824,30 @@ object MovieRemoteDataSource : MovieDataSource {
                 }
             })
     }
+
+    override fun <MediaType> getTrending(
+        media_type: String,
+        time_window: String,
+        apiKey: String,
+        callback: MovieDataSource.GetRemoteCallback<Trending<MediaType>>
+    ) {
+        movieApiService.getApiService
+            .getTrending<MediaType>(media_type, time_window, apiKey)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .doOnSubscribe { callback.onShowProgress() }
+            .doOnTerminate { callback.onHideProgress() }
+            .subscribe(object : MovieApiCallback<Trending<MediaType>>() {
+                override fun onSuccess(data: Trending<MediaType>) {
+                    callback.onSuccess(data)
+                }
+
+                override fun onFailure(statusCode: Int, errorMessage: String) {
+                    callback.onFailed(statusCode, errorMessage)
+                }
+
+                override fun onFinish() {
+                }
+            })
+    }
 }

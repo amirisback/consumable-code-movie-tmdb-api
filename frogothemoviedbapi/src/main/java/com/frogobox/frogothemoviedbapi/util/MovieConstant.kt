@@ -92,6 +92,12 @@ class MovieConstant {
         const val PATH_EPISODE_NUMBER = "episode_number"
 
         const val VALUE_LANG_EN_US = "en-US"
+        const val VALUE_MEDIA_TYPE_ALL = "all"
+        const val VALUE_MEDIA_TYPE_MOVIE = "movie"
+        const val VALUE_MEDIA_TYPE_TV = "tv"
+        const val VALUE_MEDIA_TYPE_PERSON = "person"
+        const val VALUE_TIME_WINDOW_DAY = "day"
+        const val VALUE_TIME_WINDOW_WEEK = "week"
 
     }
 
