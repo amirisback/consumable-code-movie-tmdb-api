@@ -357,6 +357,30 @@ interface MovieApiService {
         @Query(MovieConstant.QUERY_API_KEY) apiKey: String
     ): Observable<Reviews>
 
+    // NETWORKS
+    // Get Details
+    @GET(MovieUrl.NETWORKS_GET_DETAILS)
+    fun getNetworkDetail(
+        @Path(MovieConstant.PATH_NETWORK_ID) network_id: Int,
+        @Query(MovieConstant.QUERY_API_KEY) apiKey: String
+    ): Observable<NetworkDetail>
+
+    // NETWORKS
+    // Get Alternative Names
+    @GET(MovieUrl.NETWORKS_GET_ALTERNATIVE_NAMES)
+    fun getNetworkAlternativeName(
+        @Path(MovieConstant.PATH_NETWORK_ID) network_id: Int,
+        @Query(MovieConstant.QUERY_API_KEY) apiKey: String
+    ): Observable<NetworkAlternativeName>
+
+    // NETWORKS
+    // Get Images
+    @GET(MovieUrl.NETWORKS_GET_IMAGES)
+    fun getNetworkImage(
+        @Path(MovieConstant.PATH_NETWORK_ID) network_id: Int,
+        @Query(MovieConstant.QUERY_API_KEY) apiKey: String
+    ): Observable<NetworkImage>
+
     companion object Factory {
 
         private var isUsingChuckInterceptor = false

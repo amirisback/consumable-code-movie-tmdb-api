@@ -953,4 +953,79 @@ object MovieRemoteDataSource : MovieDataSource {
                 }
             })
     }
+
+    override fun getNetworkDetail(
+        network_id: Int,
+        apiKey: String,
+        callback: MovieDataSource.GetRemoteCallback<NetworkDetail>
+    ) {
+        movieApiService.getApiService
+            .getNetworkDetail(network_id, apiKey)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .doOnSubscribe { callback.onShowProgress() }
+            .doOnTerminate { callback.onHideProgress() }
+            .subscribe(object : MovieApiCallback<NetworkDetail>() {
+                override fun onSuccess(data: NetworkDetail) {
+                    callback.onSuccess(data)
+                }
+
+                override fun onFailure(statusCode: Int, errorMessage: String) {
+                    callback.onFailed(statusCode, errorMessage)
+                }
+
+                override fun onFinish() {
+                }
+            })
+    }
+
+    override fun getNetworkAlternativeName(
+        network_id: Int,
+        apiKey: String,
+        callback: MovieDataSource.GetRemoteCallback<NetworkAlternativeName>
+    ) {
+        movieApiService.getApiService
+            .getNetworkAlternativeName(network_id, apiKey)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .doOnSubscribe { callback.onShowProgress() }
+            .doOnTerminate { callback.onHideProgress() }
+            .subscribe(object : MovieApiCallback<NetworkAlternativeName>() {
+                override fun onSuccess(data: NetworkAlternativeName) {
+                    callback.onSuccess(data)
+                }
+
+                override fun onFailure(statusCode: Int, errorMessage: String) {
+                    callback.onFailed(statusCode, errorMessage)
+                }
+
+                override fun onFinish() {
+                }
+            })
+    }
+
+    override fun getNetworkImage(
+        network_id: Int,
+        apiKey: String,
+        callback: MovieDataSource.GetRemoteCallback<NetworkImage>
+    ) {
+        movieApiService.getApiService
+            .getNetworkImage(network_id, apiKey)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .doOnSubscribe { callback.onShowProgress() }
+            .doOnTerminate { callback.onHideProgress() }
+            .subscribe(object : MovieApiCallback<NetworkImage>() {
+                override fun onSuccess(data: NetworkImage) {
+                    callback.onSuccess(data)
+                }
+
+                override fun onFailure(statusCode: Int, errorMessage: String) {
+                    callback.onFailed(statusCode, errorMessage)
+                }
+
+                override fun onFinish() {
+                }
+            })
+    }
 }

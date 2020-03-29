@@ -336,6 +336,30 @@ interface MovieDataSource {
         callback: GetRemoteCallback<Reviews>
     )
 
+    // NETWORKS
+    // Get Details
+    fun getNetworkDetail(
+        network_id: Int,
+        apiKey: String,
+        callback: GetRemoteCallback<NetworkDetail>
+    )
+
+    // NETWORKS
+    // Get Alternative Names
+    fun getNetworkAlternativeName(
+        network_id: Int,
+        apiKey: String,
+        callback: GetRemoteCallback<NetworkAlternativeName>
+    )
+
+    // NETWORKS
+    // Get Images
+    fun getNetworkImage(
+        network_id: Int,
+        apiKey: String,
+        callback: GetRemoteCallback<NetworkImage>
+    )
+
     // Response Callback
     interface GetRemoteCallback<T> : BaseMovieDataSource.ResponseCallback<T>
 

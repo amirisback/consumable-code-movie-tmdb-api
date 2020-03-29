@@ -340,6 +340,28 @@ https://developers.themoviedb.org/3/getting-started/introduction
     
 ## LIST
 ## NETWORKS
+
+    // NETWORKS
+    // Get Details
+    fun getNetworkDetail(
+        network_id: Int,
+        callback: MovieResultCallback<NetworkDetail>
+    )
+
+    // NETWORKS
+    // Get Alternative Names
+    fun getNetworkAlternativeName(
+        network_id: Int,
+        callback: MovieResultCallback<NetworkAlternativeName>
+    )
+
+    // NETWORKS
+    // Get Images
+    fun getNetworkImage(
+        network_id: Int,
+        callback: MovieResultCallback<NetworkImage>
+    )
+
 ## PEOPLE
 ## SEARCH
 ## TV

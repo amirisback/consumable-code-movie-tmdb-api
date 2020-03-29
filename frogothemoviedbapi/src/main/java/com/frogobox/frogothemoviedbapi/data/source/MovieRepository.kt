@@ -414,4 +414,27 @@ class MovieRepository(private val remoteDataSource: MovieRemoteDataSource) : Mov
         remoteDataSource.getReviews(review_id, apiKey, callback)
     }
 
+    override fun getNetworkDetail(
+        network_id: Int,
+        apiKey: String,
+        callback: MovieDataSource.GetRemoteCallback<NetworkDetail>
+    ) {
+        remoteDataSource.getNetworkDetail(network_id, apiKey, callback)
+    }
+
+    override fun getNetworkAlternativeName(
+        network_id: Int,
+        apiKey: String,
+        callback: MovieDataSource.GetRemoteCallback<NetworkAlternativeName>
+    ) {
+        remoteDataSource.getNetworkAlternativeName(network_id, apiKey, callback)
+    }
+
+    override fun getNetworkImage(
+        network_id: Int,
+        apiKey: String,
+        callback: MovieDataSource.GetRemoteCallback<NetworkImage>
+    ) {
+        remoteDataSource.getNetworkImage(network_id, apiKey, callback)
+    }
 }

@@ -1042,4 +1042,76 @@ class ConsumeMovieApi(private val apiKey: String) : ConsumeMovieApiView {
                 }
             })
     }
+
+    override fun getNetworkDetail(network_id: Int, callback: MovieResultCallback<NetworkDetail>) {
+        movieRepository.getNetworkDetail(
+            network_id,
+            apiKey,
+            object : MovieDataSource.GetRemoteCallback<NetworkDetail> {
+                override fun onSuccess(data: NetworkDetail) {
+                    callback.getResultData(data)
+                }
+
+                override fun onFailed(statusCode: Int, errorMessage: String?) {
+                    callback.failedResult(statusCode, errorMessage)
+                }
+
+                override fun onShowProgress() {
+                    callback.onShowProgress()
+                }
+
+                override fun onHideProgress() {
+                    callback.onHideProgress()
+                }
+            })
+    }
+
+    override fun getNetworkAlternativeName(
+        network_id: Int,
+        callback: MovieResultCallback<NetworkAlternativeName>
+    ) {
+        movieRepository.getNetworkAlternativeName(
+            network_id,
+            apiKey,
+            object : MovieDataSource.GetRemoteCallback<NetworkAlternativeName> {
+                override fun onSuccess(data: NetworkAlternativeName) {
+                    callback.getResultData(data)
+                }
+
+                override fun onFailed(statusCode: Int, errorMessage: String?) {
+                    callback.failedResult(statusCode, errorMessage)
+                }
+
+                override fun onShowProgress() {
+                    callback.onShowProgress()
+                }
+
+                override fun onHideProgress() {
+                    callback.onHideProgress()
+                }
+            })
+    }
+
+    override fun getNetworkImage(network_id: Int, callback: MovieResultCallback<NetworkImage>) {
+        movieRepository.getNetworkImage(
+            network_id,
+            apiKey,
+            object : MovieDataSource.GetRemoteCallback<NetworkImage> {
+                override fun onSuccess(data: NetworkImage) {
+                    callback.getResultData(data)
+                }
+
+                override fun onFailed(statusCode: Int, errorMessage: String?) {
+                    callback.failedResult(statusCode, errorMessage)
+                }
+
+                override fun onShowProgress() {
+                    callback.onShowProgress()
+                }
+
+                override fun onHideProgress() {
+                    callback.onHideProgress()
+                }
+            })
+    }
 }
