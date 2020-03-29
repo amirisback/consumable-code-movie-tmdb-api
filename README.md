@@ -19,8 +19,12 @@ https://developers.themoviedb.org/3/getting-started/introduction
 
 # Function Main From This Project
 
+## Chuck Interceptor
+
     // Switch For Using Chuck Interceptor
     fun usingChuckInterceptor(context: Context)
+
+## CERTIFICATIONS
 
     // CERTIFICATIONS
     // Get Movie Certifications
@@ -29,6 +33,8 @@ https://developers.themoviedb.org/3/getting-started/introduction
     // CERTIFICATIONS
     // Get TV Certifications
     fun getTvCertifications(callback: MovieResultCallback<Certifications<CertificationTv>>)
+
+## CHANGES
 
     // CHANGES
     // Get Movie Change List
