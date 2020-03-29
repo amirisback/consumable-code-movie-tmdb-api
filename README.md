@@ -63,6 +63,8 @@ https://developers.themoviedb.org/3/getting-started/introduction
         callback: MovieResultCallback<Changes>
     )
 
+## COLLECTION
+
     // COLLECTION
     // Get Details
     fun getCollectionDetails(
@@ -87,6 +89,8 @@ https://developers.themoviedb.org/3/getting-started/introduction
         callback: MovieResultCallback<CollectionsTranslation>
     )
 
+## COMPANIES
+
     // COMPANIES
     // Get Details
     fun getCompaniesDetails(
@@ -107,6 +111,8 @@ https://developers.themoviedb.org/3/getting-started/introduction
         company_id: Int,
         callback: MovieResultCallback<CompaniesImage>
     )
+
+## CONFIGURATION
 
     // CONFIGURATION
     // Get API Configuration
@@ -132,9 +138,13 @@ https://developers.themoviedb.org/3/getting-started/introduction
     // Get Timezones
     fun getConfigurationTimezones(callback: MovieResultCallback<List<ConfigurationTimezone>>)
 
+## CREDITS
+
     // CREDITS
     // Get Details
     fun getCreditsDetails(credit_id: String, callback: MovieResultCallback<Credits>)
+    
+## DISCOVER
     
     // DISCOVER
     // Movie Discover
@@ -202,6 +212,8 @@ https://developers.themoviedb.org/3/getting-started/introduction
         callback: MovieResultCallback<Discover<DiscoverTv>>
     )
     
+## FIND    
+  
     // FIND
     // Find by ID
     fun getFindById(
@@ -210,6 +222,8 @@ https://developers.themoviedb.org/3/getting-started/introduction
         language: String?,
         callback: MovieResultCallback<Find>
     )
+
+## GENRES
 
     // GENRES
     // Get Movie List
@@ -224,6 +238,8 @@ https://developers.themoviedb.org/3/getting-started/introduction
         language: String?,
         callback: MovieResultCallback<Genres>
     )
+
+## KEYWORDS
     
     // KEYWORDS
     // Get Details
@@ -241,7 +257,9 @@ https://developers.themoviedb.org/3/getting-started/introduction
         callback: MovieResultCallback<KeywordsMovies>
     )
     
-    // --------------------------------------- DEVELOPMENT -----------------------------------------
+# DEVELOPMENT
+    
+## MOVIES
     
     // MOVIES
     // Get Details
