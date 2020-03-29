@@ -66,6 +66,7 @@ class MovieConstant {
         const val QUERY_WITH_ORIGINAL_LANGUAGE = "with_original_language"
         const val QUERY_INCLUDE_NULL_FIRST_AIR_DATES = "include_null_first_air_dates"
         const val QUERY_EXTERNAL_SOURCE = "external_source"
+        const val QUERY_APPEND_TO_RESPONSE = "append_to_response"
 
         const val PATH_ID = "id"
         const val PATH_COLLECTION_ID = "collection_id"

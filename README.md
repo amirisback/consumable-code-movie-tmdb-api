@@ -235,6 +235,17 @@ https://developers.themoviedb.org/3/getting-started/introduction
         callback: MovieResultCallback<KeywordsMovies>
     )
     
+    // --------------------------------------- DEVELOPMENT -----------------------------------------
+    
+    // MOVIES
+    // Get Details
+    fun getMoviesDetails(
+        movie_id: Int,
+        language: String?,
+        append_to_response: String?,
+        callback: MovieResultCallback<MovieDetail>
+    )
+    
     
 # Android Library Version (build.gradle)
 - ext.kotlin_version = '1.3.71'

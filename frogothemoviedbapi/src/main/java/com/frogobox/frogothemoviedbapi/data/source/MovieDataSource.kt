@@ -272,6 +272,16 @@ interface MovieDataSource {
         callback: GetRemoteCallback<KeywordsMovies>
     )
 
+    // MOVIES
+    // Get Details
+    fun getMoviesDetails(
+        movie_id: Int,
+        apiKey: String,
+        language: String?,
+        append_to_response: String?,
+        callback: GetRemoteCallback<MovieDetail>
+    )
+
     // Response Callback
     interface GetRemoteCallback<T> : BaseMovieDataSource.ResponseCallback<T>
 

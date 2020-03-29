@@ -770,4 +770,31 @@ object MovieRemoteDataSource : MovieDataSource {
                 }
             })
     }
+
+    override fun getMoviesDetails(
+        movie_id: Int,
+        apiKey: String,
+        language: String?,
+        append_to_response: String?,
+        callback: MovieDataSource.GetRemoteCallback<MovieDetail>
+    ) {
+        movieApiService.getApiService
+            .getMoviesDetails(movie_id, apiKey, language, append_to_response)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .doOnSubscribe { callback.onShowProgress() }
+            .doOnTerminate { callback.onHideProgress() }
+            .subscribe(object : MovieApiCallback<MovieDetail>() {
+                override fun onSuccess(data: MovieDetail) {
+                    callback.onSuccess(data)
+                }
+
+                override fun onFailure(statusCode: Int, errorMessage: String) {
+                    callback.onFailed(statusCode, errorMessage)
+                }
+
+                override fun onFinish() {
+                }
+            })
+    }
 }

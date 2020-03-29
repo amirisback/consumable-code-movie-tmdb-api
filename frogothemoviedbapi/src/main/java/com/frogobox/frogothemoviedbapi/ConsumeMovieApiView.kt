@@ -241,4 +241,13 @@ interface ConsumeMovieApiView {
         callback: MovieResultCallback<KeywordsMovies>
     )
 
+    // MOVIES
+    // Get Details
+    fun getMoviesDetails(
+        movie_id: Int,
+        language: String?,
+        append_to_response: String?,
+        callback: MovieResultCallback<MovieDetail>
+    )
+
 }

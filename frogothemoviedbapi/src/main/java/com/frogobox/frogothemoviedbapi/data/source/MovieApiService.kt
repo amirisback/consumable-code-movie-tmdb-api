@@ -293,6 +293,16 @@ interface MovieApiService {
         @Query(MovieConstant.QUERY_INCLUDE_ADULT) include_adult: String?
     ): Observable<KeywordsMovies>
 
+    // MOVIES
+    // Get Details
+    @GET(MovieUrl.MOVIES_GET_DETAILS)
+    fun getMoviesDetails(
+        @Path(MovieConstant.PATH_MOVIE_ID) movie_id: Int,
+        @Query(MovieConstant.QUERY_API_KEY) apiKey: String,
+        @Query(MovieConstant.QUERY_LANGUAGE) language: String?,
+        @Query(MovieConstant.QUERY_APPEND_TO_RESPONSE) append_to_response: String?
+    ): Observable<MovieDetail>
+
     companion object Factory {
 
         private var isUsingChuckInterceptor = false
