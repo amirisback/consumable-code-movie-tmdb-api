@@ -8,6 +8,74 @@ Eliminates the method of retrieving json data using retrofit repeatedly. so this
 # Special From This Project
 Simple code and reusable data
 
+# Android Library Version (build.gradle)
+- ext.kotlin_version = '1.3.71'
+- classpath 'com.android.tools.build:gradle:3.6.1'
+- compileSdkVersion 29
+- buildToolsVersion "29.0.3"
+- minSdkVersion 21
+
+# Automatically Using This Permission
+    
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+# Version Release
+This Is Latest Release
+
+    $version_release = 1.0.7
+
+What's New??
+
+    * Add: Reviews, Trending, Network method, Bug Fixed *
+
+# How To Use This Project
+<h3>Step 1. Add the JitPack repository to your build file</h3>
+
+Add it in your root build.gradle at the end of repositories:
+
+	allprojects {
+		repositories {
+			...
+			maven { url 'https://jitpack.io' }
+		}
+	}
+  
+  
+<h3>Step 2. Add the dependency</h3>
+
+	dependencies {
+	        // library consumable code movie tmdb api
+            implementation 'com.github.amirisback:consumable-code-movie-tmdb-api:$version_release'
+	}
+	
+<h3>Step 3. Declaration ConsumeMovieApi</h3>
+
+    val consumeMovieApi = ConsumeMovieApi(MovieUrl.API_KEY) // your api_key
+    consumeMovieApi.usingChuckInterceptor(this) // This is Code Chuck Interceptor
+    consumeMovieApi.getMovieChangeList(
+        null,
+        null,
+        null,
+        object : MovieResultCallback<Changes> {
+            override fun getResultData(data: Changes) {
+                // * PLACE YOUR CODE HERE FOR UI / ARRAYLIST *
+            }
+
+            override fun failedResult(statusCode: Int, errorMessage: String?) {
+                // failed result
+            }
+
+            override fun onShowProgress() {
+                // showing your progress view
+            }
+
+            override fun onHideProgress() {
+                // hiding your progress view
+            }
+        })
+	
+
 # Fecthing Data Library
 - Retrofit
 - RxJava
@@ -370,76 +438,6 @@ https://developers.themoviedb.org/3/getting-started/introduction
 ## TV EPISODES
 ## TV EPISODE GROUPS 
     
-# Android Library Version (build.gradle)
-- ext.kotlin_version = '1.3.71'
-- classpath 'com.android.tools.build:gradle:3.6.1'
-- compileSdkVersion 29
-- buildToolsVersion "29.0.3"
-- minSdkVersion 21
-
-# Automatically Using This Permission
-    
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-
-
-# Version Release
-This Is Latest Release
-
-    $version_release = 1.0.7
-
-What's New??
-
-    * Add: Reviews, Trending, Network method, Bug Fixed *
-
-# How To Use This Project
-<h3>Step 1. Add the JitPack repository to your build file</h3>
-
-Add it in your root build.gradle at the end of repositories:
-
-	allprojects {
-		repositories {
-			...
-			maven { url 'https://jitpack.io' }
-		}
-	}
-  
-  
-<h3>Step 2. Add the dependency</h3>
-
-	dependencies {
-	        // library consumable code movie tmdb api
-            implementation 'com.github.amirisback:consumable-code-movie-tmdb-api:$version_release'
-	}
-	
-<h3>Step 3. Declaration ConsumeMovieApi</h3>
-
-    val consumeMovieApi = ConsumeMovieApi(MovieUrl.API_KEY) // your api_key
-    consumeMovieApi.usingChuckInterceptor(this) // This is Code Chuck Interceptor
-    consumeMovieApi.getMovieChangeList(
-        null,
-        null,
-        null,
-        object : MovieResultCallback<Changes> {
-            override fun getResultData(data: Changes) {
-                // * PLACE YOUR CODE HERE FOR UI / ARRAYLIST *
-            }
-
-            override fun failedResult(statusCode: Int, errorMessage: String?) {
-                // failed result
-            }
-
-            override fun onShowProgress() {
-                // showing your progress view
-            }
-
-            override fun onHideProgress() {
-                // hiding your progress view
-            }
-        })
-	
-
-
 # Colaborator
 Very open to anyone, I'll write your name under this, please contribute by sending an email to me
 
