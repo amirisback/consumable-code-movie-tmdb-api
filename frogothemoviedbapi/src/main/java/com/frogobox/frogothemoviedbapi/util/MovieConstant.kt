@@ -25,6 +25,7 @@ class MovieConstant {
         const val QUERY_START_DATE = "end_date"
         const val QUERY_END_DATE = "start_date"
         const val QUERY_PAGE = "page"
+        const val QUERY_COUNTRY = "country"
         const val QUERY_LANGUAGE = "language"
         const val QUERY_REGION = "region"
         const val QUERY_SORT_BY = "sort_by"

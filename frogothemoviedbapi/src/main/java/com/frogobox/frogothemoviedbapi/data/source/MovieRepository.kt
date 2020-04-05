@@ -370,6 +370,34 @@ class MovieRepository(private val remoteDataSource: MovieRemoteDataSource) : Mov
         )
     }
 
+    override fun getMoviesAlternativeTitles(
+        movie_id: Int,
+        apiKey: String,
+        country: String?,
+        callback: MovieDataSource.GetRemoteCallback<MovieAlternativeTitle>
+    ) {
+        remoteDataSource.getMoviesAlternativeTitles(movie_id, apiKey, country, callback)
+    }
+
+    override fun getMoviesChanges(
+        movie_id: Int,
+        apiKey: String,
+        start_date: String?,
+        end_date: String?,
+        page: Int?,
+        callback: MovieDataSource.GetRemoteCallback<MovieChanges>
+    ) {
+        remoteDataSource.getMoviesChanges(movie_id, apiKey, start_date, end_date, page, callback)
+    }
+
+    override fun getMoviesCredits(
+        movie_id: Int,
+        apiKey: String,
+        callback: MovieDataSource.GetRemoteCallback<MovieCredit>
+    ) {
+        remoteDataSource.getMoviesCredits(movie_id, apiKey, callback)
+    }
+
     override fun getTrendingAll(
         media_type: String,
         time_window: String,

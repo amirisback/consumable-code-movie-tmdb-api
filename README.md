@@ -430,6 +430,32 @@ https://developers.themoviedb.org/3/getting-started/introduction
         callback: MovieResultCallback<MovieAccountState>
     )
     
+    // MOVIES
+    // Get Alternative Titles
+    fun getMoviesAlternativeTitles(
+        movie_id: Int,
+        country: String?,
+        callback: MovieResultCallback<MovieAlternativeTitle>
+    )
+
+    // MOVIES
+    // Get Changes
+    fun getMoviesChanges(
+        movie_id: Int,
+        start_date: String?,
+        end_date: String?,
+        page: Int?,
+        callback: MovieResultCallback<MovieChanges>
+    )
+
+    // MOVIES
+    // Get Credits
+    fun getMoviesCredits(
+        movie_id: Int,
+        callback: MovieResultCallback<MovieCredit>
+    )
+    
+    
 ## LIST
 ## PEOPLE
 ## SEARCH

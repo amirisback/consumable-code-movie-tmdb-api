@@ -292,6 +292,34 @@ interface MovieDataSource {
         callback: GetRemoteCallback<MovieAccountState>
     )
 
+    // MOVIES
+    // Get Alternative Titles
+    fun getMoviesAlternativeTitles(
+        movie_id: Int,
+        apiKey: String,
+        country: String?,
+        callback: GetRemoteCallback<MovieAlternativeTitle>
+    )
+
+    // MOVIES
+    // Get Changes
+    fun getMoviesChanges(
+        movie_id: Int,
+        apiKey: String,
+        start_date: String?,
+        end_date: String?,
+        page: Int?,
+        callback: GetRemoteCallback<MovieChanges>
+    )
+
+    // MOVIES
+    // Get Credits
+    fun getMoviesCredits(
+        movie_id: Int,
+        apiKey: String,
+        callback: GetRemoteCallback<MovieCredit>
+    )
+
     // TRENDING
     // Get Trending All
     fun getTrendingAll(

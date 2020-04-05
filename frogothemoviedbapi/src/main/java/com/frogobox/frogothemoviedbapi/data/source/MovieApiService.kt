@@ -313,6 +313,34 @@ interface MovieApiService {
         @Query(MovieConstant.QUERY_GUEST_SESSION_ID) guest_session_id: String?
     ): Observable<MovieAccountState>
 
+    // MOVIES
+    // Get Alternative Titles
+    @GET(MovieUrl.MOVIES_GET_ALTERNATIVE_TITLE)
+    fun getMoviesAlternativeTitles(
+        @Path(MovieConstant.PATH_MOVIE_ID) movie_id: Int,
+        @Query(MovieConstant.QUERY_API_KEY) apiKey: String,
+        @Query(MovieConstant.QUERY_COUNTRY) country: String?
+    ): Observable<MovieAlternativeTitle>
+
+    // MOVIES
+    // Get Changes
+    @GET(MovieUrl.MOVIES_GET_CHANGES)
+    fun getMoviesChanges(
+        @Path(MovieConstant.PATH_MOVIE_ID) movie_id: Int,
+        @Query(MovieConstant.QUERY_API_KEY) apiKey: String,
+        @Query(MovieConstant.QUERY_START_DATE) start_date: String?,
+        @Query(MovieConstant.QUERY_END_DATE) end_date: String?,
+        @Query(MovieConstant.QUERY_PAGE) page: Int?
+    ): Observable<MovieChanges>
+
+    // MOVIES
+    // Get Credits
+    @GET(MovieUrl.MOVIES_GET_CREDITS)
+    fun getMoviesCredits(
+        @Path(MovieConstant.PATH_MOVIE_ID) movie_id: Int,
+        @Query(MovieConstant.QUERY_API_KEY) apiKey: String
+    ): Observable<MovieCredit>
+
     // TRENDING
     // Get Trending All
     @GET(MovieUrl.TRENDING_GET_TREND)
