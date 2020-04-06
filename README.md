@@ -1,5 +1,5 @@
 # consumable-code-movie-tmdb-api By AmirIsBack
-- v1.0.7 - Development
+- v1.0.8 - Development
 - Stable Version
 
 # About This Project
@@ -23,7 +23,7 @@ Simple code and reusable data
 # Version Release
 This Is Latest Release
 
-    $version_release = 1.0.7
+    $version_release = 1.0.8
 
 What's New??
 
@@ -46,7 +46,7 @@ Add it in your root build.gradle at the end of repositories:
 
 	dependencies {
 	        // library consumable code movie tmdb api
-            implementation 'com.github.amirisback:consumable-code-movie-tmdb-api:$version_release'
+            implementation 'com.github.amirisback:consumable-code-movie-tmdb-api:1.0.8'
 	}
 	
 <h3>Step 3. Declaration ConsumeMovieApi</h3>
