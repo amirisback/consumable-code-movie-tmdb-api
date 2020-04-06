@@ -61,7 +61,7 @@ class TrendingTvWeekFragment : BaseFragment() {
             data,
             object : FrogoRecyclerViewListener<TrendingTv> {
                 override fun onItemClicked(data: TrendingTv) {
-//                    baseStartActivity<DetailActivity, Article>(DetailActivity.EXTRA_DATA, data)
+                    data.original_name?.let { showToast(it) }
                 }
 
                 override fun onItemLongClicked(data: TrendingTv) {
