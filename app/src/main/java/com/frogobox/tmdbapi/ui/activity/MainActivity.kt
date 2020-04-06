@@ -3,9 +3,9 @@ package com.frogobox.tmdbapi.ui.activity
 import android.os.Bundle
 import com.frogobox.tmdbapi.R
 import com.frogobox.tmdbapi.base.ui.BaseActivity
-import com.frogobox.tmdbapi.ui.fragment.TrendingMovieFragment
-import com.frogobox.tmdbapi.ui.fragment.TrendingPersonFragment
-import com.frogobox.tmdbapi.ui.fragment.TrendingTvFragment
+import com.frogobox.tmdbapi.ui.fragment.movie.TrendingMovieFragment
+import com.frogobox.tmdbapi.ui.fragment.person.TrendingPersonFragment
+import com.frogobox.tmdbapi.ui.fragment.tv.TrendingTvFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : BaseActivity() {
