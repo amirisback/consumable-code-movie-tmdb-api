@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.activity.TrendingMovieDetailActivity"></activity>
+        <activity android:name=".ui.activity.TrendingTvDetailActivity"></activity>
+        <activity android:name=".ui.activity.TrendingPersonDetailActivity" />
+        <activity android:name=".ui.activity.TrendingMovieDetailActivity" />
         <activity android:name=".ui.activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

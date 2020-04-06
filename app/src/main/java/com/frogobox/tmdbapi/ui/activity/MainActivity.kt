@@ -15,6 +15,11 @@ class MainActivity : BaseActivity() {
         setContentView(R.layout.activity_main)
         setupBottomNav(R.id.framelayout_main_container)
         setupFragment(savedInstanceState)
+        setupToolbar()
+    }
+
+    private fun setupToolbar(){
+        supportActionBar?.elevation = 0f
     }
 
     private fun setupFragment(savedInstanceState: Bundle?) {
