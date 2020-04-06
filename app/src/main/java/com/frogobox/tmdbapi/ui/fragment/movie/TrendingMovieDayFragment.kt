@@ -36,7 +36,7 @@ class TrendingMovieDayFragment : BaseFragment() {
         consumeMovieApi().getTrendingMovieDay(object :
             MovieResultCallback<Trending<TrendingMovie>> {
             override fun getResultData(data: Trending<TrendingMovie>) {
-                data.results?.let { setupHorizontalAdapter(it) }
+                data.results?.let { setupAdapter(it) }
             }
 
             override fun failedResult(statusCode: Int, errorMessage: String?) {
@@ -53,10 +53,10 @@ class TrendingMovieDayFragment : BaseFragment() {
         })
     }
 
-    private fun setupHorizontalAdapter(data: List<TrendingMovie>) {
+    private fun setupAdapter(data: List<TrendingMovie>) {
         val adapter = TrendingMovieAdapter()
         adapter.setupRequirement(
-            R.layout.content_item_movie,
+            R.layout.content_item,
             data,
             object : FrogoRecyclerViewListener<TrendingMovie> {
                 override fun onItemClicked(data: TrendingMovie) {

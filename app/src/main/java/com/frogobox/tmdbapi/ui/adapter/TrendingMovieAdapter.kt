@@ -7,7 +7,7 @@ import com.frogobox.frogothemoviedbapi.data.model.TrendingMovie
 import com.frogobox.frogothemoviedbapi.util.MovieUrl
 import com.frogobox.recycler.adapter.FrogoRecyclerViewAdapter
 import com.frogobox.recycler.adapter.FrogoRecyclerViewHolder
-import kotlinx.android.synthetic.main.content_item_movie.view.*
+import kotlinx.android.synthetic.main.content_item.view.*
 
 /**
  * Created by Faisal Amir
@@ -45,7 +45,9 @@ class TrendingMovieAdapter() : FrogoRecyclerViewAdapter<TrendingMovie>() {
 
             tvTitle.text = data.title
             tvOverview.text = data.overview
-            Glide.with(itemView.context).load("${MovieUrl.BASE_URL_IMAGE_ORIGNAL}${data.poster_path}").into(ivPoster)
+            Glide.with(itemView.context)
+                .load("${MovieUrl.BASE_URL_IMAGE_ORIGNAL}${data.poster_path}")
+                .into(ivPoster)
 
         }
 

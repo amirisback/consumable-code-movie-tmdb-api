@@ -2,9 +2,12 @@ package com.frogobox.tmdbapi.ui.adapter
 
 import android.view.View
 import android.view.ViewGroup
+import com.bumptech.glide.Glide
 import com.frogobox.frogothemoviedbapi.data.model.TrendingTv
+import com.frogobox.frogothemoviedbapi.util.MovieUrl
 import com.frogobox.recycler.adapter.FrogoRecyclerViewAdapter
 import com.frogobox.recycler.adapter.FrogoRecyclerViewHolder
+import kotlinx.android.synthetic.main.content_item.view.*
 
 /**
  * Created by Faisal Amir
@@ -33,9 +36,18 @@ class TrendingTvAdapter() : FrogoRecyclerViewAdapter<TrendingTv>() {
 
     inner class TrendingMovieViewHolder(view: View) : FrogoRecyclerViewHolder<TrendingTv>(view) {
 
+        private val ivPoster = view.iv_poster
+        private val tvTitle = view.tv_title
+        private val tvOverview = view.tv_overview
+
         override fun initComponent(data: TrendingTv) {
             super.initComponent(data)
 
+            tvTitle.text = data.name
+            tvOverview.text = data.overview
+            Glide.with(itemView.context)
+                .load("${MovieUrl.BASE_URL_IMAGE_ORIGNAL}${data.poster_path}")
+                .into(ivPoster)
 
         }
 
