@@ -10,7 +10,7 @@ Simple code and reusable data
 
 # Android Library Version (build.gradle)
 - ext.kotlin_version = '1.3.71'
-- classpath 'com.android.tools.build:gradle:3.6.1'
+- classpath 'com.android.tools.build:gradle:3.6.2'
 - compileSdkVersion 29
 - buildToolsVersion "29.0.3"
 - minSdkVersion 21
@@ -75,6 +75,12 @@ Add it in your root build.gradle at the end of repositories:
             }
         })
 	
+
+# Screen Shoot Apps
+<span align="center"><img width="200px" height="360px" src="docs/image/ss_tv.png"></span>
+<span align="center"><img width="200px" height="360px" src="docs/image/ss_movie.png"></span>
+<span align="center"><img width="200px" height="360px" src="docs/image/ss_person.png"></span>
+<span align="center"><img width="200px" height="360px" src="docs/image/ss_api.png"></span>
 
 # Fecthing Data Library
 - Retrofit
