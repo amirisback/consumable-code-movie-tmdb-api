@@ -3,6 +3,7 @@ package com.frogobox.tmdbapi.base.ui
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.frogobox.frogothemoviedbapi.ConsumeMovieApi
@@ -97,5 +98,18 @@ open class BaseFragment : Fragment() {
         intent.putExtra(extraKey, extraData)
         this.startActivity(intent)
     }
+
+    protected fun showProgressThread(progressView : ProgressBar) {
+        mActivity.runOnUiThread {
+            progressView.visibility = View.VISIBLE
+        }
+    }
+
+    protected fun hideProgressThread(progressView : ProgressBar) {
+        mActivity.runOnUiThread {
+            progressView.visibility = View.GONE
+        }
+    }
+
 
 }

@@ -22,4 +22,5 @@ class TrendingTvWeekFragment : BaseFragment() {
         return inflater.inflate(R.layout.fragment_trending_child, container, false)
     }
 
+
 }
