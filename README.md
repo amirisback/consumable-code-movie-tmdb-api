@@ -8,18 +8,6 @@ Eliminates the method of retrieving json data using retrofit repeatedly. so this
 # Special From This Project
 Simple code and reusable data
 
-# Android Library Version (build.gradle)
-- ext.kotlin_version = '1.3.71'
-- classpath 'com.android.tools.build:gradle:3.6.2'
-- compileSdkVersion 29
-- buildToolsVersion "29.0.3"
-- minSdkVersion 21
-
-# Automatically Using This Permission
-    
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-
 # Version Release
 This Is Latest Release
 
@@ -75,6 +63,18 @@ Add it in your root build.gradle at the end of repositories:
             }
         })
 	
+
+# Android Library Version (build.gradle)
+- ext.kotlin_version = '1.3.71'
+- classpath 'com.android.tools.build:gradle:3.6.2'
+- compileSdkVersion 29
+- buildToolsVersion "29.0.3"
+- minSdkVersion 21
+
+# Automatically Using This Permission
+    
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
 # Screen Shoot Apps
 <span align="center"><img width="200px" height="360px" src="docs/image/ss_tv.png"></span>
@@ -412,8 +412,7 @@ https://developers.themoviedb.org/3/getting-started/introduction
         network_id: Int,
         callback: MovieResultCallback<NetworkImage>
     )
-
-
+    
 # Development ---------
     
 ## MOVIES
@@ -469,6 +468,7 @@ https://developers.themoviedb.org/3/getting-started/introduction
 ## TV SEASONS
 ## TV EPISODES
 ## TV EPISODE GROUPS 
+    
     
 # Colaborator
 Very open to anyone, I'll write your name under this, please contribute by sending an email to me
