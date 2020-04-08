@@ -470,9 +470,9 @@ https://developers.themoviedb.org/3/getting-started/introduction
 ## TV EPISODE GROUPS 
     
 
-# Award :star: :star: :star:
+# Award
 ## Github Actions Hackathon (March 5-31, 2020) [See list winner](https://github.com/amirisback/consumable-code-movie-tmdb-api/blob/master/docs/github_action_hackathon_winners.xlsx)
-This four-week hackathon challenges the community to create original GitHub Actions. Actions connect all of the tools in your workflow: You can solve problems, build containers, deploy to any cloud, and more.    
+:star: :star: :star: This four-week hackathon challenges the community to create original GitHub Actions. Actions connect all of the tools in your workflow: You can solve problems, build containers, deploy to any cloud, and more.    
 ![ScreenShoot Apps](docs/image/ss_github_hackathon1.png?raw=true)
 ![ScreenShoot Apps](docs/image/ss_github_hackathon2.png?raw=true)
 
