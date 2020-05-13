@@ -398,6 +398,57 @@ class MovieRepository(private val remoteDataSource: MovieRemoteDataSource) : Mov
         remoteDataSource.getMoviesCredits(movie_id, apiKey, callback)
     }
 
+    override fun getMoviesExternalIds(
+        movie_id: Int,
+        apiKey: String,
+        callback: MovieDataSource.GetRemoteCallback<MovieExternalId>
+    ) {
+        remoteDataSource.getMoviesExternalIds(movie_id, apiKey, callback)
+    }
+
+    override fun getMoviesImages(
+        movie_id: Int,
+        apiKey: String,
+        language: String?,
+        include_image_language: String?,
+        callback: MovieDataSource.GetRemoteCallback<MovieImages>
+    ) {
+        remoteDataSource.getMoviesImages(movie_id, apiKey, language, include_image_language, callback)
+    }
+
+    override fun getMoviesKeywords(
+        movie_id: Int,
+        apiKey: String,
+        callback: MovieDataSource.GetRemoteCallback<MovieKeywords>
+    ) {
+        remoteDataSource.getMoviesKeywords(movie_id, apiKey, callback)
+    }
+
+    override fun getMoviesReleaseDates(
+        movie_id: Int,
+        apiKey: String,
+        callback: MovieDataSource.GetRemoteCallback<MovieReleaseDates>
+    ) {
+        remoteDataSource.getMoviesReleaseDates(movie_id, apiKey, callback)
+    }
+
+    override fun getMoviesVideos(
+        movie_id: Int,
+        apiKey: String,
+        language: String?,
+        callback: MovieDataSource.GetRemoteCallback<MovieVideos>
+    ) {
+        remoteDataSource.getMoviesVideos(movie_id, apiKey, language, callback)
+    }
+
+    override fun getMoviesTranslations(
+        movie_id: Int,
+        apiKey: String,
+        callback: MovieDataSource.GetRemoteCallback<MovieTranslations>
+    ) {
+        remoteDataSource.getMoviesTranslations(movie_id, apiKey, callback)
+    }
+
     override fun getTrendingAll(
         media_type: String,
         time_window: String,

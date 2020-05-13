@@ -341,6 +341,57 @@ interface MovieApiService {
         @Query(MovieConstant.QUERY_API_KEY) apiKey: String
     ): Observable<MovieCredit>
 
+    // MOVIES
+    // Get External Ids
+    @GET(MovieUrl.MOVIES_GET_EXTERNAL_IDS)
+    fun getMoviesExternalIds(
+        @Path(MovieConstant.PATH_MOVIE_ID) movie_id: Int,
+        @Query(MovieConstant.QUERY_API_KEY) apiKey: String
+    ): Observable<MovieExternalId>
+
+    // MOVIES
+    // Get Images
+    @GET(MovieUrl.MOVIES_GET_IMAGES)
+    fun getMoviesImages(
+        @Path(MovieConstant.PATH_MOVIE_ID) movie_id: Int,
+        @Query(MovieConstant.QUERY_API_KEY) apiKey: String,
+        @Query(MovieConstant.QUERY_LANGUAGE) language: String?,
+        @Query(MovieConstant.QUERY_INCLUDE_IMAGE_LANGUAGE) include_image_language: String?
+    ): Observable<MovieImages>
+
+    // MOVIES
+    // Get Keywords
+    @GET(MovieUrl.MOVIES_GET_KEYWORDS)
+    fun getMoviesKeywords(
+        @Path(MovieConstant.PATH_MOVIE_ID) movie_id: Int,
+        @Query(MovieConstant.QUERY_API_KEY) apiKey: String
+    ): Observable<MovieKeywords>
+
+    // MOVIES
+    // Get Release Dates
+    @GET(MovieUrl.MOVIES_GET_RELEASE_DATE)
+    fun getMoviesReleaseDates(
+        @Path(MovieConstant.PATH_MOVIE_ID) movie_id: Int,
+        @Query(MovieConstant.QUERY_API_KEY) apiKey: String
+    ): Observable<MovieReleaseDates>
+
+    // MOVIES
+    // Get Videos
+    @GET(MovieUrl.MOVIES_GET_VIDEOS)
+    fun getMoviesVideos(
+        @Path(MovieConstant.PATH_MOVIE_ID) movie_id: Int,
+        @Query(MovieConstant.QUERY_API_KEY) apiKey: String,
+        @Query(MovieConstant.QUERY_LANGUAGE) language: String?
+    ): Observable<MovieVideos>
+
+    // MOVIES
+    // Get Translations
+    @GET(MovieUrl.MOVIES_GET_TRANSLATIONS)
+    fun getMoviesTranslations(
+        @Path(MovieConstant.PATH_MOVIE_ID) movie_id: Int,
+        @Query(MovieConstant.QUERY_API_KEY) apiKey: String
+    ): Observable<MovieTranslations>
+
     // TRENDING
     // Get Trending All
     @GET(MovieUrl.TRENDING_GET_TREND)

@@ -284,6 +284,55 @@ interface ConsumeMovieApiView {
         callback: MovieResultCallback<MovieCredit>
     )
 
+    // DEVELOPMENT ---------------------------------------------------------------------------------
+
+    // MOVIES
+    // Get External Ids
+    fun getMoviesExternalIds(
+        movie_id: Int,
+        callback: MovieResultCallback<MovieExternalId>
+    )
+
+    // MOVIES
+    // Get Images
+    fun getMoviesImages(
+        movie_id: Int,
+        language: String?,
+        include_image_language: String?,
+        callback: MovieResultCallback<MovieImages>
+    )
+
+    // MOVIES
+    // Get Keywords
+    fun getMoviesKeywords(
+        movie_id: Int,
+        callback: MovieResultCallback<MovieKeywords>
+    )
+
+    // MOVIES
+    // Get Release Dates
+    fun getMoviesReleaseDates(
+        movie_id: Int,
+        callback: MovieResultCallback<MovieReleaseDates>
+    )
+
+    // MOVIES
+    // Get Videos
+    fun getMoviesVideos(
+        movie_id: Int,
+        language: String?,
+        callback: MovieResultCallback<MovieVideos>
+    )
+
+    // MOVIES
+    // Get Translations
+    fun getMoviesTranslations(
+        movie_id: Int,
+        callback: MovieResultCallback<MovieTranslations>
+    )
+
+    // DEVELOPMENT ---------------------------------------------------------------------------------
+
     // TRENDING
     // Get Trending All Day
     fun getTrendingAllDay(

@@ -320,6 +320,101 @@ interface MovieDataSource {
         callback: GetRemoteCallback<MovieCredit>
     )
 
+    // MOVIES
+    // Get External Ids
+    fun getMoviesExternalIds(
+        movie_id: Int,
+        apiKey: String,
+        callback: GetRemoteCallback<MovieExternalId>
+    )
+
+    // MOVIES
+    // Get Images
+    fun getMoviesImages(
+        movie_id: Int,
+        apiKey: String,
+        language: String?,
+        include_image_language: String?,
+        callback: GetRemoteCallback<MovieImages>
+    )
+
+    // MOVIES
+    // Get Keywords
+    fun getMoviesKeywords(
+        movie_id: Int,
+        apiKey: String,
+        callback: GetRemoteCallback<MovieKeywords>
+    )
+
+    // MOVIES
+    // Get Release Dates
+    fun getMoviesReleaseDates(
+        movie_id: Int,
+        apiKey: String,
+        callback: GetRemoteCallback<MovieReleaseDates>
+    )
+
+    // MOVIES
+    // Get Videos
+    fun getMoviesVideos(
+        movie_id: Int,
+        apiKey: String,
+        language: String?,
+        callback: GetRemoteCallback<MovieVideos>
+    )
+
+    // MOVIES
+    // Get Translations
+    fun getMoviesTranslations(
+        movie_id: Int,
+        apiKey: String,
+        callback: GetRemoteCallback<MovieTranslations>
+    )
+
+    // MOVIES
+    // Get Recommendations
+    // fun getMoviesRecommendations()
+
+    // MOVIES
+    // Get Similar Movies
+    // fun getMoviesSimilarMovies()
+
+    // MOVIES
+    // Get Reviews
+    // fun getMoviesReviews()
+
+    // MOVIES
+    // Get Lists
+    // fun getMoviesLists()
+
+    // MOVIES
+    // POST Rate Movie
+    // fun postMoviesRateMovies()
+
+    // MOVIES
+    // DELETE delete Rating
+    // fun deleteMoviesDeleteRating()
+
+    // MOVIES
+    // Get Latest
+    // fun getMoviesLatest()
+
+    // MOVIES
+    // Get Now Playing
+    // fun getMoviesNowPlaying()
+
+    // MOVIES
+    // Get Popular
+    // fun getMoviesPopular()
+
+    // MOVIES
+    // Get Top Rated
+    // fun getMoviesTopRated()
+
+    // MOVIES
+    // Get Upcoming
+    // fun getMoviesUpcoming()
+
     // TRENDING
     // Get Trending All
     fun getTrendingAll(

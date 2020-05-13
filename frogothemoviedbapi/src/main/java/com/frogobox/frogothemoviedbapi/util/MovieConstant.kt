@@ -68,6 +68,7 @@ object MovieConstant {
     const val QUERY_APPEND_TO_RESPONSE = "append_to_response"
     const val QUERY_SESSION_ID = "session_id"
     const val QUERY_GUEST_SESSION_ID = "guest_session_id"
+    const val QUERY_INCLUDE_IMAGE_LANGUAGE = "include_image_language"
 
     const val PATH_ID = "id"
     const val PATH_COLLECTION_ID = "collection_id"
