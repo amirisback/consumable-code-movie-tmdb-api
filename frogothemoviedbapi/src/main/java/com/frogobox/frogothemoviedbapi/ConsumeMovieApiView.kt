@@ -284,8 +284,6 @@ interface ConsumeMovieApiView {
         callback: MovieResultCallback<MovieCredit>
     )
 
-    // DEVELOPMENT ---------------------------------------------------------------------------------
-
     // MOVIES
     // Get External Ids
     fun getMoviesExternalIds(
@@ -409,8 +407,6 @@ interface ConsumeMovieApiView {
         region: String?,
         callback: MovieResultCallback<MovieUpcoming>
     )
-
-    // DEVELOPMENT ---------------------------------------------------------------------------------
 
     // TRENDING
     // Get Trending All Day

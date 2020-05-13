@@ -8,7 +8,8 @@ import android.view.ViewGroup
 import com.frogobox.frogothemoviedbapi.callback.MovieResultCallback
 import com.frogobox.frogothemoviedbapi.data.model.TrendingPerson
 import com.frogobox.frogothemoviedbapi.data.response.Trending
-import com.frogobox.recycler.adapter.FrogoRecyclerViewListener
+import com.frogobox.recycler.base.parent.FrogoRecyclerViewListener
+
 
 import com.frogobox.tmdbapi.R
 import com.frogobox.tmdbapi.base.ui.BaseFragment

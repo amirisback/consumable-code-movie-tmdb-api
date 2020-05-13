@@ -5,8 +5,8 @@ import android.view.ViewGroup
 import com.bumptech.glide.Glide
 import com.frogobox.frogothemoviedbapi.data.model.TrendingPerson
 import com.frogobox.frogothemoviedbapi.util.MovieUrl
-import com.frogobox.recycler.adapter.FrogoRecyclerViewAdapter
-import com.frogobox.recycler.adapter.FrogoRecyclerViewHolder
+import com.frogobox.recycler.base.viewrclass.FrogoRecyclerViewAdapter
+import com.frogobox.recycler.base.viewrclass.FrogoRecyclerViewHolder
 import kotlinx.android.synthetic.main.content_item.view.*
 
 /**
@@ -42,14 +42,11 @@ class TrendingPersonAdapter() : FrogoRecyclerViewAdapter<TrendingPerson>() {
         private val tvOverview = view.tv_overview
 
         override fun initComponent(data: TrendingPerson) {
-            super.initComponent(data)
-
             tvTitle.text = data.name
             tvOverview.text = data.known_for_department
             Glide.with(itemView.context)
                 .load("${MovieUrl.BASE_URL_IMAGE_ORIGNAL}${data.profile_path}")
                 .into(ivPoster)
-
         }
 
     }

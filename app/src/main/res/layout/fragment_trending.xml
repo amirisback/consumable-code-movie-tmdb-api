@@ -18,7 +18,7 @@
         app:tabIndicatorHeight="5dp"
         app:tabTextColor="#C9FFFFFF"
         app:tabRippleColor="@null"
-        app:tabSelectedTextColor="@color/frogoRvColorBaseWhite" />
+        app:tabSelectedTextColor="@color/frogoRvColorWhite" />
 
 
     <androidx.viewpager.widget.ViewPager
