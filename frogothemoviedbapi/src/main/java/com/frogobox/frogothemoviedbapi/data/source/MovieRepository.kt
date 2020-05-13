@@ -413,7 +413,13 @@ class MovieRepository(private val remoteDataSource: MovieRemoteDataSource) : Mov
         include_image_language: String?,
         callback: MovieDataSource.GetRemoteCallback<MovieImages>
     ) {
-        remoteDataSource.getMoviesImages(movie_id, apiKey, language, include_image_language, callback)
+        remoteDataSource.getMoviesImages(
+            movie_id,
+            apiKey,
+            language,
+            include_image_language,
+            callback
+        )
     }
 
     override fun getMoviesKeywords(
@@ -447,6 +453,94 @@ class MovieRepository(private val remoteDataSource: MovieRemoteDataSource) : Mov
         callback: MovieDataSource.GetRemoteCallback<MovieTranslations>
     ) {
         remoteDataSource.getMoviesTranslations(movie_id, apiKey, callback)
+    }
+
+    override fun getMoviesRecommendations(
+        movie_id: Int,
+        apiKey: String,
+        language: String?,
+        page: Int?,
+        callback: MovieDataSource.GetRemoteCallback<MovieRecommendations>
+    ) {
+        remoteDataSource.getMoviesRecommendations(movie_id, apiKey, language, page, callback)
+    }
+
+    override fun getMoviesSimilarMovies(
+        movie_id: Int,
+        apiKey: String,
+        language: String?,
+        page: Int?,
+        callback: MovieDataSource.GetRemoteCallback<MovieSimilarMovies>
+    ) {
+        remoteDataSource.getMoviesSimilarMovies(movie_id, apiKey, language, page, callback)
+    }
+
+    override fun getMoviesReviews(
+        movie_id: Int,
+        apiKey: String,
+        language: String?,
+        page: Int?,
+        callback: MovieDataSource.GetRemoteCallback<MovieReviews>
+    ) {
+        remoteDataSource.getMoviesReviews(movie_id, apiKey, language, page, callback)
+    }
+
+    override fun getMoviesLists(
+        movie_id: Int,
+        apiKey: String,
+        language: String?,
+        page: Int?,
+        callback: MovieDataSource.GetRemoteCallback<MovieLists>
+    ) {
+        remoteDataSource.getMoviesLists(movie_id, apiKey, language, page, callback)
+    }
+
+    override fun getMoviesLatest(
+        apiKey: String,
+        language: String?,
+        callback: MovieDataSource.GetRemoteCallback<MovieLatest>
+    ) {
+        remoteDataSource.getMoviesLatest(apiKey, language, callback)
+    }
+
+    override fun getMoviesNowPlaying(
+        apiKey: String,
+        language: String?,
+        page: Int?,
+        region: String?,
+        callback: MovieDataSource.GetRemoteCallback<MovieNowPlayings>
+    ) {
+        remoteDataSource.getMoviesNowPlaying(apiKey, language, page, region, callback)
+    }
+
+    override fun getMoviesPopular(
+        apiKey: String,
+        language: String?,
+        page: Int?,
+        region: String?,
+        callback: MovieDataSource.GetRemoteCallback<MoviePopulars>
+    ) {
+        remoteDataSource.getMoviesPopular(apiKey, language, page, region, callback)
+    }
+
+    override fun getMoviesTopRated(
+        apiKey: String,
+        language: String?,
+        page: Int?,
+        region: String?,
+        callback: MovieDataSource.GetRemoteCallback<MovieTopRated>
+    ) {
+        remoteDataSource.getMoviesTopRated(apiKey, language, page, region, callback)
+    }
+
+    override fun getMoviesUpcoming(
+        apiKey: String,
+        language: String?,
+        page: Int?,
+        region: String?,
+        callback: MovieDataSource.GetRemoteCallback<MovieUpcoming>
+    ) {
+        remoteDataSource.getMoviesUpcoming(apiKey, language, page, region, callback)
     }
 
     override fun getTrendingAll(

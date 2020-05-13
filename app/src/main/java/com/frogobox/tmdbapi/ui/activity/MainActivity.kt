@@ -18,7 +18,7 @@ class MainActivity : BaseActivity() {
         setupToolbar()
     }
 
-    private fun setupToolbar(){
+    private fun setupToolbar() {
         supportActionBar?.elevation = 0f
     }
 

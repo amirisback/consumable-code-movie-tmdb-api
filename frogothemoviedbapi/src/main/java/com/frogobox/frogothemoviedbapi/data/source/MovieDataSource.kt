@@ -373,19 +373,91 @@ interface MovieDataSource {
 
     // MOVIES
     // Get Recommendations
-    // fun getMoviesRecommendations()
+    fun getMoviesRecommendations(
+        movie_id: Int,
+        apiKey: String,
+        language: String?,
+        page: Int?,
+        callback: GetRemoteCallback<MovieRecommendations>
+    )
 
     // MOVIES
     // Get Similar Movies
-    // fun getMoviesSimilarMovies()
+    fun getMoviesSimilarMovies(
+        movie_id: Int,
+        apiKey: String,
+        language: String?,
+        page: Int?,
+        callback: GetRemoteCallback<MovieSimilarMovies>
+    )
 
     // MOVIES
     // Get Reviews
-    // fun getMoviesReviews()
+    fun getMoviesReviews(
+        movie_id: Int,
+        apiKey: String,
+        language: String?,
+        page: Int?,
+        callback: GetRemoteCallback<MovieReviews>
+    )
 
     // MOVIES
     // Get Lists
-    // fun getMoviesLists()
+    fun getMoviesLists(
+        movie_id: Int,
+        apiKey: String,
+        language: String?,
+        page: Int?,
+        callback: GetRemoteCallback<MovieLists>
+    )
+
+    // MOVIES
+    // Get Latest
+    fun getMoviesLatest(
+        apiKey: String,
+        language: String?,
+        callback: GetRemoteCallback<MovieLatest>
+    )
+
+    // MOVIES
+    // Get Now Playing
+    fun getMoviesNowPlaying(
+        apiKey: String,
+        language: String?,
+        page: Int?,
+        region: String?,
+        callback: GetRemoteCallback<MovieNowPlayings>
+    )
+
+    // MOVIES
+    // Get Popular
+    fun getMoviesPopular(
+        apiKey: String,
+        language: String?,
+        page: Int?,
+        region: String?,
+        callback: GetRemoteCallback<MoviePopulars>
+    )
+
+    // MOVIES
+    // Get Top Rated
+    fun getMoviesTopRated(
+        apiKey: String,
+        language: String?,
+        page: Int?,
+        region: String?,
+        callback: GetRemoteCallback<MovieTopRated>
+    )
+
+    // MOVIES
+    // Get Upcoming
+    fun getMoviesUpcoming(
+        apiKey: String,
+        language: String?,
+        page: Int?,
+        region: String?,
+        callback: GetRemoteCallback<MovieUpcoming>
+    )
 
     // MOVIES
     // POST Rate Movie
@@ -394,26 +466,6 @@ interface MovieDataSource {
     // MOVIES
     // DELETE delete Rating
     // fun deleteMoviesDeleteRating()
-
-    // MOVIES
-    // Get Latest
-    // fun getMoviesLatest()
-
-    // MOVIES
-    // Get Now Playing
-    // fun getMoviesNowPlaying()
-
-    // MOVIES
-    // Get Popular
-    // fun getMoviesPopular()
-
-    // MOVIES
-    // Get Top Rated
-    // fun getMoviesTopRated()
-
-    // MOVIES
-    // Get Upcoming
-    // fun getMoviesUpcoming()
 
     // TRENDING
     // Get Trending All

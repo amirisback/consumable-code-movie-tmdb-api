@@ -391,6 +391,94 @@ interface MovieApiService {
         @Path(MovieConstant.PATH_MOVIE_ID) movie_id: Int,
         @Query(MovieConstant.QUERY_API_KEY) apiKey: String
     ): Observable<MovieTranslations>
+    
+    // MOVIES
+    // Get Recommendations
+    @GET(MovieUrl.MOVIES_GET_RECOMENDATIONS)
+    fun getMoviesRecommendations(
+        @Path(MovieConstant.PATH_MOVIE_ID) movie_id: Int,
+        @Query(MovieConstant.QUERY_API_KEY) apiKey: String,
+        @Query(MovieConstant.QUERY_LANGUAGE) language: String?,
+        @Query(MovieConstant.QUERY_PAGE) page: Int?
+    ): Observable<MovieRecommendations>
+
+    // MOVIES
+    // Get Similar Movies
+    @GET(MovieUrl.MOVIES_GET_SIMILAR_MOVIES)
+    fun getMoviesSimilarMovies(
+        @Path(MovieConstant.PATH_MOVIE_ID) movie_id: Int,
+        @Query(MovieConstant.QUERY_API_KEY) apiKey: String,
+        @Query(MovieConstant.QUERY_LANGUAGE) language: String?,
+        @Query(MovieConstant.QUERY_PAGE) page: Int?
+    ): Observable<MovieSimilarMovies>
+
+    // MOVIES
+    // Get Reviews
+    @GET(MovieUrl.MOVIES_GET_REVIEWS)
+    fun getMoviesReviews(
+        @Path(MovieConstant.PATH_MOVIE_ID) movie_id: Int,
+        @Query(MovieConstant.QUERY_API_KEY) apiKey: String,
+        @Query(MovieConstant.QUERY_LANGUAGE) language: String?,
+        page: Int?
+    ): Observable<MovieReviews>
+
+    // MOVIES
+    // Get Lists
+    @GET(MovieUrl.MOVIES_GET_LIST)
+    fun getMoviesLists(
+        @Path(MovieConstant.PATH_MOVIE_ID) movie_id: Int,
+        @Query(MovieConstant.QUERY_API_KEY) apiKey: String,
+        @Query(MovieConstant.QUERY_LANGUAGE) language: String?,
+        @Query(MovieConstant.QUERY_PAGE) page: Int?
+    ): Observable<MovieLists>
+
+    // MOVIES
+    // Get Latest
+    @GET(MovieUrl.MOVIES_GET_LATEST)
+    fun getMoviesLatest(
+        @Query(MovieConstant.QUERY_API_KEY) apiKey: String,
+        @Query(MovieConstant.QUERY_LANGUAGE) language: String?
+    ): Observable<MovieLatest>
+
+    // MOVIES
+    // Get Now Playing
+    @GET(MovieUrl.MOVIES_GET_NOW_PLAYING)
+    fun getMoviesNowPlaying(
+        @Query(MovieConstant.QUERY_API_KEY) apiKey: String,
+        @Query(MovieConstant.QUERY_LANGUAGE) language: String?,
+        @Query(MovieConstant.QUERY_PAGE) page: Int?,
+        @Query(MovieConstant.QUERY_REGION) region: String?
+    ): Observable<MovieNowPlayings>
+
+    // MOVIES
+    // Get Popular
+    @GET(MovieUrl.MOVIES_GET_POPULAR)
+    fun getMoviesPopular(
+        @Query(MovieConstant.QUERY_API_KEY) apiKey: String,
+        @Query(MovieConstant.QUERY_LANGUAGE) language: String?,
+        @Query(MovieConstant.QUERY_PAGE) page: Int?,
+        @Query(MovieConstant.QUERY_REGION) region: String?
+    ): Observable<MoviePopulars>
+
+    // MOVIES
+    // Get Top Rated
+    @GET(MovieUrl.MOVIES_GET_TOP_RATED)
+    fun getMoviesTopRated(
+        @Query(MovieConstant.QUERY_API_KEY) apiKey: String,
+        @Query(MovieConstant.QUERY_LANGUAGE) language: String?,
+        @Query(MovieConstant.QUERY_PAGE) page: Int?,
+        @Query(MovieConstant.QUERY_REGION) region: String?
+    ): Observable<MovieTopRated>
+
+    // MOVIES
+    // Get Upcoming
+    @GET(MovieUrl.MOVIES_GET_UPCOMING)
+    fun getMoviesUpcoming(
+        @Query(MovieConstant.QUERY_API_KEY) apiKey: String,
+        @Query(MovieConstant.QUERY_LANGUAGE) language: String?,
+        @Query(MovieConstant.QUERY_PAGE) page: Int?,
+        @Query(MovieConstant.QUERY_REGION) region: String?
+    ): Observable<MovieUpcoming>
 
     // TRENDING
     // Get Trending All

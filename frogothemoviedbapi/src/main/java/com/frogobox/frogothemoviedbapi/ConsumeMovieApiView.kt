@@ -331,6 +331,85 @@ interface ConsumeMovieApiView {
         callback: MovieResultCallback<MovieTranslations>
     )
 
+    // MOVIES
+    // Get Recommendations
+    fun getMoviesRecommendations(
+        movie_id: Int,
+        language: String?,
+        page: Int?,
+        callback: MovieResultCallback<MovieRecommendations>
+    )
+
+    // MOVIES
+    // Get Similar Movies
+    fun getMoviesSimilarMovies(
+        movie_id: Int,
+        language: String?,
+        page: Int?,
+        callback: MovieResultCallback<MovieSimilarMovies>
+    )
+
+    // MOVIES
+    // Get Reviews
+    fun getMoviesReviews(
+        movie_id: Int,
+        language: String?,
+        page: Int?,
+        callback: MovieResultCallback<MovieReviews>
+    )
+
+    // MOVIES
+    // Get Lists
+    fun getMoviesLists(
+        movie_id: Int,
+        language: String?,
+        page: Int?,
+        callback: MovieResultCallback<MovieLists>
+    )
+
+    // MOVIES
+    // Get Latest
+    fun getMoviesLatest(
+        language: String?,
+        callback: MovieResultCallback<MovieLatest>
+    )
+
+    // MOVIES
+    // Get Now Playing
+    fun getMoviesNowPlaying(
+        language: String?,
+        page: Int?,
+        region: String?,
+        callback: MovieResultCallback<MovieNowPlayings>
+    )
+
+    // MOVIES
+    // Get Popular
+    fun getMoviesPopular(
+        language: String?,
+        page: Int?,
+        region: String?,
+        callback: MovieResultCallback<MoviePopulars>
+    )
+
+    // MOVIES
+    // Get Top Rated
+    fun getMoviesTopRated(
+        language: String?,
+        page: Int?,
+        region: String?,
+        callback: MovieResultCallback<MovieTopRated>
+    )
+
+    // MOVIES
+    // Get Upcoming
+    fun getMoviesUpcoming(
+        language: String?,
+        page: Int?,
+        region: String?,
+        callback: MovieResultCallback<MovieUpcoming>
+    )
+
     // DEVELOPMENT ---------------------------------------------------------------------------------
 
     // TRENDING

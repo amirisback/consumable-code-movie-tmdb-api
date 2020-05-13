@@ -1070,6 +1070,269 @@ class ConsumeMovieApi(private val apiKey: String) : ConsumeMovieApiView {
             })
     }
 
+    override fun getMoviesRecommendations(
+        movie_id: Int,
+        language: String?,
+        page: Int?,
+        callback: MovieResultCallback<MovieRecommendations>
+    ) {
+        movieRepository.getMoviesRecommendations(
+            movie_id,
+            apiKey,
+            language,
+            page,
+            object : MovieDataSource.GetRemoteCallback<MovieRecommendations> {
+                override fun onSuccess(data: MovieRecommendations) {
+                    callback.getResultData(data)
+                }
+
+                override fun onFailed(statusCode: Int, errorMessage: String?) {
+                    callback.failedResult(statusCode, errorMessage)
+                }
+
+                override fun onShowProgress() {
+                    callback.onShowProgress()
+                }
+
+                override fun onHideProgress() {
+                    callback.onHideProgress()
+                }
+            })
+    }
+
+    override fun getMoviesSimilarMovies(
+        movie_id: Int,
+        language: String?,
+        page: Int?,
+        callback: MovieResultCallback<MovieSimilarMovies>
+    ) {
+        movieRepository.getMoviesSimilarMovies(
+            movie_id,
+            apiKey,
+            language,
+            page,
+            object : MovieDataSource.GetRemoteCallback<MovieSimilarMovies> {
+                override fun onSuccess(data: MovieSimilarMovies) {
+                    callback.getResultData(data)
+                }
+
+                override fun onFailed(statusCode: Int, errorMessage: String?) {
+                    callback.failedResult(statusCode, errorMessage)
+                }
+
+                override fun onShowProgress() {
+                    callback.onShowProgress()
+                }
+
+                override fun onHideProgress() {
+                    callback.onHideProgress()
+                }
+            })
+    }
+
+    override fun getMoviesReviews(
+        movie_id: Int,
+        language: String?,
+        page: Int?,
+        callback: MovieResultCallback<MovieReviews>
+    ) {
+        movieRepository.getMoviesReviews(
+            movie_id,
+            apiKey,
+            language,
+            page,
+            object : MovieDataSource.GetRemoteCallback<MovieReviews> {
+                override fun onSuccess(data: MovieReviews) {
+                    callback.getResultData(data)
+                }
+
+                override fun onFailed(statusCode: Int, errorMessage: String?) {
+                    callback.failedResult(statusCode, errorMessage)
+                }
+
+                override fun onShowProgress() {
+                    callback.onShowProgress()
+                }
+
+                override fun onHideProgress() {
+                    callback.onHideProgress()
+                }
+            })
+    }
+
+    override fun getMoviesLists(
+        movie_id: Int,
+        language: String?,
+        page: Int?,
+        callback: MovieResultCallback<MovieLists>
+    ) {
+        movieRepository.getMoviesLists(
+            movie_id,
+            apiKey,
+            language,
+            page,
+            object : MovieDataSource.GetRemoteCallback<MovieLists> {
+                override fun onSuccess(data: MovieLists) {
+                    callback.getResultData(data)
+                }
+
+                override fun onFailed(statusCode: Int, errorMessage: String?) {
+                    callback.failedResult(statusCode, errorMessage)
+                }
+
+                override fun onShowProgress() {
+                    callback.onShowProgress()
+                }
+
+                override fun onHideProgress() {
+                    callback.onHideProgress()
+                }
+            })
+    }
+
+    override fun getMoviesLatest(language: String?, callback: MovieResultCallback<MovieLatest>) {
+        movieRepository.getMoviesLatest(
+            apiKey,
+            language,
+            object : MovieDataSource.GetRemoteCallback<MovieLatest> {
+                override fun onSuccess(data: MovieLatest) {
+                    callback.getResultData(data)
+                }
+
+                override fun onFailed(statusCode: Int, errorMessage: String?) {
+                    callback.failedResult(statusCode, errorMessage)
+                }
+
+                override fun onShowProgress() {
+                    callback.onShowProgress()
+                }
+
+                override fun onHideProgress() {
+                    callback.onHideProgress()
+                }
+            })
+    }
+
+    override fun getMoviesNowPlaying(
+        language: String?,
+        page: Int?,
+        region: String?,
+        callback: MovieResultCallback<MovieNowPlayings>
+    ) {
+        movieRepository.getMoviesNowPlaying(
+            apiKey,
+            language,
+            page,
+            region,
+            object : MovieDataSource.GetRemoteCallback<MovieNowPlayings> {
+                override fun onSuccess(data: MovieNowPlayings) {
+                    callback.getResultData(data)
+                }
+
+                override fun onFailed(statusCode: Int, errorMessage: String?) {
+                    callback.failedResult(statusCode, errorMessage)
+                }
+
+                override fun onShowProgress() {
+                    callback.onShowProgress()
+                }
+
+                override fun onHideProgress() {
+                    callback.onHideProgress()
+                }
+            })
+    }
+
+    override fun getMoviesPopular(
+        language: String?,
+        page: Int?,
+        region: String?,
+        callback: MovieResultCallback<MoviePopulars>
+    ) {
+        movieRepository.getMoviesPopular(
+            apiKey,
+            language,
+            page,
+            region,
+            object : MovieDataSource.GetRemoteCallback<MoviePopulars> {
+                override fun onSuccess(data: MoviePopulars) {
+                    callback.getResultData(data)
+                }
+
+                override fun onFailed(statusCode: Int, errorMessage: String?) {
+                    callback.failedResult(statusCode, errorMessage)
+                }
+
+                override fun onShowProgress() {
+                    callback.onShowProgress()
+                }
+
+                override fun onHideProgress() {
+                    callback.onHideProgress()
+                }
+            })
+    }
+
+    override fun getMoviesTopRated(
+        language: String?,
+        page: Int?,
+        region: String?,
+        callback: MovieResultCallback<MovieTopRated>
+    ) {
+        movieRepository.getMoviesTopRated(
+            apiKey,
+            language,
+            page,
+            region,
+            object : MovieDataSource.GetRemoteCallback<MovieTopRated> {
+                override fun onSuccess(data: MovieTopRated) {
+                    callback.getResultData(data)
+                }
+
+                override fun onFailed(statusCode: Int, errorMessage: String?) {
+                    callback.failedResult(statusCode, errorMessage)
+                }
+
+                override fun onShowProgress() {
+                    callback.onShowProgress()
+                }
+
+                override fun onHideProgress() {
+                    callback.onHideProgress()
+                }
+            })
+    }
+
+    override fun getMoviesUpcoming(
+        language: String?,
+        page: Int?,
+        region: String?,
+        callback: MovieResultCallback<MovieUpcoming>
+    ) {
+        movieRepository.getMoviesUpcoming(
+            apiKey,
+            language,
+            page,
+            region,
+            object : MovieDataSource.GetRemoteCallback<MovieUpcoming> {
+                override fun onSuccess(data: MovieUpcoming) {
+                    callback.getResultData(data)
+                }
+
+                override fun onFailed(statusCode: Int, errorMessage: String?) {
+                    callback.failedResult(statusCode, errorMessage)
+                }
+
+                override fun onShowProgress() {
+                    callback.onShowProgress()
+                }
+
+                override fun onHideProgress() {
+                    callback.onHideProgress()
+                }
+            })
+    }
+
     override fun getTrendingAllDay(callback: MovieResultCallback<Trending<TrendingAll>>) {
         movieRepository.getTrendingAll(
             MovieConstant.VALUE_MEDIA_TYPE_ALL,
