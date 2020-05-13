@@ -1,5 +1,5 @@
 # consumable-code-movie-tmdb-api By AmirIsBack
-- v1.0.9 - Development
+- v1.1.0 - Development
 - Stable Version
 
 # About This Project
@@ -11,11 +11,11 @@ Simple code and reusable data
 # Version Release
 This Is Latest Release
 
-    $version_release = 1.0.9
+    $version_release = 1.1.0
 
 What's New??
 
-    * Add: Movie API, Simple Sample and Screenshoot apps *
+    * Add: Movie API, update all library gradle into newest *
 
 # How To Use This Project
 <h3>Step 1. Add the JitPack repository to your build file</h3>
@@ -34,7 +34,7 @@ Add it in your root build.gradle at the end of repositories:
 
 	dependencies {
 	        // library consumable code movie tmdb api
-            implementation 'com.github.amirisback:consumable-code-movie-tmdb-api:1.0.9'
+            implementation 'com.github.amirisback:consumable-code-movie-tmdb-api:1.1.0'
 	}
 	
 <h3>Step 3. Declaration ConsumeMovieApi</h3>
@@ -413,8 +413,7 @@ https://developers.themoviedb.org/3/getting-started/introduction
         callback: MovieResultCallback<NetworkImage>
     )
     
-# Development ---------
-    
+
 ## MOVIES
     
     // MOVIES
@@ -425,7 +424,7 @@ https://developers.themoviedb.org/3/getting-started/introduction
         append_to_response: String?,
         callback: MovieResultCallback<MovieDetail>
     )
-    
+
     // MOVIES
     // Get Account States
     fun getMoviesAccountState(
@@ -434,7 +433,7 @@ https://developers.themoviedb.org/3/getting-started/introduction
         guest_session_id: String?,
         callback: MovieResultCallback<MovieAccountState>
     )
-    
+
     // MOVIES
     // Get Alternative Titles
     fun getMoviesAlternativeTitles(
@@ -459,8 +458,133 @@ https://developers.themoviedb.org/3/getting-started/introduction
         movie_id: Int,
         callback: MovieResultCallback<MovieCredit>
     )
+
+    // MOVIES
+    // Get External Ids
+    fun getMoviesExternalIds(
+        movie_id: Int,
+        callback: MovieResultCallback<MovieExternalId>
+    )
+
+    // MOVIES
+    // Get Images
+    fun getMoviesImages(
+        movie_id: Int,
+        language: String?,
+        include_image_language: String?,
+        callback: MovieResultCallback<MovieImages>
+    )
+
+    // MOVIES
+    // Get Keywords
+    fun getMoviesKeywords(
+        movie_id: Int,
+        callback: MovieResultCallback<MovieKeywords>
+    )
+
+    // MOVIES
+    // Get Release Dates
+    fun getMoviesReleaseDates(
+        movie_id: Int,
+        callback: MovieResultCallback<MovieReleaseDates>
+    )
+
+    // MOVIES
+    // Get Videos
+    fun getMoviesVideos(
+        movie_id: Int,
+        language: String?,
+        callback: MovieResultCallback<MovieVideos>
+    )
+
+    // MOVIES
+    // Get Translations
+    fun getMoviesTranslations(
+        movie_id: Int,
+        callback: MovieResultCallback<MovieTranslations>
+    )
+
+    // MOVIES
+    // Get Recommendations
+    fun getMoviesRecommendations(
+        movie_id: Int,
+        language: String?,
+        page: Int?,
+        callback: MovieResultCallback<MovieRecommendations>
+    )
+
+    // MOVIES
+    // Get Similar Movies
+    fun getMoviesSimilarMovies(
+        movie_id: Int,
+        language: String?,
+        page: Int?,
+        callback: MovieResultCallback<MovieSimilarMovies>
+    )
+
+    // MOVIES
+    // Get Reviews
+    fun getMoviesReviews(
+        movie_id: Int,
+        language: String?,
+        page: Int?,
+        callback: MovieResultCallback<MovieReviews>
+    )
+
+    // MOVIES
+    // Get Lists
+    fun getMoviesLists(
+        movie_id: Int,
+        language: String?,
+        page: Int?,
+        callback: MovieResultCallback<MovieLists>
+    )
+
+    // MOVIES
+    // Get Latest
+    fun getMoviesLatest(
+        language: String?,
+        callback: MovieResultCallback<MovieLatest>
+    )
+
+    // MOVIES
+    // Get Now Playing
+    fun getMoviesNowPlaying(
+        language: String?,
+        page: Int?,
+        region: String?,
+        callback: MovieResultCallback<MovieNowPlayings>
+    )
+
+    // MOVIES
+    // Get Popular
+    fun getMoviesPopular(
+        language: String?,
+        page: Int?,
+        region: String?,
+        callback: MovieResultCallback<MoviePopulars>
+    )
+
+    // MOVIES
+    // Get Top Rated
+    fun getMoviesTopRated(
+        language: String?,
+        page: Int?,
+        region: String?,
+        callback: MovieResultCallback<MovieTopRated>
+    )
+
+    // MOVIES
+    // Get Upcoming
+    fun getMoviesUpcoming(
+        language: String?,
+        page: Int?,
+        region: String?,
+        callback: MovieResultCallback<MovieUpcoming>
+    )
     
-    
+
+# Development ---------
 ## LIST
 ## PEOPLE
 ## SEARCH
