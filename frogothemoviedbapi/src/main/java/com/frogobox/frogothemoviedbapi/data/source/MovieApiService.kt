@@ -193,16 +193,16 @@ interface MovieApiService {
         @Query(MovieConstant.QUERY_CERTIFICATION) certification: String?,
         @Query(MovieConstant.QUERY_CERTIFICATION_LTE) certification_lte: String?,
         @Query(MovieConstant.QUERY_CERTIFICATION_GTE) certification_gte: String?,
-        @Query(MovieConstant.QUERY_INCLUDE_ADULT) include_adult: String?,
+        @Query(MovieConstant.QUERY_INCLUDE_ADULT) include_adult: Boolean?,
         @Query(MovieConstant.QUERY_INCLUDE_VIDEO) include_video: String?,
         @Query(MovieConstant.QUERY_PAGE) page: String?,
-        @Query(MovieConstant.QUERY_PRIMARY_RELEASE_YEAR) primary_release_year: String?,
+        @Query(MovieConstant.QUERY_PRIMARY_RELEASE_YEAR) primary_release_year: Int?,
         @Query(MovieConstant.QUERY_PRIMARY_RELEASE_GTE) primary_release_date_gte: String?,
         @Query(MovieConstant.QUERY_PRIMARY_RELEASE_LTE) primary_release_date_lte: String?,
         @Query(MovieConstant.QUERY_RELEASE_DATE_GTE) release_date_gte: String?,
         @Query(MovieConstant.QUERY_RELEASE_DATE_LTE) release_date_lte: String?,
         @Query(MovieConstant.QUERY_RELEASE_DATE_TYPE) with_release_type: String?,
-        @Query(MovieConstant.QUERY_YEAR) year: String?,
+        @Query(MovieConstant.QUERY_YEAR) year: Int?,
         @Query(MovieConstant.QUERY_VOTE_COUNT_GTE) vote_count_gte: String?,
         @Query(MovieConstant.QUERY_VOTE_COUNT_LTE) vote_count_lte: String?,
         @Query(MovieConstant.QUERY_VOTE_AVERAGE_GTE) vote_average_gte: String?,
@@ -231,7 +231,7 @@ interface MovieApiService {
         @Query(MovieConstant.QUERY_AIR_DATE_LTE) air_date_lte: String?,
         @Query(MovieConstant.QUERY_FIRST_AIR_DATE_GTE) first_air_date_gte: String?,
         @Query(MovieConstant.QUERY_FIRST_AIR_DATE_LTE) first_air_date_lte: String?,
-        @Query(MovieConstant.QUERY_FIRST_AIR_DATE_YEAR) first_air_date_year: String?,
+        @Query(MovieConstant.QUERY_FIRST_AIR_DATE_YEAR) first_air_date_year: Int?,
         @Query(MovieConstant.QUERY_PAGE) page: String?,
         @Query(MovieConstant.QUERY_TIMEZONE) timezone: String?,
         @Query(MovieConstant.QUERY_VOTE_AVERAGE_GTE) vote_average_gte: String?,
@@ -290,7 +290,7 @@ interface MovieApiService {
         @Path(MovieConstant.PATH_KEYWORD_ID) keyword_id: Int,
         @Query(MovieConstant.QUERY_API_KEY) apiKey: String,
         @Query(MovieConstant.QUERY_LANGUAGE) language: String?,
-        @Query(MovieConstant.QUERY_INCLUDE_ADULT) include_adult: String?
+        @Query(MovieConstant.QUERY_INCLUDE_ADULT) include_adult: Boolean?
     ): Observable<KeywordsMovies>
 
     // MOVIES
@@ -391,7 +391,7 @@ interface MovieApiService {
         @Path(MovieConstant.PATH_MOVIE_ID) movie_id: Int,
         @Query(MovieConstant.QUERY_API_KEY) apiKey: String
     ): Observable<MovieTranslations>
-    
+
     // MOVIES
     // Get Recommendations
     @GET(MovieUrl.MOVIES_GET_RECOMENDATIONS)
@@ -547,6 +547,84 @@ interface MovieApiService {
         @Path(MovieConstant.PATH_NETWORK_ID) network_id: Int,
         @Query(MovieConstant.QUERY_API_KEY) apiKey: String
     ): Observable<NetworkImage>
+
+    // SEARCH
+    // Search Companies
+    @GET(MovieUrl.SEARCH_GET_COMPANIES)
+    fun searchCompanies(
+        @Query(MovieConstant.QUERY_API_KEY) apiKey: String,
+        @Query(MovieConstant.QUERY_QUERY) query: String,
+        @Query(MovieConstant.QUERY_PAGE) page: Int?
+    ): Observable<SearchCompanies>
+
+    // SEARCH
+    // Search Collections
+    @GET(MovieUrl.SEARCH_GET_COLLECTIONS)
+    fun searchCollections(
+        @Query(MovieConstant.QUERY_API_KEY) apiKey: String,
+        @Query(MovieConstant.QUERY_QUERY) query: String,
+        @Query(MovieConstant.QUERY_LANGUAGE) language: String?,
+        @Query(MovieConstant.QUERY_PAGE) page: Int?
+    ): Observable<SearchCollections>
+
+    // SEARCH
+    // Search Keywords
+    @GET(MovieUrl.SEARCH_GET_KEYWORDS)
+    fun searchKeywords(
+        @Query(MovieConstant.QUERY_API_KEY) apiKey: String,
+        @Query(MovieConstant.QUERY_QUERY) query: String,
+        @Query(MovieConstant.QUERY_PAGE) page: Int?
+    ): Observable<SearchKeywords>
+
+    // SEARCH
+    // Search Movies
+    @GET(MovieUrl.SEARCH_GET_MOVIES)
+    fun searchMovies(
+        @Query(MovieConstant.QUERY_API_KEY) apiKey: String,
+        @Query(MovieConstant.QUERY_QUERY) query: String,
+        @Query(MovieConstant.QUERY_LANGUAGE) language: String?,
+        @Query(MovieConstant.QUERY_PAGE) page: Int?,
+        @Query(MovieConstant.QUERY_INCLUDE_ADULT) include_adult: Boolean?,
+        @Query(MovieConstant.QUERY_REGION) region: String?,
+        @Query(MovieConstant.QUERY_YEAR) year: Int?,
+        @Query(MovieConstant.QUERY_PRIMARY_RELEASE_YEAR) primary_release_year: Int?
+    ): Observable<SearchMovies>
+
+    // SEARCH
+    // Multi Search
+    @GET(MovieUrl.SEARCH_GET_MULTI_SEARCH)
+    fun searchMultiSearch(
+        @Query(MovieConstant.QUERY_API_KEY) apiKey: String,
+        @Query(MovieConstant.QUERY_QUERY) query: String,
+        @Query(MovieConstant.QUERY_LANGUAGE) language: String?,
+        @Query(MovieConstant.QUERY_PAGE) page: Int?,
+        @Query(MovieConstant.QUERY_INCLUDE_ADULT) include_adult: Boolean?,
+        @Query(MovieConstant.QUERY_REGION) region: String?
+    ): Observable<SearchMulti>
+
+    // SEARCH
+    // Search People
+    @GET(MovieUrl.SEARCH_GET_SEARCH_PEOPLE)
+    fun searchPeople(
+        @Query(MovieConstant.QUERY_API_KEY) apiKey: String,
+        @Query(MovieConstant.QUERY_QUERY) query: String,
+        @Query(MovieConstant.QUERY_LANGUAGE) language: String?,
+        @Query(MovieConstant.QUERY_PAGE) page: Int?,
+        @Query(MovieConstant.QUERY_INCLUDE_ADULT) include_adult: Boolean?,
+        @Query(MovieConstant.QUERY_REGION) region: String?
+    ): Observable<SearchPeople>
+
+    // SEARCH
+    // Search Tv Shows
+    @GET(MovieUrl.SEARCH_GET_TV_SHOWS)
+    fun searchTvShows(
+        @Query(MovieConstant.QUERY_API_KEY) apiKey: String,
+        @Query(MovieConstant.QUERY_QUERY) query: String,
+        @Query(MovieConstant.QUERY_LANGUAGE) language: String?,
+        @Query(MovieConstant.QUERY_PAGE) page: Int?,
+        @Query(MovieConstant.QUERY_INCLUDE_ADULT) include_adult: Boolean?,
+        @Query(MovieConstant.QUERY_FIRST_AIR_DATE_YEAR) first_air_date_year: Int?
+    ): Observable<SearchMovies>
 
     companion object Factory {
 

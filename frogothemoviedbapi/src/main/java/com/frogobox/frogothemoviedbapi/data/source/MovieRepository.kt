@@ -181,16 +181,16 @@ class MovieRepository(private val remoteDataSource: MovieRemoteDataSource) : Mov
         certification: String?,
         certification_lte: String?,
         certification_gte: String?,
-        include_adult: String?,
+        include_adult: Boolean?,
         include_video: String?,
         page: String?,
-        primary_release_year: String?,
+        primary_release_year: Int?,
         primary_release_date_gte: String?,
         primary_release_date_lte: String?,
         release_date_gte: String?,
         release_date_lte: String?,
         with_release_type: String?,
-        year: String?,
+        year: Int?,
         vote_count_gte: String?,
         vote_count_lte: String?,
         vote_average_gte: String?,
@@ -254,7 +254,7 @@ class MovieRepository(private val remoteDataSource: MovieRemoteDataSource) : Mov
         air_date_lte: String?,
         first_air_date_gte: String?,
         first_air_date_lte: String?,
-        first_air_date_year: String?,
+        first_air_date_year: Int?,
         page: String?,
         timezone: String?,
         vote_average_gte: String?,
@@ -338,7 +338,7 @@ class MovieRepository(private val remoteDataSource: MovieRemoteDataSource) : Mov
         keyword_id: Int,
         apiKey: String,
         language: String?,
-        include_adult: String?,
+        include_adult: Boolean?,
         callback: MovieDataSource.GetRemoteCallback<KeywordsMovies>
     ) {
         remoteDataSource.getKeywordsMovie(keyword_id, apiKey, language, include_adult, callback)
@@ -609,5 +609,117 @@ class MovieRepository(private val remoteDataSource: MovieRemoteDataSource) : Mov
         callback: MovieDataSource.GetRemoteCallback<NetworkImage>
     ) {
         remoteDataSource.getNetworkImage(network_id, apiKey, callback)
+    }
+
+    override fun searchCompanies(
+        apiKey: String,
+        query: String,
+        page: Int?,
+        callback: MovieDataSource.GetRemoteCallback<SearchCompanies>
+    ) {
+        remoteDataSource.searchCompanies(apiKey, query, page, callback)
+    }
+
+    override fun searchCollections(
+        apiKey: String,
+        query: String,
+        language: String?,
+        page: Int?,
+        callback: MovieDataSource.GetRemoteCallback<SearchCollections>
+    ) {
+        remoteDataSource.searchCollections(apiKey, query, language, page, callback)
+    }
+
+    override fun searchKeywords(
+        apiKey: String,
+        query: String,
+        page: Int?,
+        callback: MovieDataSource.GetRemoteCallback<SearchKeywords>
+    ) {
+        remoteDataSource.searchKeywords(apiKey, query, page, callback)
+    }
+
+    override fun searchMovies(
+        apiKey: String,
+        query: String,
+        language: String?,
+        page: Int?,
+        include_adult: Boolean?,
+        region: String?,
+        year: Int?,
+        primary_release_year: Int?,
+        callback: MovieDataSource.GetRemoteCallback<SearchMovies>
+    ) {
+        remoteDataSource.searchMovies(
+            apiKey,
+            query,
+            language,
+            page,
+            include_adult,
+            region,
+            year,
+            primary_release_year,
+            callback
+        )
+    }
+
+    override fun searchMultiSearch(
+        apiKey: String,
+        query: String,
+        language: String?,
+        page: Int?,
+        include_adult: Boolean?,
+        region: String?,
+        callback: MovieDataSource.GetRemoteCallback<SearchMulti>
+    ) {
+        remoteDataSource.searchMultiSearch(
+            apiKey,
+            query,
+            language,
+            page,
+            include_adult,
+            region,
+            callback
+        )
+    }
+
+    override fun searchPeople(
+        apiKey: String,
+        query: String,
+        language: String?,
+        page: Int?,
+        include_adult: Boolean?,
+        region: String?,
+        callback: MovieDataSource.GetRemoteCallback<SearchPeople>
+    ) {
+        remoteDataSource.searchPeople(
+            apiKey,
+            query,
+            language,
+            page,
+            include_adult,
+            region,
+            callback
+        )
+    }
+
+    override fun searchTvShows(
+        apiKey: String,
+        query: String,
+        language: String?,
+        page: Int?,
+        include_adult: Boolean?,
+        first_air_date_year: Int?,
+        callback: MovieDataSource.GetRemoteCallback<SearchMovies>
+    ) {
+        remoteDataSource.searchTvShows(
+            apiKey,
+            query,
+            language,
+            page,
+            include_adult,
+            first_air_date_year,
+            callback
+        )
     }
 }

@@ -491,16 +491,16 @@ object MovieRemoteDataSource : MovieDataSource {
         certification: String?,
         certification_lte: String?,
         certification_gte: String?,
-        include_adult: String?,
+        include_adult: Boolean?,
         include_video: String?,
         page: String?,
-        primary_release_year: String?,
+        primary_release_year: Int?,
         primary_release_date_gte: String?,
         primary_release_date_lte: String?,
         release_date_gte: String?,
         release_date_lte: String?,
         with_release_type: String?,
-        year: String?,
+        year: Int?,
         vote_count_gte: String?,
         vote_count_lte: String?,
         vote_average_gte: String?,
@@ -580,7 +580,7 @@ object MovieRemoteDataSource : MovieDataSource {
         air_date_lte: String?,
         first_air_date_gte: String?,
         first_air_date_lte: String?,
-        first_air_date_year: String?,
+        first_air_date_year: Int?,
         page: String?,
         timezone: String?,
         vote_average_gte: String?,
@@ -748,7 +748,7 @@ object MovieRemoteDataSource : MovieDataSource {
         keyword_id: Int,
         apiKey: String,
         language: String?,
-        include_adult: String?,
+        include_adult: Boolean?,
         callback: MovieDataSource.GetRemoteCallback<KeywordsMovies>
     ) {
         movieApiService.getApiService
@@ -1480,6 +1480,212 @@ object MovieRemoteDataSource : MovieDataSource {
             .doOnTerminate { callback.onHideProgress() }
             .subscribe(object : MovieApiCallback<NetworkImage>() {
                 override fun onSuccess(data: NetworkImage) {
+                    callback.onSuccess(data)
+                }
+
+                override fun onFailure(statusCode: Int, errorMessage: String) {
+                    callback.onFailed(statusCode, errorMessage)
+                }
+
+                override fun onFinish() {
+                }
+            })
+    }
+
+    override fun searchCompanies(
+        apiKey: String,
+        query: String,
+        page: Int?,
+        callback: MovieDataSource.GetRemoteCallback<SearchCompanies>
+    ) {
+        movieApiService.getApiService
+            .searchCompanies(apiKey, query, page)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .doOnSubscribe { callback.onShowProgress() }
+            .doOnTerminate { callback.onHideProgress() }
+            .subscribe(object : MovieApiCallback<SearchCompanies>() {
+                override fun onSuccess(data: SearchCompanies) {
+                    callback.onSuccess(data)
+                }
+
+                override fun onFailure(statusCode: Int, errorMessage: String) {
+                    callback.onFailed(statusCode, errorMessage)
+                }
+
+                override fun onFinish() {
+                }
+            })
+    }
+
+    override fun searchCollections(
+        apiKey: String,
+        query: String,
+        language: String?,
+        page: Int?,
+        callback: MovieDataSource.GetRemoteCallback<SearchCollections>
+    ) {
+        movieApiService.getApiService
+            .searchCollections(apiKey, query, language, page)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .doOnSubscribe { callback.onShowProgress() }
+            .doOnTerminate { callback.onHideProgress() }
+            .subscribe(object : MovieApiCallback<SearchCollections>() {
+                override fun onSuccess(data: SearchCollections) {
+                    callback.onSuccess(data)
+                }
+
+                override fun onFailure(statusCode: Int, errorMessage: String) {
+                    callback.onFailed(statusCode, errorMessage)
+                }
+
+                override fun onFinish() {
+                }
+            })
+    }
+
+    override fun searchKeywords(
+        apiKey: String,
+        query: String,
+        page: Int?,
+        callback: MovieDataSource.GetRemoteCallback<SearchKeywords>
+    ) {
+        movieApiService.getApiService
+            .searchKeywords(apiKey, query, page)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .doOnSubscribe { callback.onShowProgress() }
+            .doOnTerminate { callback.onHideProgress() }
+            .subscribe(object : MovieApiCallback<SearchKeywords>() {
+                override fun onSuccess(data: SearchKeywords) {
+                    callback.onSuccess(data)
+                }
+
+                override fun onFailure(statusCode: Int, errorMessage: String) {
+                    callback.onFailed(statusCode, errorMessage)
+                }
+
+                override fun onFinish() {
+                }
+            })
+    }
+
+    override fun searchMovies(
+        apiKey: String,
+        query: String,
+        language: String?,
+        page: Int?,
+        include_adult: Boolean?,
+        region: String?,
+        year: Int?,
+        primary_release_year: Int?,
+        callback: MovieDataSource.GetRemoteCallback<SearchMovies>
+    ) {
+        movieApiService.getApiService
+            .searchMovies(
+                apiKey,
+                query,
+                language,
+                page,
+                include_adult,
+                region,
+                year,
+                primary_release_year
+            )
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .doOnSubscribe { callback.onShowProgress() }
+            .doOnTerminate { callback.onHideProgress() }
+            .subscribe(object : MovieApiCallback<SearchMovies>() {
+                override fun onSuccess(data: SearchMovies) {
+                    callback.onSuccess(data)
+                }
+
+                override fun onFailure(statusCode: Int, errorMessage: String) {
+                    callback.onFailed(statusCode, errorMessage)
+                }
+
+                override fun onFinish() {
+                }
+            })
+    }
+
+    override fun searchMultiSearch(
+        apiKey: String,
+        query: String,
+        language: String?,
+        page: Int?,
+        include_adult: Boolean?,
+        region: String?,
+        callback: MovieDataSource.GetRemoteCallback<SearchMulti>
+    ) {
+        movieApiService.getApiService
+            .searchMultiSearch(apiKey, query, language, page, include_adult, region)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .doOnSubscribe { callback.onShowProgress() }
+            .doOnTerminate { callback.onHideProgress() }
+            .subscribe(object : MovieApiCallback<SearchMulti>() {
+                override fun onSuccess(data: SearchMulti) {
+                    callback.onSuccess(data)
+                }
+
+                override fun onFailure(statusCode: Int, errorMessage: String) {
+                    callback.onFailed(statusCode, errorMessage)
+                }
+
+                override fun onFinish() {
+                }
+            })
+    }
+
+    override fun searchPeople(
+        apiKey: String,
+        query: String,
+        language: String?,
+        page: Int?,
+        include_adult: Boolean?,
+        region: String?,
+        callback: MovieDataSource.GetRemoteCallback<SearchPeople>
+    ) {
+        movieApiService.getApiService
+            .searchPeople(apiKey, query, language, page, include_adult, region)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .doOnSubscribe { callback.onShowProgress() }
+            .doOnTerminate { callback.onHideProgress() }
+            .subscribe(object : MovieApiCallback<SearchPeople>() {
+                override fun onSuccess(data: SearchPeople) {
+                    callback.onSuccess(data)
+                }
+
+                override fun onFailure(statusCode: Int, errorMessage: String) {
+                    callback.onFailed(statusCode, errorMessage)
+                }
+
+                override fun onFinish() {
+                }
+            })
+    }
+
+    override fun searchTvShows(
+        apiKey: String,
+        query: String,
+        language: String?,
+        page: Int?,
+        include_adult: Boolean?,
+        first_air_date_year: Int?,
+        callback: MovieDataSource.GetRemoteCallback<SearchMovies>
+    ) {
+        movieApiService.getApiService
+            .searchTvShows(apiKey, query, language, page, include_adult, first_air_date_year)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .doOnSubscribe { callback.onShowProgress() }
+            .doOnTerminate { callback.onHideProgress() }
+            .subscribe(object : MovieApiCallback<SearchMovies>() {
+                override fun onSuccess(data: SearchMovies) {
                     callback.onSuccess(data)
                 }
 

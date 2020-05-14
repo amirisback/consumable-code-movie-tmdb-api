@@ -145,16 +145,16 @@ interface ConsumeMovieApiView {
         certification: String?,
         certification_lte: String?,
         certification_gte: String?,
-        include_adult: String?,
+        include_adult: Boolean?,
         include_video: String?,
         page: String?,
-        primary_release_year: String?,
+        primary_release_year: Int?,
         primary_release_date_gte: String?,
         primary_release_date_lte: String?,
         release_date_gte: String?,
         release_date_lte: String?,
         with_release_type: String?,
-        year: String?,
+        year: Int?,
         vote_count_gte: String?,
         vote_count_lte: String?,
         vote_average_gte: String?,
@@ -183,7 +183,7 @@ interface ConsumeMovieApiView {
         air_date_lte: String?,
         first_air_date_gte: String?,
         first_air_date_lte: String?,
-        first_air_date_year: String?,
+        first_air_date_year: Int?,
         page: String?,
         timezone: String?,
         vote_average_gte: String?,
@@ -237,7 +237,7 @@ interface ConsumeMovieApiView {
     fun getKeywordsMovie(
         keyword_id: Int,
         language: String?,
-        include_adult: String?,
+        include_adult: Boolean?,
         callback: MovieResultCallback<KeywordsMovies>
     )
 
@@ -482,6 +482,77 @@ interface ConsumeMovieApiView {
     fun getNetworkImage(
         network_id: Int,
         callback: MovieResultCallback<NetworkImage>
+    )
+
+    // SEARCH
+    // Search Companies
+    fun searchCompanies(
+        query: String,
+        page: Int?,
+        callback: MovieResultCallback<SearchCompanies>
+    )
+
+    // SEARCH
+    // Search Collections
+    fun searchCollections(
+        query: String,
+        language: String?,
+        page: Int?,
+        callback: MovieResultCallback<SearchCollections>
+    )
+
+    // SEARCH
+    // Search Keywords
+    fun searchKeywords(
+        query: String,
+        page: Int?,
+        callback: MovieResultCallback<SearchKeywords>
+    )
+
+    // SEARCH
+    // Search Movies
+    fun searchMovies(
+        query: String,
+        language: String?,
+        page: Int?,
+        include_adult: Boolean?,
+        region: String?,
+        year: Int?,
+        primary_release_year: Int?,
+        callback: MovieResultCallback<SearchMovies>
+    )
+
+    // SEARCH
+    // Multi Search
+    fun searchMultiSearch(
+        query: String,
+        language: String?,
+        page: Int?,
+        include_adult: Boolean?,
+        region: String?,
+        callback: MovieResultCallback<SearchMulti>
+    )
+
+    // SEARCH
+    // Search People
+    fun searchPeople(
+        query: String,
+        language: String?,
+        page: Int?,
+        include_adult: Boolean?,
+        region: String?,
+        callback: MovieResultCallback<SearchPeople>
+    )
+
+    // SEARCH
+    // Search Tv Shows
+    fun searchTvShows(
+        query: String,
+        language: String?,
+        page: Int?,
+        include_adult: Boolean?,
+        first_air_date_year: Int?,
+        callback: MovieResultCallback<SearchMovies>
     )
 
 }

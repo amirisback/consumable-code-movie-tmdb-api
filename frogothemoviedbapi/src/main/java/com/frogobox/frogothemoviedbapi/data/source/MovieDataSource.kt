@@ -170,16 +170,16 @@ interface MovieDataSource {
         certification: String?,
         certification_lte: String?,
         certification_gte: String?,
-        include_adult: String?,
+        include_adult: Boolean?,
         include_video: String?,
         page: String?,
-        primary_release_year: String?,
+        primary_release_year: Int?,
         primary_release_date_gte: String?,
         primary_release_date_lte: String?,
         release_date_gte: String?,
         release_date_lte: String?,
         with_release_type: String?,
-        year: String?,
+        year: Int?,
         vote_count_gte: String?,
         vote_count_lte: String?,
         vote_average_gte: String?,
@@ -209,7 +209,7 @@ interface MovieDataSource {
         air_date_lte: String?,
         first_air_date_gte: String?,
         first_air_date_lte: String?,
-        first_air_date_year: String?,
+        first_air_date_year: Int?,
         page: String?,
         timezone: String?,
         vote_average_gte: String?,
@@ -268,7 +268,7 @@ interface MovieDataSource {
         keyword_id: Int,
         apiKey: String,
         language: String?,
-        include_adult: String?,
+        include_adult: Boolean?,
         callback: GetRemoteCallback<KeywordsMovies>
     )
 
@@ -533,6 +533,84 @@ interface MovieDataSource {
         network_id: Int,
         apiKey: String,
         callback: GetRemoteCallback<NetworkImage>
+    )
+
+    // SEARCH
+    // Search Companies
+    fun searchCompanies(
+        apiKey: String,
+        query: String,
+        page: Int?,
+        callback: GetRemoteCallback<SearchCompanies>
+    )
+
+    // SEARCH
+    // Search Collections
+    fun searchCollections(
+        apiKey: String,
+        query: String,
+        language: String?,
+        page: Int?,
+        callback: GetRemoteCallback<SearchCollections>
+    )
+
+    // SEARCH
+    // Search Keywords
+    fun searchKeywords(
+        apiKey: String,
+        query: String,
+        page: Int?,
+        callback: GetRemoteCallback<SearchKeywords>
+    )
+
+    // SEARCH
+    // Search Movies
+    fun searchMovies(
+        apiKey: String,
+        query: String,
+        language: String?,
+        page: Int?,
+        include_adult: Boolean?,
+        region: String?,
+        year: Int?,
+        primary_release_year: Int?,
+        callback: GetRemoteCallback<SearchMovies>
+    )
+
+    // SEARCH
+    // Multi Search
+    fun searchMultiSearch(
+        apiKey: String,
+        query: String,
+        language: String?,
+        page: Int?,
+        include_adult: Boolean?,
+        region: String?,
+        callback: GetRemoteCallback<SearchMulti>
+    )
+
+    // SEARCH
+    // Search People
+    fun searchPeople(
+        apiKey: String,
+        query: String,
+        language: String?,
+        page: Int?,
+        include_adult: Boolean?,
+        region: String?,
+        callback: GetRemoteCallback<SearchPeople>
+    )
+
+    // SEARCH
+    // Search Tv Shows
+    fun searchTvShows(
+        apiKey: String,
+        query: String,
+        language: String?,
+        page: Int?,
+        include_adult: Boolean?,
+        first_air_date_year: Int?,
+        callback: GetRemoteCallback<SearchMovies>
     )
 
     // Response Callback

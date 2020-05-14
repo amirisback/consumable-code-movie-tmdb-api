@@ -490,16 +490,16 @@ class ConsumeMovieApi(private val apiKey: String) : ConsumeMovieApiView {
         certification: String?,
         certification_lte: String?,
         certification_gte: String?,
-        include_adult: String?,
+        include_adult: Boolean?,
         include_video: String?,
         page: String?,
-        primary_release_year: String?,
+        primary_release_year: Int?,
         primary_release_date_gte: String?,
         primary_release_date_lte: String?,
         release_date_gte: String?,
         release_date_lte: String?,
         with_release_type: String?,
-        year: String?,
+        year: Int?,
         vote_count_gte: String?,
         vote_count_lte: String?,
         vote_average_gte: String?,
@@ -578,7 +578,7 @@ class ConsumeMovieApi(private val apiKey: String) : ConsumeMovieApiView {
         air_date_lte: String?,
         first_air_date_gte: String?,
         first_air_date_lte: String?,
-        first_air_date_year: String?,
+        first_air_date_year: Int?,
         page: String?,
         timezone: String?,
         vote_average_gte: String?,
@@ -741,7 +741,7 @@ class ConsumeMovieApi(private val apiKey: String) : ConsumeMovieApiView {
     override fun getKeywordsMovie(
         keyword_id: Int,
         language: String?,
-        include_adult: String?,
+        include_adult: Boolean?,
         callback: MovieResultCallback<KeywordsMovies>
     ) {
         movieRepository.getKeywordsMovie(
@@ -1603,6 +1603,232 @@ class ConsumeMovieApi(private val apiKey: String) : ConsumeMovieApiView {
             apiKey,
             object : MovieDataSource.GetRemoteCallback<NetworkImage> {
                 override fun onSuccess(data: NetworkImage) {
+                    callback.getResultData(data)
+                }
+
+                override fun onFailed(statusCode: Int, errorMessage: String?) {
+                    callback.failedResult(statusCode, errorMessage)
+                }
+
+                override fun onShowProgress() {
+                    callback.onShowProgress()
+                }
+
+                override fun onHideProgress() {
+                    callback.onHideProgress()
+                }
+            })
+    }
+
+    override fun searchCompanies(
+        query: String,
+        page: Int?,
+        callback: MovieResultCallback<SearchCompanies>
+    ) {
+        movieRepository.searchCompanies(
+            apiKey,
+            query,
+            page,
+            object : MovieDataSource.GetRemoteCallback<SearchCompanies> {
+                override fun onSuccess(data: SearchCompanies) {
+                    callback.getResultData(data)
+                }
+
+                override fun onFailed(statusCode: Int, errorMessage: String?) {
+                    callback.failedResult(statusCode, errorMessage)
+                }
+
+                override fun onShowProgress() {
+                    callback.onShowProgress()
+                }
+
+                override fun onHideProgress() {
+                    callback.onHideProgress()
+                }
+            })
+    }
+
+    override fun searchCollections(
+        query: String,
+        language: String?,
+        page: Int?,
+        callback: MovieResultCallback<SearchCollections>
+    ) {
+        movieRepository.searchCollections(
+            apiKey,
+            query,
+            language,
+            page,
+            object : MovieDataSource.GetRemoteCallback<SearchCollections> {
+                override fun onSuccess(data: SearchCollections) {
+                    callback.getResultData(data)
+                }
+
+                override fun onFailed(statusCode: Int, errorMessage: String?) {
+                    callback.failedResult(statusCode, errorMessage)
+                }
+
+                override fun onShowProgress() {
+                    callback.onShowProgress()
+                }
+
+                override fun onHideProgress() {
+                    callback.onHideProgress()
+                }
+            })
+    }
+
+    override fun searchKeywords(
+        query: String,
+        page: Int?,
+        callback: MovieResultCallback<SearchKeywords>
+    ) {
+        movieRepository.searchKeywords(
+            apiKey,
+            query,
+            page,
+            object : MovieDataSource.GetRemoteCallback<SearchKeywords> {
+                override fun onSuccess(data: SearchKeywords) {
+                    callback.getResultData(data)
+                }
+
+                override fun onFailed(statusCode: Int, errorMessage: String?) {
+                    callback.failedResult(statusCode, errorMessage)
+                }
+
+                override fun onShowProgress() {
+                    callback.onShowProgress()
+                }
+
+                override fun onHideProgress() {
+                    callback.onHideProgress()
+                }
+            })
+    }
+
+    override fun searchMovies(
+        query: String,
+        language: String?,
+        page: Int?,
+        include_adult: Boolean?,
+        region: String?,
+        year: Int?,
+        primary_release_year: Int?,
+        callback: MovieResultCallback<SearchMovies>
+    ) {
+        movieRepository.searchMovies(
+            apiKey,
+            query,
+            language,
+            page,
+            include_adult,
+            region,
+            year,
+            primary_release_year,
+            object : MovieDataSource.GetRemoteCallback<SearchMovies> {
+                override fun onSuccess(data: SearchMovies) {
+                    callback.getResultData(data)
+                }
+
+                override fun onFailed(statusCode: Int, errorMessage: String?) {
+                    callback.failedResult(statusCode, errorMessage)
+                }
+
+                override fun onShowProgress() {
+                    callback.onShowProgress()
+                }
+
+                override fun onHideProgress() {
+                    callback.onHideProgress()
+                }
+            })
+    }
+
+    override fun searchMultiSearch(
+        query: String,
+        language: String?,
+        page: Int?,
+        include_adult: Boolean?,
+        region: String?,
+        callback: MovieResultCallback<SearchMulti>
+    ) {
+        movieRepository.searchMultiSearch(
+            apiKey,
+            query,
+            language,
+            page,
+            include_adult,
+            region,
+            object : MovieDataSource.GetRemoteCallback<SearchMulti> {
+                override fun onSuccess(data: SearchMulti) {
+                    callback.getResultData(data)
+                }
+
+                override fun onFailed(statusCode: Int, errorMessage: String?) {
+                    callback.failedResult(statusCode, errorMessage)
+                }
+
+                override fun onShowProgress() {
+                    callback.onShowProgress()
+                }
+
+                override fun onHideProgress() {
+                    callback.onHideProgress()
+                }
+            })
+    }
+
+    override fun searchPeople(
+        query: String,
+        language: String?,
+        page: Int?,
+        include_adult: Boolean?,
+        region: String?,
+        callback: MovieResultCallback<SearchPeople>
+    ) {
+        movieRepository.searchPeople(
+            apiKey,
+            query,
+            language,
+            page,
+            include_adult,
+            region,
+            object : MovieDataSource.GetRemoteCallback<SearchPeople> {
+                override fun onSuccess(data: SearchPeople) {
+                    callback.getResultData(data)
+                }
+
+                override fun onFailed(statusCode: Int, errorMessage: String?) {
+                    callback.failedResult(statusCode, errorMessage)
+                }
+
+                override fun onShowProgress() {
+                    callback.onShowProgress()
+                }
+
+                override fun onHideProgress() {
+                    callback.onHideProgress()
+                }
+            })
+    }
+
+    override fun searchTvShows(
+        query: String,
+        language: String?,
+        page: Int?,
+        include_adult: Boolean?,
+        first_air_date_year: Int?,
+        callback: MovieResultCallback<SearchMovies>
+    ) {
+        movieRepository.searchTvShows(
+            apiKey,
+            query,
+            language,
+            page,
+            include_adult,
+            first_air_date_year,
+            object : MovieDataSource.GetRemoteCallback<SearchMovies> {
+                override fun onSuccess(data: SearchMovies) {
                     callback.getResultData(data)
                 }
 
