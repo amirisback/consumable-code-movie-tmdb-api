@@ -1,5 +1,5 @@
 # consumable-code-movie-tmdb-api By AmirIsBack
-- v1.1.0 - Development
+- v1.1.1 - Development
 - Stable Version
 
 # About This Project
@@ -11,11 +11,11 @@ Simple code and reusable data
 # Version Release
 This Is Latest Release
 
-    $version_release = 1.1.0
+    $version_release = 1.1.1
 
 What's New??
 
-    * Add: Movie API, update all library gradle into newest *
+    * add: Search Section API and Fixing Bug *
 
 # How To Use This Project
 <h3>Step 1. Add the JitPack repository to your build file</h3>
@@ -34,7 +34,7 @@ Add it in your root build.gradle at the end of repositories:
 
 	dependencies {
 	        // library consumable code movie tmdb api
-            implementation 'com.github.amirisback:consumable-code-movie-tmdb-api:1.1.0'
+            implementation 'com.github.amirisback:consumable-code-movie-tmdb-api:1.1.1'
 	}
 	
 <h3>Step 3. Declaration ConsumeMovieApi</h3>
@@ -65,8 +65,8 @@ Add it in your root build.gradle at the end of repositories:
 	
 
 # Android Library Version (build.gradle)
-- ext.kotlin_version = '1.3.71'
-- classpath 'com.android.tools.build:gradle:3.6.2'
+- ext.kotlin_version = '1.3.72'
+- classpath 'com.android.tools.build:gradle:3.6.3'
 - compileSdkVersion 29
 - buildToolsVersion "29.0.3"
 - minSdkVersion 21
@@ -218,6 +218,7 @@ https://developers.themoviedb.org/3/getting-started/introduction
     // Get Details
     fun getCreditsDetails(credit_id: String, callback: MovieResultCallback<Credits>)
     
+
 ## DISCOVER
     
     // DISCOVER
@@ -233,13 +234,13 @@ https://developers.themoviedb.org/3/getting-started/introduction
         include_adult: String?,
         include_video: String?,
         page: String?,
-        primary_release_year: String?,
+        primary_release_year: Int?,
         primary_release_date_gte: String?,
         primary_release_date_lte: String?,
         release_date_gte: String?,
         release_date_lte: String?,
         with_release_type: String?,
-        year: String?,
+        year: Int?,
         vote_count_gte: String?,
         vote_count_lte: String?,
         vote_average_gte: String?,
@@ -267,7 +268,7 @@ https://developers.themoviedb.org/3/getting-started/introduction
         air_date_lte: String?,
         first_air_date_gte: String?,
         first_air_date_lte: String?,
-        first_air_date_year: String?,
+        first_air_date_year: Int?,
         page: String?,
         timezone: String?,
         vote_average_gte: String?,
@@ -286,6 +287,7 @@ https://developers.themoviedb.org/3/getting-started/introduction
         callback: MovieResultCallback<Discover<DiscoverTv>>
     )
     
+
 ## FIND    
   
     // FIND
@@ -331,6 +333,7 @@ https://developers.themoviedb.org/3/getting-started/introduction
         callback: MovieResultCallback<KeywordsMovies>
     )
     
+
 ## REVIEWS
 
     // REVIEWS
@@ -340,6 +343,7 @@ https://developers.themoviedb.org/3/getting-started/introduction
         callback: MovieResultCallback<Reviews>
     )
     
+
 ## TRENDING
 
     // TRENDING
@@ -584,10 +588,82 @@ https://developers.themoviedb.org/3/getting-started/introduction
     )
     
 
+## SEARCH
+
+    // SEARCH
+    // Search Companies
+    fun searchCompanies(
+        query: String,
+        page: Int?,
+        callback: MovieResultCallback<SearchCompanies>
+    )
+
+    // SEARCH
+    // Search Collections
+    fun searchCollections(
+        query: String,
+        language: String?,
+        page: Int?,
+        callback: MovieResultCallback<SearchCollections>
+    )
+
+    // SEARCH
+    // Search Keywords
+    fun searchKeywords(
+        query: String,
+        page: Int?,
+        callback: MovieResultCallback<SearchKeywords>
+    )
+
+    // SEARCH
+    // Search Movies
+    fun searchMovies(
+        query: String,
+        language: String?,
+        page: Int?,
+        include_adult: Boolean?,
+        region: String?,
+        year: Int?,
+        primary_release_year: Int?,
+        callback: MovieResultCallback<SearchMovies>
+    )
+
+    // SEARCH
+    // Multi Search
+    fun searchMultiSearch(
+        query: String,
+        language: String?,
+        page: Int?,
+        include_adult: Boolean?,
+        region: String?,
+        callback: MovieResultCallback<SearchMulti>
+    )
+
+    // SEARCH
+    // Search People
+    fun searchPeople(
+        query: String,
+        language: String?,
+        page: Int?,
+        include_adult: Boolean?,
+        region: String?,
+        callback: MovieResultCallback<SearchPeople>
+    )
+
+    // SEARCH
+    // Search Tv Shows
+    fun searchTvShows(
+        query: String,
+        language: String?,
+        page: Int?,
+        include_adult: Boolean?,
+        first_air_date_year: Int?,
+        callback: MovieResultCallback<SearchMovies>
+    )
+
 # Development ---------
 ## LIST
 ## PEOPLE
-## SEARCH
 ## TV
 ## TV SEASONS
 ## TV EPISODES
