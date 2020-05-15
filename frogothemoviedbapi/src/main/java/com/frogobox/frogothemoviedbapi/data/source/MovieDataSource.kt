@@ -27,6 +27,8 @@ interface MovieDataSource {
     // Switch For Using Chuck Interceptor
     fun usingChuckInterceptor(context: Context)
 
+    // ---------------------------------------------------------------------------------------------
+
     // CERTIFICATIONS
     // Get Movie Certifications
     fun getMovieCertifications(
@@ -40,6 +42,8 @@ interface MovieDataSource {
         apiKey: String,
         callback: GetRemoteCallback<Certifications<CertificationTv>>
     )
+
+    // ---------------------------------------------------------------------------------------------
 
     // CHANGES
     // Get Movie Change List
@@ -71,6 +75,8 @@ interface MovieDataSource {
         callback: GetRemoteCallback<Changes>
     )
 
+    // ---------------------------------------------------------------------------------------------
+
     // COLLECTION
     // Get Details
     fun getCollectionDetails(
@@ -98,6 +104,8 @@ interface MovieDataSource {
         callback: GetRemoteCallback<CollectionsTranslation>
     )
 
+    // ---------------------------------------------------------------------------------------------
+
     // COMPANIES
     // Get Details
     fun getCompaniesDetails(
@@ -121,6 +129,8 @@ interface MovieDataSource {
         apiKey: String,
         callback: GetRemoteCallback<CompaniesImage>
     )
+
+    // ---------------------------------------------------------------------------------------------
 
     // CONFIGURATION
     // Get API Configuration
@@ -154,6 +164,8 @@ interface MovieDataSource {
         apiKey: String,
         callback: GetRemoteCallback<List<ConfigurationTimezone>>
     )
+
+    // ---------------------------------------------------------------------------------------------
 
     // CREDITS
     // Get Details
@@ -199,6 +211,8 @@ interface MovieDataSource {
 
     )
 
+    // ---------------------------------------------------------------------------------------------
+
     // DISCOVER
     // TV Discover
     fun getDiscoverTv(
@@ -228,6 +242,8 @@ interface MovieDataSource {
         callback: GetRemoteCallback<Discover<DiscoverTv>>
     )
 
+    // ---------------------------------------------------------------------------------------------
+
     // FIND
     // Find by ID
     fun getFindById(
@@ -237,6 +253,8 @@ interface MovieDataSource {
         language: String?,
         callback: GetRemoteCallback<Find>
     )
+
+    // ---------------------------------------------------------------------------------------------
 
     // GENRES
     // Get Movie List
@@ -253,6 +271,8 @@ interface MovieDataSource {
         language: String?,
         callback: GetRemoteCallback<Genres>
     )
+
+    // ---------------------------------------------------------------------------------------------
 
     // KEYWORDS
     // Get Details
@@ -271,6 +291,8 @@ interface MovieDataSource {
         include_adult: Boolean?,
         callback: GetRemoteCallback<KeywordsMovies>
     )
+
+    // ---------------------------------------------------------------------------------------------
 
     // MOVIES
     // Get Details
@@ -459,13 +481,7 @@ interface MovieDataSource {
         callback: GetRemoteCallback<MovieUpcoming>
     )
 
-    // MOVIES
-    // POST Rate Movie
-    // fun postMoviesRateMovies()
-
-    // MOVIES
-    // DELETE delete Rating
-    // fun deleteMoviesDeleteRating()
+    // ---------------------------------------------------------------------------------------------
 
     // TRENDING
     // Get Trending All
@@ -503,6 +519,8 @@ interface MovieDataSource {
         callback: GetRemoteCallback<Trending<TrendingTv>>
     )
 
+    // ---------------------------------------------------------------------------------------------
+
     // REVIEWS
     // Get Details
     fun getReviews(
@@ -510,6 +528,8 @@ interface MovieDataSource {
         apiKey: String,
         callback: GetRemoteCallback<Reviews>
     )
+
+    // ---------------------------------------------------------------------------------------------
 
     // NETWORKS
     // Get Details
@@ -534,6 +554,8 @@ interface MovieDataSource {
         apiKey: String,
         callback: GetRemoteCallback<NetworkImage>
     )
+
+    // ---------------------------------------------------------------------------------------------
 
     // SEARCH
     // Search Companies
@@ -612,6 +634,165 @@ interface MovieDataSource {
         first_air_date_year: Int?,
         callback: GetRemoteCallback<SearchMovies>
     )
+
+    // ---------------------------------------------------------------------------------------------
+
+    // TV
+    // Get Details
+    fun tvGetDetails(
+        tv_id: Int,
+        apiKey: String,
+        language: String?,
+        append_to_response: String?,
+        callback: GetRemoteCallback<TvDetails>
+    )
+
+    // TV
+    // Get Account States
+    fun tvGetAccountStates(
+        tv_id: Int,
+        apiKey: String,
+        language: String?,
+        guest_session_id: String?,
+        session_id: String?,
+        callback: GetRemoteCallback<TvAccountStates>
+    )
+
+    // TV
+    // Get Alternative Titles
+    fun tvGetAlternativeTitles(
+        tv_id: Int,
+        apiKey: String,
+        language: String?,
+        callback: GetRemoteCallback<TvAlternativeTitles>
+    )
+
+    // TV
+    // Get Changes
+    fun tvGetChanges(
+        tv_id: Int,
+        apiKey: String,
+        startDate: String?,
+        endDate: String?,
+        page: Int?,
+        callback: GetRemoteCallback<TvChanges>
+    )
+
+    // TV
+    // Get Content Ratings
+    fun tvGetContentRatings(
+        tv_id: Int,
+        apiKey: String,
+        language: String?,
+        callback: GetRemoteCallback<TvContentRatings>
+    )
+
+    // TV
+    // Get Credits
+    fun tvGetCredits(
+        tv_id: Int,
+        apiKey: String,
+        language: String?,
+        callback: GetRemoteCallback<TvCredits>
+    )
+
+    // TV
+    // Get Episode Groups
+    fun tvGetEpisodeGroups(
+        tv_id: Int,
+        apiKey: String,
+        language: String?,
+        callback: GetRemoteCallback<TvEpisodeGroups>
+    )
+
+    // TV
+    // Get External IDs
+    fun tvGetExternalIds(
+        tv_id: Int,
+        apiKey: String,
+        language: String?,
+        callback: GetRemoteCallback<TvExternalIds>
+    )
+
+    // TV
+    // Get Images
+    fun tvGetImages(
+        tv_id: Int,
+        apiKey: String,
+        language: String?,
+        callback: GetRemoteCallback<TvImages>
+    )
+
+    // TV
+    // Get Keyword
+    fun tvGetKeyword(
+        tv_id: Int,
+        apiKey: String,
+        callback: GetRemoteCallback<TvKeywords>
+    )
+
+    // TV
+    // Get Recommendations
+    fun tvGetRecommendations(
+        tv_id: Int,
+        apiKey: String,
+        language: String?,
+        page: Int?,
+        callback: GetRemoteCallback<TvRecommendations>
+    )
+
+    // TV
+    // Get Reviews
+    fun tvGetReviews(
+        tv_id: Int,
+        apiKey: String,
+        callback: GetRemoteCallback<TvReviews>
+    )
+
+    // TV
+    // Get Screened Theatrically
+
+    // TV
+    // Get Similar TV Shows
+
+    // TV
+    // Get Translations
+
+    // TV
+    // Get Videos
+
+    // TV
+    // Get Latest
+
+    // TV
+    // Get TV Airing Today
+
+    // TV
+    // Get TV On The Air
+
+    // TV
+    // Get Popular
+
+    // TV
+    // Get Top Rated
+
+    // METHOD POST AND DELETE ----------------------------------------------------------------------
+
+    // MOVIES
+    // POST Rate Movie
+    // fun postMoviesRateMovies()
+
+    // MOVIES
+    // DELETE delete Rating
+    // fun deleteMoviesDeleteRating()
+
+    // TV
+    // POST Rate TV Shows
+
+    // TV
+    // DELETE Rating
+
+    // ---------------------------------------------------------------------------------------------
 
     // Response Callback
     interface GetRemoteCallback<T> : BaseMovieDataSource.ResponseCallback<T>
