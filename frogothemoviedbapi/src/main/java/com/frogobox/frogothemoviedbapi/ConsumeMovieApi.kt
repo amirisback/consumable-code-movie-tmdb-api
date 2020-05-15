@@ -1845,4 +1845,98 @@ class ConsumeMovieApi(private val apiKey: String) : ConsumeMovieApiView {
                 }
             })
     }
+
+    override fun tvGetDetails(
+        tv_id: Int,
+        language: String?,
+        append_to_response: String?,
+        callback: MovieResultCallback<TvDetails>
+    ) {
+        TODO("Not yet implemented")
+    }
+
+    override fun tvGetAccountStates(
+        tv_id: Int,
+        language: String?,
+        guest_session_id: String?,
+        session_id: String?,
+        callback: MovieResultCallback<TvAccountStates>
+    ) {
+        TODO("Not yet implemented")
+    }
+
+    override fun tvGetAlternativeTitles(
+        tv_id: Int,
+        language: String?,
+        callback: MovieResultCallback<TvAlternativeTitles>
+    ) {
+        TODO("Not yet implemented")
+    }
+
+    override fun tvGetChanges(
+        tv_id: Int,
+        startDate: String?,
+        endDate: String?,
+        page: Int?,
+        callback: MovieResultCallback<TvChanges>
+    ) {
+        TODO("Not yet implemented")
+    }
+
+    override fun tvGetContentRatings(
+        tv_id: Int,
+        language: String?,
+        callback: MovieResultCallback<TvContentRatings>
+    ) {
+        TODO("Not yet implemented")
+    }
+
+    override fun tvGetCredits(
+        tv_id: Int,
+        language: String?,
+        callback: MovieResultCallback<TvCredits>
+    ) {
+        TODO("Not yet implemented")
+    }
+
+    override fun tvGetEpisodeGroups(
+        tv_id: Int,
+        language: String?,
+        callback: MovieResultCallback<TvEpisodeGroups>
+    ) {
+        TODO("Not yet implemented")
+    }
+
+    override fun tvGetExternalIds(
+        tv_id: Int,
+        language: String?,
+        callback: MovieResultCallback<TvExternalIds>
+    ) {
+        TODO("Not yet implemented")
+    }
+
+    override fun tvGetImages(
+        tv_id: Int,
+        language: String?,
+        callback: MovieResultCallback<TvImages>
+    ) {
+        TODO("Not yet implemented")
+    }
+
+    override fun tvGetKeyword(tv_id: Int, callback: MovieResultCallback<TvKeywords>) {
+        TODO("Not yet implemented")
+    }
+
+    override fun tvGetRecommendations(
+        tv_id: Int,
+        language: String?,
+        page: Int?,
+        callback: MovieResultCallback<TvRecommendations>
+    ) {
+        TODO("Not yet implemented")
+    }
+
+    override fun tvGetReviews(tv_id: Int, callback: MovieResultCallback<TvReviews>) {
+        TODO("Not yet implemented")
+    }
 }

@@ -661,14 +661,116 @@ https://developers.themoviedb.org/3/getting-started/introduction
         callback: MovieResultCallback<SearchMovies>
     )
 
-# Development ---------
+# --- Development ---
 ## LIST
 ## PEOPLE
-## TV
 ## TV SEASONS
 ## TV EPISODES
 ## TV EPISODE GROUPS 
-    
+
+# On Progress *
+## TV    
+
+    // TV
+    // Get Details
+    fun tvGetDetails(
+        tv_id: Int,
+        language: String?,
+        append_to_response: String?,
+        callback: MovieResultCallback<TvDetails>
+    )
+
+    // TV
+    // Get Account States
+    fun tvGetAccountStates(
+        tv_id: Int,
+        language: String?,
+        guest_session_id: String?,
+        session_id: String?,
+        callback: MovieResultCallback<TvAccountStates>
+    )
+
+    // TV
+    // Get Alternative Titles
+    fun tvGetAlternativeTitles(
+        tv_id: Int,
+        language: String?,
+        callback: MovieResultCallback<TvAlternativeTitles>
+    )
+
+    // TV
+    // Get Changes
+    fun tvGetChanges(
+        tv_id: Int,
+        startDate: String?,
+        endDate: String?,
+        page: Int?,
+        callback: MovieResultCallback<TvChanges>
+    )
+
+    // TV
+    // Get Content Ratings
+    fun tvGetContentRatings(
+        tv_id: Int,
+        language: String?,
+        callback: MovieResultCallback<TvContentRatings>
+    )
+
+    // TV
+    // Get Credits
+    fun tvGetCredits(
+        tv_id: Int,
+        language: String?,
+        callback: MovieResultCallback<TvCredits>
+    )
+
+    // TV
+    // Get Episode Groups
+    fun tvGetEpisodeGroups(
+        tv_id: Int,
+        language: String?,
+        callback: MovieResultCallback<TvEpisodeGroups>
+    )
+
+    // TV
+    // Get External IDs
+    fun tvGetExternalIds(
+        tv_id: Int,
+        language: String?,
+        callback: MovieResultCallback<TvExternalIds>
+    )
+
+    // TV
+    // Get Images
+    fun tvGetImages(
+        tv_id: Int,
+        language: String?,
+        callback: MovieResultCallback<TvImages>
+    )
+
+    // TV
+    // Get Keyword
+    fun tvGetKeyword(
+        tv_id: Int,
+        callback: MovieResultCallback<TvKeywords>
+    )
+
+    // TV
+    // Get Recommendations
+    fun tvGetRecommendations(
+        tv_id: Int,
+        language: String?,
+        page: Int?,
+        callback: MovieResultCallback<TvRecommendations>
+    )
+
+    // TV
+    // Get Reviews
+    fun tvGetReviews(
+        tv_id: Int,
+        callback: MovieResultCallback<TvReviews>
+    )
+
 
 # Award
 ## Github Actions Hackathon (March 5-31, 2020) [See list winner](https://github.com/amirisback/consumable-code-movie-tmdb-api/blob/master/docs/github_action_hackathon_winners.xlsx)

@@ -27,6 +27,8 @@ interface ConsumeMovieApiView {
     // Switch For Using Chuck Interceptor
     fun usingChuckInterceptor(context: Context)
 
+    // ---------------------------------------------------------------------------------------------
+
     // CERTIFICATIONS
     // Get Movie Certifications
     fun getMovieCertifications(callback: MovieResultCallback<Certifications<CertificationMovie>>)
@@ -34,6 +36,8 @@ interface ConsumeMovieApiView {
     // CERTIFICATIONS
     // Get TV Certifications
     fun getTvCertifications(callback: MovieResultCallback<Certifications<CertificationTv>>)
+
+    // ---------------------------------------------------------------------------------------------
 
     // CHANGES
     // Get Movie Change List
@@ -62,6 +66,8 @@ interface ConsumeMovieApiView {
         callback: MovieResultCallback<Changes>
     )
 
+    // ---------------------------------------------------------------------------------------------
+
     // COLLECTION
     // Get Details
     fun getCollectionDetails(
@@ -86,6 +92,8 @@ interface ConsumeMovieApiView {
         callback: MovieResultCallback<CollectionsTranslation>
     )
 
+    // ---------------------------------------------------------------------------------------------
+
     // COMPANIES
     // Get Details
     fun getCompaniesDetails(
@@ -106,6 +114,8 @@ interface ConsumeMovieApiView {
         company_id: Int,
         callback: MovieResultCallback<CompaniesImage>
     )
+
+    // ---------------------------------------------------------------------------------------------
 
     // CONFIGURATION
     // Get API Configuration
@@ -131,9 +141,13 @@ interface ConsumeMovieApiView {
     // Get Timezones
     fun getConfigurationTimezones(callback: MovieResultCallback<List<ConfigurationTimezone>>)
 
+    // ---------------------------------------------------------------------------------------------
+
     // CREDITS
     // Get Details
     fun getCreditsDetails(credit_id: String, callback: MovieResultCallback<Credits>)
+
+    // ---------------------------------------------------------------------------------------------
 
     // DISCOVER
     // Movie Discover
@@ -171,7 +185,6 @@ interface ConsumeMovieApiView {
         with_runtime_lte: String?,
         with_original_language: String?,
         callback: MovieResultCallback<Discover<DiscoverMovie>>
-
     )
 
     // DISCOVER
@@ -202,6 +215,8 @@ interface ConsumeMovieApiView {
         callback: MovieResultCallback<Discover<DiscoverTv>>
     )
 
+    // ---------------------------------------------------------------------------------------------
+
     // FIND
     // Find by ID
     fun getFindById(
@@ -210,6 +225,8 @@ interface ConsumeMovieApiView {
         language: String?,
         callback: MovieResultCallback<Find>
     )
+
+    // ---------------------------------------------------------------------------------------------
 
     // GENRES
     // Get Movie List
@@ -224,6 +241,8 @@ interface ConsumeMovieApiView {
         language: String?,
         callback: MovieResultCallback<Genres>
     )
+
+    // ---------------------------------------------------------------------------------------------
 
     // KEYWORDS
     // Get Details
@@ -240,6 +259,8 @@ interface ConsumeMovieApiView {
         include_adult: Boolean?,
         callback: MovieResultCallback<KeywordsMovies>
     )
+
+    // ---------------------------------------------------------------------------------------------
 
     // MOVIES
     // Get Details
@@ -408,6 +429,8 @@ interface ConsumeMovieApiView {
         callback: MovieResultCallback<MovieUpcoming>
     )
 
+    // ---------------------------------------------------------------------------------------------
+
     // TRENDING
     // Get Trending All Day
     fun getTrendingAllDay(
@@ -456,12 +479,16 @@ interface ConsumeMovieApiView {
         callback: MovieResultCallback<Trending<TrendingTv>>
     )
 
+    // ---------------------------------------------------------------------------------------------
+
     // REVIEWS
     // Get Details
     fun getReviews(
         review_id: String,
         callback: MovieResultCallback<Reviews>
     )
+
+    // ---------------------------------------------------------------------------------------------
 
     // NETWORKS
     // Get Details
@@ -483,6 +510,8 @@ interface ConsumeMovieApiView {
         network_id: Int,
         callback: MovieResultCallback<NetworkImage>
     )
+
+    // ---------------------------------------------------------------------------------------------
 
     // SEARCH
     // Search Companies
@@ -553,6 +582,108 @@ interface ConsumeMovieApiView {
         include_adult: Boolean?,
         first_air_date_year: Int?,
         callback: MovieResultCallback<SearchMovies>
+    )
+
+    // ---------------------------------------------------------------------------------------------
+
+    // TV
+    // Get Details
+    fun tvGetDetails(
+        tv_id: Int,
+        language: String?,
+        append_to_response: String?,
+        callback: MovieResultCallback<TvDetails>
+    )
+
+    // TV
+    // Get Account States
+    fun tvGetAccountStates(
+        tv_id: Int,
+        language: String?,
+        guest_session_id: String?,
+        session_id: String?,
+        callback: MovieResultCallback<TvAccountStates>
+    )
+
+    // TV
+    // Get Alternative Titles
+    fun tvGetAlternativeTitles(
+        tv_id: Int,
+        language: String?,
+        callback: MovieResultCallback<TvAlternativeTitles>
+    )
+
+    // TV
+    // Get Changes
+    fun tvGetChanges(
+        tv_id: Int,
+        startDate: String?,
+        endDate: String?,
+        page: Int?,
+        callback: MovieResultCallback<TvChanges>
+    )
+
+    // TV
+    // Get Content Ratings
+    fun tvGetContentRatings(
+        tv_id: Int,
+        language: String?,
+        callback: MovieResultCallback<TvContentRatings>
+    )
+
+    // TV
+    // Get Credits
+    fun tvGetCredits(
+        tv_id: Int,
+        language: String?,
+        callback: MovieResultCallback<TvCredits>
+    )
+
+    // TV
+    // Get Episode Groups
+    fun tvGetEpisodeGroups(
+        tv_id: Int,
+        language: String?,
+        callback: MovieResultCallback<TvEpisodeGroups>
+    )
+
+    // TV
+    // Get External IDs
+    fun tvGetExternalIds(
+        tv_id: Int,
+        language: String?,
+        callback: MovieResultCallback<TvExternalIds>
+    )
+
+    // TV
+    // Get Images
+    fun tvGetImages(
+        tv_id: Int,
+        language: String?,
+        callback: MovieResultCallback<TvImages>
+    )
+
+    // TV
+    // Get Keyword
+    fun tvGetKeyword(
+        tv_id: Int,
+        callback: MovieResultCallback<TvKeywords>
+    )
+
+    // TV
+    // Get Recommendations
+    fun tvGetRecommendations(
+        tv_id: Int,
+        language: String?,
+        page: Int?,
+        callback: MovieResultCallback<TvRecommendations>
+    )
+
+    // TV
+    // Get Reviews
+    fun tvGetReviews(
+        tv_id: Int,
+        callback: MovieResultCallback<TvReviews>
     )
 
 }
