@@ -1,5 +1,5 @@
-name: 'Consumable Code Pixabay API'
-description: 'Retrofit has been Handled, Consumable code for request Public API (Pixabay API)'
+name: 'Consumable Code Movie TMDB API'
+description: 'Retrofit has been Handled, Consumable code for request Public API (TMDb API)'
 author: 'Muhammad Faisal Amir'
 inputs:
   myInput:
