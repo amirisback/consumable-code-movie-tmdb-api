@@ -15,7 +15,7 @@ This Is Latest Release
 
 What's New??
 
-    * add: Search Section API and Fixing Bug *
+    * add: TV Section API and Fixing Bug *
 
 # How To Use This Project
 <h3>Step 1. Add the JitPack repository to your build file</h3>
