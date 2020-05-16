@@ -1852,7 +1852,28 @@ class ConsumeMovieApi(private val apiKey: String) : ConsumeMovieApiView {
         append_to_response: String?,
         callback: MovieResultCallback<TvDetails>
     ) {
-        TODO("Not yet implemented")
+        movieRepository.tvGetDetails(
+            tv_id,
+            apiKey,
+            language,
+            append_to_response,
+            object : MovieDataSource.GetRemoteCallback<TvDetails> {
+                override fun onSuccess(data: TvDetails) {
+                    callback.getResultData(data)
+                }
+
+                override fun onFailed(statusCode: Int, errorMessage: String?) {
+                    callback.failedResult(statusCode, errorMessage)
+                }
+
+                override fun onShowProgress() {
+                    callback.onShowProgress()
+                }
+
+                override fun onHideProgress() {
+                    callback.onHideProgress()
+                }
+            })
     }
 
     override fun tvGetAccountStates(
@@ -1862,7 +1883,29 @@ class ConsumeMovieApi(private val apiKey: String) : ConsumeMovieApiView {
         session_id: String?,
         callback: MovieResultCallback<TvAccountStates>
     ) {
-        TODO("Not yet implemented")
+        movieRepository.tvGetAccountStates(
+            tv_id,
+            apiKey,
+            language,
+            guest_session_id,
+            session_id,
+            object : MovieDataSource.GetRemoteCallback<TvAccountStates> {
+                override fun onSuccess(data: TvAccountStates) {
+                    callback.getResultData(data)
+                }
+
+                override fun onFailed(statusCode: Int, errorMessage: String?) {
+                    callback.failedResult(statusCode, errorMessage)
+                }
+
+                override fun onShowProgress() {
+                    callback.onShowProgress()
+                }
+
+                override fun onHideProgress() {
+                    callback.onHideProgress()
+                }
+            })
     }
 
     override fun tvGetAlternativeTitles(
@@ -1870,7 +1913,27 @@ class ConsumeMovieApi(private val apiKey: String) : ConsumeMovieApiView {
         language: String?,
         callback: MovieResultCallback<TvAlternativeTitles>
     ) {
-        TODO("Not yet implemented")
+        movieRepository.tvGetAlternativeTitles(
+            tv_id,
+            apiKey,
+            language,
+            object : MovieDataSource.GetRemoteCallback<TvAlternativeTitles> {
+                override fun onSuccess(data: TvAlternativeTitles) {
+                    callback.getResultData(data)
+                }
+
+                override fun onFailed(statusCode: Int, errorMessage: String?) {
+                    callback.failedResult(statusCode, errorMessage)
+                }
+
+                override fun onShowProgress() {
+                    callback.onShowProgress()
+                }
+
+                override fun onHideProgress() {
+                    callback.onHideProgress()
+                }
+            })
     }
 
     override fun tvGetChanges(
@@ -1880,7 +1943,29 @@ class ConsumeMovieApi(private val apiKey: String) : ConsumeMovieApiView {
         page: Int?,
         callback: MovieResultCallback<TvChanges>
     ) {
-        TODO("Not yet implemented")
+        movieRepository.tvGetChanges(
+            tv_id,
+            apiKey,
+            startDate,
+            endDate,
+            page,
+            object : MovieDataSource.GetRemoteCallback<TvChanges> {
+                override fun onSuccess(data: TvChanges) {
+                    callback.getResultData(data)
+                }
+
+                override fun onFailed(statusCode: Int, errorMessage: String?) {
+                    callback.failedResult(statusCode, errorMessage)
+                }
+
+                override fun onShowProgress() {
+                    callback.onShowProgress()
+                }
+
+                override fun onHideProgress() {
+                    callback.onHideProgress()
+                }
+            })
     }
 
     override fun tvGetContentRatings(
@@ -1888,7 +1973,27 @@ class ConsumeMovieApi(private val apiKey: String) : ConsumeMovieApiView {
         language: String?,
         callback: MovieResultCallback<TvContentRatings>
     ) {
-        TODO("Not yet implemented")
+        movieRepository.tvGetContentRatings(
+            tv_id,
+            apiKey,
+            language,
+            object : MovieDataSource.GetRemoteCallback<TvContentRatings> {
+                override fun onSuccess(data: TvContentRatings) {
+                    callback.getResultData(data)
+                }
+
+                override fun onFailed(statusCode: Int, errorMessage: String?) {
+                    callback.failedResult(statusCode, errorMessage)
+                }
+
+                override fun onShowProgress() {
+                    callback.onShowProgress()
+                }
+
+                override fun onHideProgress() {
+                    callback.onHideProgress()
+                }
+            })
     }
 
     override fun tvGetCredits(
@@ -1896,7 +2001,27 @@ class ConsumeMovieApi(private val apiKey: String) : ConsumeMovieApiView {
         language: String?,
         callback: MovieResultCallback<TvCredits>
     ) {
-        TODO("Not yet implemented")
+        movieRepository.tvGetCredits(
+            tv_id,
+            apiKey,
+            language,
+            object : MovieDataSource.GetRemoteCallback<TvCredits> {
+                override fun onSuccess(data: TvCredits) {
+                    callback.getResultData(data)
+                }
+
+                override fun onFailed(statusCode: Int, errorMessage: String?) {
+                    callback.failedResult(statusCode, errorMessage)
+                }
+
+                override fun onShowProgress() {
+                    callback.onShowProgress()
+                }
+
+                override fun onHideProgress() {
+                    callback.onHideProgress()
+                }
+            })
     }
 
     override fun tvGetEpisodeGroups(
@@ -1904,7 +2029,27 @@ class ConsumeMovieApi(private val apiKey: String) : ConsumeMovieApiView {
         language: String?,
         callback: MovieResultCallback<TvEpisodeGroups>
     ) {
-        TODO("Not yet implemented")
+        movieRepository.tvGetEpisodeGroups(
+            tv_id,
+            apiKey,
+            language,
+            object : MovieDataSource.GetRemoteCallback<TvEpisodeGroups> {
+                override fun onSuccess(data: TvEpisodeGroups) {
+                    callback.getResultData(data)
+                }
+
+                override fun onFailed(statusCode: Int, errorMessage: String?) {
+                    callback.failedResult(statusCode, errorMessage)
+                }
+
+                override fun onShowProgress() {
+                    callback.onShowProgress()
+                }
+
+                override fun onHideProgress() {
+                    callback.onHideProgress()
+                }
+            })
     }
 
     override fun tvGetExternalIds(
@@ -1912,7 +2057,27 @@ class ConsumeMovieApi(private val apiKey: String) : ConsumeMovieApiView {
         language: String?,
         callback: MovieResultCallback<TvExternalIds>
     ) {
-        TODO("Not yet implemented")
+        movieRepository.tvGetExternalIds(
+            tv_id,
+            apiKey,
+            language,
+            object : MovieDataSource.GetRemoteCallback<TvExternalIds> {
+                override fun onSuccess(data: TvExternalIds) {
+                    callback.getResultData(data)
+                }
+
+                override fun onFailed(statusCode: Int, errorMessage: String?) {
+                    callback.failedResult(statusCode, errorMessage)
+                }
+
+                override fun onShowProgress() {
+                    callback.onShowProgress()
+                }
+
+                override fun onHideProgress() {
+                    callback.onHideProgress()
+                }
+            })
     }
 
     override fun tvGetImages(
@@ -1920,11 +2085,50 @@ class ConsumeMovieApi(private val apiKey: String) : ConsumeMovieApiView {
         language: String?,
         callback: MovieResultCallback<TvImages>
     ) {
-        TODO("Not yet implemented")
+        movieRepository.tvGetImages(
+            tv_id,
+            apiKey,
+            language,
+            object : MovieDataSource.GetRemoteCallback<TvImages> {
+                override fun onSuccess(data: TvImages) {
+                    callback.getResultData(data)
+                }
+
+                override fun onFailed(statusCode: Int, errorMessage: String?) {
+                    callback.failedResult(statusCode, errorMessage)
+                }
+
+                override fun onShowProgress() {
+                    callback.onShowProgress()
+                }
+
+                override fun onHideProgress() {
+                    callback.onHideProgress()
+                }
+            })
     }
 
     override fun tvGetKeyword(tv_id: Int, callback: MovieResultCallback<TvKeywords>) {
-        TODO("Not yet implemented")
+        movieRepository.tvGetKeyword(
+            tv_id,
+            apiKey,
+            object : MovieDataSource.GetRemoteCallback<TvKeywords> {
+                override fun onSuccess(data: TvKeywords) {
+                    callback.getResultData(data)
+                }
+
+                override fun onFailed(statusCode: Int, errorMessage: String?) {
+                    callback.failedResult(statusCode, errorMessage)
+                }
+
+                override fun onShowProgress() {
+                    callback.onShowProgress()
+                }
+
+                override fun onHideProgress() {
+                    callback.onHideProgress()
+                }
+            })
     }
 
     override fun tvGetRecommendations(
@@ -1933,10 +2137,50 @@ class ConsumeMovieApi(private val apiKey: String) : ConsumeMovieApiView {
         page: Int?,
         callback: MovieResultCallback<TvRecommendations>
     ) {
-        TODO("Not yet implemented")
+        movieRepository.tvGetRecommendations(
+            tv_id,
+            apiKey,
+            language,
+            page,
+            object : MovieDataSource.GetRemoteCallback<TvRecommendations> {
+                override fun onSuccess(data: TvRecommendations) {
+                    callback.getResultData(data)
+                }
+
+                override fun onFailed(statusCode: Int, errorMessage: String?) {
+                    callback.failedResult(statusCode, errorMessage)
+                }
+
+                override fun onShowProgress() {
+                    callback.onShowProgress()
+                }
+
+                override fun onHideProgress() {
+                    callback.onHideProgress()
+                }
+            })
     }
 
     override fun tvGetReviews(tv_id: Int, callback: MovieResultCallback<TvReviews>) {
-        TODO("Not yet implemented")
+        movieRepository.tvGetReviews(
+            tv_id,
+            apiKey,
+            object : MovieDataSource.GetRemoteCallback<TvReviews> {
+                override fun onSuccess(data: TvReviews) {
+                    callback.getResultData(data)
+                }
+
+                override fun onFailed(statusCode: Int, errorMessage: String?) {
+                    callback.failedResult(statusCode, errorMessage)
+                }
+
+                override fun onShowProgress() {
+                    callback.onShowProgress()
+                }
+
+                override fun onHideProgress() {
+                    callback.onHideProgress()
+                }
+            })
     }
 }
