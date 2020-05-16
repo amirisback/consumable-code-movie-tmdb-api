@@ -83,7 +83,7 @@ object MovieRemoteDataSource : MovieDataSource {
         apiKey: String,
         endDate: String?,
         startDate: String?,
-        page: String?,
+        page: Int?,
         callback: MovieDataSource.GetRemoteCallback<Changes>
     ) {
         movieApiService.getApiService
@@ -110,7 +110,7 @@ object MovieRemoteDataSource : MovieDataSource {
         apiKey: String,
         endDate: String?,
         startDate: String?,
-        page: String?,
+        page: Int?,
         callback: MovieDataSource.GetRemoteCallback<Changes>
     ) {
         movieApiService.getApiService
@@ -137,7 +137,7 @@ object MovieRemoteDataSource : MovieDataSource {
         apiKey: String,
         endDate: String?,
         startDate: String?,
-        page: String?,
+        page: Int?,
         callback: MovieDataSource.GetRemoteCallback<Changes>
     ) {
         movieApiService.getApiService
@@ -493,7 +493,7 @@ object MovieRemoteDataSource : MovieDataSource {
         certification_gte: String?,
         include_adult: Boolean?,
         include_video: String?,
-        page: String?,
+        page: Int?,
         primary_release_year: Int?,
         primary_release_date_gte: String?,
         primary_release_date_lte: String?,
@@ -581,7 +581,7 @@ object MovieRemoteDataSource : MovieDataSource {
         first_air_date_gte: String?,
         first_air_date_lte: String?,
         first_air_date_year: Int?,
-        page: String?,
+        page: Int?,
         timezone: String?,
         vote_average_gte: String?,
         vote_count_gte: String?,
@@ -1698,7 +1698,7 @@ object MovieRemoteDataSource : MovieDataSource {
             })
     }
 
-    override fun tvGetDetails(
+    override fun getTvDetails(
         tv_id: Int,
         apiKey: String,
         language: String?,
@@ -1706,7 +1706,7 @@ object MovieRemoteDataSource : MovieDataSource {
         callback: MovieDataSource.GetRemoteCallback<TvDetails>
     ) {
         movieApiService.getApiService
-            .tvGetDetails(tv_id, apiKey, language, append_to_response)
+            .getTvDetails(tv_id, apiKey, language, append_to_response)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .doOnSubscribe { callback.onShowProgress() }
@@ -1725,7 +1725,7 @@ object MovieRemoteDataSource : MovieDataSource {
             })
     }
 
-    override fun tvGetAccountStates(
+    override fun getTvAccountStates(
         tv_id: Int,
         apiKey: String,
         language: String?,
@@ -1734,7 +1734,7 @@ object MovieRemoteDataSource : MovieDataSource {
         callback: MovieDataSource.GetRemoteCallback<TvAccountStates>
     ) {
         movieApiService.getApiService
-            .tvGetAccountStates(tv_id, apiKey, language, guest_session_id, session_id)
+            .getTvAccountStates(tv_id, apiKey, language, guest_session_id, session_id)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .doOnSubscribe { callback.onShowProgress() }
@@ -1753,14 +1753,14 @@ object MovieRemoteDataSource : MovieDataSource {
             })
     }
 
-    override fun tvGetAlternativeTitles(
+    override fun getTvAlternativeTitles(
         tv_id: Int,
         apiKey: String,
         language: String?,
         callback: MovieDataSource.GetRemoteCallback<TvAlternativeTitles>
     ) {
         movieApiService.getApiService
-            .tvGetAlternativeTitles(tv_id, apiKey, language)
+            .getTvAlternativeTitles(tv_id, apiKey, language)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .doOnSubscribe { callback.onShowProgress() }
@@ -1779,7 +1779,7 @@ object MovieRemoteDataSource : MovieDataSource {
             })
     }
 
-    override fun tvGetChanges(
+    override fun getTvChanges(
         tv_id: Int,
         apiKey: String,
         startDate: String?,
@@ -1788,7 +1788,7 @@ object MovieRemoteDataSource : MovieDataSource {
         callback: MovieDataSource.GetRemoteCallback<TvChanges>
     ) {
         movieApiService.getApiService
-            .tvGetChanges(tv_id, apiKey, startDate, endDate, page)
+            .getTvChanges(tv_id, apiKey, startDate, endDate, page)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .doOnSubscribe { callback.onShowProgress() }
@@ -1807,14 +1807,14 @@ object MovieRemoteDataSource : MovieDataSource {
             })
     }
 
-    override fun tvGetContentRatings(
+    override fun getTvContentRatings(
         tv_id: Int,
         apiKey: String,
         language: String?,
         callback: MovieDataSource.GetRemoteCallback<TvContentRatings>
     ) {
         movieApiService.getApiService
-            .tvGetContentRatings(tv_id, apiKey, language)
+            .getTvContentRatings(tv_id, apiKey, language)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .doOnSubscribe { callback.onShowProgress() }
@@ -1833,14 +1833,14 @@ object MovieRemoteDataSource : MovieDataSource {
             })
     }
 
-    override fun tvGetCredits(
+    override fun getTvCredits(
         tv_id: Int,
         apiKey: String,
         language: String?,
         callback: MovieDataSource.GetRemoteCallback<TvCredits>
     ) {
         movieApiService.getApiService
-            .tvGetCredits(tv_id, apiKey, language)
+            .getTvCredits(tv_id, apiKey, language)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .doOnSubscribe { callback.onShowProgress() }
@@ -1859,14 +1859,14 @@ object MovieRemoteDataSource : MovieDataSource {
             })
     }
 
-    override fun tvGetEpisodeGroups(
+    override fun getTvEpisodeGroups(
         tv_id: Int,
         apiKey: String,
         language: String?,
         callback: MovieDataSource.GetRemoteCallback<TvEpisodeGroups>
     ) {
         movieApiService.getApiService
-            .tvGetEpisodeGroups(tv_id, apiKey, language)
+            .getTvEpisodeGroups(tv_id, apiKey, language)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .doOnSubscribe { callback.onShowProgress() }
@@ -1885,14 +1885,14 @@ object MovieRemoteDataSource : MovieDataSource {
             })
     }
 
-    override fun tvGetExternalIds(
+    override fun getTvExternalIds(
         tv_id: Int,
         apiKey: String,
         language: String?,
         callback: MovieDataSource.GetRemoteCallback<TvExternalIds>
     ) {
         movieApiService.getApiService
-            .tvGetExternalIds(tv_id, apiKey, language)
+            .getTvExternalIds(tv_id, apiKey, language)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .doOnSubscribe { callback.onShowProgress() }
@@ -1911,14 +1911,14 @@ object MovieRemoteDataSource : MovieDataSource {
             })
     }
 
-    override fun tvGetImages(
+    override fun getTvImages(
         tv_id: Int,
         apiKey: String,
         language: String?,
         callback: MovieDataSource.GetRemoteCallback<TvImages>
     ) {
         movieApiService.getApiService
-            .tvGetImages(tv_id, apiKey, language)
+            .getTvImages(tv_id, apiKey, language)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .doOnSubscribe { callback.onShowProgress() }
@@ -1937,13 +1937,13 @@ object MovieRemoteDataSource : MovieDataSource {
             })
     }
 
-    override fun tvGetKeyword(
+    override fun getTvKeyword(
         tv_id: Int,
         apiKey: String,
         callback: MovieDataSource.GetRemoteCallback<TvKeywords>
     ) {
         movieApiService.getApiService
-            .tvGetKeyword(tv_id, apiKey)
+            .getTvKeyword(tv_id, apiKey)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .doOnSubscribe { callback.onShowProgress() }
@@ -1962,7 +1962,7 @@ object MovieRemoteDataSource : MovieDataSource {
             })
     }
 
-    override fun tvGetRecommendations(
+    override fun getTvRecommendations(
         tv_id: Int,
         apiKey: String,
         language: String?,
@@ -1970,7 +1970,7 @@ object MovieRemoteDataSource : MovieDataSource {
         callback: MovieDataSource.GetRemoteCallback<TvRecommendations>
     ) {
         movieApiService.getApiService
-            .tvGetRecommendations(tv_id, apiKey, language, page)
+            .getTvRecommendations(tv_id, apiKey, language, page)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .doOnSubscribe { callback.onShowProgress() }
@@ -1989,19 +1989,251 @@ object MovieRemoteDataSource : MovieDataSource {
             })
     }
 
-    override fun tvGetReviews(
+    override fun getTvReviews(
         tv_id: Int,
         apiKey: String,
         callback: MovieDataSource.GetRemoteCallback<TvReviews>
     ) {
         movieApiService.getApiService
-            .tvGetReviews(tv_id, apiKey)
+            .getTvReviews(tv_id, apiKey)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .doOnSubscribe { callback.onShowProgress() }
             .doOnTerminate { callback.onHideProgress() }
             .subscribe(object : MovieApiCallback<TvReviews>() {
                 override fun onSuccess(data: TvReviews) {
+                    callback.onSuccess(data)
+                }
+
+                override fun onFailure(statusCode: Int, errorMessage: String) {
+                    callback.onFailed(statusCode, errorMessage)
+                }
+
+                override fun onFinish() {
+                }
+            })
+    }
+
+    override fun getTvScreenedTheatrically(
+        tv_id: Int,
+        apiKey: String,
+        callback: MovieDataSource.GetRemoteCallback<TvScreenedTheatrically>
+    ) {
+        movieApiService.getApiService
+            .getTvScreenedTheatrically(tv_id, apiKey)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .doOnSubscribe { callback.onShowProgress() }
+            .doOnTerminate { callback.onHideProgress() }
+            .subscribe(object : MovieApiCallback<TvScreenedTheatrically>() {
+                override fun onSuccess(data: TvScreenedTheatrically) {
+                    callback.onSuccess(data)
+                }
+
+                override fun onFailure(statusCode: Int, errorMessage: String) {
+                    callback.onFailed(statusCode, errorMessage)
+                }
+
+                override fun onFinish() {
+                }
+            })
+    }
+
+    override fun getTvSimilarTvShows(
+        tv_id: Int,
+        apiKey: String,
+        language: String?,
+        page: Int?,
+        callback: MovieDataSource.GetRemoteCallback<TvSimilarTVShows>
+    ) {
+        movieApiService.getApiService
+            .getTvSimilarTvShows(tv_id, apiKey, language, page)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .doOnSubscribe { callback.onShowProgress() }
+            .doOnTerminate { callback.onHideProgress() }
+            .subscribe(object : MovieApiCallback<TvSimilarTVShows>() {
+                override fun onSuccess(data: TvSimilarTVShows) {
+                    callback.onSuccess(data)
+                }
+
+                override fun onFailure(statusCode: Int, errorMessage: String) {
+                    callback.onFailed(statusCode, errorMessage)
+                }
+
+                override fun onFinish() {
+                }
+            })
+    }
+
+    override fun getTvTranslations(
+        tv_id: Int,
+        apiKey: String,
+        callback: MovieDataSource.GetRemoteCallback<TvTranslations>
+    ) {
+        movieApiService.getApiService
+            .getTvTranslations(tv_id, apiKey)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .doOnSubscribe { callback.onShowProgress() }
+            .doOnTerminate { callback.onHideProgress() }
+            .subscribe(object : MovieApiCallback<TvTranslations>() {
+                override fun onSuccess(data: TvTranslations) {
+                    callback.onSuccess(data)
+                }
+
+                override fun onFailure(statusCode: Int, errorMessage: String) {
+                    callback.onFailed(statusCode, errorMessage)
+                }
+
+                override fun onFinish() {
+                }
+            })
+    }
+
+    override fun getTvVideos(
+        tv_id: Int,
+        apiKey: String,
+        language: String?,
+        callback: MovieDataSource.GetRemoteCallback<TvVideos>
+    ) {
+        movieApiService.getApiService
+            .getTvVideos(tv_id, apiKey, language)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .doOnSubscribe { callback.onShowProgress() }
+            .doOnTerminate { callback.onHideProgress() }
+            .subscribe(object : MovieApiCallback<TvVideos>() {
+                override fun onSuccess(data: TvVideos) {
+                    callback.onSuccess(data)
+                }
+
+                override fun onFailure(statusCode: Int, errorMessage: String) {
+                    callback.onFailed(statusCode, errorMessage)
+                }
+
+                override fun onFinish() {
+                }
+            })
+    }
+
+    override fun getTvLatest(
+        apiKey: String,
+        language: String?,
+        callback: MovieDataSource.GetRemoteCallback<TvLatest>
+    ) {
+        movieApiService.getApiService
+            .getTvLatest(apiKey, language)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .doOnSubscribe { callback.onShowProgress() }
+            .doOnTerminate { callback.onHideProgress() }
+            .subscribe(object : MovieApiCallback<TvLatest>() {
+                override fun onSuccess(data: TvLatest) {
+                    callback.onSuccess(data)
+                }
+
+                override fun onFailure(statusCode: Int, errorMessage: String) {
+                    callback.onFailed(statusCode, errorMessage)
+                }
+
+                override fun onFinish() {
+                }
+            })
+    }
+
+    override fun getTvAiringToday(
+        apiKey: String,
+        language: String?,
+        page: Int?,
+        callback: MovieDataSource.GetRemoteCallback<TvAiringToday>
+    ) {
+        movieApiService.getApiService
+            .getTvAiringToday(apiKey, language, page)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .doOnSubscribe { callback.onShowProgress() }
+            .doOnTerminate { callback.onHideProgress() }
+            .subscribe(object : MovieApiCallback<TvAiringToday>() {
+                override fun onSuccess(data: TvAiringToday) {
+                    callback.onSuccess(data)
+                }
+
+                override fun onFailure(statusCode: Int, errorMessage: String) {
+                    callback.onFailed(statusCode, errorMessage)
+                }
+
+                override fun onFinish() {
+                }
+            })
+    }
+
+    override fun getTvOnTheAir(
+        apiKey: String,
+        language: String?,
+        page: Int?,
+        callback: MovieDataSource.GetRemoteCallback<TvOnTheAir>
+    ) {
+        movieApiService.getApiService
+            .getTvOnTheAir(apiKey, language, page)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .doOnSubscribe { callback.onShowProgress() }
+            .doOnTerminate { callback.onHideProgress() }
+            .subscribe(object : MovieApiCallback<TvOnTheAir>() {
+                override fun onSuccess(data: TvOnTheAir) {
+                    callback.onSuccess(data)
+                }
+
+                override fun onFailure(statusCode: Int, errorMessage: String) {
+                    callback.onFailed(statusCode, errorMessage)
+                }
+
+                override fun onFinish() {
+                }
+            })
+    }
+
+    override fun getTvPopular(
+        apiKey: String,
+        language: String?,
+        page: Int?,
+        callback: MovieDataSource.GetRemoteCallback<TvPopular>
+    ) {
+        movieApiService.getApiService
+            .getTvPopular(apiKey, language, page)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .doOnSubscribe { callback.onShowProgress() }
+            .doOnTerminate { callback.onHideProgress() }
+            .subscribe(object : MovieApiCallback<TvPopular>() {
+                override fun onSuccess(data: TvPopular) {
+                    callback.onSuccess(data)
+                }
+
+                override fun onFailure(statusCode: Int, errorMessage: String) {
+                    callback.onFailed(statusCode, errorMessage)
+                }
+
+                override fun onFinish() {
+                }
+            })
+    }
+
+    override fun getTvTopRated(
+        apiKey: String,
+        language: String?,
+        page: Int?,
+        callback: MovieDataSource.GetRemoteCallback<TvTopRated>
+    ) {
+        movieApiService.getApiService
+            .getTvTopRated(apiKey, language, page)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .doOnSubscribe { callback.onShowProgress() }
+            .doOnTerminate { callback.onHideProgress() }
+            .subscribe(object : MovieApiCallback<TvTopRated>() {
+                override fun onSuccess(data: TvTopRated) {
                     callback.onSuccess(data)
                 }
 

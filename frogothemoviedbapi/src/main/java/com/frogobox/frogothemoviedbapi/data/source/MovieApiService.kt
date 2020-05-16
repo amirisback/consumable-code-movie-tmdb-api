@@ -57,7 +57,7 @@ interface MovieApiService {
         @Query(MovieConstant.QUERY_API_KEY) apiKey: String,
         @Query(MovieConstant.QUERY_END_DATE) endDate: String?,
         @Query(MovieConstant.QUERY_START_DATE) startDate: String?,
-        @Query(MovieConstant.QUERY_PAGE) page: String?
+        @Query(MovieConstant.QUERY_PAGE) page: Int?
     ): Observable<Changes>
 
     // CHANGES
@@ -67,7 +67,7 @@ interface MovieApiService {
         @Query(MovieConstant.QUERY_API_KEY) apiKey: String,
         @Query(MovieConstant.QUERY_END_DATE) endDate: String?,
         @Query(MovieConstant.QUERY_START_DATE) startDate: String?,
-        @Query(MovieConstant.QUERY_PAGE) page: String?
+        @Query(MovieConstant.QUERY_PAGE) page: Int?
     ): Observable<Changes>
 
     // CHANGES
@@ -77,7 +77,7 @@ interface MovieApiService {
         @Query(MovieConstant.QUERY_API_KEY) apiKey: String,
         @Query(MovieConstant.QUERY_END_DATE) endDate: String?,
         @Query(MovieConstant.QUERY_START_DATE) startDate: String?,
-        @Query(MovieConstant.QUERY_PAGE) page: String?
+        @Query(MovieConstant.QUERY_PAGE) page: Int?
     ): Observable<Changes>
 
     // COLLECTION
@@ -195,7 +195,7 @@ interface MovieApiService {
         @Query(MovieConstant.QUERY_CERTIFICATION_GTE) certification_gte: String?,
         @Query(MovieConstant.QUERY_INCLUDE_ADULT) include_adult: Boolean?,
         @Query(MovieConstant.QUERY_INCLUDE_VIDEO) include_video: String?,
-        @Query(MovieConstant.QUERY_PAGE) page: String?,
+        @Query(MovieConstant.QUERY_PAGE) page: Int?,
         @Query(MovieConstant.QUERY_PRIMARY_RELEASE_YEAR) primary_release_year: Int?,
         @Query(MovieConstant.QUERY_PRIMARY_RELEASE_GTE) primary_release_date_gte: String?,
         @Query(MovieConstant.QUERY_PRIMARY_RELEASE_LTE) primary_release_date_lte: String?,
@@ -232,7 +232,7 @@ interface MovieApiService {
         @Query(MovieConstant.QUERY_FIRST_AIR_DATE_GTE) first_air_date_gte: String?,
         @Query(MovieConstant.QUERY_FIRST_AIR_DATE_LTE) first_air_date_lte: String?,
         @Query(MovieConstant.QUERY_FIRST_AIR_DATE_YEAR) first_air_date_year: Int?,
-        @Query(MovieConstant.QUERY_PAGE) page: String?,
+        @Query(MovieConstant.QUERY_PAGE) page: Int?,
         @Query(MovieConstant.QUERY_TIMEZONE) timezone: String?,
         @Query(MovieConstant.QUERY_VOTE_AVERAGE_GTE) vote_average_gte: String?,
         @Query(MovieConstant.QUERY_VOTE_COUNT_GTE) vote_count_gte: String?,
@@ -629,7 +629,7 @@ interface MovieApiService {
     // TV
     // Get Details
     @GET(MovieUrl.TV_GET_DETAILS)
-    fun tvGetDetails(
+    fun getTvDetails(
         @Path(MovieConstant.PATH_TV_ID) tv_id: Int,
         @Query(MovieConstant.QUERY_API_KEY) apiKey: String,
         @Query(MovieConstant.QUERY_LANGUAGE) language: String?,
@@ -639,7 +639,7 @@ interface MovieApiService {
     // TV
     // Get Account States
     @GET(MovieUrl.TV_GET_ACCOUNT_STATES)
-    fun tvGetAccountStates(
+    fun getTvAccountStates(
         @Path(MovieConstant.PATH_TV_ID) tv_id: Int,
         @Query(MovieConstant.QUERY_API_KEY) apiKey: String,
         @Query(MovieConstant.QUERY_LANGUAGE) language: String?,
@@ -650,7 +650,7 @@ interface MovieApiService {
     // TV
     // Get Alternative Titles
     @GET(MovieUrl.TV_GET_ALTERNATIVE_TITLES)
-    fun tvGetAlternativeTitles(
+    fun getTvAlternativeTitles(
         @Path(MovieConstant.PATH_TV_ID) tv_id: Int,
         @Query(MovieConstant.QUERY_API_KEY) apiKey: String,
         @Query(MovieConstant.QUERY_LANGUAGE) language: String?
@@ -659,7 +659,7 @@ interface MovieApiService {
     // TV
     // Get Changes
     @GET(MovieUrl.TV_GET_CHANGES)
-    fun tvGetChanges(
+    fun getTvChanges(
         @Path(MovieConstant.PATH_TV_ID) tv_id: Int,
         @Query(MovieConstant.QUERY_API_KEY) apiKey: String,
         @Query(MovieConstant.QUERY_START_DATE) startDate: String?,
@@ -670,7 +670,7 @@ interface MovieApiService {
     // TV
     // Get Content Ratings
     @GET(MovieUrl.TV_GET_CONTENT_RATINGS)
-    fun tvGetContentRatings(
+    fun getTvContentRatings(
         @Path(MovieConstant.PATH_TV_ID) tv_id: Int,
         @Query(MovieConstant.QUERY_API_KEY) apiKey: String,
         @Query(MovieConstant.QUERY_LANGUAGE) language: String?
@@ -679,7 +679,7 @@ interface MovieApiService {
     // TV
     // Get Credits
     @GET(MovieUrl.TV_GET_CREDITS)
-    fun tvGetCredits(
+    fun getTvCredits(
         @Path(MovieConstant.PATH_TV_ID) tv_id: Int,
         @Query(MovieConstant.QUERY_API_KEY) apiKey: String,
         @Query(MovieConstant.QUERY_LANGUAGE) language: String?
@@ -688,7 +688,7 @@ interface MovieApiService {
     // TV
     // Get Episode Groups
     @GET(MovieUrl.TV_GET_EPISODE_GROUPS)
-    fun tvGetEpisodeGroups(
+    fun getTvEpisodeGroups(
         @Path(MovieConstant.PATH_TV_ID) tv_id: Int,
         @Query(MovieConstant.QUERY_API_KEY) apiKey: String,
         @Query(MovieConstant.QUERY_LANGUAGE) language: String?
@@ -697,7 +697,7 @@ interface MovieApiService {
     // TV
     // Get External IDs
     @GET(MovieUrl.TV_GET_EXTERNAL_IDS)
-    fun tvGetExternalIds(
+    fun getTvExternalIds(
         @Path(MovieConstant.PATH_TV_ID) tv_id: Int,
         @Query(MovieConstant.QUERY_API_KEY) apiKey: String,
         @Query(MovieConstant.QUERY_LANGUAGE) language: String?
@@ -706,7 +706,7 @@ interface MovieApiService {
     // TV
     // Get Images
     @GET(MovieUrl.TV_GET_IMAGES)
-    fun tvGetImages(
+    fun getTvImages(
         @Path(MovieConstant.PATH_TV_ID) tv_id: Int,
         @Query(MovieConstant.QUERY_API_KEY) apiKey: String,
         @Query(MovieConstant.QUERY_LANGUAGE) language: String?
@@ -715,7 +715,7 @@ interface MovieApiService {
     // TV
     // Get Keyword
     @GET(MovieUrl.TV_GET_KEYWORDS)
-    fun tvGetKeyword(
+    fun getTvKeyword(
         @Path(MovieConstant.PATH_TV_ID) tv_id: Int,
         @Query(MovieConstant.QUERY_API_KEY) apiKey: String
     ): Observable<TvKeywords>
@@ -723,7 +723,7 @@ interface MovieApiService {
     // TV
     // Get Recommendations
     @GET(MovieUrl.TV_GET_RECOMMENDATIONS)
-    fun tvGetRecommendations(
+    fun getTvRecommendations(
         @Path(MovieConstant.PATH_TV_ID) tv_id: Int,
         @Query(MovieConstant.QUERY_API_KEY) apiKey: String,
         @Query(MovieConstant.QUERY_LANGUAGE) language: String?,
@@ -733,11 +733,90 @@ interface MovieApiService {
     // TV
     // Get Reviews
     @GET(MovieUrl.TV_GET_REVIEWS)
-    fun tvGetReviews(
+    fun getTvReviews(
         @Path(MovieConstant.PATH_TV_ID) tv_id: Int,
         @Query(MovieConstant.QUERY_API_KEY) apiKey: String
     ): Observable<TvReviews>
 
+    // TV
+    // Get Screened Theatrically
+    @GET(MovieUrl.TV_GET_SCREENED_THEATRICALLY)
+    fun getTvScreenedTheatrically(
+        @Path(MovieConstant.PATH_TV_ID) tv_id: Int,
+        @Query(MovieConstant.QUERY_API_KEY) apiKey: String
+    ): Observable<TvScreenedTheatrically>
+
+    // TV
+    // Get Similar TV Shows
+    @GET(MovieUrl.TV_GET_SIMILIAR_TV_SHOWS)
+    fun getTvSimilarTvShows(
+        @Path(MovieConstant.PATH_TV_ID) tv_id: Int,
+        @Query(MovieConstant.QUERY_API_KEY) apiKey: String,
+        @Query(MovieConstant.QUERY_LANGUAGE) language: String?,
+        @Query(MovieConstant.QUERY_PAGE) page: Int?
+    ): Observable<TvSimilarTVShows>
+
+    // TV
+    // Get Translations
+    @GET(MovieUrl.TV_GET_TRANSLATIONS)
+    fun getTvTranslations(
+        @Path(MovieConstant.PATH_TV_ID) tv_id: Int,
+        @Query(MovieConstant.QUERY_API_KEY) apiKey: String
+    ): Observable<TvTranslations>
+
+    // TV
+    // Get Videos
+    @GET(MovieUrl.TV_GET_VIDEOS)
+    fun getTvVideos(
+        @Path(MovieConstant.PATH_TV_ID) tv_id: Int,
+        @Query(MovieConstant.QUERY_API_KEY) apiKey: String,
+        @Query(MovieConstant.QUERY_LANGUAGE) language: String?
+    ): Observable<TvVideos>
+
+    // TV
+    // Get Latest
+    @GET(MovieUrl.TV_GET_LATEST)
+    fun getTvLatest(
+        @Query(MovieConstant.QUERY_API_KEY) apiKey: String,
+        @Query(MovieConstant.QUERY_LANGUAGE) language: String?
+    ): Observable<TvLatest>
+
+    // TV
+    // Get TV Airing Today
+    @GET(MovieUrl.TV_GET_TV_AIRING_TODAY)
+    fun getTvAiringToday(
+        @Query(MovieConstant.QUERY_API_KEY) apiKey: String,
+        @Query(MovieConstant.QUERY_LANGUAGE) language: String?,
+        @Query(MovieConstant.QUERY_PAGE) page: Int?
+    ): Observable<TvAiringToday>
+
+    // TV
+    // Get TV On The Air
+    @GET(MovieUrl.TV_GET_TV_ON_THE_AIR)
+    fun getTvOnTheAir(
+        @Query(MovieConstant.QUERY_API_KEY) apiKey: String,
+        @Query(MovieConstant.QUERY_LANGUAGE) language: String?,
+        @Query(MovieConstant.QUERY_PAGE) page: Int?
+    ): Observable<TvOnTheAir>
+
+    // TV
+    // Get Popular
+    @GET(MovieUrl.TV_GET_POPULAR)
+    fun getTvPopular(
+        @Query(MovieConstant.QUERY_API_KEY) apiKey: String,
+        @Query(MovieConstant.QUERY_LANGUAGE) language: String?,
+        @Query(MovieConstant.QUERY_PAGE) page: Int?
+    ): Observable<TvPopular>
+
+    // TV
+    // Get Top Rated
+    @GET(MovieUrl.TV_GET_TOP_RATED)
+    fun getTvTopRated(
+        @Query(MovieConstant.QUERY_API_KEY) apiKey: String,
+        @Query(MovieConstant.QUERY_LANGUAGE) language: String?,
+        @Query(MovieConstant.QUERY_PAGE) page: Int?
+    ): Observable<TvTopRated>
+    
     companion object Factory {
 
         private var isUsingChuckInterceptor = false

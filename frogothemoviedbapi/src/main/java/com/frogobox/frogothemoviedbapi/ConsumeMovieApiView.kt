@@ -44,7 +44,7 @@ interface ConsumeMovieApiView {
     fun getMovieChangeList(
         endDate: String?,
         startDate: String?,
-        page: String?,
+        page: Int?,
         callback: MovieResultCallback<Changes>
     )
 
@@ -53,7 +53,7 @@ interface ConsumeMovieApiView {
     fun getTvChangeList(
         endDate: String?,
         startDate: String?,
-        page: String?,
+        page: Int?,
         callback: MovieResultCallback<Changes>
     )
 
@@ -62,7 +62,7 @@ interface ConsumeMovieApiView {
     fun getPersonChangeList(
         endDate: String?,
         startDate: String?,
-        page: String?,
+        page: Int?,
         callback: MovieResultCallback<Changes>
     )
 
@@ -161,7 +161,7 @@ interface ConsumeMovieApiView {
         certification_gte: String?,
         include_adult: Boolean?,
         include_video: String?,
-        page: String?,
+        page: Int?,
         primary_release_year: Int?,
         primary_release_date_gte: String?,
         primary_release_date_lte: String?,
@@ -197,7 +197,7 @@ interface ConsumeMovieApiView {
         first_air_date_gte: String?,
         first_air_date_lte: String?,
         first_air_date_year: Int?,
-        page: String?,
+        page: Int?,
         timezone: String?,
         vote_average_gte: String?,
         vote_count_gte: String?,
@@ -588,7 +588,7 @@ interface ConsumeMovieApiView {
 
     // TV
     // Get Details
-    fun tvGetDetails(
+    fun getTvDetails(
         tv_id: Int,
         language: String?,
         append_to_response: String?,
@@ -597,7 +597,7 @@ interface ConsumeMovieApiView {
 
     // TV
     // Get Account States
-    fun tvGetAccountStates(
+    fun getTvAccountStates(
         tv_id: Int,
         language: String?,
         guest_session_id: String?,
@@ -607,7 +607,7 @@ interface ConsumeMovieApiView {
 
     // TV
     // Get Alternative Titles
-    fun tvGetAlternativeTitles(
+    fun getTvAlternativeTitles(
         tv_id: Int,
         language: String?,
         callback: MovieResultCallback<TvAlternativeTitles>
@@ -615,7 +615,7 @@ interface ConsumeMovieApiView {
 
     // TV
     // Get Changes
-    fun tvGetChanges(
+    fun getTvChanges(
         tv_id: Int,
         startDate: String?,
         endDate: String?,
@@ -625,7 +625,7 @@ interface ConsumeMovieApiView {
 
     // TV
     // Get Content Ratings
-    fun tvGetContentRatings(
+    fun getTvContentRatings(
         tv_id: Int,
         language: String?,
         callback: MovieResultCallback<TvContentRatings>
@@ -633,7 +633,7 @@ interface ConsumeMovieApiView {
 
     // TV
     // Get Credits
-    fun tvGetCredits(
+    fun getTvCredits(
         tv_id: Int,
         language: String?,
         callback: MovieResultCallback<TvCredits>
@@ -641,7 +641,7 @@ interface ConsumeMovieApiView {
 
     // TV
     // Get Episode Groups
-    fun tvGetEpisodeGroups(
+    fun getTvEpisodeGroups(
         tv_id: Int,
         language: String?,
         callback: MovieResultCallback<TvEpisodeGroups>
@@ -649,7 +649,7 @@ interface ConsumeMovieApiView {
 
     // TV
     // Get External IDs
-    fun tvGetExternalIds(
+    fun getTvExternalIds(
         tv_id: Int,
         language: String?,
         callback: MovieResultCallback<TvExternalIds>
@@ -657,7 +657,7 @@ interface ConsumeMovieApiView {
 
     // TV
     // Get Images
-    fun tvGetImages(
+    fun getTvImages(
         tv_id: Int,
         language: String?,
         callback: MovieResultCallback<TvImages>
@@ -665,14 +665,14 @@ interface ConsumeMovieApiView {
 
     // TV
     // Get Keyword
-    fun tvGetKeyword(
+    fun getTvKeyword(
         tv_id: Int,
         callback: MovieResultCallback<TvKeywords>
     )
 
     // TV
     // Get Recommendations
-    fun tvGetRecommendations(
+    fun getTvRecommendations(
         tv_id: Int,
         language: String?,
         page: Int?,
@@ -681,9 +681,79 @@ interface ConsumeMovieApiView {
 
     // TV
     // Get Reviews
-    fun tvGetReviews(
+    fun getTvReviews(
         tv_id: Int,
         callback: MovieResultCallback<TvReviews>
     )
 
+    // TV
+    // Get Screened Theatrically
+    fun getTvScreenedTheatrically(
+        tv_id: Int,
+        callback: MovieResultCallback<TvScreenedTheatrically>
+    )
+
+    // TV
+    // Get Similar TV Shows
+    fun getTvSimilarTvShows(
+        tv_id: Int,
+        language: String?,
+        page: Int?,
+        callback: MovieResultCallback<TvSimilarTVShows>
+    )
+
+    // TV
+    // Get Translations
+    fun getTvTranslations(
+        tv_id: Int,
+        callback: MovieResultCallback<TvTranslations>
+    )
+
+    // TV
+    // Get Videos
+    fun getTvVideos(
+        tv_id: Int,
+        language: String?,
+        callback: MovieResultCallback<TvVideos>
+    )
+
+    // TV
+    // Get Latest
+    fun getTvLatest(
+        language: String?,
+        callback: MovieResultCallback<TvLatest>
+    )
+
+    // TV
+    // Get TV Airing Today
+    fun getTvAiringToday(
+        language: String?,
+        page: Int?,
+        callback: MovieResultCallback<TvAiringToday>
+    )
+
+    // TV
+    // Get TV On The Air
+    fun getTvOnTheAir(
+        language: String?,
+        page: Int?,
+        callback: MovieResultCallback<TvOnTheAir>
+    )
+
+    // TV
+    // Get Popular
+    fun getTvPopular(
+        language: String?,
+        page: Int?,
+        callback: MovieResultCallback<TvPopular>
+    )
+
+    // TV
+    // Get Top Rated
+    fun getTvTopRated(
+        language: String?,
+        page: Int?,
+        callback: MovieResultCallback<TvTopRated>
+    )
+    
 }

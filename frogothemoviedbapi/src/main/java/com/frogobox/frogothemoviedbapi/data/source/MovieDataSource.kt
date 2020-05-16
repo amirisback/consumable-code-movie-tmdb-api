@@ -51,7 +51,7 @@ interface MovieDataSource {
         apiKey: String,
         endDate: String?,
         startDate: String?,
-        page: String?,
+        page: Int?,
         callback: GetRemoteCallback<Changes>
     )
 
@@ -61,7 +61,7 @@ interface MovieDataSource {
         apiKey: String,
         endDate: String?,
         startDate: String?,
-        page: String?,
+        page: Int?,
         callback: GetRemoteCallback<Changes>
     )
 
@@ -71,7 +71,7 @@ interface MovieDataSource {
         apiKey: String,
         endDate: String?,
         startDate: String?,
-        page: String?,
+        page: Int?,
         callback: GetRemoteCallback<Changes>
     )
 
@@ -184,7 +184,7 @@ interface MovieDataSource {
         certification_gte: String?,
         include_adult: Boolean?,
         include_video: String?,
-        page: String?,
+        page: Int?,
         primary_release_year: Int?,
         primary_release_date_gte: String?,
         primary_release_date_lte: String?,
@@ -224,7 +224,7 @@ interface MovieDataSource {
         first_air_date_gte: String?,
         first_air_date_lte: String?,
         first_air_date_year: Int?,
-        page: String?,
+        page: Int?,
         timezone: String?,
         vote_average_gte: String?,
         vote_count_gte: String?,
@@ -639,7 +639,7 @@ interface MovieDataSource {
 
     // TV
     // Get Details
-    fun tvGetDetails(
+    fun getTvDetails(
         tv_id: Int,
         apiKey: String,
         language: String?,
@@ -649,7 +649,7 @@ interface MovieDataSource {
 
     // TV
     // Get Account States
-    fun tvGetAccountStates(
+    fun getTvAccountStates(
         tv_id: Int,
         apiKey: String,
         language: String?,
@@ -660,7 +660,7 @@ interface MovieDataSource {
 
     // TV
     // Get Alternative Titles
-    fun tvGetAlternativeTitles(
+    fun getTvAlternativeTitles(
         tv_id: Int,
         apiKey: String,
         language: String?,
@@ -669,7 +669,7 @@ interface MovieDataSource {
 
     // TV
     // Get Changes
-    fun tvGetChanges(
+    fun getTvChanges(
         tv_id: Int,
         apiKey: String,
         startDate: String?,
@@ -680,7 +680,7 @@ interface MovieDataSource {
 
     // TV
     // Get Content Ratings
-    fun tvGetContentRatings(
+    fun getTvContentRatings(
         tv_id: Int,
         apiKey: String,
         language: String?,
@@ -689,7 +689,7 @@ interface MovieDataSource {
 
     // TV
     // Get Credits
-    fun tvGetCredits(
+    fun getTvCredits(
         tv_id: Int,
         apiKey: String,
         language: String?,
@@ -698,7 +698,7 @@ interface MovieDataSource {
 
     // TV
     // Get Episode Groups
-    fun tvGetEpisodeGroups(
+    fun getTvEpisodeGroups(
         tv_id: Int,
         apiKey: String,
         language: String?,
@@ -707,7 +707,7 @@ interface MovieDataSource {
 
     // TV
     // Get External IDs
-    fun tvGetExternalIds(
+    fun getTvExternalIds(
         tv_id: Int,
         apiKey: String,
         language: String?,
@@ -716,7 +716,7 @@ interface MovieDataSource {
 
     // TV
     // Get Images
-    fun tvGetImages(
+    fun getTvImages(
         tv_id: Int,
         apiKey: String,
         language: String?,
@@ -725,7 +725,7 @@ interface MovieDataSource {
 
     // TV
     // Get Keyword
-    fun tvGetKeyword(
+    fun getTvKeyword(
         tv_id: Int,
         apiKey: String,
         callback: GetRemoteCallback<TvKeywords>
@@ -733,7 +733,7 @@ interface MovieDataSource {
 
     // TV
     // Get Recommendations
-    fun tvGetRecommendations(
+    fun getTvRecommendations(
         tv_id: Int,
         apiKey: String,
         language: String?,
@@ -743,7 +743,7 @@ interface MovieDataSource {
 
     // TV
     // Get Reviews
-    fun tvGetReviews(
+    fun getTvReviews(
         tv_id: Int,
         apiKey: String,
         callback: GetRemoteCallback<TvReviews>
@@ -751,30 +751,84 @@ interface MovieDataSource {
 
     // TV
     // Get Screened Theatrically
+    fun getTvScreenedTheatrically(
+        tv_id: Int,
+        apiKey: String,
+        callback: GetRemoteCallback<TvScreenedTheatrically>
+    )
 
     // TV
     // Get Similar TV Shows
+    fun getTvSimilarTvShows(
+        tv_id: Int,
+        apiKey: String,
+        language: String?,
+        page: Int?,
+        callback: GetRemoteCallback<TvSimilarTVShows>
+    )
 
     // TV
     // Get Translations
+    fun getTvTranslations(
+        tv_id: Int,
+        apiKey: String,
+        callback: GetRemoteCallback<TvTranslations>
+    )
 
     // TV
     // Get Videos
+    fun getTvVideos(
+        tv_id: Int,
+        apiKey: String,
+        language: String?,
+        callback: GetRemoteCallback<TvVideos>
+    )
 
     // TV
     // Get Latest
+    fun getTvLatest(
+        apiKey: String,
+        language: String?,
+        callback: GetRemoteCallback<TvLatest>
+    )
 
     // TV
     // Get TV Airing Today
+    fun getTvAiringToday(
+        apiKey: String,
+        language: String?,
+        page: Int?,
+        callback: GetRemoteCallback<TvAiringToday>
+    )
 
     // TV
     // Get TV On The Air
+    fun getTvOnTheAir(
+        apiKey: String,
+        language: String?,
+        page: Int?,
+        callback: GetRemoteCallback<TvOnTheAir>
+    )
 
     // TV
     // Get Popular
+    fun getTvPopular(
+        apiKey: String,
+        language: String?,
+        page: Int?,
+        callback: GetRemoteCallback<TvPopular>
+    )
 
     // TV
     // Get Top Rated
+    fun getTvTopRated(
+        apiKey: String,
+        language: String?,
+        page: Int?,
+        callback: GetRemoteCallback<TvTopRated>
+    )
+
+    // ---------------------------------------------------------------------------------------------
 
     // METHOD POST AND DELETE ----------------------------------------------------------------------
 

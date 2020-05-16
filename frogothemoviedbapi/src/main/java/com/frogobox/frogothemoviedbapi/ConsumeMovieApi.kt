@@ -81,7 +81,7 @@ class ConsumeMovieApi(private val apiKey: String) : ConsumeMovieApiView {
     override fun getMovieChangeList(
         endDate: String?,
         startDate: String?,
-        page: String?,
+        page: Int?,
         callback: MovieResultCallback<Changes>
     ) {
         movieRepository.getMovieChangeList(
@@ -111,7 +111,7 @@ class ConsumeMovieApi(private val apiKey: String) : ConsumeMovieApiView {
     override fun getTvChangeList(
         endDate: String?,
         startDate: String?,
-        page: String?,
+        page: Int?,
         callback: MovieResultCallback<Changes>
     ) {
         movieRepository.getTvChangeList(
@@ -141,7 +141,7 @@ class ConsumeMovieApi(private val apiKey: String) : ConsumeMovieApiView {
     override fun getPersonChangeList(
         endDate: String?,
         startDate: String?,
-        page: String?,
+        page: Int?,
         callback: MovieResultCallback<Changes>
     ) {
         movieRepository.getPersonChangeList(
@@ -492,7 +492,7 @@ class ConsumeMovieApi(private val apiKey: String) : ConsumeMovieApiView {
         certification_gte: String?,
         include_adult: Boolean?,
         include_video: String?,
-        page: String?,
+        page: Int?,
         primary_release_year: Int?,
         primary_release_date_gte: String?,
         primary_release_date_lte: String?,
@@ -579,7 +579,7 @@ class ConsumeMovieApi(private val apiKey: String) : ConsumeMovieApiView {
         first_air_date_gte: String?,
         first_air_date_lte: String?,
         first_air_date_year: Int?,
-        page: String?,
+        page: Int?,
         timezone: String?,
         vote_average_gte: String?,
         vote_count_gte: String?,
@@ -1846,13 +1846,13 @@ class ConsumeMovieApi(private val apiKey: String) : ConsumeMovieApiView {
             })
     }
 
-    override fun tvGetDetails(
+    override fun getTvDetails(
         tv_id: Int,
         language: String?,
         append_to_response: String?,
         callback: MovieResultCallback<TvDetails>
     ) {
-        movieRepository.tvGetDetails(
+        movieRepository.getTvDetails(
             tv_id,
             apiKey,
             language,
@@ -1876,14 +1876,14 @@ class ConsumeMovieApi(private val apiKey: String) : ConsumeMovieApiView {
             })
     }
 
-    override fun tvGetAccountStates(
+    override fun getTvAccountStates(
         tv_id: Int,
         language: String?,
         guest_session_id: String?,
         session_id: String?,
         callback: MovieResultCallback<TvAccountStates>
     ) {
-        movieRepository.tvGetAccountStates(
+        movieRepository.getTvAccountStates(
             tv_id,
             apiKey,
             language,
@@ -1908,12 +1908,12 @@ class ConsumeMovieApi(private val apiKey: String) : ConsumeMovieApiView {
             })
     }
 
-    override fun tvGetAlternativeTitles(
+    override fun getTvAlternativeTitles(
         tv_id: Int,
         language: String?,
         callback: MovieResultCallback<TvAlternativeTitles>
     ) {
-        movieRepository.tvGetAlternativeTitles(
+        movieRepository.getTvAlternativeTitles(
             tv_id,
             apiKey,
             language,
@@ -1936,14 +1936,14 @@ class ConsumeMovieApi(private val apiKey: String) : ConsumeMovieApiView {
             })
     }
 
-    override fun tvGetChanges(
+    override fun getTvChanges(
         tv_id: Int,
         startDate: String?,
         endDate: String?,
         page: Int?,
         callback: MovieResultCallback<TvChanges>
     ) {
-        movieRepository.tvGetChanges(
+        movieRepository.getTvChanges(
             tv_id,
             apiKey,
             startDate,
@@ -1968,12 +1968,12 @@ class ConsumeMovieApi(private val apiKey: String) : ConsumeMovieApiView {
             })
     }
 
-    override fun tvGetContentRatings(
+    override fun getTvContentRatings(
         tv_id: Int,
         language: String?,
         callback: MovieResultCallback<TvContentRatings>
     ) {
-        movieRepository.tvGetContentRatings(
+        movieRepository.getTvContentRatings(
             tv_id,
             apiKey,
             language,
@@ -1996,12 +1996,12 @@ class ConsumeMovieApi(private val apiKey: String) : ConsumeMovieApiView {
             })
     }
 
-    override fun tvGetCredits(
+    override fun getTvCredits(
         tv_id: Int,
         language: String?,
         callback: MovieResultCallback<TvCredits>
     ) {
-        movieRepository.tvGetCredits(
+        movieRepository.getTvCredits(
             tv_id,
             apiKey,
             language,
@@ -2024,12 +2024,12 @@ class ConsumeMovieApi(private val apiKey: String) : ConsumeMovieApiView {
             })
     }
 
-    override fun tvGetEpisodeGroups(
+    override fun getTvEpisodeGroups(
         tv_id: Int,
         language: String?,
         callback: MovieResultCallback<TvEpisodeGroups>
     ) {
-        movieRepository.tvGetEpisodeGroups(
+        movieRepository.getTvEpisodeGroups(
             tv_id,
             apiKey,
             language,
@@ -2052,12 +2052,12 @@ class ConsumeMovieApi(private val apiKey: String) : ConsumeMovieApiView {
             })
     }
 
-    override fun tvGetExternalIds(
+    override fun getTvExternalIds(
         tv_id: Int,
         language: String?,
         callback: MovieResultCallback<TvExternalIds>
     ) {
-        movieRepository.tvGetExternalIds(
+        movieRepository.getTvExternalIds(
             tv_id,
             apiKey,
             language,
@@ -2080,12 +2080,12 @@ class ConsumeMovieApi(private val apiKey: String) : ConsumeMovieApiView {
             })
     }
 
-    override fun tvGetImages(
+    override fun getTvImages(
         tv_id: Int,
         language: String?,
         callback: MovieResultCallback<TvImages>
     ) {
-        movieRepository.tvGetImages(
+        movieRepository.getTvImages(
             tv_id,
             apiKey,
             language,
@@ -2108,8 +2108,8 @@ class ConsumeMovieApi(private val apiKey: String) : ConsumeMovieApiView {
             })
     }
 
-    override fun tvGetKeyword(tv_id: Int, callback: MovieResultCallback<TvKeywords>) {
-        movieRepository.tvGetKeyword(
+    override fun getTvKeyword(tv_id: Int, callback: MovieResultCallback<TvKeywords>) {
+        movieRepository.getTvKeyword(
             tv_id,
             apiKey,
             object : MovieDataSource.GetRemoteCallback<TvKeywords> {
@@ -2131,13 +2131,13 @@ class ConsumeMovieApi(private val apiKey: String) : ConsumeMovieApiView {
             })
     }
 
-    override fun tvGetRecommendations(
+    override fun getTvRecommendations(
         tv_id: Int,
         language: String?,
         page: Int?,
         callback: MovieResultCallback<TvRecommendations>
     ) {
-        movieRepository.tvGetRecommendations(
+        movieRepository.getTvRecommendations(
             tv_id,
             apiKey,
             language,
@@ -2161,8 +2161,8 @@ class ConsumeMovieApi(private val apiKey: String) : ConsumeMovieApiView {
             })
     }
 
-    override fun tvGetReviews(tv_id: Int, callback: MovieResultCallback<TvReviews>) {
-        movieRepository.tvGetReviews(
+    override fun getTvReviews(tv_id: Int, callback: MovieResultCallback<TvReviews>) {
+        movieRepository.getTvReviews(
             tv_id,
             apiKey,
             object : MovieDataSource.GetRemoteCallback<TvReviews> {
@@ -2183,4 +2183,247 @@ class ConsumeMovieApi(private val apiKey: String) : ConsumeMovieApiView {
                 }
             })
     }
+
+    override fun getTvScreenedTheatrically(
+        tv_id: Int,
+        callback: MovieResultCallback<TvScreenedTheatrically>
+    ) {
+        movieRepository.getTvScreenedTheatrically(
+            tv_id,
+            apiKey,
+            object : MovieDataSource.GetRemoteCallback<TvScreenedTheatrically> {
+                override fun onSuccess(data: TvScreenedTheatrically) {
+                    callback.getResultData(data)
+                }
+
+                override fun onFailed(statusCode: Int, errorMessage: String?) {
+                    callback.failedResult(statusCode, errorMessage)
+                }
+
+                override fun onShowProgress() {
+                    callback.onShowProgress()
+                }
+
+                override fun onHideProgress() {
+                    callback.onHideProgress()
+                }
+            })
+    }
+
+    override fun getTvSimilarTvShows(
+        tv_id: Int,
+        language: String?,
+        page: Int?,
+        callback: MovieResultCallback<TvSimilarTVShows>
+    ) {
+        movieRepository.getTvSimilarTvShows(
+            tv_id,
+            apiKey,
+            language,
+            page,
+            object : MovieDataSource.GetRemoteCallback<TvSimilarTVShows> {
+                override fun onSuccess(data: TvSimilarTVShows) {
+                    callback.getResultData(data)
+                }
+
+                override fun onFailed(statusCode: Int, errorMessage: String?) {
+                    callback.failedResult(statusCode, errorMessage)
+                }
+
+                override fun onShowProgress() {
+                    callback.onShowProgress()
+                }
+
+                override fun onHideProgress() {
+                    callback.onHideProgress()
+                }
+            })
+    }
+
+    override fun getTvTranslations(tv_id: Int, callback: MovieResultCallback<TvTranslations>) {
+        movieRepository.getTvTranslations(
+            tv_id,
+            apiKey,
+            object : MovieDataSource.GetRemoteCallback<TvTranslations> {
+                override fun onSuccess(data: TvTranslations) {
+                    callback.getResultData(data)
+                }
+
+                override fun onFailed(statusCode: Int, errorMessage: String?) {
+                    callback.failedResult(statusCode, errorMessage)
+                }
+
+                override fun onShowProgress() {
+                    callback.onShowProgress()
+                }
+
+                override fun onHideProgress() {
+                    callback.onHideProgress()
+                }
+            })
+    }
+
+    override fun getTvVideos(
+        tv_id: Int,
+        language: String?,
+        callback: MovieResultCallback<TvVideos>
+    ) {
+        movieRepository.getTvVideos(
+            tv_id,
+            apiKey,
+            language,
+            object : MovieDataSource.GetRemoteCallback<TvVideos> {
+                override fun onSuccess(data: TvVideos) {
+                    callback.getResultData(data)
+                }
+
+                override fun onFailed(statusCode: Int, errorMessage: String?) {
+                    callback.failedResult(statusCode, errorMessage)
+                }
+
+                override fun onShowProgress() {
+                    callback.onShowProgress()
+                }
+
+                override fun onHideProgress() {
+                    callback.onHideProgress()
+                }
+            })
+    }
+
+    override fun getTvLatest(language: String?, callback: MovieResultCallback<TvLatest>) {
+        movieRepository.getTvLatest(
+            apiKey,
+            language,
+            object : MovieDataSource.GetRemoteCallback<TvLatest> {
+                override fun onSuccess(data: TvLatest) {
+                    callback.getResultData(data)
+                }
+
+                override fun onFailed(statusCode: Int, errorMessage: String?) {
+                    callback.failedResult(statusCode, errorMessage)
+                }
+
+                override fun onShowProgress() {
+                    callback.onShowProgress()
+                }
+
+                override fun onHideProgress() {
+                    callback.onHideProgress()
+                }
+            })
+    }
+
+    override fun getTvAiringToday(
+        language: String?,
+        page: Int?,
+        callback: MovieResultCallback<TvAiringToday>
+    ) {
+        movieRepository.getTvAiringToday(
+            apiKey,
+            language,
+            page,
+            object : MovieDataSource.GetRemoteCallback<TvAiringToday> {
+                override fun onSuccess(data: TvAiringToday) {
+                    callback.getResultData(data)
+                }
+
+                override fun onFailed(statusCode: Int, errorMessage: String?) {
+                    callback.failedResult(statusCode, errorMessage)
+                }
+
+                override fun onShowProgress() {
+                    callback.onShowProgress()
+                }
+
+                override fun onHideProgress() {
+                    callback.onHideProgress()
+                }
+            })
+    }
+
+    override fun getTvOnTheAir(
+        language: String?,
+        page: Int?,
+        callback: MovieResultCallback<TvOnTheAir>
+    ) {
+        movieRepository.getTvOnTheAir(
+            apiKey,
+            language,
+            page,
+            object : MovieDataSource.GetRemoteCallback<TvOnTheAir> {
+                override fun onSuccess(data: TvOnTheAir) {
+                    callback.getResultData(data)
+                }
+
+                override fun onFailed(statusCode: Int, errorMessage: String?) {
+                    callback.failedResult(statusCode, errorMessage)
+                }
+
+                override fun onShowProgress() {
+                    callback.onShowProgress()
+                }
+
+                override fun onHideProgress() {
+                    callback.onHideProgress()
+                }
+            })
+    }
+
+    override fun getTvPopular(
+        language: String?,
+        page: Int?,
+        callback: MovieResultCallback<TvPopular>
+    ) {
+        movieRepository.getTvPopular(
+            apiKey,
+            language,
+            page,
+            object : MovieDataSource.GetRemoteCallback<TvPopular> {
+                override fun onSuccess(data: TvPopular) {
+                    callback.getResultData(data)
+                }
+
+                override fun onFailed(statusCode: Int, errorMessage: String?) {
+                    callback.failedResult(statusCode, errorMessage)
+                }
+
+                override fun onShowProgress() {
+                    callback.onShowProgress()
+                }
+
+                override fun onHideProgress() {
+                    callback.onHideProgress()
+                }
+            })
+    }
+
+    override fun getTvTopRated(
+        language: String?,
+        page: Int?,
+        callback: MovieResultCallback<TvTopRated>
+    ) {
+        movieRepository.getTvTopRated(
+            apiKey,
+            language,
+            page,
+            object : MovieDataSource.GetRemoteCallback<TvTopRated> {
+                override fun onSuccess(data: TvTopRated) {
+                    callback.getResultData(data)
+                }
+
+                override fun onFailed(statusCode: Int, errorMessage: String?) {
+                    callback.failedResult(statusCode, errorMessage)
+                }
+
+                override fun onShowProgress() {
+                    callback.onShowProgress()
+                }
+
+                override fun onHideProgress() {
+                    callback.onHideProgress()
+                }
+            })
+    }
+
 }
