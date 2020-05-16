@@ -1,5 +1,5 @@
 # consumable-code-movie-tmdb-api By AmirIsBack
-- v1.1.1 - Development
+- v1.1.2 - Development
 - Stable Version
 
 # About This Project
@@ -11,7 +11,7 @@ Simple code and reusable data
 # Version Release
 This Is Latest Release
 
-    $version_release = 1.1.1
+    $version_release = 1.1.2
 
 What's New??
 
@@ -34,7 +34,7 @@ Add it in your root build.gradle at the end of repositories:
 
 	dependencies {
 	        // library consumable code movie tmdb api
-            implementation 'com.github.amirisback:consumable-code-movie-tmdb-api:1.1.1'
+            implementation 'com.github.amirisback:consumable-code-movie-tmdb-api:1.1.2'
 	}
 	
 <h3>Step 3. Declaration ConsumeMovieApi</h3>
@@ -115,7 +115,7 @@ https://developers.themoviedb.org/3/getting-started/introduction
     fun getMovieChangeList(
         endDate: String?,
         startDate: String?,
-        page: String?,
+        page: Int?,
         callback: MovieResultCallback<Changes>
     )
 
@@ -124,7 +124,7 @@ https://developers.themoviedb.org/3/getting-started/introduction
     fun getTvChangeList(
         endDate: String?,
         startDate: String?,
-        page: String?,
+        page: Int?,
         callback: MovieResultCallback<Changes>
     )
 
@@ -133,7 +133,7 @@ https://developers.themoviedb.org/3/getting-started/introduction
     fun getPersonChangeList(
         endDate: String?,
         startDate: String?,
-        page: String?,
+        page: Int?,
         callback: MovieResultCallback<Changes>
     )
 
@@ -233,7 +233,7 @@ https://developers.themoviedb.org/3/getting-started/introduction
         certification_gte: String?,
         include_adult: String?,
         include_video: String?,
-        page: String?,
+        page: Int?,
         primary_release_year: Int?,
         primary_release_date_gte: String?,
         primary_release_date_lte: String?,
@@ -269,7 +269,7 @@ https://developers.themoviedb.org/3/getting-started/introduction
         first_air_date_gte: String?,
         first_air_date_lte: String?,
         first_air_date_year: Int?,
-        page: String?,
+        page: Int?,
         timezone: String?,
         vote_average_gte: String?,
         vote_count_gte: String?,
@@ -660,20 +660,13 @@ https://developers.themoviedb.org/3/getting-started/introduction
         first_air_date_year: Int?,
         callback: MovieResultCallback<SearchMovies>
     )
+    
 
-# --- Development ---
-## LIST
-## PEOPLE
-## TV SEASONS
-## TV EPISODES
-## TV EPISODE GROUPS 
-
-# On Progress *
 ## TV    
 
     // TV
     // Get Details
-    fun tvGetDetails(
+    fun getTvDetails(
         tv_id: Int,
         language: String?,
         append_to_response: String?,
@@ -682,7 +675,7 @@ https://developers.themoviedb.org/3/getting-started/introduction
 
     // TV
     // Get Account States
-    fun tvGetAccountStates(
+    fun getTvAccountStates(
         tv_id: Int,
         language: String?,
         guest_session_id: String?,
@@ -692,7 +685,7 @@ https://developers.themoviedb.org/3/getting-started/introduction
 
     // TV
     // Get Alternative Titles
-    fun tvGetAlternativeTitles(
+    fun getTvAlternativeTitles(
         tv_id: Int,
         language: String?,
         callback: MovieResultCallback<TvAlternativeTitles>
@@ -700,7 +693,7 @@ https://developers.themoviedb.org/3/getting-started/introduction
 
     // TV
     // Get Changes
-    fun tvGetChanges(
+    fun getTvChanges(
         tv_id: Int,
         startDate: String?,
         endDate: String?,
@@ -710,7 +703,7 @@ https://developers.themoviedb.org/3/getting-started/introduction
 
     // TV
     // Get Content Ratings
-    fun tvGetContentRatings(
+    fun getTvContentRatings(
         tv_id: Int,
         language: String?,
         callback: MovieResultCallback<TvContentRatings>
@@ -718,7 +711,7 @@ https://developers.themoviedb.org/3/getting-started/introduction
 
     // TV
     // Get Credits
-    fun tvGetCredits(
+    fun getTvCredits(
         tv_id: Int,
         language: String?,
         callback: MovieResultCallback<TvCredits>
@@ -726,7 +719,7 @@ https://developers.themoviedb.org/3/getting-started/introduction
 
     // TV
     // Get Episode Groups
-    fun tvGetEpisodeGroups(
+    fun getTvEpisodeGroups(
         tv_id: Int,
         language: String?,
         callback: MovieResultCallback<TvEpisodeGroups>
@@ -734,7 +727,7 @@ https://developers.themoviedb.org/3/getting-started/introduction
 
     // TV
     // Get External IDs
-    fun tvGetExternalIds(
+    fun getTvExternalIds(
         tv_id: Int,
         language: String?,
         callback: MovieResultCallback<TvExternalIds>
@@ -742,7 +735,7 @@ https://developers.themoviedb.org/3/getting-started/introduction
 
     // TV
     // Get Images
-    fun tvGetImages(
+    fun getTvImages(
         tv_id: Int,
         language: String?,
         callback: MovieResultCallback<TvImages>
@@ -750,14 +743,14 @@ https://developers.themoviedb.org/3/getting-started/introduction
 
     // TV
     // Get Keyword
-    fun tvGetKeyword(
+    fun getTvKeyword(
         tv_id: Int,
         callback: MovieResultCallback<TvKeywords>
     )
 
     // TV
     // Get Recommendations
-    fun tvGetRecommendations(
+    fun getTvRecommendations(
         tv_id: Int,
         language: String?,
         page: Int?,
@@ -766,11 +759,89 @@ https://developers.themoviedb.org/3/getting-started/introduction
 
     // TV
     // Get Reviews
-    fun tvGetReviews(
+    fun getTvReviews(
         tv_id: Int,
         callback: MovieResultCallback<TvReviews>
     )
+    
+    // TV
+    // Get Screened Theatrically
+    fun getTvScreenedTheatrically(
+        tv_id: Int,
+        callback: MovieResultCallback<TvScreenedTheatrically>
+    )
 
+    // TV
+    // Get Similar TV Shows
+    fun getTvSimilarTvShows(
+        tv_id: Int,
+        language: String?,
+        page: Int?,
+        callback: MovieResultCallback<TvSimilarTVShows>
+    )
+
+    // TV
+    // Get Translations
+    fun getTvTranslations(
+        tv_id: Int,
+        callback: MovieResultCallback<TvTranslations>
+    )
+
+    // TV
+    // Get Videos
+    fun getTvVideos(
+        tv_id: Int,
+        language: String?,
+        callback: MovieResultCallback<TvVideos>
+    )
+
+    // TV
+    // Get Latest
+    fun getTvLatest(
+        language: String?,
+        callback: MovieResultCallback<TvLatest>
+    )
+
+    // TV
+    // Get TV Airing Today
+    fun getTvAiringToday(
+        language: String?,
+        page: Int?,
+        callback: MovieResultCallback<TvAiringToday>
+    )
+
+    // TV
+    // Get TV On The Air
+    fun getTvOnTheAir(
+        language: String?,
+        page: Int?,
+        callback: MovieResultCallback<TvOnTheAir>
+    )
+
+    // TV
+    // Get Popular
+    fun getTvPopular(
+        language: String?,
+        page: Int?,
+        callback: MovieResultCallback<TvPopular>
+    )
+
+    // TV
+    // Get Top Rated
+    fun getTvTopRated(
+        language: String?,
+        page: Int?,
+        callback: MovieResultCallback<TvTopRated>
+    )
+
+# On Progress *
+## TV SEASONS
+## TV EPISODES
+## TV EPISODE GROUPS 
+
+# --- Development ---
+## LIST
+## PEOPLE
 
 # Award
 ## Github Actions Hackathon (March 5-31, 2020) [See list winner](https://github.com/amirisback/consumable-code-movie-tmdb-api/blob/master/docs/github_action_hackathon_winners.xlsx)
