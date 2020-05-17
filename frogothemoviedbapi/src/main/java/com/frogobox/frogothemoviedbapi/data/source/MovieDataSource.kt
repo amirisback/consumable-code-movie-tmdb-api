@@ -830,6 +830,93 @@ interface MovieDataSource {
 
     // ---------------------------------------------------------------------------------------------
 
+    // TV SEASONS
+    // Get
+
+    // TV SEASONS
+    // Get
+
+    // TV SEASONS
+    // Get
+
+    // TV SEASONS
+    // Get
+
+    // TV SEASONS
+    // Get
+
+    // TV SEASONS
+    // Get
+
+    // TV SEASONS
+    // Get
+
+    // ---------------------------------------------------------------------------------------------
+
+    // TV EPISODE
+    // Get
+
+    // TV EPISODE
+    // Get
+
+    // TV EPISODE
+    // Get
+
+    // TV EPISODE
+    // Get
+
+    // TV EPISODE
+    // Get
+
+    // TV EPISODE
+    // Get
+
+    // TV EPISODE
+    // Get
+
+    // TV EPISODE
+    // Get
+
+    // ---------------------------------------------------------------------------------------------
+
+    // TV EPISODE GROUPS
+    // Get Details
+
+    // ---------------------------------------------------------------------------------------------
+
+    // PEOPLE
+    // Get
+
+    // PEOPLE
+    // Get
+
+    // PEOPLE
+    // Get
+
+    // PEOPLE
+    // Get
+
+    // PEOPLE
+    // Get
+
+    // PEOPLE
+    // Get
+
+    // PEOPLE
+    // Get
+
+    // PEOPLE
+    // Get
+
+    // PEOPLE
+    // Get
+
+    // PEOPLE
+    // Get
+
+    // PEOPLE
+    // Get
+
     // METHOD POST AND DELETE ----------------------------------------------------------------------
 
     // MOVIES
@@ -842,9 +929,19 @@ interface MovieDataSource {
 
     // TV
     // POST Rate TV Shows
+    // fun postTvRateTvShows()
 
     // TV
     // DELETE Rating
+    // fun deleteTvDeleteRating()
+
+    // TV EPISODE
+    // POST Rate TV Episode
+    // fun postTvEpisodeRateTvEpisode()
+
+    // TV EPISODE
+    // DELETE Rating
+    // fun deleteTvEpisodeDeleteRating()
 
     // ---------------------------------------------------------------------------------------------
 
