@@ -1139,4 +1139,104 @@ class MovieRepository(private val remoteDataSource: MovieRemoteDataSource) : Mov
     ) {
         remoteDataSource.getTvEpisodeGroupsDetails(id, apiKey, language, callback)
     }
+
+    override fun getPeopleDetails(
+        person_id: Int,
+        apiKey: String,
+        language: String?,
+        callback: MovieDataSource.GetRemoteCallback<PeopleDetails>
+    ) {
+        remoteDataSource.getPeopleDetails(person_id, apiKey, language, callback)
+    }
+
+    override fun getPeopleChanges(
+        person_id: Int,
+        apiKey: String,
+        endDate: String?,
+        page: Int?,
+        startDate: String?,
+        callback: MovieDataSource.GetRemoteCallback<PeopleChanges>
+    ) {
+        remoteDataSource.getPeopleChanges(person_id, apiKey, endDate, page, startDate, callback)
+    }
+
+    override fun getPeopleMovieCredits(
+        person_id: Int,
+        apiKey: String,
+        language: String?,
+        callback: MovieDataSource.GetRemoteCallback<PeopleMovieCredits>
+    ) {
+        remoteDataSource.getPeopleMovieCredits(person_id, apiKey, language, callback)
+    }
+
+    override fun getPeopleTvCredits(
+        person_id: Int,
+        apiKey: String,
+        language: String?,
+        callback: MovieDataSource.GetRemoteCallback<PeopleTvCredits>
+    ) {
+        remoteDataSource.getPeopleTvCredits(person_id, apiKey, language, callback)
+    }
+
+    override fun getPeopleCombinedCredits(
+        person_id: Int,
+        apiKey: String,
+        language: String?,
+        callback: MovieDataSource.GetRemoteCallback<PeopleCombinedCredits>
+    ) {
+        remoteDataSource.getPeopleCombinedCredits(person_id, apiKey, language, callback)
+    }
+
+    override fun getPeopleExternalIds(
+        person_id: Int,
+        apiKey: String,
+        language: String?,
+        callback: MovieDataSource.GetRemoteCallback<PeopleExternalIds>
+    ) {
+        remoteDataSource.getPeopleExternalIds(person_id, apiKey, language, callback)
+    }
+
+    override fun getPeopleImages(
+        person_id: Int,
+        apiKey: String,
+        callback: MovieDataSource.GetRemoteCallback<PeopleImages>
+    ) {
+        remoteDataSource.getPeopleImages(person_id, apiKey, callback)
+    }
+
+    override fun getPeopleTaggedImages(
+        person_id: Int,
+        apiKey: String,
+        language: String?,
+        page: Int?,
+        callback: MovieDataSource.GetRemoteCallback<PeopleTaggedImages>
+    ) {
+        remoteDataSource.getPeopleTaggedImages(person_id, apiKey, language, page, callback)
+    }
+
+    override fun getPeopleTranslations(
+        person_id: Int,
+        apiKey: String,
+        language: String?,
+        callback: MovieDataSource.GetRemoteCallback<PeopleTranslations>
+    ) {
+        remoteDataSource.getPeopleTranslations(person_id, apiKey, language, callback)
+    }
+
+    override fun getPeopleLatest(
+        apiKey: String,
+        language: String?,
+        callback: MovieDataSource.GetRemoteCallback<PeopleLatest>
+    ) {
+        remoteDataSource.getPeopleLatest(apiKey, language, callback)
+    }
+
+    override fun getPeoplePopular(
+        apiKey: String,
+        language: String?,
+        page: Int?,
+        callback: MovieDataSource.GetRemoteCallback<PeoplePopular>
+    ) {
+        remoteDataSource.getPeoplePopular(apiKey, language, page, callback)
+    }
 }

@@ -1007,44 +1007,113 @@ interface MovieDataSource {
 
     // PEOPLE
     // Get Details
+    fun getPeopleDetails(
+        person_id: Int,
+        apiKey: String,
+        language: String?,
+        callback: GetRemoteCallback<PeopleDetails>
+    )
 
     // PEOPLE
     // Get Changes
+    fun getPeopleChanges(
+        person_id: Int,
+        apiKey: String,
+        endDate: String?,
+        page: Int?,
+        startDate: String?,
+        callback: GetRemoteCallback<PeopleChanges>
+    )
 
     // PEOPLE
     // Get Movie Credits
+    fun getPeopleMovieCredits(
+        person_id: Int,
+        apiKey: String,
+        language: String?,
+        callback: GetRemoteCallback<PeopleMovieCredits>
+    )
 
     // PEOPLE
     // Get TV Credits
+    fun getPeopleTvCredits(
+        person_id: Int,
+        apiKey: String,
+        language: String?,
+        callback: GetRemoteCallback<PeopleTvCredits>
+    )
 
     // PEOPLE
     // Get Combined Credits
+    fun getPeopleCombinedCredits(
+        person_id: Int,
+        apiKey: String,
+        language: String?,
+        callback: GetRemoteCallback<PeopleCombinedCredits>
+    )
 
     // PEOPLE
     // Get External IDs
+    fun getPeopleExternalIds(
+        person_id: Int,
+        apiKey: String,
+        language: String?,
+        callback: GetRemoteCallback<PeopleExternalIds>
+    )
 
     // PEOPLE
     // Get Images
+    fun getPeopleImages(
+        person_id: Int,
+        apiKey: String,
+        callback: GetRemoteCallback<PeopleImages>
+    )
 
     // PEOPLE
     // Get Tagged Images
+    fun getPeopleTaggedImages(
+        person_id: Int,
+        apiKey: String,
+        language: String?,
+        page: Int?,
+        callback: GetRemoteCallback<PeopleTaggedImages>
+    )
 
     // PEOPLE
     // Get Translations
+    fun getPeopleTranslations(
+        person_id: Int,
+        apiKey: String,
+        language: String?,
+        callback: GetRemoteCallback<PeopleTranslations>
+    )
 
     // PEOPLE
     // Get Latest
+    fun getPeopleLatest(
+        apiKey: String,
+        language: String?,
+        callback: GetRemoteCallback<PeopleLatest>
+    )
 
     // PEOPLE
     // Get Popular
+    fun getPeoplePopular(
+        apiKey: String,
+        language: String?,
+        page: Int?,
+        callback: GetRemoteCallback<PeoplePopular>
+    )
 
     // ---------------------------------------------------------------------------------------------
 
     // LIST
     // Get Details
+    // fun getListDetails()
 
     // LIST
     // Check Item Status
+    // fun getListCheckItemStatus()
 
     // METHOD POST AND DELETE ----------------------------------------------------------------------
 
@@ -1074,18 +1143,23 @@ interface MovieDataSource {
 
     // LIST
     // POST Create List
+    // fun postListCreateList()
 
     // LIST
     // POST Add Movie
+    // fun postListAddMovie()
 
     // LIST
     // POST Remove Movie
+    // fun postListRemoveMovie()
 
     // LIST
     // POST Clear List
+    // fun postListClearList()
 
     // LIST
     // DELETE List
+    // fun deleteList
 
     // ---------------------------------------------------------------------------------------------
 
