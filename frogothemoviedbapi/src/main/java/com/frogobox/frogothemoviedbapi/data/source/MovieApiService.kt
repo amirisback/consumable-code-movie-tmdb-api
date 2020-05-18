@@ -925,8 +925,103 @@ interface MovieApiService {
     
     // ---------------------------------------------------------------------------------------------
 
+    // TV EPISODE
+    // Get Details
+    @GET(MovieUrl.TV_EPISODES_GET_DETAILS)
+    fun getTvEpisodeDetails(
+        @Path(MovieConstant.PATH_TV_ID) tv_id: Int,
+        @Path(MovieConstant.PATH_SEASON_NUMBER) season_number: Int,
+        @Path(MovieConstant.PATH_EPISODE_NUMBER) episode_number: Int,
+        @Query(MovieConstant.QUERY_API_KEY) apiKey: String,
+        @Query(MovieConstant.QUERY_LANGUAGE) language: String?,
+        @Query(MovieConstant.QUERY_APPEND_TO_RESPONSE) append_to_response: String?
+    ): Observable<TvEpisodeDetails>
+
+    // TV EPISODE
+    // Get Changes
+    @GET(MovieUrl.TV_EPISODES_GET_CHANGES)
+    fun getTvEpisodeChanges(
+        @Path(MovieConstant.PATH_EPISODE_ID) episode_id: Int,
+        @Query(MovieConstant.QUERY_API_KEY) apiKey: String,
+        @Query(MovieConstant.QUERY_START_DATE) startDate: String?,
+        @Query(MovieConstant.QUERY_END_DATE) endDate: String?,
+        @Query(MovieConstant.QUERY_PAGE) page: Int?
+    ): Observable<TvEpisodeChanges>
+
+    // TV EPISODE
+    // Get Account States
+    @GET(MovieUrl.TV_EPISODES_GET_ACCOUNT_STATES)
+    fun getTvEpisodeAccountStates(
+        @Path(MovieConstant.PATH_TV_ID) tv_id: Int,
+        @Path(MovieConstant.PATH_SEASON_NUMBER) season_number: Int,
+        @Path(MovieConstant.PATH_EPISODE_NUMBER) episode_number: Int,
+        @Query(MovieConstant.QUERY_API_KEY) apiKey: String,
+        @Query(MovieConstant.QUERY_GUEST_SESSION_ID) guest_session_id: String?,
+        @Query(MovieConstant.QUERY_SESSION_ID) session_id: String?
+    ): Observable<TvEpisodeAccountStates>
+
+    // TV EPISODE
+    // Get Credits
+    @GET(MovieUrl.TV_EPISODES_GET_CREDITS)
+    fun getTvEpisodeCredits(
+        @Path(MovieConstant.PATH_TV_ID) tv_id: Int,
+        @Path(MovieConstant.PATH_SEASON_NUMBER) season_number: Int,
+        @Path(MovieConstant.PATH_EPISODE_NUMBER) episode_number: Int,
+        @Query(MovieConstant.QUERY_API_KEY) apiKey: String
+    ): Observable<TvEpisodeCredits>
+
+    // TV EPISODE
+    // Get External IDs
+    @GET(MovieUrl.TV_EPISODES_GET_EXTERNAL_IDS)
+    fun getTvEpisodeExternalIds(
+        @Path(MovieConstant.PATH_TV_ID) tv_id: Int,
+        @Path(MovieConstant.PATH_SEASON_NUMBER) season_number: Int,
+        @Path(MovieConstant.PATH_EPISODE_NUMBER) episode_number: Int,
+        @Query(MovieConstant.QUERY_API_KEY) apiKey: String
+    ): Observable<TvEpisodeExternalIds>
+
+    // TV EPISODE
+    // Get Images
+    @GET(MovieUrl.TV_EPISODES_GET_IMAGES)
+    fun getTvEpisodeImages(
+        @Path(MovieConstant.PATH_TV_ID) tv_id: Int,
+        @Path(MovieConstant.PATH_SEASON_NUMBER) season_number: Int,
+        @Path(MovieConstant.PATH_EPISODE_NUMBER) episode_number: Int,
+        @Query(MovieConstant.QUERY_API_KEY) apiKey: String
+    ): Observable<TvEpisodeImages>
+
+    // TV EPISODE
+    // Get Translations
+    @GET(MovieUrl.TV_EPISODES_GET_TRANSLATIONS)
+    fun getTvEpisodeTranslations(
+        @Path(MovieConstant.PATH_TV_ID) tv_id: Int,
+        @Path(MovieConstant.PATH_SEASON_NUMBER) season_number: Int,
+        @Path(MovieConstant.PATH_EPISODE_NUMBER) episode_number: Int,
+        @Query(MovieConstant.QUERY_API_KEY) apiKey: String
+    ): Observable<TvEpisodeTranslation>
+
+    // TV EPISODE
+    // Get Videos
+    @GET(MovieUrl.TV_EPISODES_GET_VIDEOS)
+    fun getTvEpisodeVideos(
+        @Path(MovieConstant.PATH_TV_ID) tv_id: Int,
+        @Path(MovieConstant.PATH_SEASON_NUMBER) season_number: Int,
+        @Path(MovieConstant.PATH_EPISODE_NUMBER) episode_number: Int,
+        @Query(MovieConstant.QUERY_API_KEY) apiKey: String,
+        @Query(MovieConstant.QUERY_LANGUAGE) language: String?
+    ): Observable<TvEpisodeVideos>
+    
     // ---------------------------------------------------------------------------------------------
 
+    // TV EPISODE GROUPS
+    // Get Details
+    @GET(MovieUrl.TV_EPISODES_GET_GROUPS_DETAIL)
+    fun getTvEpisodeGroupsDetails(
+        @Path(MovieConstant.PATH_ID) id: String?,
+        @Query(MovieConstant.QUERY_API_KEY) apiKey: String,
+        @Query(MovieConstant.QUERY_LANGUAGE) language: String?
+    ): Observable<TvEpisodeGroupsDetails>
+    
     // ---------------------------------------------------------------------------------------------
     
     companion object Factory {

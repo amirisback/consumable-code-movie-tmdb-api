@@ -908,32 +908,100 @@ interface MovieDataSource {
 
     // TV EPISODE
     // Get Details
+    fun getTvEpisodeDetails(
+        tv_id: Int,
+        season_number: Int,
+        episode_number: Int,
+        apiKey: String,
+        language: String?,
+        append_to_response: String?,
+        callback: GetRemoteCallback<TvEpisodeDetails>
+    )
 
     // TV EPISODE
     // Get Changes
+    fun getTvEpisodeChanges(
+        episode_id: Int,
+        apiKey: String,
+        startDate: String?,
+        endDate: String?,
+        page: Int?,
+        callback: GetRemoteCallback<TvEpisodeChanges>
+    )
 
     // TV EPISODE
     // Get Account States
+    fun getTvEpisodeAccountStates(
+        tv_id: Int,
+        season_number: Int,
+        episode_number: Int,
+        apiKey: String,
+        guest_session_id: String?,
+        session_id: String?,
+        callback: GetRemoteCallback<TvEpisodeAccountStates>
+    )
 
     // TV EPISODE
     // Get Credits
+    fun getTvEpisodeCredits(
+        tv_id: Int,
+        season_number: Int,
+        episode_number: Int,
+        apiKey: String,
+        callback: GetRemoteCallback<TvEpisodeCredits>
+    )
 
     // TV EPISODE
     // Get External IDs
+    fun getTvEpisodeExternalIds(
+        tv_id: Int,
+        season_number: Int,
+        episode_number: Int,
+        apiKey: String,
+        callback: GetRemoteCallback<TvEpisodeExternalIds>
+    )
 
     // TV EPISODE
     // Get Images
+    fun getTvEpisodeImages(
+        tv_id: Int,
+        season_number: Int,
+        episode_number: Int,
+        apiKey: String,
+        callback: GetRemoteCallback<TvEpisodeImages>
+    )
 
     // TV EPISODE
     // Get Translations
+    fun getTvEpisodeTranslations(
+        tv_id: Int,
+        season_number: Int,
+        episode_number: Int,
+        apiKey: String,
+        callback: GetRemoteCallback<TvEpisodeTranslation>
+    )
 
     // TV EPISODE
     // Get Videos
+    fun getTvEpisodeVideos(
+        tv_id: Int,
+        season_number: Int,
+        episode_number: Int,
+        apiKey: String,
+        language: String?,
+        callback: GetRemoteCallback<TvEpisodeVideos>
+    )
 
     // ---------------------------------------------------------------------------------------------
 
     // TV EPISODE GROUPS
     // Get Details
+    fun getTvEpisodeGroupsDetails(
+        id: String?,
+        apiKey: String,
+        language: String?,
+        callback: GetRemoteCallback<TvEpisodeGroupsDetails>
+    )
 
     // ---------------------------------------------------------------------------------------------
 

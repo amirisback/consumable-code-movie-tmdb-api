@@ -1009,4 +1009,134 @@ class MovieRepository(private val remoteDataSource: MovieRemoteDataSource) : Mov
     ) {
         remoteDataSource.getTvSeasonsVideos(tv_id, season_number, apiKey, language, callback)
     }
+
+    override fun getTvEpisodeDetails(
+        tv_id: Int,
+        season_number: Int,
+        episode_number: Int,
+        apiKey: String,
+        language: String?,
+        append_to_response: String?,
+        callback: MovieDataSource.GetRemoteCallback<TvEpisodeDetails>
+    ) {
+        remoteDataSource.getTvEpisodeDetails(
+            tv_id,
+            season_number,
+            episode_number,
+            apiKey,
+            language,
+            append_to_response,
+            callback
+        )
+    }
+
+    override fun getTvEpisodeChanges(
+        episode_id: Int,
+        apiKey: String,
+        startDate: String?,
+        endDate: String?,
+        page: Int?,
+        callback: MovieDataSource.GetRemoteCallback<TvEpisodeChanges>
+    ) {
+        remoteDataSource.getTvEpisodeChanges(episode_id, apiKey, startDate, endDate, page, callback)
+    }
+
+    override fun getTvEpisodeAccountStates(
+        tv_id: Int,
+        season_number: Int,
+        episode_number: Int,
+        apiKey: String,
+        guest_session_id: String?,
+        session_id: String?,
+        callback: MovieDataSource.GetRemoteCallback<TvEpisodeAccountStates>
+    ) {
+        remoteDataSource.getTvEpisodeAccountStates(
+            tv_id,
+            season_number,
+            episode_number,
+            apiKey,
+            guest_session_id,
+            session_id,
+            callback
+        )
+    }
+
+    override fun getTvEpisodeCredits(
+        tv_id: Int,
+        season_number: Int,
+        episode_number: Int,
+        apiKey: String,
+        callback: MovieDataSource.GetRemoteCallback<TvEpisodeCredits>
+    ) {
+        remoteDataSource.getTvEpisodeCredits(tv_id, season_number, episode_number, apiKey, callback)
+    }
+
+    override fun getTvEpisodeExternalIds(
+        tv_id: Int,
+        season_number: Int,
+        episode_number: Int,
+        apiKey: String,
+        callback: MovieDataSource.GetRemoteCallback<TvEpisodeExternalIds>
+    ) {
+        remoteDataSource.getTvEpisodeExternalIds(
+            tv_id,
+            season_number,
+            episode_number,
+            apiKey,
+            callback
+        )
+    }
+
+    override fun getTvEpisodeImages(
+        tv_id: Int,
+        season_number: Int,
+        episode_number: Int,
+        apiKey: String,
+        callback: MovieDataSource.GetRemoteCallback<TvEpisodeImages>
+    ) {
+        remoteDataSource.getTvEpisodeImages(tv_id, season_number, episode_number, apiKey, callback)
+    }
+
+    override fun getTvEpisodeTranslations(
+        tv_id: Int,
+        season_number: Int,
+        episode_number: Int,
+        apiKey: String,
+        callback: MovieDataSource.GetRemoteCallback<TvEpisodeTranslation>
+    ) {
+        remoteDataSource.getTvEpisodeTranslations(
+            tv_id,
+            season_number,
+            episode_number,
+            apiKey,
+            callback
+        )
+    }
+
+    override fun getTvEpisodeVideos(
+        tv_id: Int,
+        season_number: Int,
+        episode_number: Int,
+        apiKey: String,
+        language: String?,
+        callback: MovieDataSource.GetRemoteCallback<TvEpisodeVideos>
+    ) {
+        remoteDataSource.getTvEpisodeVideos(
+            tv_id,
+            season_number,
+            episode_number,
+            apiKey,
+            language,
+            callback
+        )
+    }
+
+    override fun getTvEpisodeGroupsDetails(
+        id: String?,
+        apiKey: String,
+        language: String?,
+        callback: MovieDataSource.GetRemoteCallback<TvEpisodeGroupsDetails>
+    ) {
+        remoteDataSource.getTvEpisodeGroupsDetails(id, apiKey, language, callback)
+    }
 }
