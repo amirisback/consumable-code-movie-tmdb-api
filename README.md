@@ -15,7 +15,11 @@ This Is Latest Release
 
 What's New??
 
-    * add: TV Section API and Fixing Bug *
+    * add: TV EPISODE API *
+    * add: TV EPISODE GROUPS API *
+    * add: TV SEASONS *
+    * add: PEOPLE *
+    * Fixing Bug *
 
 # How To Use This Project
 <h3>Step 1. Add the JitPack repository to your build file</h3>
