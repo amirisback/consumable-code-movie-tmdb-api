@@ -7,7 +7,7 @@ android {
 
     def versionMajor = 1
     def versionMinor = 1
-    def versionPatch = 2
+    def versionPatch = 3
 
     def projectVersionCode = (versionMajor*100) + (versionMinor*10) + (versionPatch*1)
     def projectVersionName = "$versionMajor.$versionMinor.$versionPatch"

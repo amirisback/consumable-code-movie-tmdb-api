@@ -1,5 +1,5 @@
 # consumable-code-movie-tmdb-api By AmirIsBack
-- v1.1.2 - Development
+- v1.1.3 - Development
 - Stable Version
 
 # About This Project
@@ -11,7 +11,7 @@ Simple code and reusable data
 # Version Release
 This Is Latest Release
 
-    $version_release = 1.1.2
+    $version_release = 1.1.3
 
 What's New??
 
@@ -34,7 +34,7 @@ Add it in your root build.gradle at the end of repositories:
 
 	dependencies {
 	        // library consumable code movie tmdb api
-            implementation 'com.github.amirisback:consumable-code-movie-tmdb-api:1.1.2'
+            implementation 'com.github.amirisback:consumable-code-movie-tmdb-api:1.1.3'
 	}
 	
 <h3>Step 3. Declaration ConsumeMovieApi</h3>
@@ -834,14 +834,324 @@ https://developers.themoviedb.org/3/getting-started/introduction
         callback: MovieResultCallback<TvTopRated>
     )
 
-# On Progress *
 ## TV SEASONS
+
+    // TV SEASONS
+    // Get Details
+    fun getTvSeasonsDetails(
+        tv_id: Int,
+        season_number: Int,
+        language: String?,
+        append_to_response: String?,
+        callback: MovieResultCallback<TvSeasonsDetails>
+    )
+
+    // TV SEASONS
+    // Get Changes
+    fun getTvSeasonsChanges(
+        season_id: Int,
+        startDate: String?,
+        endDate: String?,
+        page: Int?,
+        callback: MovieResultCallback<TvSeasonsChanges>
+    )
+
+    // TV SEASONS
+    // Get Account States
+    fun getTvSeasonsAccountStates(
+        tv_id: Int,
+        season_number: Int,
+        language: String?,
+        guest_session_id: String?,
+        session_id: String?,
+        callback: MovieResultCallback<TvSeasonsAccountStates>
+    )
+
+    // TV SEASONS
+    // Get Credits
+    fun getTvSeasonsCredits(
+        tv_id: Int,
+        season_number: Int,
+        language: String?,
+        callback: MovieResultCallback<TvSeasonsCredits>
+    )
+
+    // TV SEASONS
+    // Get External Ids
+    fun getTvSeasonsExternalIds(
+        tv_id: Int,
+        season_number: Int,
+        language: String?,
+        callback: MovieResultCallback<TvSeasonsExternalIds>
+    )
+
+    // TV SEASONS
+    // Get Images
+    fun getTvSeasonsImages(
+        tv_id: Int,
+        season_number: Int,
+        language: String?,
+        callback: MovieResultCallback<TvSeasonsImages>
+    )
+
+    // TV SEASONS
+    // Get Videos
+    fun getTvSeasonsVideos(
+        tv_id: Int,
+        season_number: Int,
+        language: String?,
+        callback: MovieResultCallback<TvSeasonsVideos>
+    )
+
 ## TV EPISODES
+
+// TV EPISODE
+    // Get Details
+    fun getTvEpisodeDetails(
+        tv_id: Int,
+        season_number: Int,
+        episode_number: Int,
+        language: String?,
+        append_to_response: String?,
+        callback: MovieResultCallback<TvEpisodeDetails>
+    )
+
+    // TV EPISODE
+    // Get Changes
+    fun getTvEpisodeChanges(
+        episode_id: Int,
+        startDate: String?,
+        endDate: String?,
+        page: Int?,
+        callback: MovieResultCallback<TvEpisodeChanges>
+    )
+
+    // TV EPISODE
+    // Get Account States
+    fun getTvEpisodeAccountStates(
+        tv_id: Int,
+        season_number: Int,
+        episode_number: Int,
+        guest_session_id: String?,
+        session_id: String?,
+        callback: MovieResultCallback<TvEpisodeAccountStates>
+    )
+
+    // TV EPISODE
+    // Get Credits
+    fun getTvEpisodeCredits(
+        tv_id: Int,
+        season_number: Int,
+        episode_number: Int,
+        callback: MovieResultCallback<TvEpisodeCredits>
+    )
+
+    // TV EPISODE
+    // Get External IDs
+    fun getTvEpisodeExternalIds(
+        tv_id: Int,
+        season_number: Int,
+        episode_number: Int,
+        callback: MovieResultCallback<TvEpisodeExternalIds>
+    )
+
+    // TV EPISODE
+    // Get Images
+    fun getTvEpisodeImages(
+        tv_id: Int,
+        season_number: Int,
+        episode_number: Int,
+        callback: MovieResultCallback<TvEpisodeImages>
+    )
+
+    // TV EPISODE
+    // Get Translations
+    fun getTvEpisodeTranslations(
+        tv_id: Int,
+        season_number: Int,
+        episode_number: Int,
+        callback: MovieResultCallback<TvEpisodeTranslation>
+    )
+
+    // TV EPISODE
+    // Get Videos
+    fun getTvEpisodeVideos(
+        tv_id: Int,
+        season_number: Int,
+        episode_number: Int,
+        language: String?,
+        callback: MovieResultCallback<TvEpisodeVideos>
+    )
+
 ## TV EPISODE GROUPS 
 
-# --- Development ---
-## LIST
+    // TV EPISODE GROUPS
+    // Get Details
+    fun getTvEpisodeGroupsDetails(
+        id: String?,
+        language: String?,
+        callback: MovieResultCallback<TvEpisodeGroupsDetails>
+    )
+
 ## PEOPLE
+
+    // PEOPLE
+    // Get Details
+    fun getPeopleDetails(
+        person_id: Int,
+        language: String?,
+        callback: MovieResultCallback<PeopleDetails>
+    )
+
+    // PEOPLE
+    // Get Changes
+    fun getPeopleChanges(
+        person_id: Int,
+        endDate: String?,
+        page: Int?,
+        startDate: String?,
+        callback: MovieResultCallback<PeopleChanges>
+    )
+
+    // PEOPLE
+    // Get Movie Credits
+    fun getPeopleMovieCredits(
+        person_id: Int,
+        language: String?,
+        callback: MovieResultCallback<PeopleMovieCredits>
+    )
+
+    // PEOPLE
+    // Get TV Credits
+    fun getPeopleTvCredits(
+        person_id: Int,
+        language: String?,
+        callback: MovieResultCallback<PeopleTvCredits>
+    )
+
+    // PEOPLE
+    // Get Combined Credits
+    fun getPeopleCombinedCredits(
+        person_id: Int,
+        language: String?,
+        callback: MovieResultCallback<PeopleCombinedCredits>
+    )
+
+    // PEOPLE
+    // Get External IDs
+    fun getPeopleExternalIds(
+        person_id: Int,
+        language: String?,
+        callback: MovieResultCallback<PeopleExternalIds>
+    )
+
+    // PEOPLE
+    // Get Images
+    fun getPeopleImages(
+        person_id: Int,
+        callback: MovieResultCallback<PeopleImages>
+    )
+
+    // PEOPLE
+    // Get Tagged Images
+    fun getPeopleTaggedImages(
+        person_id: Int,
+        language: String?,
+        page: Int?,
+        callback: MovieResultCallback<PeopleTaggedImages>
+    )
+
+    // PEOPLE
+    // Get Translations
+    fun getPeopleTranslations(
+        person_id: Int,
+        language: String?,
+        callback: MovieResultCallback<PeopleTranslations>
+    )
+
+    // PEOPLE
+    // Get Latest
+    fun getPeopleLatest(
+        language: String?,
+        callback: MovieResultCallback<PeopleLatest>
+    )
+
+    // PEOPLE
+    // Get Popular
+    fun getPeoplePopular(
+        language: String?,
+        page: Int?,
+        callback: MovieResultCallback<PeoplePopular>
+    )
+
+# On Progress *
+
+## LIST
+
+    // LIST
+    // Get Details
+    // fun getListDetails()
+
+    // LIST
+    // Check Item Status
+    // fun getListCheckItemStatus()
+    
+
+# --- Development ---
+    
+## POST AND DELETE METHOD
+
+### MOVIES
+
+    // MOVIES
+    // POST Rate Movie
+    // fun postMoviesRateMovies()
+
+    // MOVIES
+    // DELETE delete Rating
+    // fun deleteMoviesDeleteRating()
+
+### TV
+
+    // TV
+    // POST Rate TV Shows
+    // fun postTvRateTvShows()
+
+    // TV
+    // DELETE Rating
+    // fun deleteTvDeleteRating()
+
+### TV EPISODE
+
+    // TV EPISODE
+    // POST Rate TV Episode
+    // fun postTvEpisodeRateTvEpisode()
+
+    // TV EPISODE
+    // DELETE Rating
+    // fun deleteTvEpisodeDeleteRating()
+
+### LIST
+
+    // LIST
+    // POST Create List
+    // fun postListCreateList()
+
+    // LIST
+    // POST Add Movie
+    // fun postListAddMovie()
+
+    // LIST
+    // POST Remove Movie
+    // fun postListRemoveMovie()
+
+    // LIST
+    // POST Clear List
+    // fun postListClearList()
+
+    // LIST
+    // DELETE List
+    // fun deleteList
 
 # Award
 ## Github Actions Hackathon (March 5-31, 2020) [See list winner](https://github.com/amirisback/consumable-code-movie-tmdb-api/blob/master/docs/github_action_hackathon_winners.xlsx)
