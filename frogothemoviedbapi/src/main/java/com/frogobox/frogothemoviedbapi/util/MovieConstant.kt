@@ -89,7 +89,7 @@ object MovieConstant {
 
     const val PATH_MEDIA_TYPE = "media_type"
     const val PATH_TIME_WINDOW = "time_window"
-    const val PATH_SESION_NUMBER = "season_number"
+    const val PATH_SEASON_NUMBER = "season_number"
     const val PATH_EPISODE_NUMBER = "episode_number"
 
     const val VALUE_LANG_EN_US = "en-US"

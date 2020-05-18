@@ -2426,4 +2426,221 @@ class ConsumeMovieApi(private val apiKey: String) : ConsumeMovieApiView {
             })
     }
 
+    override fun getTvSeasonsDetails(
+        tv_id: Int,
+        season_number: Int,
+        language: String?,
+        append_to_response: String?,
+        callback: MovieResultCallback<TvSeasonsDetails>
+    ) {
+        movieRepository.getTvSeasonsDetails(
+            tv_id,
+            season_number,
+            apiKey,
+            language,
+            append_to_response,
+            object : MovieDataSource.GetRemoteCallback<TvSeasonsDetails> {
+                override fun onSuccess(data: TvSeasonsDetails) {
+                    callback.getResultData(data)
+                }
+
+                override fun onFailed(statusCode: Int, errorMessage: String?) {
+                    callback.failedResult(statusCode, errorMessage)
+                }
+
+                override fun onShowProgress() {
+                    callback.onShowProgress()
+                }
+
+                override fun onHideProgress() {
+                    callback.onHideProgress()
+                }
+            })
+    }
+
+    override fun getTvSeasonsChanges(
+        season_id: Int,
+        startDate: String?,
+        endDate: String?,
+        page: Int?,
+        callback: MovieResultCallback<TvSeasonsChanges>
+    ) {
+        movieRepository.getTvSeasonsChanges(
+            season_id,
+            apiKey,
+            startDate,
+            endDate,
+            page,
+            object : MovieDataSource.GetRemoteCallback<TvSeasonsChanges> {
+                override fun onSuccess(data: TvSeasonsChanges) {
+                    callback.getResultData(data)
+                }
+
+                override fun onFailed(statusCode: Int, errorMessage: String?) {
+                    callback.failedResult(statusCode, errorMessage)
+                }
+
+                override fun onShowProgress() {
+                    callback.onShowProgress()
+                }
+
+                override fun onHideProgress() {
+                    callback.onHideProgress()
+                }
+            })
+    }
+
+    override fun getTvSeasonsAccountStates(
+        tv_id: Int,
+        season_number: Int,
+        language: String?,
+        guest_session_id: String?,
+        session_id: String?,
+        callback: MovieResultCallback<TvSeasonsAccountStates>
+    ) {
+        movieRepository.getTvSeasonsAccountStates(
+            tv_id,
+            season_number,
+            apiKey,
+            language,
+            guest_session_id,
+            session_id,
+            object : MovieDataSource.GetRemoteCallback<TvSeasonsAccountStates> {
+                override fun onSuccess(data: TvSeasonsAccountStates) {
+                    callback.getResultData(data)
+                }
+
+                override fun onFailed(statusCode: Int, errorMessage: String?) {
+                    callback.failedResult(statusCode, errorMessage)
+                }
+
+                override fun onShowProgress() {
+                    callback.onShowProgress()
+                }
+
+                override fun onHideProgress() {
+                    callback.onHideProgress()
+                }
+            })
+    }
+
+    override fun getTvSeasonsCredits(
+        tv_id: Int,
+        season_number: Int,
+        language: String?,
+        callback: MovieResultCallback<TvSeasonsCredits>
+    ) {
+        movieRepository.getTvSeasonsCredits(
+            tv_id,
+            season_number,
+            apiKey,
+            language,
+            object : MovieDataSource.GetRemoteCallback<TvSeasonsCredits> {
+                override fun onSuccess(data: TvSeasonsCredits) {
+                    callback.getResultData(data)
+                }
+
+                override fun onFailed(statusCode: Int, errorMessage: String?) {
+                    callback.failedResult(statusCode, errorMessage)
+                }
+
+                override fun onShowProgress() {
+                    callback.onShowProgress()
+                }
+
+                override fun onHideProgress() {
+                    callback.onHideProgress()
+                }
+            })
+    }
+
+    override fun getTvSeasonsExternalIds(
+        tv_id: Int,
+        season_number: Int,
+        language: String?,
+        callback: MovieResultCallback<TvSeasonsExternalIds>
+    ) {
+        movieRepository.getTvSeasonsExternalIds(
+            tv_id,
+            season_number,
+            apiKey,
+            language,
+            object : MovieDataSource.GetRemoteCallback<TvSeasonsExternalIds> {
+                override fun onSuccess(data: TvSeasonsExternalIds) {
+                    callback.getResultData(data)
+                }
+
+                override fun onFailed(statusCode: Int, errorMessage: String?) {
+                    callback.failedResult(statusCode, errorMessage)
+                }
+
+                override fun onShowProgress() {
+                    callback.onShowProgress()
+                }
+
+                override fun onHideProgress() {
+                    callback.onHideProgress()
+                }
+            })
+    }
+
+    override fun getTvSeasonsImages(
+        tv_id: Int,
+        season_number: Int,
+        language: String?,
+        callback: MovieResultCallback<TvSeasonsImages>
+    ) {
+        movieRepository.getTvSeasonsImages(
+            tv_id,
+            season_number,
+            apiKey,
+            language,
+            object : MovieDataSource.GetRemoteCallback<TvSeasonsImages> {
+                override fun onSuccess(data: TvSeasonsImages) {
+                    callback.getResultData(data)
+                }
+
+                override fun onFailed(statusCode: Int, errorMessage: String?) {
+                    callback.failedResult(statusCode, errorMessage)
+                }
+
+                override fun onShowProgress() {
+                    callback.onShowProgress()
+                }
+
+                override fun onHideProgress() {
+                    callback.onHideProgress()
+                }
+            })
+    }
+
+    override fun getTvSeasonsVideos(
+        tv_id: Int,
+        season_number: Int,
+        language: String?,
+        callback: MovieResultCallback<TvSeasonsVideos>
+    ) {
+        movieRepository.getTvSeasonsVideos(
+            tv_id,
+            season_number,
+            apiKey,
+            language,
+            object : MovieDataSource.GetRemoteCallback<TvSeasonsVideos> {
+                override fun onSuccess(data: TvSeasonsVideos) {
+                    callback.getResultData(data)
+                }
+
+                override fun onFailed(statusCode: Int, errorMessage: String?) {
+                    callback.failedResult(statusCode, errorMessage)
+                }
+
+                override fun onShowProgress() {
+                    callback.onShowProgress()
+                }
+
+                override fun onHideProgress() {
+                    callback.onHideProgress()
+                }
+            })
+    }
 }

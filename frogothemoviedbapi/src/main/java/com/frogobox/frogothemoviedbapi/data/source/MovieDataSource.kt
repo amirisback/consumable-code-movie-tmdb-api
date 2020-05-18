@@ -831,51 +831,104 @@ interface MovieDataSource {
     // ---------------------------------------------------------------------------------------------
 
     // TV SEASONS
-    // Get
+    // Get Details
+    fun getTvSeasonsDetails(
+        tv_id: Int,
+        season_number: Int,
+        apiKey: String,
+        language: String?,
+        append_to_response: String?,
+        callback: GetRemoteCallback<TvSeasonsDetails>
+    )
 
     // TV SEASONS
-    // Get
+    // Get Changes
+    fun getTvSeasonsChanges(
+        season_id: Int,
+        apiKey: String,
+        startDate: String?,
+        endDate: String?,
+        page: Int?,
+        callback: GetRemoteCallback<TvSeasonsChanges>
+    )
 
     // TV SEASONS
-    // Get
+    // Get Account States
+    fun getTvSeasonsAccountStates(
+        tv_id: Int,
+        season_number: Int,
+        apiKey: String,
+        language: String?,
+        guest_session_id: String?,
+        session_id: String?,
+        callback: GetRemoteCallback<TvSeasonsAccountStates>
+    )
 
     // TV SEASONS
-    // Get
+    // Get Credits
+    fun getTvSeasonsCredits(
+        tv_id: Int,
+        season_number: Int,
+        apiKey: String,
+        language: String?,
+        callback: GetRemoteCallback<TvSeasonsCredits>
+    )
 
     // TV SEASONS
-    // Get
+    // Get External Ids
+    fun getTvSeasonsExternalIds(
+        tv_id: Int,
+        season_number: Int,
+        apiKey: String,
+        language: String?,
+        callback: GetRemoteCallback<TvSeasonsExternalIds>
+    )
 
     // TV SEASONS
-    // Get
+    // Get Images
+    fun getTvSeasonsImages(
+        tv_id: Int,
+        season_number: Int,
+        apiKey: String,
+        language: String?,
+        callback: GetRemoteCallback<TvSeasonsImages>
+    )
 
     // TV SEASONS
-    // Get
+    // Get Videos
+    fun getTvSeasonsVideos(
+        tv_id: Int,
+        season_number: Int,
+        apiKey: String,
+        language: String?,
+        callback: GetRemoteCallback<TvSeasonsVideos>
+    )
 
     // ---------------------------------------------------------------------------------------------
 
     // TV EPISODE
-    // Get
+    // Get Details
 
     // TV EPISODE
-    // Get
+    // Get Changes
 
     // TV EPISODE
-    // Get
+    // Get Account States
 
     // TV EPISODE
-    // Get
+    // Get Credits
 
     // TV EPISODE
-    // Get
+    // Get External IDs
 
     // TV EPISODE
-    // Get
+    // Get Images
 
     // TV EPISODE
-    // Get
+    // Get Translations
 
     // TV EPISODE
-    // Get
+    // Get Videos
 
     // ---------------------------------------------------------------------------------------------
 
@@ -885,37 +938,45 @@ interface MovieDataSource {
     // ---------------------------------------------------------------------------------------------
 
     // PEOPLE
-    // Get
+    // Get Details
 
     // PEOPLE
-    // Get
+    // Get Changes
 
     // PEOPLE
-    // Get
+    // Get Movie Credits
 
     // PEOPLE
-    // Get
+    // Get TV Credits
 
     // PEOPLE
-    // Get
+    // Get Combined Credits
 
     // PEOPLE
-    // Get
+    // Get External IDs
 
     // PEOPLE
-    // Get
+    // Get Images
 
     // PEOPLE
-    // Get
+    // Get Tagged Images
 
     // PEOPLE
-    // Get
+    // Get Translations
 
     // PEOPLE
-    // Get
+    // Get Latest
 
     // PEOPLE
-    // Get
+    // Get Popular
+
+    // ---------------------------------------------------------------------------------------------
+
+    // LIST
+    // Get Details
+
+    // LIST
+    // Check Item Status
 
     // METHOD POST AND DELETE ----------------------------------------------------------------------
 
@@ -942,6 +1003,21 @@ interface MovieDataSource {
     // TV EPISODE
     // DELETE Rating
     // fun deleteTvEpisodeDeleteRating()
+
+    // LIST
+    // POST Create List
+
+    // LIST
+    // POST Add Movie
+
+    // LIST
+    // POST Remove Movie
+
+    // LIST
+    // POST Clear List
+
+    // LIST
+    // DELETE List
 
     // ---------------------------------------------------------------------------------------------
 
