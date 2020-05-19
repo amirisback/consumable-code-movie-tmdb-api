@@ -1,5 +1,5 @@
 # consumable-code-movie-tmdb-api By AmirIsBack
-- v1.1.3 - Development
+- v1.1.4 - Development
 - Stable Version
 
 # About This Project
@@ -11,14 +11,11 @@ Simple code and reusable data
 # Version Release
 This Is Latest Release
 
-    $version_release = 1.1.3
+    $version_release = 1.1.4
 
 What's New??
 
-    * add: TV EPISODE API *
-    * add: TV EPISODE GROUPS API *
-    * add: TV SEASONS *
-    * add: PEOPLE *
+    * Update: Refactoring variable type *
     * Fixing Bug *
 
 # How To Use This Project
@@ -38,7 +35,7 @@ Add it in your root build.gradle at the end of repositories:
 
 	dependencies {
 	        // library consumable code movie tmdb api
-            implementation 'com.github.amirisback:consumable-code-movie-tmdb-api:1.1.3'
+            implementation 'com.github.amirisback:consumable-code-movie-tmdb-api:1.1.4'
 	}
 	
 <h3>Step 3. Declaration ConsumeMovieApi</h3>
@@ -236,19 +233,19 @@ https://developers.themoviedb.org/3/getting-started/introduction
         certification_lte: String?,
         certification_gte: String?,
         include_adult: String?,
-        include_video: String?,
+        include_video: Boolean?,
         page: Int?,
         primary_release_year: Int?,
         primary_release_date_gte: String?,
         primary_release_date_lte: String?,
         release_date_gte: String?,
         release_date_lte: String?,
-        with_release_type: String?,
+        with_release_type: Int?,
         year: Int?,
-        vote_count_gte: String?,
-        vote_count_lte: String?,
-        vote_average_gte: String?,
-        vote_average_lte: String?,
+        vote_count_gte: Int?,
+        vote_count_lte: Int?,
+        vote_average_gte: Double?,
+        vote_average_lte: Double?,
         with_cast: String?,
         with_crew: String?,
         with_people: String?,
@@ -257,8 +254,8 @@ https://developers.themoviedb.org/3/getting-started/introduction
         without_genres: String?,
         with_keywords: String?,
         without_keywords: String?,
-        with_runtime_gte: String?,
-        with_runtime_lte: String?,
+        with_runtime_gte: Double?,
+        with_runtime_lte: Double?,
         with_original_language: String?,
         callback: MovieResultCallback<Discover<DiscoverMovie>>
     )
@@ -275,13 +272,13 @@ https://developers.themoviedb.org/3/getting-started/introduction
         first_air_date_year: Int?,
         page: Int?,
         timezone: String?,
-        vote_average_gte: String?,
-        vote_count_gte: String?,
+        vote_average_gte: Double?,
+        vote_count_gte: Int?,
         with_genres: String?,
         with_networks: String?,
         without_genres: String?,
-        with_runtime_gte: String?,
-        with_runtime_lte: String?,
+        with_runtime_gte: Double?,
+        with_runtime_lte: Double?,
         include_null_first_air_dates: String?,
         with_original_language: String?,
         without_keywords: String?,
