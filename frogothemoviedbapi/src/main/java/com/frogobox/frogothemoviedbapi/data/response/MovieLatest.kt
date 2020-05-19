@@ -14,7 +14,7 @@ data class MovieLatest(
     val original_language: String? = null,
     val original_title: String? = null,
     val overview: String? = null,
-    val popularity: Int? = null,
+    val popularity: Double? = null,
     val poster_path: String? = null,
     val production_companies: List<Any>? = null,
     val production_countries: List<Any>? = null,

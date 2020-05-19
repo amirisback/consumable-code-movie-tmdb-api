@@ -26,6 +26,6 @@ data class CreditPerson(
     var gender: Int? = null,
 
     @SerializedName("popularity")
-    var popularity: Int? = null
+    var popularity: Double? = null
 
 )

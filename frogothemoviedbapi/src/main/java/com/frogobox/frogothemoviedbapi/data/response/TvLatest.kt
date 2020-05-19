@@ -23,7 +23,7 @@ data class TvLatest(
     val original_language: String?,
     val original_name: String?,
     val overview: String?,
-    val popularity: Int?,
+    val popularity: Double?,
     val poster_path: String?,
     val production_companies: List<Any>?,
     val seasons: List<TvLatestSeason>?,

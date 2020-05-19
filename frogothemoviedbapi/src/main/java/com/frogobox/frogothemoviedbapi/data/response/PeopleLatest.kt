@@ -12,6 +12,6 @@ data class PeopleLatest(
     val imdb_id: Any?,
     val name: String?,
     val place_of_birth: Any?,
-    val popularity: Int?,
+    val popularity: Double?,
     val profile_path: Any?
 )

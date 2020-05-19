@@ -4,7 +4,7 @@ import com.frogobox.frogothemoviedbapi.data.model.SearchMultiKnownFor
 
 data class SearchMultiResult(
     val adult: Boolean?,
-    val backdrop_path: Any?,
+    val backdrop_path: String?,
     val first_air_date: String?,
     val genre_ids: List<Int>?,
     val id: Int?,
@@ -16,8 +16,8 @@ data class SearchMultiResult(
     val original_name: String?,
     val original_title: String?,
     val overview: String?,
-    val popularity: Int?,
-    val poster_path: Any?,
+    val popularity: Double?,
+    val poster_path: String?,
     val profile_path: String?,
     val release_date: String?,
     val title: String?,

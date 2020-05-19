@@ -61,6 +61,6 @@ data class CollectionPart(
     var poster_path: String? = null,
 
     @SerializedName("popularity")
-    var popularity: Int? = null
+    var popularity: Double? = null
 
 )
