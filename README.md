@@ -1,9 +1,15 @@
 # consumable-code-movie-tmdb-api By AmirIsBack
-- v1.1.4 - Development
+- v1.1.5 - Development
 - Stable Version
 
 # About This Project
 Eliminates the method of retrieving json data using retrofit repeatedly. so this project has a set of functions to retrieve data without the need for fetching data using the retrofit of the API
+
+# Screen Shoot Apps
+<span align="center"><img width="200px" height="360px" src="docs/image/ss_tv.png"></span>
+<span align="center"><img width="200px" height="360px" src="docs/image/ss_movie.png"></span>
+<span align="center"><img width="200px" height="360px" src="docs/image/ss_person.png"></span>
+<span align="center"><img width="200px" height="360px" src="docs/image/ss_api.png"></span>
 
 # Special From This Project
 Simple code and reusable data
@@ -11,12 +17,13 @@ Simple code and reusable data
 # Version Release
 This Is Latest Release
 
-    $version_release = 1.1.4
+    $version_release = 1.1.5
 
 What's New??
 
-    * Update: Refactoring variable type *
     * Fixing Bug *
+    * Update gradle *
+    * New Sample Implementation *
 
 # How To Use This Project
 <h3>Step 1. Add the JitPack repository to your build file</h3>
@@ -35,7 +42,7 @@ Add it in your root build.gradle at the end of repositories:
 
 	dependencies {
 	        // library consumable code movie tmdb api
-            implementation 'com.github.amirisback:consumable-code-movie-tmdb-api:1.1.4'
+            implementation 'com.github.amirisback:consumable-code-movie-tmdb-api:1.1.5'
 	}
 	
 <h3>Step 3. Declaration ConsumeMovieApi</h3>
@@ -65,23 +72,10 @@ Add it in your root build.gradle at the end of repositories:
         })
 	
 
-# Android Library Version (build.gradle)
-- ext.kotlin_version = '1.3.72'
-- classpath 'com.android.tools.build:gradle:3.6.3'
-- compileSdkVersion 29
-- buildToolsVersion "29.0.3"
-- minSdkVersion 21
-
 # Automatically Using This Permission
     
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-
-# Screen Shoot Apps
-<span align="center"><img width="200px" height="360px" src="docs/image/ss_tv.png"></span>
-<span align="center"><img width="200px" height="360px" src="docs/image/ss_movie.png"></span>
-<span align="center"><img width="200px" height="360px" src="docs/image/ss_person.png"></span>
-<span align="center"><img width="200px" height="360px" src="docs/image/ss_api.png"></span>
 
 # Fecthing Data Library
 - Retrofit

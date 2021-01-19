@@ -1,6 +1,9 @@
 name: 'Consumable Code Movie TMDB API'
 description: 'Retrofit has been Handled, Consumable code for request Public API (TMDb API)'
 author: 'Muhammad Faisal Amir'
+branding:
+  icon: archive
+  color: green
 inputs:
   myInput:
     description: 'Input to use'
