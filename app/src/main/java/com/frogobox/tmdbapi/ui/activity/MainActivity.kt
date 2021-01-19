@@ -1,18 +1,22 @@
 package com.frogobox.tmdbapi.ui.activity
 
 import android.os.Bundle
+import android.view.LayoutInflater
 import com.frogobox.tmdbapi.R
 import com.frogobox.tmdbapi.base.ui.BaseActivity
+import com.frogobox.tmdbapi.databinding.ActivityMainBinding
 import com.frogobox.tmdbapi.ui.fragment.movie.TrendingMovieFragment
 import com.frogobox.tmdbapi.ui.fragment.person.TrendingPersonFragment
 import com.frogobox.tmdbapi.ui.fragment.tv.TrendingTvFragment
-import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : BaseActivity() {
 
+    private lateinit var binding : ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(LayoutInflater.from(this))
+        setContentView(binding.root)
         setupBottomNav(R.id.framelayout_main_container)
         setupFragment(savedInstanceState)
         setupToolbar()
@@ -24,43 +28,45 @@ class MainActivity : BaseActivity() {
 
     private fun setupFragment(savedInstanceState: Bundle?) {
         if (savedInstanceState == null) {
-            bottom_nav_main_menu.selectedItemId = R.id.bottom_menu_tv
+            binding.bottomNavMainMenu.selectedItemId = R.id.bottom_menu_tv
         }
     }
 
 
     private fun setupBottomNav(frameLayout: Int) {
-        bottom_nav_main_menu.clearAnimation()
-        bottom_nav_main_menu.itemIconTintList = null
-        bottom_nav_main_menu.setOnNavigationItemSelectedListener {
+        binding.bottomNavMainMenu.apply {
+            clearAnimation()
+            itemIconTintList = null
 
-            when (it.itemId) {
-                R.id.bottom_menu_movie -> {
-                    setupCustomTitleToolbar(R.string.title_movie)
-                    setupChildFragment(
-                        frameLayout,
-                        TrendingMovieFragment()
-                    )
+            setOnNavigationItemSelectedListener {
+                when (it.itemId) {
+                    R.id.bottom_menu_movie -> {
+                        setupCustomTitleToolbar(R.string.title_movie)
+                        setupChildFragment(
+                            frameLayout,
+                            TrendingMovieFragment()
+                        )
+                    }
+
+                    R.id.bottom_menu_person -> {
+                        setupCustomTitleToolbar(R.string.title_person)
+                        setupChildFragment(
+                            frameLayout,
+                            TrendingPersonFragment()
+                        )
+                    }
+
+                    R.id.bottom_menu_tv -> {
+                        setupCustomTitleToolbar(R.string.title_tv)
+                        setupChildFragment(
+                            frameLayout,
+                            TrendingTvFragment()
+                        )
+                    }
                 }
 
-                R.id.bottom_menu_person -> {
-                    setupCustomTitleToolbar(R.string.title_person)
-                    setupChildFragment(
-                        frameLayout,
-                        TrendingPersonFragment()
-                    )
-                }
-
-                R.id.bottom_menu_tv -> {
-                    setupCustomTitleToolbar(R.string.title_tv)
-                    setupChildFragment(
-                        frameLayout,
-                        TrendingTvFragment()
-                    )
-                }
+                true
             }
-
-            true
         }
 
     }
