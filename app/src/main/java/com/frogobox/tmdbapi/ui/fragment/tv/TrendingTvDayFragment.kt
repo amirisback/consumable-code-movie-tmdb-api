@@ -1,57 +1,58 @@
 package com.frogobox.tmdbapi.ui.fragment.tv
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.frogobox.frogothemoviedbapi.callback.MovieResultCallback
 import com.frogobox.frogothemoviedbapi.data.model.TrendingTv
 import com.frogobox.frogothemoviedbapi.data.response.Trending
-
-import com.frogobox.recycler.base.parent.FrogoRecyclerViewListener
+import com.frogobox.recycler.core.FrogoRecyclerViewListener
 
 import com.frogobox.tmdbapi.R
 import com.frogobox.tmdbapi.base.ui.BaseFragment
+import com.frogobox.tmdbapi.databinding.FragmentTrendingChildBinding
 import com.frogobox.tmdbapi.ui.adapter.TrendingTvAdapter
-import kotlinx.android.synthetic.main.fragment_trending_child.*
 
 
 class TrendingTvDayFragment : BaseFragment() {
 
-
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_trending_child, container, false)
+        fragmentTrendingChildBinding = FragmentTrendingChildBinding.inflate(inflater, container, false)
+        return fragmentTrendingChildBinding?.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         getTrendingTvDay()
     }
 
     private fun getTrendingTvDay() {
-        consumeMovieApi().getTrendingTvDay(object :
-            MovieResultCallback<Trending<TrendingTv>> {
-            override fun getResultData(data: Trending<TrendingTv>) {
-                data.results?.let { setupAdapter(it) }
-            }
+        fragmentTrendingChildBinding?.apply {
+            consumeMovieApi().getTrendingTvDay(object :
+                MovieResultCallback<Trending<TrendingTv>> {
+                override fun getResultData(data: Trending<TrendingTv>) {
+                    data.results?.let { setupAdapter(it) }
+                }
 
-            override fun failedResult(statusCode: Int, errorMessage: String?) {
-                errorMessage?.let { showToast(it) }
-            }
+                override fun failedResult(statusCode: Int, errorMessage: String?) {
+                    errorMessage?.let { showToast(it) }
+                }
 
-            override fun onShowProgress() {
-                showProgressThread(progress_view)
-            }
+                override fun onShowProgress() {
+                    showProgressThread(progressView)
+                }
 
-            override fun onHideProgress() {
-                hideProgressThread(progress_view)
-            }
-        })
+                override fun onHideProgress() {
+                    hideProgressThread(progressView)
+                }
+            })
+        }
     }
 
     private fun setupAdapter(data: List<TrendingTv>) {
@@ -70,8 +71,8 @@ class TrendingTvDayFragment : BaseFragment() {
             }
         )
         adapter.setupEmptyView(null) // With Custom View
-        frogoRecyclerView.adapter = adapter
-        frogoRecyclerView.isViewGrid(2)
+        fragmentTrendingChildBinding?.frogoRecyclerView?.adapter = adapter
+        fragmentTrendingChildBinding?.frogoRecyclerView?.isViewGrid(2)
     }
 
 }

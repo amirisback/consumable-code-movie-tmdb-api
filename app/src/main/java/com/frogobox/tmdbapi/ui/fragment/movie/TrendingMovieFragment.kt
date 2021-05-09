@@ -7,16 +7,17 @@ import android.view.ViewGroup
 import com.frogobox.tmdbapi.R
 import com.frogobox.tmdbapi.base.helper.BasePagerAdapter
 import com.frogobox.tmdbapi.base.ui.BaseFragment
-import kotlinx.android.synthetic.main.fragment_trending.*
+import com.frogobox.tmdbapi.databinding.FragmentTrendingBinding
 
 class TrendingMovieFragment : BaseFragment() {
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_trending, container, false)
+        fragmentTrendingBinding = FragmentTrendingBinding.inflate(inflater, container, false)
+        return fragmentTrendingBinding?.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -34,8 +35,11 @@ class TrendingMovieFragment : BaseFragment() {
             TrendingMovieWeekFragment(),
             resources.getString(R.string.title_week)
         )
-        viewpager.adapter = pagerAdapter
-        tablayout.setupWithViewPager(viewpager)
+
+        fragmentTrendingBinding?.apply {
+            viewpager.adapter = pagerAdapter
+            tablayout.setupWithViewPager(viewpager)
+        }
     }
 
 }

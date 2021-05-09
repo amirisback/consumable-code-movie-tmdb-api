@@ -8,6 +8,8 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.frogobox.frogothemoviedbapi.ConsumeMovieApi
 import com.frogobox.tmdbapi.base.helper.BaseHelper
+import com.frogobox.tmdbapi.databinding.FragmentTrendingBinding
+import com.frogobox.tmdbapi.databinding.FragmentTrendingChildBinding
 
 /**
  * Created by Faisal Amir
@@ -29,6 +31,15 @@ import com.frogobox.tmdbapi.base.helper.BaseHelper
 open class BaseFragment : Fragment() {
 
     lateinit var mActivity: BaseActivity
+
+    protected var fragmentTrendingBinding : FragmentTrendingBinding? = null
+    protected var fragmentTrendingChildBinding : FragmentTrendingChildBinding? = null
+
+    override fun onDestroy() {
+        fragmentTrendingBinding = null
+        fragmentTrendingChildBinding = null
+        super.onDestroy()
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
