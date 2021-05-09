@@ -4,8 +4,8 @@ apply plugin: 'kotlin-android'
 android {
 
     def versionMajor = 1
-    def versionMinor = 1
-    def versionPatch = 5
+    def versionMinor = 2
+    def versionPatch = 0
 
     def projectVersionCode = (versionMajor*100) + (versionMinor*10) + (versionPatch*1)
     def projectVersionName = "$versionMajor.$versionMinor.$versionPatch"
