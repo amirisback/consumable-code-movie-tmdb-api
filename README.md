@@ -10,16 +10,12 @@ Eliminates the method of retrieving json data using retrofit repeatedly. so this
 ## Version Release
 This Is Latest Release
 
-    $version_release = 1.2.0
+    $version_release = 1.2.1
 
 What's New??
 
-    * Fixing Bug *
-    * Update build.gradle *
-    * New Sample Implementation *
-    * Remove Kotlin Android Extension
+    * Update Build Gradle *
     * Enhance Performance *
-    * New Documentation
 
 ## How To Use This Project
 <h3>Step 1. Add the JitPack repository to your build file</h3>
@@ -38,7 +34,7 @@ Add it in your root build.gradle at the end of repositories:
 
 	dependencies {
 	        // library consumable code movie tmdb api
-            implementation 'com.github.amirisback:consumable-code-movie-tmdb-api:1.2.0'
+            implementation 'com.github.amirisback:consumable-code-movie-tmdb-api:1.2.1'
 	}
 	
 <h3>Step 3. Declaration ConsumeMovieApi</h3>
